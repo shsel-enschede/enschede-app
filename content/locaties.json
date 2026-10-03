@@ -1,0 +1,81 @@
+{
+  "versie": 1,
+  "toelichting": "Inhoud van de Enschede app. Teksten per taal (nl, en, de). Per locatie een vraag met 'tekst', vier 'opties' (A t/m D) en een korte 'uitleg' die na het antwoord verschijnt. 'juist' is het nummer van het goede antwoord, tellend vanaf 0 (0 = A, 1 = B, 2 = C, 3 = D). 'bevestigd': false betekent dat SHSEL het antwoord of de coordinaat nog moet controleren.",
+  "routes": [
+    {
+      "id": "oude-markt",
+      "titel": {
+        "nl": "Rond de Oude Markt"
+      },
+      "intro": {
+        "nl": "Een korte voorbeeldroute rond de Grote Kerk, het oudste monument van Enschede."
+      },
+      "locaties": [
+        "grote-kerk",
+        "zonnewijzer"
+      ]
+    }
+  ],
+  "locaties": [
+    {
+      "id": "grote-kerk",
+      "nummer": 30,
+      "titel": {
+        "nl": "Grote Kerk"
+      },
+      "adres": "Oude Markt",
+      "positie": {
+        "lat": 52.22195,
+        "lng": 6.89395,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "De kerk is het oudste monument van Enschede. Rond het jaar 800 stond hier een houten kerkje. De fundamenten (= de basis waarop een gebouw wordt gebouwd) bestonden uit grote veldkeien. Rond het jaar 1000 wordt het kerkje in steen opgetrokken. In de loop van de verdere eeuwen wordt de kerk steeds verder uitgebouwd met zandsteen afkomstig uit eerst Baumberg (rond 1200) en later uit Bentheim (rond 1500). Deze stenen werden voornamelijk met paard en wagen hier naar toe vervoerd. Bij de grote stadsbrand van 1862 bleven alleen de muren overeind. Pas in 1865 was de kerk weer volledig gerestaureerd."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het verschil in Baumberger- en Bentheimerzandsteen kun je goed zien aan:",
+          "opties": [
+            "De vorm van de stenen",
+            "De reuk van de stenen",
+            "De kleur van de stenen",
+            "Dat is niet te zien"
+          ],
+          "uitleg": "De twee soorten zandsteen hebben elk een eigen kleur. Kijk maar eens goed naar de muren van de kerk."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
+    },
+    {
+      "id": "zonnewijzer",
+      "nummer": 33,
+      "titel": {
+        "nl": "Zonnewijzer aan de Grote Kerk"
+      },
+      "adres": "Oude Markt",
+      "positie": {
+        "lat": 52.2218,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "De zonnewijzer aan de zijkant van de kerk is een hele bijzondere wijzer. Een zonnewijzer geeft de tijd aan. Niet de echte tijd, maar de zonnetijd. De echte tijd is de tijd die we met elkaar hebben afgesproken. Anders zou bijv. Amsterdam en andere steden allemaal hun eigen tijd hebben. En dat is veel te lastig. Het bijzondere aan deze zonnewijzer is de lus met de namen van de maanden. Deze lus noemen we een vereffeningslus. Wanneer de zonnewijzer precies 12 uur zonnetijd aangeeft, kun je ook zien welke maand het is. Deze wijzer is gemaakt door Coenraad ter Kuile."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De wijzer hangt aan de zuidmuur van de kerk. Waarom hangt die juist op die plek?",
+          "opties": [
+            "Dat is toevallig zo gekomen",
+            "Dan kon je die goed zien",
+            "Dan kon je er met een ladder goed bij",
+            "Daar krijgt hij de meeste zon"
+          ],
+          "uitleg": "Een zonnewijzer werkt alleen als de zon erop schijnt. In Nederland staat de zon overdag in het zuiden, dus daar vangt de wijzer het meeste licht."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
+    }
+  ]
+}

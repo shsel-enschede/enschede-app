@@ -1,0 +1,142 @@
+/* Huisstijl Enschede app — kleuren uit het SHSEL-logo (zie CLAUDE.md) */
+:root {
+  --rood: #E00102;
+  --rood-donker: #B00001;
+  --creme: #F3EBDE;
+  --papier: #FBF7F0;
+  --taupe: #8D827A;
+  --bruinrood: #6C2F2B;
+  --goed: #1E6B3A;
+  --goed-licht: #E3F0E6;
+  --fout-licht: #FBE3E0;
+  --rand: #D9CFC2;
+  --ruimte: 16px;
+  --rond: 12px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--creme);
+  color: var(--bruinrood);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.55;
+}
+
+h1, h2, legend { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--bruinrood); color: #fff; padding: 8px 12px; z-index: 10;
+}
+.skip:focus { left: 8px; top: 8px; }
+
+:focus-visible { outline: 3px solid var(--bruinrood); outline-offset: 2px; }
+
+/* Kopbalk */
+.kop {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; gap: 8px;
+  min-height: 56px;
+  padding: env(safe-area-inset-top) var(--ruimte) 0;
+  background: var(--creme);
+  border-bottom: 1px solid var(--rand);
+}
+.kop__titel { margin: 0; font-size: 1.15rem; line-height: 1.2; }
+.kop__terug {
+  display: grid; place-items: center;
+  width: 44px; height: 44px; margin-left: -10px;
+  border: 0; background: none; color: var(--bruinrood); cursor: pointer; border-radius: 50%;
+}
+.kop__terug svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Inhoud */
+main { flex: 1; width: 100%; max-width: 640px; margin: 0 auto; padding: var(--ruimte); }
+main:focus { outline: none; }
+.scherm > :first-child { margin-top: 0; }
+.groot { font-size: 1.5rem; line-height: 1.25; color: var(--rood); margin: 0.5em 0; }
+.klein { font-size: 0.9375rem; color: #6E645D; }
+.logo { display: block; margin: 8px auto 16px; width: 160px; height: 160px; }
+#scherm-start { text-align: center; }
+
+/* Lijsten van routes en locaties */
+.lijst { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.kaart {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; min-height: 64px; padding: 12px 14px;
+  background: var(--papier); color: inherit; text-align: left;
+  border: 1px solid var(--rand); border-radius: var(--rond);
+  font: inherit; cursor: pointer;
+}
+.kaart:active { background: #F6EFE4; }
+.kaart__nr {
+  flex: none; display: grid; place-items: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 2px solid var(--taupe); color: #6E645D;
+  font: 600 0.95rem system-ui, sans-serif;
+}
+.kaart--bezocht .kaart__nr { background: var(--rood); border-color: var(--rood); color: #fff; }
+.kaart__tekst { flex: 1; }
+.kaart__titel { display: block; font-weight: 600; font-family: system-ui, sans-serif; }
+.kaart__sub { display: block; font-size: 0.9375rem; color: #6E645D; }
+
+/* Voortgang */
+.voortgang { height: 10px; background: var(--rand); border-radius: 5px; overflow: hidden; margin-top: 8px; }
+.voortgang__balk { height: 100%; width: 0; background: var(--rood); border-radius: 5px; transition: width 0.4s ease; }
+
+/* Vraag */
+.vraag fieldset { border: 0; margin: 24px 0 0; padding: 0; }
+.vraag legend { font-weight: 600; font-size: 1.1rem; margin-bottom: 12px; padding: 0; }
+.optie {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; min-height: 56px; margin-bottom: 10px; padding: 10px 14px;
+  background: var(--papier); color: inherit; text-align: left;
+  border: 2px solid var(--rand); border-radius: var(--rond);
+  font: inherit; cursor: pointer;
+}
+.optie__letter {
+  flex: none; display: grid; place-items: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--creme); font: 700 0.95rem system-ui, sans-serif;
+}
+.optie:disabled { cursor: default; opacity: 1; }
+.optie--goed { border-color: var(--goed); background: var(--goed-licht); }
+.optie--fout { border-color: var(--rood); background: var(--fout-licht); }
+.optie__icoon { margin-left: auto; font: 700 1.1rem system-ui, sans-serif; }
+
+.feedback { margin-top: 8px; padding: 14px; border-radius: var(--rond); background: var(--papier); border-left: 6px solid var(--taupe); }
+.feedback--goed { border-left-color: var(--goed); }
+.feedback--fout { border-left-color: var(--rood); }
+.feedback__kop { display: block; font: 700 1.05rem system-ui, sans-serif; margin-bottom: 4px; }
+
+.melding { padding: 12px 14px; background: var(--fout-licht); border-radius: var(--rond); }
+
+/* Voetbalk met hoofdknop binnen duimbereik */
+.voet {
+  position: sticky; bottom: 0;
+  padding: 12px var(--ruimte) calc(12px + env(safe-area-inset-bottom));
+  background: var(--creme); border-top: 1px solid var(--rand);
+  text-align: center;
+}
+.knop {
+  display: block; width: 100%; max-width: 608px; min-height: 52px; margin: 0 auto;
+  background: var(--rood); color: #fff; border: 0; border-radius: var(--rond);
+  font: 600 1.1rem system-ui, sans-serif; cursor: pointer;
+}
+.knop:active { background: var(--rood-donker); }
+.knop[hidden] { display: none; }
+.voet__info { margin: 6px 0 0; font-size: 0.8125rem; }
+
+[hidden] { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Veiligheid: alleen bestanden van dit eigen domein. Zie CLAUDE.md voordat je dit wijzigt. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Enschede app</title>
+  <meta name="description" content="Wandelquiz langs historische plekken in Enschede, van de Historische Sociëteit Enschede-Lonneker.">
+  <meta name="theme-color" content="#F3EBDE">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#hoofd">Naar de inhoud</a>
+
+  <header class="kop">
+    <button class="kop__terug" id="terug" type="button" hidden aria-label="Terug">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <h1 class="kop__titel" id="kop-titel">Enschede app</h1>
+  </header>
+
+  <main id="hoofd" tabindex="-1">
+    <!-- Startscherm -->
+    <section class="scherm" id="scherm-start">
+      <img class="logo" src="icons/shsel-logo.png" alt="Logo van de Historische Sociëteit Enschede-Lonneker" width="160" height="160">
+      <h2 class="groot">Ontdek de geschiedenis van Enschede</h2>
+      <p>Wandel langs historische plekken in de stad. Sta je ergens? Dan krijg je het verhaal en een vraag.</p>
+      <p class="klein">Een wandelquiz van de Historische Sociëteit Enschede-Lonneker.</p>
+    </section>
+
+    <!-- Routeoverzicht -->
+    <section class="scherm" id="scherm-routes" hidden>
+      <ul class="lijst" id="route-lijst"></ul>
+    </section>
+
+    <!-- Locaties van één route -->
+    <section class="scherm" id="scherm-route" hidden>
+      <p id="route-intro"></p>
+      <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0">
+        <div class="voortgang__balk" id="voortgang-balk"></div>
+      </div>
+      <p class="klein" id="voortgang-tekst"></p>
+      <ol class="lijst" id="locatie-lijst"></ol>
+    </section>
+
+    <!-- Eén locatie met vraag -->
+    <section class="scherm" id="scherm-locatie" hidden>
+      <p class="klein" id="locatie-adres"></p>
+      <p id="locatie-tekst"></p>
+      <form class="vraag" id="vraag">
+        <fieldset>
+          <legend id="vraag-tekst"></legend>
+          <div id="vraag-opties"></div>
+        </fieldset>
+      </form>
+      <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <p class="melding" id="melding" role="alert" hidden></p>
+  </main>
+
+  <footer class="voet">
+    <button class="knop" id="hoofdknop" type="button">Begin</button>
+    <p class="klein voet__info">Voorbeeldversie. Ontgrendelen via GPS volgt.</p>
+  </footer>
+</body>
+</html>

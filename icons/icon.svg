@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>Enschede app</title>
+  <rect width="512" height="512" fill="#F3EBDE"/>
+  <polygon points="256,92 412,205 352,388 160,388 100,205" fill="none" stroke="#8D827A" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M186 168 H326 V280 Q326 336 256 370 Q186 336 186 280 Z" fill="#E00102" stroke="#6C2F2B" stroke-width="6"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="butt">
+    <path d="M200 206 H312"/>
+    <path d="M200 300 H312"/>
+    <path d="M206 214 L306 292"/>
+    <path d="M306 214 L206 292"/>
+  </g>
+</svg>
