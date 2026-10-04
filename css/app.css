@@ -221,3 +221,16 @@ body:has(#scherm-start:not([hidden])) {
 .fotos--wazig { overflow: hidden; }
 .fotos--wazig img { filter: blur(14px) grayscale(0.4); transform: scale(1.1); }
 @media (min-width: 640px) { .fotos { margin-inline: 0; } .foto img { border-radius: var(--rond); } }
+
+/* Route opnieuw beginnen */
+.opnieuw { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--lijn); }
+.opnieuw__knop {
+  min-height: 44px; padding: 8px 0; background: none; border: 0;
+  color: var(--grijs); font: inherit; text-decoration: underline; cursor: pointer;
+}
+.opnieuw__vraag { margin-top: 8px; padding: 12px 14px; background: var(--fout-licht); border-radius: var(--rond); }
+.opnieuw__vraag p { margin: 0 0 10px; }
+.opnieuw__knoppen { display: flex; flex-wrap: wrap; gap: 8px; }
+.opnieuw__ja, .opnieuw__nee { min-height: 44px; padding: 8px 16px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer; }
+.opnieuw__ja { background: var(--rood); color: #fff; border: 0; }
+.opnieuw__nee { background: var(--wit); color: var(--tekst); border: 1px solid var(--grijs); }

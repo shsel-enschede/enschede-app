@@ -48,7 +48,7 @@
     <section class="scherm" id="scherm-route" hidden>
       <p id="route-intro"></p>
       <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
-      <p class="klein" id="voortgang-tekst"></p>
+      <p class="klein" id="voortgang-tekst" role="status"></p>
       <div class="gps" id="gps-route" hidden></div>
       <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet bezocht, groen met vinkje is bezocht"></div>
       <div class="gebouwkeuze" id="gebouwkeuze" hidden>
@@ -57,6 +57,16 @@
       </div>
       <h2 class="tussenkop">Alle plekken</h2>
       <ol class="lijst" id="locatie-lijst"></ol>
+      <div class="opnieuw" id="opnieuw">
+        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Route opnieuw beginnen</button>
+        <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
+          <p><strong>Weet je het zeker?</strong> Al je antwoorden van deze route worden gewist. Dit kun je niet ongedaan maken.</p>
+          <div class="opnieuw__knoppen">
+            <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
+            <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Eén locatie met vraag -->
