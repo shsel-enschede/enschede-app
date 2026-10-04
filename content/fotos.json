@@ -1,6 +1,6 @@
 {
   "versie": 1,
-  "toelichting": "Lijst van beschikbare foto's. Per foto: bij welke locaties (nummer) hij past, de bron en het documentnummer, het bestand in de map 'fotos/' (WebP, max 1200 px breed, max ca. 150 kB), een bijschrift, een beschrijving voor blinden en slechtzienden ('alt'), en de rechten. Een foto verschijnt pas in de app als 'bestand' is ingevuld en 'rechten_geregeld' op true staat. Welke foto's bij een locatie horen, kies je op de beheerpagina.",
+  "toelichting": "Lijst van beschikbare foto's. Per foto: bij welke locaties (nummer) hij past, de bron en het documentnummer, het bestand in de map 'fotos/' (WebP, max 1200 px breed, max ca. 150 kB), een bijschrift, een beschrijving voor blinden en slechtzienden ('alt'), en de rechten. Een foto verschijnt pas in de app als 'bestand' is ingevuld en 'rechten_geregeld' op true staat. Welke foto's bij een locatie horen, kies je op de beheerpagina. Foto's uit de eigen collectie van SHSEL hebben 'bron': 'SHSEL'; 'documentnummer' is de oorspronkelijke bestandsnaam (de letters JB, PS, FN zijn de bestuursleden die de foto aanleverden). 'bestand_klaar' is de naam van het WebP-bestand dat al klaarstaat; zet het in 'fotos/' en neem de naam over in 'bestand' zodra de rechten geregeld zijn.",
   "fotos": [
     {
       "id": "sa-003628",
@@ -1800,6 +1800,326 @@
         "nl": ""
       },
       "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-jacobuskerk-ca1920",
+      "locaties": [29],
+      "bron": "SHSEL",
+      "documentnummer": "Jacobuskerk ca.1920",
+      "bestand": null,
+      "bestand_klaar": "jacobuskerk-ca1920.webp",
+      "bijschrift": {
+        "nl": "De oude Jacobuskerk rond 1920. In 1932 werd hij afgebroken."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een hoge bakstenen kerk met twee spitse torens aan de voorkant."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-jacobuskerk-nu",
+      "locaties": [29],
+      "bron": "SHSEL",
+      "documentnummer": "29 St Jacobuskerk PS",
+      "bestand": null,
+      "bestand_klaar": "jacobuskerk-nu.webp",
+      "bijschrift": {
+        "nl": "De huidige Jacobuskerk uit 1933."
+      },
+      "alt": {
+        "nl": "Kleurenfoto van een gele bakstenen kerk met grote ronde ramen en een rij bogen bij de ingang."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-grote-kerk-markt-oud",
+      "locaties": [30],
+      "bron": "SHSEL",
+      "documentnummer": "30 Grote Kerk JB",
+      "bestand": null,
+      "bestand_klaar": "grote-kerk-markt-oud.webp",
+      "bijschrift": {
+        "nl": "De Grote Kerk aan de Markt, op een oude prentbriefkaart."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een kerktoren met een spitse torenspits achter bomen, met een man en een paard en wagen op de markt."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-oude-markt-1931",
+      "locaties": [30],
+      "bron": "SHSEL",
+      "documentnummer": "30 Oude Markt 1931 JB",
+      "bestand": null,
+      "bestand_klaar": "oude-markt-1931.webp",
+      "bijschrift": {
+        "nl": "De Oude Markt van bovenaf in 1931."
+      },
+      "alt": {
+        "nl": "Luchtfoto in zwart-wit over de daken van de binnenstad, met de toren van de Grote Kerk."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-oude-markt-2016",
+      "locaties": [30],
+      "bron": "SHSEL",
+      "documentnummer": "30 Oude Markt 2016 JB",
+      "bestand": null,
+      "bestand_klaar": "oude-markt-2016.webp",
+      "bijschrift": {
+        "nl": "Hetzelfde uitzicht in 2016."
+      },
+      "alt": {
+        "nl": "Kleurenfoto van bovenaf over de binnenstad met de toren van de Grote Kerk tussen nieuwe gebouwen."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-grote-kerk-ruine-1862",
+      "locaties": [31],
+      "bron": "SHSEL",
+      "documentnummer": "30 Oude markt 1862 JB",
+      "bestand": null,
+      "bestand_klaar": "grote-kerk-ruine-1862.webp",
+      "bijschrift": {
+        "nl": "De resten van de Grote Kerk na de stadsbrand van 1862."
+      },
+      "alt": {
+        "nl": "Oude foto van een kapotte kerktoren en puinhopen, met mannen die aan het opruimen zijn."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-grote-kerk-torenspitsen",
+      "locaties": [31],
+      "bron": "SHSEL",
+      "documentnummer": "31 Grote kerk torenspitsen JB",
+      "bestand": null,
+      "bestand_klaar": "grote-kerk-torenspitsen.webp",
+      "bijschrift": {
+        "nl": "De torenspitsen van de Grote Kerk door de eeuwen heen: 1190, 1480, 1708, 1862 en 1928."
+      },
+      "alt": {
+        "nl": "Tekening van vijf kerktorens naast elkaar, elk met een andere spits."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-brandmonument-oud",
+      "locaties": [32],
+      "bron": "SHSEL",
+      "documentnummer": "32a Brandmonument JB",
+      "bestand": null,
+      "bestand_klaar": "brandmonument-oud.webp",
+      "bijschrift": {
+        "nl": "Het brandmonument op de Markt, op een oude prentbriefkaart."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een stenen monument met een beeld erop, met mensen en een fietser ervoor."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-brandmonument-2016",
+      "locaties": [32],
+      "bron": "SHSEL",
+      "documentnummer": "30 Markt oude kerk 2016 JB",
+      "bestand": null,
+      "bestand_klaar": "brandmonument-2016.webp",
+      "bijschrift": {
+        "nl": "Het brandmonument voor de toren van de Grote Kerk, 2016."
+      },
+      "alt": {
+        "nl": "Kleurenfoto van onderaf: een monument met een zittend beeld voor een zandstenen kerktoren."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-zonnewijzer",
+      "locaties": [33],
+      "bron": "SHSEL",
+      "documentnummer": "33 Zonnewijzer FN",
+      "bestand": null,
+      "bestand_klaar": "zonnewijzer.webp",
+      "bijschrift": {
+        "nl": "De zonnewijzer aan de zuidmuur van de Grote Kerk, met de lus van de maanden."
+      },
+      "alt": {
+        "nl": "Witte zonnewijzer met cijfers en een driehoekige wijzer op een muur van grijze zandsteen."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-concordia-voor-1909",
+      "locaties": [34],
+      "bron": "SHSEL",
+      "documentnummer": "Marktplein Concordia vóór 1909",
+      "bestand": null,
+      "bestand_klaar": "concordia-voor-1909.webp",
+      "bijschrift": {
+        "nl": "Het Marktplein met het gebouw Concordia, vóór 1909."
+      },
+      "alt": {
+        "nl": "Ingekleurde prentbriefkaart van een plein met bomen en een rood bakstenen gebouw met een torentje."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-concordia-gevel",
+      "locaties": [34],
+      "bron": "SHSEL",
+      "documentnummer": "34a Concordia 3 PS",
+      "bestand": null,
+      "bestand_klaar": "concordia-gevel.webp",
+      "bijschrift": {
+        "nl": "De gevel van Concordia, met de naam boven de ingang."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een hoog bakstenen gebouw met grote ramen en het woord Concordia op de gevel."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-pakhuis-oud",
+      "locaties": [35],
+      "bron": "SHSEL",
+      "documentnummer": "35a Pakhuis",
+      "bestand": null,
+      "bestand_klaar": "pakhuis-oud.webp",
+      "bijschrift": {
+        "nl": "Het vroegere kantoor en pakhuis van Van Heek & Co."
+      },
+      "alt": {
+        "nl": "Ingekleurde foto van een wit gebouw van drie verdiepingen met veel ramen."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-pakhuis-nu",
+      "locaties": [35],
+      "bron": "SHSEL",
+      "documentnummer": "35 Pakhuis FN",
+      "bestand": null,
+      "bestand_klaar": "pakhuis-nu.webp",
+      "bijschrift": {
+        "nl": "Hetzelfde pand nu: De Beiaard en De Pakkerij."
+      },
+      "alt": {
+        "nl": "Kleurenfoto van een wit gebouw van drie verdiepingen met hoge ramen."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-villa-van-heek-nu",
+      "locaties": [36],
+      "bron": "SHSEL",
+      "documentnummer": "36 Villa Van Heek - De hooge stoep FN",
+      "bestand": null,
+      "bestand_klaar": "villa-van-heek-nu.webp",
+      "bijschrift": {
+        "nl": "Villa Van Heek, het huis met de hoge stoep."
+      },
+      "alt": {
+        "nl": "Wit herenhuis met een balkon boven de voordeur en een trap naar de ingang."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-villa-van-heek-oud",
+      "locaties": [36],
+      "bron": "SHSEL",
+      "documentnummer": "36a oude markt - de hoge stoep 3 PS",
+      "bestand": null,
+      "bestand_klaar": "villa-van-heek-oud.webp",
+      "bijschrift": {
+        "nl": "De villa vroeger, met de hoge stoep naar de voordeur."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een wit herenhuis met een brede trap naar de voordeur, een auto en een fietser op straat."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-sebastopol-1927",
+      "locaties": [37],
+      "bron": "SHSEL",
+      "documentnummer": "37 Sebastopol m. 't Achterom 1927 JB",
+      "bestand": null,
+      "bestand_klaar": "sebastopol-1927.webp",
+      "bijschrift": {
+        "nl": "Arbeiderswoningen in Sebastopol bij 't Achterom, 1927."
+      },
+      "alt": {
+        "nl": "Bruine oude foto van een smal steegje met lage huisjes en een hoge muur."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-mauritsstraat",
+      "locaties": [37],
+      "bron": "SHSEL",
+      "documentnummer": "37a Mauritsstraat JB",
+      "bestand": null,
+      "bestand_klaar": "mauritsstraat.webp",
+      "bijschrift": {
+        "nl": "Arbeiderswoningen in de Mauritsstraat, op een oude prentbriefkaart."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een straat met twee rijen lage huisjes en een groep mensen."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-overschot",
+      "locaties": [37],
+      "bron": "SHSEL",
+      "documentnummer": "37 Overschot 4 PS",
+      "bestand": null,
+      "bestand_klaar": "overschot.webp",
+      "bijschrift": {
+        "nl": "Bewoners voor hun huisjes in het Overschot."
+      },
+      "alt": {
+        "nl": "Oude foto van een rij lage huisjes met mannen, vrouwen en kinderen ervoor en een paard en wagen."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-pakhuis-haverstraat",
+      "locaties": [35],
+      "bron": "SHSEL",
+      "documentnummer": "35a Pakhuis PS",
+      "bestand": null,
+      "bestand_klaar": "pakhuis-haverstraat.webp",
+      "bijschrift": {
+        "nl": "Het pakhuis op de hoek van de Oude Markt en de Haverstraat, op een oude prentbriefkaart."
+      },
+      "alt": {
+        "nl": "Zwart-witfoto van een straathoek met een wit hoekpand, bomen en mensen op straat."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
       "rechten_geregeld": false
     }
   ]
