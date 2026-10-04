@@ -1,6 +1,6 @@
 {
   "versie": 1,
-  "toelichting": "Inhoud van de Enschede app. Teksten per taal (nl, en, de). Per locatie een vraag met 'tekst', vier 'opties' (A t/m D) en een korte 'uitleg' die na het antwoord verschijnt. 'juist' is het nummer van het goede antwoord, tellend vanaf 0 (0 = A, 1 = B, 2 = C, 3 = D). 'bevestigd': false betekent dat SHSEL het antwoord of de coordinaat nog moet controleren.",
+  "toelichting": "Inhoud van de Enschede app. Teksten per taal (nl, en, de). Per locatie een vraag met 'tekst', vier 'opties' (A t/m D) en een korte 'uitleg' die na het antwoord verschijnt. 'juist' is het nummer van het goede antwoord, tellend vanaf 0 (0 = A, 1 = B, 2 = C, 3 = D). 'bevestigd': false betekent dat SHSEL het antwoord of de coordinaat nog moet controleren. 'gebouw' verwijst naar een gebouw in de lijst 'gebouwen'; dat gebouw wordt op de kaart ingekleurd. Meerdere locaties kunnen bij hetzelfde gebouw horen. Bij een gebouw is 'adres' een echt adres met huisnummer: daarmee zoekt de app de omtrek op in het Kadaster (BAG). Optioneel 'vorm': een eigen omtrek als lijst van [lat, lng], bijvoorbeeld voor een verdwenen gebouw.",
   "routes": [
     {
       "id": "oude-markt",
@@ -8,22 +8,87 @@
         "nl": "Rond de Oude Markt"
       },
       "intro": {
-        "nl": "Een korte voorbeeldroute rond de Grote Kerk, het oudste monument van Enschede."
+        "nl": "Negen verhalen rond de Oude Markt, het hart van de oude stad. Op de kaart zie je welke gebouwen je al hebt bezocht."
       },
       "locaties": [
+        "jacobuskerk",
         "grote-kerk",
-        "zonnewijzer"
+        "stadsbrand-1862",
+        "brandmonument",
+        "zonnewijzer",
+        "concordia",
+        "pakhuis-van-heek",
+        "villa-van-heek",
+        "arbeiders"
       ]
     }
   ],
+  "gebouwen": [
+    {
+      "id": "jacobuskerk",
+      "naam": "Jacobuskerk",
+      "adres": "Oude Markt 1"
+    },
+    {
+      "id": "grote-kerk",
+      "naam": "Grote Kerk",
+      "adres": "Oude Markt 32"
+    },
+    {
+      "id": "concordia",
+      "naam": "Concordia",
+      "adres": "Oude Markt 15"
+    },
+    {
+      "id": "pakhuis",
+      "naam": "Pakhuis Van Heek",
+      "adres": "Oude Markt 24"
+    },
+    {
+      "id": "villa-van-heek",
+      "naam": "Villa Van Heek",
+      "adres": "Oude Markt 26"
+    }
+  ],
   "locaties": [
+    {
+      "id": "jacobuskerk",
+      "nummer": 29,
+      "titel": {
+        "nl": "Jacobuskerk"
+      },
+      "adres": "Oude Markt 1",
+      "gebouw": "jacobuskerk",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "De eerste katholieke kerk in Enschede na de Beeldenstorm van 1566, werd in 1894 gebouwd. Dit gebouw werd tijdens de stadsbrand in 1862 verwoest en in 1863 vervangen door een kerk in neogotische stijl. Deze kerk werd in 1932 wegens bouwvalligheid afgebroken. De huidige kerk werd in 1933 ingewijd (= in gebruik genomen). Hij is vernoemd naar Jacobus de Meerdere. Dat was een belangrijke apostel van Jezus. De architecten hebben bij de bouw vooral gekeken naar de Aya Sophia in Istanbul als voorbeeld. Daarom heeft de kerk 2 grote koepels van meer dan 20m hoog."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat is een apostel?",
+          "opties": [
+            "Iemand die groenten verbouwt",
+            "Een van de 12 leerlingen van Jezus",
+            "Zo werd vroeger een voetballer genoemd",
+            "Een boer met een stropdas"
+          ],
+          "uitleg": "Jezus had twaalf vaste leerlingen: de apostelen. Jacobus de Meerdere was er één van."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
+    },
     {
       "id": "grote-kerk",
       "nummer": 30,
       "titel": {
         "nl": "Grote Kerk"
       },
-      "adres": "Oude Markt",
+      "adres": "Oude Markt 32",
       "positie": {
         "lat": 52.22195,
         "lng": 6.89395,
@@ -45,6 +110,69 @@
         }
       },
       "juist": 2,
+      "bevestigd": false,
+      "gebouw": "grote-kerk"
+    },
+    {
+      "id": "stadsbrand-1862",
+      "nummer": 31,
+      "titel": {
+        "nl": "De grote stadsbrand van 1862"
+      },
+      "adres": "Oude Markt 32",
+      "gebouw": "grote-kerk",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "Enschede is in de loop van de eeuwen 4 keer afgebrand. De laatste keer was dat op 7 mei 1862. Vrijwel de hele stad ging toen in vlammen op. Ook de grote kerk brandde af en de toren stortte helemaal in. Alleen de gebouwen buiten de stadspoorten en grachten bleven over. De Grote Kerk werd in 1864 weer herbouwd en kreeg een nieuwe torenspits. In 1927 werd er voor de 5e keer een nieuwe torenspits op de kerk geplaatst. Deze staat nu nog op de toren."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom is in 1927 de torenspits weer vervangen?",
+          "opties": [
+            "De spits van 1864 was uit de mode",
+            "De spits was in slechte staat",
+            "Men vond de spits niet hoog genoeg",
+            "Om deze geschikt te maken als zendmast"
+          ],
+          "uitleg": "De spits van 1864 was na ruim zestig jaar wind en weer aan vervanging toe."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
+    },
+    {
+      "id": "brandmonument",
+      "nummer": 32,
+      "titel": {
+        "nl": "Het brandmonument"
+      },
+      "adres": "Oude Markt 32",
+      "gebouw": "grote-kerk",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "Voor de kerkingang staat het brandmonument. Het beeld van roze zandsteen werd in 1912 door de Enschedese bevolking aan de gemeente geschonken. Dit omdat het precies 50 jaar geleden was dat de hele stad afbrandde. Op het monument staat een man met een staf afgebeeld. Dat is Jacobus de Meerdere. Dat was een katholieke bisschop."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom zou Jacobus de Meerdere afgebeeld zijn?",
+          "opties": [
+            "Hij was de eerste priester van de kerk",
+            "Jacobus was de beschermheilige van Enschede",
+            "Als een soort versiering",
+            "De kerk moest een naam hebben"
+          ],
+          "uitleg": "Jacobus is de beschermheilige van Enschede. Daarom staat hij op het monument voor de stad."
+        }
+      },
+      "juist": 1,
       "bevestigd": false
     },
     {
@@ -53,7 +181,7 @@
       "titel": {
         "nl": "Zonnewijzer aan de Grote Kerk"
       },
-      "adres": "Oude Markt",
+      "adres": "Oude Markt 32",
       "positie": {
         "lat": 52.2218,
         "lng": 6.894,
@@ -75,6 +203,131 @@
         }
       },
       "juist": 3,
+      "bevestigd": false,
+      "gebouw": "grote-kerk"
+    },
+    {
+      "id": "concordia",
+      "nummer": 34,
+      "titel": {
+        "nl": "Concordia kunst en cultuur"
+      },
+      "adres": "Oude Markt 15",
+      "gebouw": "concordia",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "Dit gebouw werd nog voor de stadsbrand gesticht door kapelaan Alphons Ariëns. Het gebouw was bestemd voor de katholieke textielarbeiders. Ze konden hier bijeenkomen om te vergaderen, maar ook om zich te ontspannen in het theater in het gebouw. Het kleine theater is nog steeds in gebruik en veel artiesten vinden dit het mooiste kleine theater van Nederland!"
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Tegenwoordig heet het gebouw Concordia Kunst en Cultuur omdat:",
+          "opties": [
+            "Dat een mooie naam is",
+            "Er toneel en films worden vertoond",
+            "Concordia betekent kunst en cultuur",
+            "Enschede de grootste kunststad van Nederland is"
+          ],
+          "uitleg": "De naam vertelt wat er gebeurt: kunst en cultuur. 'Concordia' is Latijn voor 'eendracht'."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
+    },
+    {
+      "id": "pakhuis-van-heek",
+      "nummer": 35,
+      "titel": {
+        "nl": "Pakhuis"
+      },
+      "adres": "Oude Markt 24",
+      "gebouw": "pakhuis",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "Naast het Van Heekshuis, 'Het huis met de hooge stoep', staat het voormalige hoofdkantoor van Van Heek & Co. (nu 'De Beiaard' en 'De Pakkerij'). Het had eerst maar één etage en een mooie dakkapel. Toen het pand verbouwd werd met een tweede etage werd deze dakkapel gesloopt. Tot 1940 vertrok elke zaterdag vanuit dit kantoor een bode met een tweewielig karretje met de loonzakjes voor het personeel. Het karretje staat nu in de Museumfabriek. Behalve kantoor was het ook een pakhuis voor de firma Van Heek. Met de laatste grondige restauratie is de villa weer teruggebracht zoals die vroeger was. In het pand bevinden zich nog de originele marmeren vloeren, parketvloeren, houten bordestrap en stucplafonds."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat werd er elke zaterdag in het loonzakje voor het personeel gedaan?",
+          "opties": [
+            "Bankrekeningnummer waarop het loon is gestort",
+            "Een zakje met een gedicht van de dichter Herman van Loon",
+            "Een van de katoenen zakken die ze de afgelopen week gemaakt hadden",
+            "Echt geld (loon) dat de werknemer de afgelopen week heeft verdiend"
+          ],
+          "uitleg": "Lonen werden toen contant uitbetaald, in een zakje met munten en briefjes."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
+    },
+    {
+      "id": "villa-van-heek",
+      "nummer": 36,
+      "titel": {
+        "nl": "Villa Van Heek, 'Het huis met de hooge stoep'"
+      },
+      "adres": "Oude Markt 26",
+      "gebouw": "villa-van-heek",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "In deze stadsvilla woonde de familie Van Heek. Ze waren de eigenaren van de grootste textielfabriek in Enschede. De familie Van Heek was destijds een van de rijkste mensen van Nederland. Ze woonden echter alleen in de wintermaanden in deze villa. In de zomermaanden woonden ze buiten de stad in een prachtig landhuis. Vanaf 1947 heeft hier 30 jaar lang de bibliotheek gezeten. In 1947 kon je als lid voor 2 gulden (€ 0,90) per jaar 50 boeken lenen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom woonde de familie zomers buiten de stad?",
+          "opties": [
+            "Enschede was destijds een vieze stad door de vele rokende fabriekspijpen",
+            "De familie hield erg veel van verhuizen",
+            "Dan konden ze lekker jagen",
+            "Zomers was er in de stad niet veel te doen"
+          ],
+          "uitleg": "De vele fabrieksschoorstenen maakten de lucht in de stad vies. Wie het kon betalen, ging 's zomers naar buiten."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
+    },
+    {
+      "id": "arbeiders",
+      "nummer": 37,
+      "titel": {
+        "nl": "Woon- en werkomstandigheden van de fabrieksarbeiders"
+      },
+      "adres": "Oude Markt 26",
+      "gebouw": "villa-van-heek",
+      "positie": {
+        "lat": 52.2219,
+        "lng": 6.894,
+        "bevestigd": false
+      },
+      "tekst": {
+        "nl": "Zo mooi als de fam. Van Heek woonde, woonden de arbeiders niet. Hun huisjes waren klein en vochtig. De gezinnen waren groot en daarom sliepen de kinderen vaak bij elkaar in bed. De arbeiders hadden lange werkdagen van 's morgens 07.00u tot 's avonds 19.00u. In de fabrieken was er zoveel lawaai dat men elkaar niet kon verstaan. Bijna allemaal werden ze op latere leeftijd slechthorend of doof. Ook de vrouwen en kinderen vanaf een jaar of 10 moesten werken in de fabriek en als er jongere kinderen waren, gingen die ook mee. Ze sliepen vaak onder de machines. Dat was erg gevaarlijk! De lonen waren laag en werden ook nog wel eens verlaagd. En dan werd er gestaakt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom werkten de moeders en hun kinderen ook in de fabriek?",
+          "opties": [
+            "Omdat ze dat fijn vonden",
+            "Om genoeg geld te verdienen",
+            "Dat was in die tijd verplicht",
+            "Om hun vakantie te betalen"
+          ],
+          "uitleg": "De lonen waren zo laag dat één loon niet genoeg was om een groot gezin te onderhouden."
+        }
+      },
+      "juist": 1,
       "bevestigd": false
     }
   ]

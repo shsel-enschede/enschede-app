@@ -18,6 +18,7 @@ De Enschede app van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL
 
 - **Statisch:** alleen HTML, CSS en JavaScript, gehost op GitHub Pages. Geen server, geen database, geen login, geen build-stap.
 - **Geen frameworks of npm-afhankelijkheden in de app.** Gewone JavaScript (ES-modules). Reden: vrijwilligers moeten het over tien jaar nog kunnen onderhouden.
+  - Enige uitzondering: **Leaflet 1.9.4** voor de kaart, als vast bestand in `vendor/leaflet/` (BSD-licentie). Wordt pas geladen als de kaart nodig is. Niet bijwerken zonder overleg.
 - **Inhoud gescheiden van code:** alle teksten, vragen, antwoorden en coördinaten staan in `content/`. Een vrijwilliger moet inhoud kunnen aanpassen zonder JavaScript te lezen.
 - **Offline eerst:** de service worker (`sw.js`) slaat de app-schil en de inhoud op. Na het eerste bezoek moet een route zonder bereik te lopen zijn.
 - **Voortgang alleen op het toestel** (`localStorage`). Er verlaat geen gebruikersgegeven het toestel.
@@ -25,6 +26,7 @@ De Enschede app van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL
 ## Veiligheid (verplicht bij elke wijziging)
 
 - **Geen externe bronnen**: geen CDN's, webfonts, analytics, advertenties of tracking. Alles wordt vanaf het eigen domein geladen. Uitzondering alleen na expliciete toestemming (bijv. kaarttegels), en dan vastgelegd in de Content-Security-Policy.
+  - Goedgekeurd (René, okt 2026): **PDOK**, de geodienst van de overheid. Kaarttegels van `service.pdok.nl` (BRT-Achtergrondkaart, grijs) en adres- en gebouwgegevens van `api.pdok.nl` (Locatieserver en BAG). Geen sleutel, geen tracking. **Geen Google Maps** (sleutel met betaalrekening, en IP-adressen naar Google).
 - **Content-Security-Policy** staat als `<meta>` in `index.html`. Niet versoepelen zonder reden in de pull request.
 - **Geen inline scripts of `onclick`-attributen**, zodat de CSP streng kan blijven.
 - **Nooit `innerHTML` met inhoud uit `content/`**. Gebruik `textContent` en `createElement`. Inhoud wordt behandeld als onbetrouwbare data, ook al schrijven we hem zelf.
@@ -60,6 +62,8 @@ Gebaseerd op het SHSEL-logo. Kleuren:
 
 ## Inhoud en didactiek
 
+- **Juiste antwoorden en uitleg** staan in `content/locaties.json`: `juist` (0 = A … 3 = D), `vraag.<taal>.uitleg` (één zin na het antwoord) en `bevestigd`. De brondocumenten bevatten geen antwoorden; een overzicht voor SHSEL staat in het claude.ai-project (`claude/antwoorden-en-uitleg.md`).
+- **Kaart:** elke locatie verwijst met `gebouw` naar een gebouw in `gebouwen`. Meerdere verhalen kunnen bij één gebouw horen. Het gebouw heeft een echt `adres` met huisnummer (voor de BAG-omtrek) of een eigen `vorm` (lijst van [lat, lng]) voor verdwenen gebouwen. Op de kaart: rood met stippelrand = nog niet bezocht, groen met ✓ = alle verhalen bij dat gebouw beantwoord.
 - Doelgroep: jeugd en gezinnen, ook volwassenen. Moeilijke woorden uitleggen, zoals in de bronteksten.
 - Meerkeuzevragen (Haladyna-richtlijnen): vier opties, plausibele afleiders, hooguit één grappige optie, geen "dat is niet te zien", geen ontkennende vraag. Kijkvragen ter plekke hebben de voorkeur.
 - Direct feedback na het antwoord, met één zin uitleg (testing effect).

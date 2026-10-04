@@ -29,6 +29,29 @@ function controleerLocatie(loc, taal) {
   return fouten;
 }
 
+// Gebouwen worden op de kaart ingekleurd. 'adres' moet een huisnummer hebben (voor het Kadaster);
+// 'vorm' is optioneel: een eigen omtrek als lijst van [lat, lng].
+function leesVorm(vorm) {
+  if (!Array.isArray(vorm) || vorm.length < 3 || vorm.length > 500) return null;
+  const ok = vorm.every((p) => Array.isArray(p) && p.length === 2 && isGetal(p[0], 52.1, 52.35) && isGetal(p[1], 6.7, 7.05));
+  return ok ? vorm.map(([lat, lng]) => [lat, lng]) : null;
+}
+
+function leesGebouwen(lijst) {
+  const gebouwen = new Map();
+  for (const g of Array.isArray(lijst) ? lijst : []) {
+    if (!ID_PATROON.test(g?.id ?? '') || !isTekst(g?.naam, 80)) {
+      console.warn(`Gebouw "${g?.id}" overgeslagen: id of naam ongeldig`);
+      continue;
+    }
+    const adres = isTekst(g.adres, 120) && /\d/.test(g.adres) ? g.adres : null;
+    const vorm = leesVorm(g.vorm);
+    if (g.vorm !== undefined && !vorm) console.warn(`Gebouw "${g.id}": vorm ongeldig, wordt genegeerd`);
+    gebouwen.set(g.id, { id: g.id, naam: g.naam, adres, vorm });
+  }
+  return gebouwen;
+}
+
 export async function laadInhoud(taal = 'nl') {
   const antwoord = await fetch('content/locaties.json', { cache: 'no-cache' });
   if (!antwoord.ok) throw new Error(`Inhoud niet gevonden (${antwoord.status})`);
@@ -52,6 +75,7 @@ export async function laadInhoud(taal = 'nl') {
       opties: loc.vraag[taal].opties.slice(),
       uitleg: isTekst(loc.vraag[taal].uitleg, 500) ? loc.vraag[taal].uitleg : '',
       juist: loc.juist,
+      gebouw: typeof loc.gebouw === 'string' && ID_PATROON.test(loc.gebouw) ? loc.gebouw : null,
     });
   }
 
@@ -71,5 +95,5 @@ export async function laadInhoud(taal = 'nl') {
     });
   }
 
-  return { routes, locaties };
+  return { routes, locaties, gebouwen: leesGebouwen(data.gebouwen) };
 }

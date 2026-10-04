@@ -26,11 +26,26 @@ De app is een statische website: er is geen server, database of login. Voortgang
 4. Laat iemand meekijken en voeg de wijziging samen (*Merge*).
 
 `juist` is het nummer van het goede antwoord, tellend vanaf 0: 0 = A, 1 = B, 2 = C, 3 = D.
+`uitleg` is de korte zin die na het antwoord verschijnt. Zet `bevestigd` op `true` als de SHSEL het antwoord heeft gecontroleerd.
+
+## Een gebouw op de kaart
+
+Bovenaan `content/locaties.json` staat de lijst `gebouwen`. Voorbeeld:
+
+```json
+{ "id": "grote-kerk", "naam": "Grote Kerk", "adres": "Oude Markt 32" }
+```
+
+- Een locatie hoort bij een gebouw via `"gebouw": "grote-kerk"`. Meerdere verhalen mogen bij hetzelfde gebouw horen.
+- Het `adres` moet een huisnummer hebben. De app zoekt daarmee zelf de omtrek van het gebouw op in het Kadaster.
+- Bestaat het gebouw niet meer? Geef dan een eigen omtrek op met `"vorm": [[52.2219, 6.8935], [52.2220, 6.8940], ...]` (minimaal drie punten, breedte- en lengtegraad).
 
 ## Als het fout gaat
 
 - **De app laadt niet of toont een melding:** waarschijnlijk is `content/locaties.json` beschadigd (bijvoorbeeld een vergeten komma). Ga naar *Commits*, open de laatste wijziging en kies *Revert*. Daarmee zet je de vorige werkende versie terug.
 - **Een locatie ontbreekt:** de locatie is overgeslagen omdat er iets ontbreekt (titel, tekst, vraag, vier opties of een geldige positie).
+- **Een gebouw staat als stip in plaats van ingekleurd:** het adres is niet gevonden in het Kadaster. Controleer straat en huisnummer, of geef een eigen `vorm` op.
+- **De kaart blijft grijs:** de kaartdienst PDOK is niet bereikbaar of er is geen internet. De lijst met plekken werkt gewoon.
 - **Gebruikers zien een wijziging niet:** de app ververst de inhoud vanzelf; soms pas bij de tweede keer openen.
 
 ## Licentie en rechten
