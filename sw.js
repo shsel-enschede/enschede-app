@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v1';
+const VERSIE = 'v2';
 const CACHE = `enschede-app-${VERSIE}`;
 
 const APP_SCHIL = [
@@ -12,6 +12,9 @@ const APP_SCHIL = [
   'js/app.js',
   'js/inhoud.js',
   'js/voortgang.js',
+  'js/kaart.js',
+  'vendor/leaflet/leaflet.js',
+  'vendor/leaflet/leaflet.css',
   'content/locaties.json',
   'manifest.webmanifest',
   'icons/icon.svg',

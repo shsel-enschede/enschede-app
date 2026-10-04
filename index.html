@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <!-- Veiligheid: alleen bestanden van dit eigen domein. Zie CLAUDE.md voordat je dit wijzigt. -->
+  <!-- Veiligheid: alleen bestanden van dit eigen domein. Zie CLAUDE.md voordat je dit wijzigt.
+       Uitzondering (goedgekeurd door René, okt 2026): kaarttegels van service.pdok.nl en
+       adres/gebouwgegevens van api.pdok.nl, de geodienst van de overheid. -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://service.pdok.nl; connect-src 'self' https://api.pdok.nl; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <title>Enschede app</title>
   <meta name="description" content="Wandelquiz langs historische plekken in Enschede, van de Historische Sociëteit Enschede-Lonneker.">
@@ -47,6 +49,12 @@
         <div class="voortgang__balk" id="voortgang-balk"></div>
       </div>
       <p class="klein" id="voortgang-tekst"></p>
+      <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet bezocht, groen met vinkje is bezocht"></div>
+      <div class="gebouwkeuze" id="gebouwkeuze" hidden>
+        <p class="gebouwkeuze__titel" id="gebouwkeuze-titel"></p>
+        <ul class="lijst" id="gebouwkeuze-lijst"></ul>
+      </div>
+      <h2 class="tussenkop">Alle plekken</h2>
       <ol class="lijst" id="locatie-lijst"></ol>
     </section>
 

@@ -4,6 +4,7 @@
 
 import { laadInhoud } from './inhoud.js';
 import { antwoordVan, bewaarAntwoord } from './voortgang.js';
+import { toonKaart } from './kaart.js';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const $ = (id) => document.getElementById(id);
@@ -114,6 +115,41 @@ function routeScherm(route) {
 
   const volgende = route.locaties.find((id) => antwoordVan(id) === null);
   zetHoofdknop(volgende ? 'Naar de volgende plek' : null, () => ga(`#/route/${route.id}/${volgende}`));
+
+  $('gebouwkeuze').hidden = true;
+  toonKaart($('wijkkaart'), route, inhoud, {
+    antwoordVan,
+    kiesGroep: (groep) => kiesGebouw(route, groep),
+    meld: toonFout,
+  }).catch((fout) => {
+    console.warn(fout);
+    $('wijkkaart').hidden = true; // zonder kaart blijft de lijst gewoon werken
+  });
+}
+
+// Tik op een gebouw: één verhaal -> direct openen; meer verhalen -> kiezen.
+function kiesGebouw(route, groep) {
+  if (groep.locaties.length === 1) return ga(`#/route/${route.id}/${groep.locaties[0].id}`);
+  $('gebouwkeuze-titel').textContent = `${groep.gebouw.naam}: ${groep.locaties.length} verhalen`;
+  const lijst = $('gebouwkeuze-lijst');
+  lijst.replaceChildren();
+  for (const loc of groep.locaties) {
+    const bezocht = antwoordVan(loc.id) !== null;
+    const knop = maak('button', bezocht ? 'kaart kaart--bezocht' : 'kaart');
+    knop.type = 'button';
+    knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : String(route.locaties.indexOf(loc.id) + 1)));
+    const tekst = maak('span', 'kaart__tekst');
+    tekst.append(maak('span', 'kaart__titel', loc.titel));
+    tekst.append(maak('span', 'kaart__sub', bezocht ? 'Bezocht' : 'Nog niet bezocht'));
+    knop.append(tekst);
+    knop.addEventListener('click', () => ga(`#/route/${route.id}/${loc.id}`));
+    const li = maak('li');
+    li.append(knop);
+    lijst.append(li);
+  }
+  const keuze = $('gebouwkeuze');
+  keuze.hidden = false;
+  keuze.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
 }
 
 function locatieScherm(route, loc) {
