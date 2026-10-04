@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Beheerpagina voor vrijwilligers van de SHSEL. Deze pagina wijzigt niets op de website:
+       hij maakt een nieuw bestand content/locaties.json dat je zelf op GitHub plaatst.
+       Zelfde veiligheidsregels als de app (zie CLAUDE.md); PDOK-luchtfoto is extra toegestaan. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://service.pdok.nl; connect-src 'self' https://api.pdok.nl; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Beheer · Enschede app</title>
+  <link rel="icon" href="icons/favicon.ico" sizes="any">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/beheer.css">
+  <script src="vendor/leaflet/leaflet.js" defer></script>
+  <script type="module" src="js/beheer.js"></script>
+</head>
+<body class="beheer">
+  <header class="kop">
+    <h1 class="kop__titel">Beheer · Enschede app</h1>
+  </header>
+
+  <main class="beheer__vlak">
+    <p class="beheer__uitleg">
+      Kies een plek, controleer de positie en het gebouw op de kaart en kies de foto's.
+      <strong>Deze pagina verandert niets aan de app.</strong> Je krijgt onderaan een nieuw bestand
+      <code>locaties.json</code> dat je op GitHub plaatst. Je werk wordt tussentijds bewaard in deze browser.
+    </p>
+    <p class="melding" id="melding" role="alert" hidden></p>
+
+    <section class="blok" aria-labelledby="kop-plek">
+      <h2 id="kop-plek">1. Plek</h2>
+      <label class="veld">
+        <span>Plek</span>
+        <select id="plek"></select>
+      </label>
+      <p class="status" id="plek-status"></p>
+    </section>
+
+    <section class="blok blok--kaart" aria-labelledby="kop-kaart">
+      <h2 id="kop-kaart">2. Positie en gebouw op de kaart</h2>
+      <div class="knoppenrij" role="group" aria-label="Kaartlaag">
+        <button type="button" class="schakel" id="laag-kaart" aria-pressed="true">Kaart</button>
+        <button type="button" class="schakel" id="laag-luchtfoto" aria-pressed="false">Luchtfoto</button>
+      </div>
+      <div class="beheerkaart" id="kaart" aria-label="Kaart: tik om de positie te kiezen"></div>
+      <p class="hint" id="modus-hint">Tik op de kaart of versleep de rode speld om de positie te kiezen.</p>
+
+      <h3>Positie van de plek</h3>
+      <p>Breedte <output id="lat">–</output> · Lengte <output id="lng">–</output></p>
+      <label class="vink"><input type="checkbox" id="positie-ok"> Positie gecontroleerd (ter plekke of op de luchtfoto)</label>
+
+      <h3>Gebouw</h3>
+      <label class="veld">
+        <span>Hoort bij gebouw</span>
+        <select id="gebouw"></select>
+      </label>
+      <div id="gebouw-velden">
+        <label class="veld"><span>Naam op de kaart</span><input id="gebouw-naam" maxlength="80"></label>
+        <label class="veld"><span>Adres met huisnummer</span><input id="gebouw-adres" maxlength="120" placeholder="bijv. Oude Markt 32"></label>
+        <div class="knoppenrij">
+          <button type="button" class="knop-klein" id="zoek-adres">Zoek op in het Kadaster</button>
+          <button type="button" class="knop-klein" id="adres-naar-positie" disabled>Gebruik adres als positie</button>
+        </div>
+        <p class="status" id="kadaster-status" aria-live="polite"></p>
+        <h4>Eigen omtrek (alleen voor verdwenen gebouwen)</h4>
+        <p class="hint">Bestaat het gebouw niet meer? Teken dan de omtrek, bijvoorbeeld met een oude kaart ernaast (topotijdreis.nl).</p>
+        <div class="knoppenrij">
+          <button type="button" class="knop-klein" id="teken" aria-pressed="false">Omtrek tekenen</button>
+          <button type="button" class="knop-klein" id="teken-terug" disabled>Laatste punt weg</button>
+          <button type="button" class="knop-klein" id="teken-wis">Eigen omtrek wissen</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blok" aria-labelledby="kop-fotos">
+      <h2 id="kop-fotos">3. Foto's</h2>
+      <p class="hint">Vink aan welke foto's bij deze plek horen. De bovenste is de hoofdfoto. Een foto verschijnt pas in de app als het bestand er is en de rechten geregeld zijn.</p>
+      <ul class="fotolijst" id="fotolijst"></ul>
+      <label class="vink"><input type="checkbox" id="alle-fotos"> Toon ook foto's van andere plekken</label>
+    </section>
+
+    <section class="blok" aria-labelledby="kop-opslaan">
+      <h2 id="kop-opslaan">4. Opslaan op GitHub</h2>
+      <ul class="controle" id="controle"></ul>
+      <div class="knoppenrij">
+        <button type="button" class="knop" id="kopieer">Kopieer locaties.json</button>
+        <button type="button" class="knop-klein" id="download">Download locaties.json</button>
+        <button type="button" class="knop-klein" id="herstel">Wijzigingen weggooien</button>
+      </div>
+      <p class="status" id="opslaan-status" role="status"></p>
+      <ol class="stappen">
+        <li>Open op GitHub het bestand <code>content/locaties.json</code> en klik op het potloodje (<em>Edit</em>).</li>
+        <li>Selecteer alles (Ctrl+A, op de Mac Cmd+A) en plak (Ctrl+V of Cmd+V).</li>
+        <li>Klik op <em>Commit changes…</em>, kies <strong>Create a new branch</strong> en daarna <em>Propose changes</em>.</li>
+        <li>Laat iemand meekijken en voeg de wijziging samen (<em>Merge</em>).</li>
+      </ol>
+      <textarea id="uitvoer" class="uitvoer" rows="8" readonly aria-label="Nieuwe inhoud van locaties.json"></textarea>
+    </section>
+  </main>
+</body>
+</html>

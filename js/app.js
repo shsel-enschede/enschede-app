@@ -267,6 +267,7 @@ function locatieScherm(route, loc, { netOpen = false } = {}) {
   toonScherm('locatie', loc.titel);
   huidig = { scherm: 'locatie', route, loc };
   $('locatie-adres').textContent = loc.adres;
+  toonFotos(loc, isOpen(loc));
 
   // Nog niet ter plekke: alleen een voorproefje en de afstand (nieuwsgierigheid houdt de wandelaar in beweging).
   const open = isOpen(loc);
@@ -303,6 +304,30 @@ function locatieScherm(route, loc, { netOpen = false } = {}) {
     toonUitslag(route, loc, eerder, knoppen, false);
   } else {
     zetHoofdknop(null);
+  }
+}
+
+// Foto's bij een plek. Nog niet ter plekke: alleen de eerste, wazig (zoals in de oude app).
+function toonFotos(loc, open) {
+  const houder = $('locatie-fotos');
+  houder.replaceChildren();
+  const fotos = open ? loc.fotos : loc.fotos.slice(0, 1);
+  houder.hidden = !fotos.length;
+  houder.classList.toggle('fotos--wazig', !open);
+  for (const foto of fotos) {
+    const figuur = maak('figure', 'foto');
+    const img = maak('img');
+    img.src = foto.src;
+    img.alt = open ? foto.alt : '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    figuur.append(img);
+    if (open && (foto.bijschrift || foto.bron)) {
+      const onder = maak('figcaption', '', foto.bijschrift);
+      if (foto.bron) onder.append(maak('span', 'foto__bron', `Bron: ${foto.bron}`));
+      figuur.append(onder);
+    }
+    houder.append(figuur);
   }
 }
 

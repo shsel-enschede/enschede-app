@@ -40,6 +40,18 @@ Bovenaan `content/locaties.json` staat:
 - `"ter-plekke"`: een verhaal en vraag gaan pas open als je binnen `straal` meter van het gebouw staat. Zet dit aan als de app klaar is voor publiek.
 - `straal` mag tussen 20 en 60 meter liggen. Afgesproken is 30 tot 40 meter, omdat GPS in de binnenstad 10 tot 20 meter kan afwijken.
 
+## De beheerpagina
+
+Op https://shsel-enschede.github.io/enschede-app/beheer.html kies je per plek:
+
+- de **positie**: uit het Kadaster (adres), door op de kaart of luchtfoto te tikken, of door de rode speld te verslepen;
+- het **gebouw**: bestaand, nieuw, of zelf een omtrek tekenen voor een verdwenen gebouw;
+- de **foto's** uit de lijst van beschikbare foto's voor die plek.
+
+De pagina verandert zelf niets aan de app. Onderaan krijg je de nieuwe inhoud van `content/locaties.json`, met de stappen om die op GitHub te plaatsen. Je werk blijft tussentijds bewaard in je browser.
+
+Nieuwe foto's voeg je toe zoals beschreven in `fotos/LEESMIJ.md`.
+
 ## Een gebouw op de kaart
 
 Bovenaan `content/locaties.json` staat de lijst `gebouwen`. Voorbeeld:

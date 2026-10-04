@@ -1,0 +1,1806 @@
+{
+  "versie": 1,
+  "toelichting": "Lijst van beschikbare foto's. Per foto: bij welke locaties (nummer) hij past, de bron en het documentnummer, het bestand in de map 'fotos/' (WebP, max 1200 px breed, max ca. 150 kB), een bijschrift, een beschrijving voor blinden en slechtzienden ('alt'), en de rechten. Een foto verschijnt pas in de app als 'bestand' is ingevuld en 'rechten_geregeld' op true staat. Welke foto's bij een locatie horen, kies je op de beheerpagina.",
+  "fotos": [
+    {
+      "id": "sa-003628",
+      "locaties": [1],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "003628",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-001185",
+      "locaties": [2],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "001185",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008364",
+      "locaties": [2],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008364",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009496",
+      "locaties": [2],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009496",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-010928",
+      "locaties": [2],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "010928",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-090348",
+      "locaties": [2],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "090348",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000890",
+      "locaties": [3],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000890",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-004561",
+      "locaties": [3],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "004561",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-011639",
+      "locaties": [3],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "011639",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-046779",
+      "locaties": [3],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "046779",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002293",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002293",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002294",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002294",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002295",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002295",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002665",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002665",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-003149",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "003149",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-003497",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "003497",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-003895",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "003895",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-007170",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "007170",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008366",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008366",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009660",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009660",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009663",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009663",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-013019",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "013019",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080525",
+      "locaties": [4],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080525",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002299",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002299",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002300",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002300",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-007181",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "007181",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008209",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008209",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008210",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008210",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008211",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008211",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-048729",
+      "locaties": [5],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "048729",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-003496",
+      "locaties": [6],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "003496",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-011430",
+      "locaties": [6],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "011430",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-075047",
+      "locaties": [6],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "075047",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-075048",
+      "locaties": [6],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "075048",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080817",
+      "locaties": [6],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080817",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080818",
+      "locaties": [6],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080818",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005228",
+      "locaties": [7],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005228",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-043996",
+      "locaties": [7],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "043996",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-043997",
+      "locaties": [7],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "043997",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-043998",
+      "locaties": [7],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "043998",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-001934",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "001934",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-004135",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "004135",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008188",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008188",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008189",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008189",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008190",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008190",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009173",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009173",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009445",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009445",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009489",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009489",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-012602",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "012602",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-045075",
+      "locaties": [8],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "045075",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080837",
+      "locaties": [9],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080837",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005266",
+      "locaties": [10],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005266",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-007182",
+      "locaties": [10],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "007182",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009650",
+      "locaties": [10],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009650",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-010820",
+      "locaties": [10],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "010820",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-011275",
+      "locaties": [10],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "011275",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-045190",
+      "locaties": [10],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "045190",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000092",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000092",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000093",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000093",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000094",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000094",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000095",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000095",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000096",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000096",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005299",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005299",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005371",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005371",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008206",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008206",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008208",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008208",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009601",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009601",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-045250",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "045250",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-047869",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "047869",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-048097",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "048097",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-070525",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "070525",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-073943",
+      "locaties": [11],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "073943",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000039",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000039",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000045",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000045",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000891",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000891",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-001076",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "001076",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005234",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005234",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-011749",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "011749",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-045308",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "045308",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-045309",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "045309",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-045323",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "045323",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-049615",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "049615",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-070489",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "070489",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080962",
+      "locaties": [12],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080962",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000103",
+      "locaties": [13],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000103",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000104",
+      "locaties": [13],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000104",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005304",
+      "locaties": [13],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005304",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009517",
+      "locaties": [14],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009517",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002327",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002327",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002813",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002813",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002820",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002820",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002821",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002821",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002822",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002822",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-002831",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "002831",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-005240",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "005240",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009642",
+      "locaties": [16],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009642",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-012140",
+      "locaties": [17],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "012140",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-012913",
+      "locaties": [19],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "012913",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-000903",
+      "locaties": [25],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "000903",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009619",
+      "locaties": [25],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009619",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-012131",
+      "locaties": [36],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "012131",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-071075",
+      "locaties": [36],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "071075",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-072704",
+      "locaties": [36],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "072704",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-001360",
+      "locaties": [40],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "001360",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-004054",
+      "locaties": [40],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "004054",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009649",
+      "locaties": [41, 56],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009649",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009651",
+      "locaties": [41, 56],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009651",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-013005",
+      "locaties": [41],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "013005",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008363",
+      "locaties": [47],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008363",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008257",
+      "locaties": [50],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008257",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008386",
+      "locaties": [56],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008386",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-009652",
+      "locaties": [56],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "009652",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-012142",
+      "locaties": [56],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "012142",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080938",
+      "locaties": [56],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080938",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-047126",
+      "locaties": [57],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "047126",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-010926",
+      "locaties": [59],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "010926",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-001899",
+      "locaties": [60],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "001899",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-008352",
+      "locaties": [60],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "008352",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080514",
+      "locaties": [60],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080514",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "sa-080519",
+      "locaties": [60],
+      "bron": "Stadsarchief Enschede",
+      "documentnummer": "080519",
+      "bestand": null,
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Nog te regelen met het Stadsarchief",
+      "rechten_geregeld": false
+    }
+  ]
+}
