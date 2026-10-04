@@ -70,6 +70,10 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 
 - **Juiste antwoorden en uitleg** staan in `content/locaties.json`: `juist` (0 = A … 3 = D), `vraag.<taal>.uitleg` (één zin na het antwoord) en `bevestigd`. De brondocumenten bevatten geen antwoorden; een overzicht voor SHSEL staat in het claude.ai-project (`claude/antwoorden-en-uitleg.md`).
 - **Kaart:** elke locatie verwijst met `gebouw` naar een gebouw in `gebouwen`. Meerdere verhalen kunnen bij één gebouw horen. Het gebouw heeft een echt `adres` met huisnummer (voor de BAG-omtrek) of een eigen `vorm` (lijst van [lat, lng]) voor verdwenen gebouwen. Op de kaart: rood met stippelrand = nog niet bezocht, groen met ✓ = alle verhalen bij dat gebouw beantwoord.
+- **Ontgrendelen (besluit René, okt 2026):** instelling `instellingen.ontgrendelen` in `content/locaties.json`.
+  - `"overal"`: testfase, alle vragen zijn open ("vanaf de bank"). De voettekst meldt dat het een testversie is.
+  - `"ter-plekke"`: definitief. Verhaal en vraag gaan pas open binnen `instellingen.straal` meter (afgesproken 30–40 m, standaard 35) van de **rand** van het gebouw. Eenmaal open blijft een plek open. GPS is hulpmiddel, geen controle: de app is statisch, valsspelen is niet te voorkomen en dat is acceptabel.
+- **Afstanden altijd grof, nooit in meters** (geen schijnnauwkeurigheid): "Je bent er!", "Vlakbij" (tot 100 m), "ca. 2/3/5/10/15 min lopen" (tot 1 km, 4,5 km/u), "ca. 1,5 km" (halve km). Bij GPS-onzekerheid boven 50 m: "Locatie nog onzeker…" en er gaat niets open. Een marge van 10 m voorkomt heen-en-weer springen. Code: `js/afstand.js`.
 - Doelgroep: jeugd en gezinnen, ook volwassenen. Moeilijke woorden uitleggen, zoals in de bronteksten.
 - Meerkeuzevragen (Haladyna-richtlijnen): vier opties, plausibele afleiders, hooguit één grappige optie, geen "dat is niet te zien", geen ontkennende vraag. Kijkvragen ter plekke hebben de voorkeur.
 - Direct feedback na het antwoord, met één zin uitleg (testing effect).

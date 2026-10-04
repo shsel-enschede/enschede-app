@@ -52,6 +52,18 @@ function leesGebouwen(lijst) {
   return gebouwen;
 }
 
+// Instellingen die de SHSEL beheert. Bij twijfel de veilige standaard.
+//   ontgrendelen: "overal" (testfase: vragen overal te beantwoorden) of "ter-plekke" (alleen in de buurt, met GPS)
+//   straal: binnen hoeveel meter van het gebouw "ter plekke" telt (30 tot 40 m afgesproken; toegestaan 20 tot 60)
+function leesInstellingen(i) {
+  const instellingen = { ontgrendelen: 'ter-plekke', straal: 35 };
+  if (i?.ontgrendelen === 'overal' || i?.ontgrendelen === 'ter-plekke') instellingen.ontgrendelen = i.ontgrendelen;
+  else if (i?.ontgrendelen !== undefined) console.warn('Instelling "ontgrendelen" ongeldig, standaard "ter-plekke" gebruikt');
+  if (isGetal(i?.straal, 20, 60)) instellingen.straal = i.straal;
+  else if (i?.straal !== undefined) console.warn('Instelling "straal" ongeldig (20 tot 60), standaard 35 gebruikt');
+  return instellingen;
+}
+
 export async function laadInhoud(taal = 'nl') {
   const antwoord = await fetch('content/locaties.json', { cache: 'no-cache' });
   if (!antwoord.ok) throw new Error(`Inhoud niet gevonden (${antwoord.status})`);
@@ -95,5 +107,5 @@ export async function laadInhoud(taal = 'nl') {
     });
   }
 
-  return { routes, locaties, gebouwen: leesGebouwen(data.gebouwen) };
+  return { routes, locaties, gebouwen: leesGebouwen(data.gebouwen), instellingen: leesInstellingen(data.instellingen) };
 }
