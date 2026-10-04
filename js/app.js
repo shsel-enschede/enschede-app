@@ -90,7 +90,8 @@ function routeScherm(route) {
   balk.setAttribute('aria-valuemax', String(totaal));
   balk.setAttribute('aria-valuenow', String(klaar));
   balk.setAttribute('aria-label', 'Voortgang van de route');
-  $('voortgang-balk').style.width = `${Math.round((klaar / totaal) * 100)}%`;
+  // Eén schuin segment per plek, zoals de rode balk onderaan het briefpapier
+  balk.replaceChildren(...route.locaties.map((_, i) => maak('span', i < klaar ? 'voortgang__deel voortgang__deel--klaar' : 'voortgang__deel')));
   $('voortgang-tekst').textContent =
     klaar === totaal ? `Route voltooid: alle ${totaal} plekken bezocht!` : `${klaar} van ${totaal} plekken bezocht`;
 

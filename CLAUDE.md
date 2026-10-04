@@ -45,16 +45,22 @@ Doel: tot circa 1000 gelijktijdige gebruikers, bijvoorbeeld bij een evenement. O
 
 ## Huisstijl
 
-Gebaseerd op het SHSEL-logo. Kleuren:
+Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebreide toelichting: `claude/huisstijl.md` in het claude.ai-project.
 
 | Rol | Kleur | Gebruik |
 | --- | --- | --- |
-| Rood (stadswapen) | `#E00102` | Knoppen, voortgang, "bezocht". Accent, geen vlakvulling |
-| Crème | `#F3EBDE` | Achtergrond |
-| Taupe | `#8D827A` | Lijnen, secundaire tekst, iconen |
-| Donker bruinrood | `#6C2F2B` | Koppen en hoofdtekst |
+| Merkrood | `#ED1D27` | Schild, voortgangsbalk, vlakken. Niet voor kleine tekst (wit erop 4,4:1) |
+| Actierood | `#C10422` | Knoppen en links (wit erop 6,4:1) |
+| Tekst | `#3E4049` | Hoofdtekst |
+| Grijs | `#707480` | Secundaire tekst, lijnen (kleur van de logotekst) |
+| Lijn | `#E4E4E7` | Randen, lege voortgang |
+| Wit | `#FFFFFF` | Achtergrond, zoals het briefpapier |
+| Groen | `#1E6B3A` | Goed antwoord en "bezocht", altijd met ✓ |
 
-- Toegankelijkheid WCAG 2.2 AA: lopende tekst minimaal 16px; rood op crème alleen voor grote koppen.
+- **Letters:** koppen in Sorts Mill Goudy (vrije variant van Goudy Old Style uit het briefpapier, zelf gehost in `fonts/`, OFL-licentie). Lopende tekst en knoppen in de systeemletter.
+- **Vormtaal:** het vestingmotief linksonder op het startscherm (`img/vesting-motief.svg`) en de voortgangsbalk met schuine segmenten, beide uit het briefpapier.
+- **Logo en iconen:** rechtstreeks uit het vectorbestand van het briefpapier. App-icoon = alleen het schild (de vestinglijnen lopen op icoonformaat dicht).
+- Toegankelijkheid WCAG 2.2 AA: contrast lopende tekst minimaal 4,5:1, lopende tekst minimaal 16px.
 - Quizfeedback goed/fout altijd met icoon **en** tekst, nooit alleen kleur (rood leest ook als "fout").
 - Tikdoelen minimaal 44×44 px; belangrijke knoppen onderin, binnen duimbereik.
 - Respecteer `prefers-reduced-motion`.

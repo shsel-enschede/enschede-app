@@ -1,15 +1,28 @@
-/* Huisstijl Enschede app — kleuren uit het SHSEL-logo (zie CLAUDE.md) */
+/* Huisstijl Enschede app — kleuren en vormen uit het SHSEL-briefpapier (zie CLAUDE.md) */
+
+@font-face {
+  /* Sorts Mill Goudy: vrije variant van Goudy Old Style (briefpapier). Licentie: fonts/OFL.txt */
+  font-family: "Sorts Mill Goudy";
+  src: url("../fonts/sorts-mill-goudy.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --rood: #E00102;
-  --rood-donker: #B00001;
-  --creme: #F3EBDE;
-  --papier: #FBF7F0;
-  --taupe: #8D827A;
-  --bruinrood: #6C2F2B;
+  --merkrood: #ED1D27;    /* schild en balken: vlakken, geen kleine tekst */
+  --rood: #C10422;        /* knoppen en links: wit erop 6,4:1 */
+  --rood-donker: #9E031C;
+  --tekst: #3E4049;       /* hoofdtekst: 10:1 op wit */
+  --grijs: #707480;       /* secundaire tekst en lijnen uit het logo: 4,7:1 op wit */
+  --lijn: #E4E4E7;
+  --vlak: #F6F6F7;        /* rustige achtergrond voor kaarten en opties */
+  --wit: #FFFFFF;
   --goed: #1E6B3A;
-  --goed-licht: #E3F0E6;
-  --fout-licht: #FBE3E0;
-  --rand: #D9CFC2;
+  --goed-licht: #E6F2EA;
+  --fout-licht: #FBE5E7;
+  --kopletter: "Sorts Mill Goudy", "Goudy Old Style", Georgia, serif;
+  --letter: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --ruimte: 16px;
   --rond: 12px;
   color-scheme: light;
@@ -24,22 +37,22 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  background: var(--creme);
-  color: var(--bruinrood);
-  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  background: var(--wit);
+  color: var(--tekst);
+  font-family: var(--letter);
   font-size: 1.0625rem; /* 17px */
   line-height: 1.55;
 }
 
-h1, h2, legend { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+h1, h2, legend { font-family: var(--letter); }
 
 .skip {
   position: absolute; left: -999px; top: 0;
-  background: var(--bruinrood); color: #fff; padding: 8px 12px; z-index: 10;
+  background: var(--tekst); color: #fff; padding: 8px 12px; z-index: 10;
 }
 .skip:focus { left: 8px; top: 8px; }
 
-:focus-visible { outline: 3px solid var(--bruinrood); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--rood); outline-offset: 2px; }
 
 /* Kopbalk */
 .kop {
@@ -47,14 +60,14 @@ h1, h2, legend { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans
   display: flex; align-items: center; gap: 8px;
   min-height: 56px;
   padding: env(safe-area-inset-top) var(--ruimte) 0;
-  background: var(--creme);
-  border-bottom: 1px solid var(--rand);
+  background: var(--wit);
+  border-bottom: 1px solid var(--lijn);
 }
-.kop__titel { margin: 0; font-size: 1.15rem; line-height: 1.2; }
+.kop__titel { margin: 0; font: 400 1.4rem/1.2 var(--kopletter); color: var(--tekst); }
 .kop__terug {
   display: grid; place-items: center;
   width: 44px; height: 44px; margin-left: -10px;
-  border: 0; background: none; color: var(--bruinrood); cursor: pointer; border-radius: 50%;
+  border: 0; background: none; color: var(--tekst); cursor: pointer; border-radius: 50%;
 }
 .kop__terug svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -62,35 +75,43 @@ h1, h2, legend { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans
 main { flex: 1; width: 100%; max-width: 640px; margin: 0 auto; padding: var(--ruimte); }
 main:focus { outline: none; }
 .scherm > :first-child { margin-top: 0; }
-.groot { font-size: 1.5rem; line-height: 1.25; color: var(--rood); margin: 0.5em 0; }
-.klein { font-size: 0.9375rem; color: #6E645D; }
-.logo { display: block; margin: 8px auto 16px; width: 160px; height: 160px; }
-#scherm-start { text-align: center; }
+.groot { font: 400 1.75rem/1.2 var(--kopletter); color: var(--tekst); margin: 0.5em 0; text-wrap: balance; }
+.klein { font-size: 0.9375rem; color: var(--grijs); }
+.logo { display: block; margin: 8px auto 20px; width: 240px; max-width: 70%; height: auto; }
+
+/* Startscherm met het vestingmotief van het briefpapier linksonder */
+#scherm-start { text-align: center; position: relative; }
+body:has(#scherm-start:not([hidden])) {
+  background: var(--wit) url("../img/vesting-motief.svg") no-repeat left bottom / auto 60vh;
+}
 
 /* Lijsten van routes en locaties */
 .lijst { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
 .kaart {
   display: flex; align-items: center; gap: 12px;
   width: 100%; min-height: 64px; padding: 12px 14px;
-  background: var(--papier); color: inherit; text-align: left;
-  border: 1px solid var(--rand); border-radius: var(--rond);
+  background: var(--wit); color: inherit; text-align: left;
+  border: 1px solid var(--lijn); border-radius: var(--rond);
   font: inherit; cursor: pointer;
 }
-.kaart:active { background: #F6EFE4; }
+.kaart:hover { border-color: var(--grijs); }
+.kaart:active { background: var(--vlak); }
 .kaart__nr {
   flex: none; display: grid; place-items: center;
   width: 36px; height: 36px; border-radius: 50%;
-  border: 2px solid var(--taupe); color: #6E645D;
-  font: 600 0.95rem system-ui, sans-serif;
+  border: 2px solid var(--grijs); color: var(--grijs);
+  font: 600 0.95rem var(--letter);
 }
-.kaart--bezocht .kaart__nr { background: var(--rood); border-color: var(--rood); color: #fff; }
-.kaart__tekst { flex: 1; }
-.kaart__titel { display: block; font-weight: 600; font-family: system-ui, sans-serif; }
-.kaart__sub { display: block; font-size: 0.9375rem; color: #6E645D; }
+/* Bezocht = groen met vinkje, net als op de kaart. Rood blijft voor actie en merk. */
+.kaart--bezocht .kaart__nr { background: var(--goed); border-color: var(--goed); color: #fff; }
+.kaart__tekst { flex: 1; min-width: 0; }
+.kaart__titel { display: block; font-weight: 600; }
+.kaart__sub { display: block; font-size: 0.9375rem; color: var(--grijs); }
 
-/* Voortgang */
-.voortgang { height: 10px; background: var(--rand); border-radius: 5px; overflow: hidden; margin-top: 8px; }
-.voortgang__balk { height: 100%; width: 0; background: var(--rood); border-radius: 5px; transition: width 0.4s ease; }
+/* Voortgang: schuine segmenten, zoals de rode voetbalk van het briefpapier. Eén segment per plek. */
+.voortgang { display: flex; gap: 4px; height: 12px; margin: 12px 4px 0; }
+.voortgang__deel { flex: 1; background: var(--lijn); transform: skewX(-25deg); transition: background-color 0.4s ease; }
+.voortgang__deel--klaar { background: var(--merkrood); }
 
 /* Vraag */
 .vraag fieldset { border: 0; margin: 24px 0 0; padding: 0; }
@@ -98,24 +119,27 @@ main:focus { outline: none; }
 .optie {
   display: flex; align-items: center; gap: 12px;
   width: 100%; min-height: 56px; margin-bottom: 10px; padding: 10px 14px;
-  background: var(--papier); color: inherit; text-align: left;
-  border: 2px solid var(--rand); border-radius: var(--rond);
+  background: var(--wit); color: inherit; text-align: left;
+  border: 2px solid var(--lijn); border-radius: var(--rond);
   font: inherit; cursor: pointer;
 }
+.optie:hover:not(:disabled) { border-color: var(--grijs); }
 .optie__letter {
   flex: none; display: grid; place-items: center;
   width: 32px; height: 32px; border-radius: 50%;
-  background: var(--creme); font: 700 0.95rem system-ui, sans-serif;
+  background: var(--vlak); font: 700 0.95rem var(--letter);
 }
 .optie:disabled { cursor: default; opacity: 1; }
 .optie--goed { border-color: var(--goed); background: var(--goed-licht); }
+.optie--goed .optie__letter { background: var(--goed); color: #fff; }
 .optie--fout { border-color: var(--rood); background: var(--fout-licht); }
-.optie__icoon { margin-left: auto; font: 700 1.1rem system-ui, sans-serif; }
+.optie__icoon { margin-left: auto; font: 700 1.1rem var(--letter); }
 
-.feedback { margin-top: 8px; padding: 14px; border-radius: var(--rond); background: var(--papier); border-left: 6px solid var(--taupe); }
-.feedback--goed { border-left-color: var(--goed); }
+.feedback { margin-top: 8px; padding: 14px; border-radius: var(--rond); background: var(--vlak); border-left: 6px solid var(--grijs); }
+.feedback--goed { border-left-color: var(--goed); background: var(--goed-licht); }
 .feedback--fout { border-left-color: var(--rood); }
-.feedback__kop { display: block; font: 700 1.05rem system-ui, sans-serif; margin-bottom: 4px; }
+.feedback__kop { display: block; font: 700 1.05rem var(--letter); margin-bottom: 4px; }
+.feedback--goed .feedback__kop { color: var(--goed); }
 
 .melding { padding: 12px 14px; background: var(--fout-licht); border-radius: var(--rond); }
 
@@ -123,14 +147,15 @@ main:focus { outline: none; }
 .voet {
   position: sticky; bottom: 0;
   padding: 12px var(--ruimte) calc(12px + env(safe-area-inset-bottom));
-  background: var(--creme); border-top: 1px solid var(--rand);
+  background: var(--wit); border-top: 1px solid var(--lijn);
   text-align: center;
 }
 .knop {
   display: block; width: 100%; max-width: 608px; min-height: 52px; margin: 0 auto;
   background: var(--rood); color: #fff; border: 0; border-radius: var(--rond);
-  font: 600 1.1rem system-ui, sans-serif; cursor: pointer;
+  font: 600 1.1rem var(--letter); cursor: pointer;
 }
+.knop:hover { background: var(--rood-donker); }
 .knop:active { background: var(--rood-donker); }
 .knop[hidden] { display: none; }
 .voet__info { margin: 6px 0 0; font-size: 0.8125rem; }
@@ -146,28 +171,28 @@ main:focus { outline: none; }
   height: min(55vh, 420px);
   margin: 16px calc(-1 * var(--ruimte)) 0;
   background: #EDEDEE;
-  border-block: 1px solid var(--rand);
+  border-block: 1px solid var(--lijn);
 }
 @media (min-width: 640px) {
-  .wijkkaart { margin-inline: 0; border: 1px solid var(--rand); border-radius: var(--rond); overflow: hidden; }
+  .wijkkaart { margin-inline: 0; border: 1px solid var(--lijn); border-radius: var(--rond); overflow: hidden; }
 }
-.wijkkaart .leaflet-container { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.wijkkaart .leaflet-container { font-family: var(--letter); }
 .wijkkaart__anker { background: none; border: 0; }
 .wijkkaart__label {
   display: inline-block;
   transform: translate(-50%, -50%);
   padding: 2px 8px;
   white-space: nowrap;
-  font: 600 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: #3E4049;
+  font: 600 13px/1.4 var(--letter);
+  color: var(--tekst);
   background: #fff;
-  border: 1px solid #707480;
+  border: 1px solid var(--grijs);
   border-radius: 12px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 .wijkkaart__label--klaar { color: var(--goed); border-color: var(--goed); }
-.gebouwkeuze { margin-top: 16px; padding: 12px; background: var(--papier); border: 1px solid var(--rand); border-radius: var(--rond); }
+.gebouwkeuze { margin-top: 16px; padding: 12px; background: var(--vlak); border: 1px solid var(--lijn); border-radius: var(--rond); }
 .gebouwkeuze__titel { margin: 0; font-weight: 600; }
 .gebouwkeuze .lijst { margin-top: 10px; }
-.tussenkop { font-size: 1.05rem; margin: 24px 0 0; }
+.tussenkop { font: 400 1.3rem/1.2 var(--kopletter); margin: 24px 0 0; }
