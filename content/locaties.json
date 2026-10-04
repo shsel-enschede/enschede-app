@@ -84,7 +84,11 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-jacobuskerk-ca1920",
+        "shsel-jacobuskerk-nu"
+      ]
     },
     {
       "id": "grote-kerk",
@@ -115,7 +119,12 @@
       },
       "juist": 2,
       "bevestigd": false,
-      "gebouw": "grote-kerk"
+      "gebouw": "grote-kerk",
+      "fotos": [
+        "shsel-grote-kerk-markt-oud",
+        "shsel-oude-markt-1931",
+        "shsel-oude-markt-2016"
+      ]
     },
     {
       "id": "stadsbrand-1862",
@@ -146,7 +155,11 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-grote-kerk-ruine-1862",
+        "shsel-grote-kerk-torenspitsen"
+      ]
     },
     {
       "id": "brandmonument",
@@ -177,7 +190,11 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-brandmonument-oud",
+        "shsel-brandmonument-2016"
+      ]
     },
     {
       "id": "zonnewijzer",
@@ -208,7 +225,10 @@
       },
       "juist": 3,
       "bevestigd": false,
-      "gebouw": "grote-kerk"
+      "gebouw": "grote-kerk",
+      "fotos": [
+        "shsel-zonnewijzer"
+      ]
     },
     {
       "id": "concordia",
@@ -239,7 +259,11 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-concordia-voor-1909",
+        "shsel-concordia-gevel"
+      ]
     },
     {
       "id": "pakhuis-van-heek",
@@ -270,7 +294,12 @@
         }
       },
       "juist": 3,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-pakhuis-oud",
+        "shsel-pakhuis-nu",
+        "shsel-pakhuis-haverstraat"
+      ]
     },
     {
       "id": "villa-van-heek",
@@ -301,7 +330,11 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-villa-van-heek-nu",
+        "shsel-villa-van-heek-oud"
+      ]
     },
     {
       "id": "arbeiders",
@@ -332,7 +365,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-sebastopol-1927",
+        "shsel-mauritsstraat",
+        "shsel-overschot"
+      ]
     }
   ]
 }
