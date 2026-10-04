@@ -2,8 +2,9 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v4';
+const VERSIE = 'v5';
 const CACHE = `enschede-app-${VERSIE}`;
+const FOTO_CACHE = 'enschede-fotos-v1'; // los van VERSIE: foto's blijven bewaard na een update
 
 const APP_SCHIL = [
   './',
@@ -19,6 +20,7 @@ const APP_SCHIL = [
   'vendor/leaflet/leaflet.js',
   'vendor/leaflet/leaflet.css',
   'content/locaties.json',
+  'content/fotos.json',
   'manifest.webmanifest',
   'icons/icon.svg',
   'icons/icon-192.png',
@@ -49,7 +51,21 @@ self.addEventListener('fetch', (event) => {
   if (verzoek.method !== 'GET' || url.origin !== self.location.origin) return;
 
   // Inhoud: direct uit de cache tonen en op de achtergrond verversen.
-  if (url.pathname.endsWith('/content/locaties.json')) {
+  // Foto's: eerst uit de cache, anders ophalen en bewaren (dan zijn ze offline te zien).
+  if (url.pathname.includes('/fotos/')) {
+    event.respondWith(
+      caches.open(FOTO_CACHE).then(async (cache) => {
+        const bewaard = await cache.match(verzoek);
+        if (bewaard) return bewaard;
+        const antwoord = await fetch(verzoek);
+        if (antwoord.ok) cache.put(verzoek, antwoord.clone());
+        return antwoord;
+      }),
+    );
+    return;
+  }
+
+  if (url.pathname.endsWith('/content/locaties.json') || url.pathname.endsWith('/content/fotos.json')) {
     event.respondWith(
       caches.open(CACHE).then(async (cache) => {
         const bewaard = await cache.match(verzoek, { ignoreSearch: true });

@@ -1,0 +1,58 @@
+/* Beheerpagina (beheer.html). Bouwt voort op de kleuren en letters uit app.css. */
+
+.beheer__vlak { max-width: 960px; display: grid; gap: 16px; }
+.beheer__uitleg { margin: 0; max-width: 70ch; }
+.beheer code { font-size: 0.9em; background: var(--vlak); padding: 0 4px; border-radius: 4px; }
+
+.blok { padding: 16px; border: 1px solid var(--lijn); border-radius: var(--rond); background: var(--wit); min-width: 0; }
+.blok h2 { margin: 0 0 12px; font: 400 1.4rem/1.2 var(--kopletter); }
+.blok h3 { margin: 20px 0 6px; font-size: 1.05rem; }
+.blok h4 { margin: 16px 0 4px; font-size: 1rem; }
+.blok p { margin: 6px 0; }
+
+.veld { display: grid; gap: 4px; margin: 10px 0; max-width: 520px; }
+.veld span { font-weight: 600; font-size: 0.9375rem; }
+.veld select, .veld input {
+  min-height: 44px; padding: 8px 10px; font: inherit; color: var(--tekst);
+  background: var(--wit); border: 1px solid var(--grijs); border-radius: 8px;
+}
+.vink { display: flex; gap: 8px; align-items: center; min-height: 44px; cursor: pointer; }
+.vink input { width: 20px; height: 20px; accent-color: var(--goed); }
+
+.status { color: var(--grijs); font-size: 0.9375rem; }
+.hint { color: var(--grijs); font-size: 0.9375rem; }
+
+.knoppenrij { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; }
+.knop-klein, .schakel {
+  min-height: 44px; padding: 8px 14px; font: 600 0.9375rem var(--letter);
+  color: var(--rood); background: var(--wit); border: 2px solid var(--rood); border-radius: var(--rond); cursor: pointer;
+}
+.knop-klein:disabled, .knop:disabled { opacity: 0.45; cursor: not-allowed; }
+.knop-klein[aria-pressed="true"], .schakel[aria-pressed="true"] { background: var(--rood); color: #fff; }
+.beheer .knop { width: auto; max-width: none; margin: 0; padding: 0 20px; }
+.knop-mini { min-width: 44px; min-height: 44px; font: 700 1rem var(--letter); background: var(--vlak); border: 1px solid var(--lijn); border-radius: 8px; cursor: pointer; }
+.knop-mini:disabled { opacity: 0.35; }
+
+.beheerkaart { height: min(60vh, 520px); border: 1px solid var(--lijn); border-radius: var(--rond); overflow: hidden; background: #EDEDEE; }
+.beheerkaart--tekenen { cursor: crosshair; }
+
+/* Rode speld voor de positie */
+.speld {
+  width: 28px; height: 28px; background: var(--merkrood); border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.fotolijst { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 8px; }
+.foto-item { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--lijn); border-radius: 8px; }
+.foto-item > .vink { grid-column: 2; }
+.foto-item--gekozen { border-color: var(--goed); background: var(--goed-licht); }
+.foto-item__status { grid-column: 2; font-size: 0.875rem; color: var(--grijs); }
+.foto-item__duim { grid-row: span 2; width: 72px; height: 54px; object-fit: cover; border-radius: 4px; background: var(--vlak); }
+.foto-item .knoppenrij { grid-column: 3; grid-row: 1 / span 2; margin: 0; }
+.label-hoofd { color: var(--goed); }
+
+.controle { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 4px; }
+.controle__fout { color: var(--rood); }
+.controle__goed { color: var(--goed); font-weight: 600; }
+.stappen { padding-left: 1.4em; max-width: 70ch; }
+.uitvoer { width: 100%; font: 0.8125rem/1.4 ui-monospace, Menlo, Consolas, monospace; border: 1px solid var(--lijn); border-radius: 8px; padding: 8px; color: var(--tekst); background: var(--vlak); }

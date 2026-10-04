@@ -11,7 +11,7 @@ function isGetal(waarde, min, max) {
   return typeof waarde === 'number' && Number.isFinite(waarde) && waarde >= min && waarde <= max;
 }
 
-function controleerLocatie(loc, taal) {
+export function controleerLocatie(loc, taal) {
   const fouten = [];
   if (!loc || typeof loc !== 'object') return ['geen object'];
   if (!ID_PATROON.test(loc.id ?? '')) fouten.push('ongeldige id');
@@ -64,10 +64,37 @@ function leesInstellingen(i) {
   return instellingen;
 }
 
+// Foto's uit content/fotos.json. Alleen foto's met een bestand én geregelde rechten komen in de app.
+const BESTAND_PATROON = /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/;
+
+async function laadFotos(taal) {
+  const fotos = new Map();
+  try {
+    const antwoord = await fetch('content/fotos.json', { cache: 'no-cache' });
+    if (!antwoord.ok) return fotos;
+    const data = await antwoord.json();
+    for (const f of Array.isArray(data.fotos) ? data.fotos : []) {
+      if (!ID_PATROON.test(f?.id ?? '') || f.rechten_geregeld !== true) continue;
+      if (typeof f.bestand !== 'string' || !BESTAND_PATROON.test(f.bestand)) continue;
+      fotos.set(f.id, {
+        id: f.id,
+        src: `fotos/${f.bestand}`,
+        alt: isTekst(f.alt?.[taal], 300) ? f.alt[taal] : '',
+        bijschrift: isTekst(f.bijschrift?.[taal], 300) ? f.bijschrift[taal] : '',
+        bron: [f.bron, f.documentnummer].filter((x) => isTekst(x, 100)).join(', '),
+      });
+    }
+  } catch (fout) {
+    console.warn('Foto-lijst niet geladen:', fout); // de app werkt ook zonder foto's
+  }
+  return fotos;
+}
+
 export async function laadInhoud(taal = 'nl') {
   const antwoord = await fetch('content/locaties.json', { cache: 'no-cache' });
   if (!antwoord.ok) throw new Error(`Inhoud niet gevonden (${antwoord.status})`);
   const data = await antwoord.json();
+  const fotos = await laadFotos(taal);
 
   const locaties = new Map();
   for (const loc of Array.isArray(data.locaties) ? data.locaties : []) {
@@ -88,6 +115,7 @@ export async function laadInhoud(taal = 'nl') {
       uitleg: isTekst(loc.vraag[taal].uitleg, 500) ? loc.vraag[taal].uitleg : '',
       juist: loc.juist,
       gebouw: typeof loc.gebouw === 'string' && ID_PATROON.test(loc.gebouw) ? loc.gebouw : null,
+      fotos: (Array.isArray(loc.fotos) ? loc.fotos : []).map((id) => fotos.get(id)).filter(Boolean),
     });
   }
 
