@@ -3,7 +3,7 @@
 // Inhoud wordt alleen met textContent op het scherm gezet, nooit met innerHTML (zie CLAUDE.md).
 
 import { laadInhoud } from './inhoud.js';
-import { antwoordVan, bewaarAntwoord } from './voortgang.js';
+import { antwoordVan, bewaarAntwoord, wisAntwoorden } from './voortgang.js';
 import { toonKaart, toonPositie } from './kaart.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
 import { afstandTot, indicatie } from './afstand.js';
@@ -212,6 +212,11 @@ function routeScherm(route) {
   });
 
   werkRouteKnopBij(route);
+
+  // Opnieuw beginnen: alleen zichtbaar als er iets te wissen is; bevestiging in de pagina zelf.
+  $('opnieuw').hidden = klaar === 0;
+  $('opnieuw-vraag').hidden = true;
+  $('opnieuw-knop').setAttribute('aria-expanded', 'false');
 
   $('gebouwkeuze').hidden = true;
   toonKaart($('wijkkaart'), route, inhoud, {
@@ -426,6 +431,32 @@ volg((p) => {
       if (statusAnders) vulGpsPaneel($('gps-locatie'));
     }
   }
+});
+
+$('opnieuw-knop').addEventListener('click', () => {
+  const open = $('opnieuw-vraag').hidden;
+  $('opnieuw-vraag').hidden = !open;
+  $('opnieuw-knop').setAttribute('aria-expanded', String(open));
+  if (open) {
+    // Zorg dat de vraag boven de vaste voetbalk staat.
+    const onder = $('opnieuw-vraag').getBoundingClientRect().bottom;
+    const voet = document.querySelector('.voet').getBoundingClientRect().top;
+    if (onder > voet - 12) window.scrollBy({ top: onder - voet + 12, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    $('opnieuw-nee').focus({ preventScroll: true });
+  }
+});
+$('opnieuw-nee').addEventListener('click', () => {
+  $('opnieuw-vraag').hidden = true;
+  $('opnieuw-knop').setAttribute('aria-expanded', 'false');
+  $('opnieuw-knop').focus();
+});
+$('opnieuw-ja').addEventListener('click', () => {
+  const route = huidig.route;
+  if (!route) return;
+  wisAntwoorden(route.locaties);
+  for (const id of route.locaties) ontgrendeld.delete(id);
+  routeScherm(route); // scrollt naar boven: de lege voortgangsbalk laat direct zien dat het gelukt is
+  $('voortgang-tekst').textContent = `Je antwoorden zijn gewist. ${route.locaties.length} plekken te gaan, veel plezier!`;
 });
 
 el.terug.addEventListener('click', () => {

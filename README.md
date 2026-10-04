@@ -71,6 +71,7 @@ Bovenaan `content/locaties.json` staat de lijst `gebouwen`. Voorbeeld:
 - **Een gebouw staat als stip in plaats van ingekleurd:** het adres is niet gevonden in het Kadaster. Controleer straat en huisnummer, of geef een eigen `vorm` op.
 - **De kaart blijft grijs:** de kaartdienst PDOK is niet bereikbaar of er is geen internet. De lijst met plekken werkt gewoon.
 - **Een vraag gaat niet open terwijl je er staat:** de telefoon is onzeker over de locatie (de app toont dan "Locatie nog onzeker…"). Even naar een open plek lopen helpt. Blijft het misgaan, maak `straal` iets groter.
+- **Opnieuw testen:** onderaan het routescherm staat **Route opnieuw beginnen**. Dat wist alleen de antwoorden van die route, na een bevestiging.
 - **Gebruikers zien een wijziging niet:** de app ververst de inhoud vanzelf; soms pas bij de tweede keer openen.
 
 ## Licentie en rechten
