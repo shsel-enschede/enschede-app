@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v2';
+const VERSIE = 'v3';
 const CACHE = `enschede-app-${VERSIE}`;
 
 const APP_SCHIL = [
@@ -20,7 +20,11 @@ const APP_SCHIL = [
   'icons/icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
-  'icons/shsel-logo.png',
+  'icons/shsel-logo.svg',
+  'icons/favicon.ico',
+  'icons/apple-touch-icon.png',
+  'fonts/sorts-mill-goudy.woff2',
+  'img/vesting-motief.svg',
 ];
 
 self.addEventListener('install', (event) => {

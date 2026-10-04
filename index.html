@@ -11,10 +11,12 @@
   <meta name="referrer" content="no-referrer">
   <title>Enschede app</title>
   <meta name="description" content="Wandelquiz langs historische plekken in Enschede, van de Historische Sociëteit Enschede-Lonneker.">
-  <meta name="theme-color" content="#F3EBDE">
+  <meta name="theme-color" content="#FFFFFF">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon.ico" sizes="any">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/sorts-mill-goudy.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/app.css">
   <script type="module" src="js/app.js"></script>
 </head>
@@ -31,7 +33,7 @@
   <main id="hoofd" tabindex="-1">
     <!-- Startscherm -->
     <section class="scherm" id="scherm-start">
-      <img class="logo" src="icons/shsel-logo.png" alt="Logo van de Historische Sociëteit Enschede-Lonneker" width="160" height="160">
+      <img class="logo" src="icons/shsel-logo.svg" alt="Logo van de Stichting Historische Sociëteit Enschede-Lonneker" width="240" height="150">
       <h2 class="groot">Ontdek de geschiedenis van Enschede</h2>
       <p>Wandel langs historische plekken in de stad. Sta je ergens? Dan krijg je het verhaal en een vraag.</p>
       <p class="klein">Een wandelquiz van de Historische Sociëteit Enschede-Lonneker.</p>
@@ -45,9 +47,7 @@
     <!-- Locaties van één route -->
     <section class="scherm" id="scherm-route" hidden>
       <p id="route-intro"></p>
-      <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0">
-        <div class="voortgang__balk" id="voortgang-balk"></div>
-      </div>
+      <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
       <p class="klein" id="voortgang-tekst"></p>
       <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet bezocht, groen met vinkje is bezocht"></div>
       <div class="gebouwkeuze" id="gebouwkeuze" hidden>
