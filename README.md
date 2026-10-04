@@ -28,6 +28,18 @@ De app is een statische website: er is geen server, database of login. Voortgang
 `juist` is het nummer van het goede antwoord, tellend vanaf 0: 0 = A, 1 = B, 2 = C, 3 = D.
 `uitleg` is de korte zin die na het antwoord verschijnt. Zet `bevestigd` op `true` als de SHSEL het antwoord heeft gecontroleerd.
 
+## Testfase of ter plekke
+
+Bovenaan `content/locaties.json` staat:
+
+```json
+"instellingen": { "ontgrendelen": "overal", "straal": 35 }
+```
+
+- `"overal"`: alle vragen zijn overal te beantwoorden. Handig om te testen.
+- `"ter-plekke"`: een verhaal en vraag gaan pas open als je binnen `straal` meter van het gebouw staat. Zet dit aan als de app klaar is voor publiek.
+- `straal` mag tussen 20 en 60 meter liggen. Afgesproken is 30 tot 40 meter, omdat GPS in de binnenstad 10 tot 20 meter kan afwijken.
+
 ## Een gebouw op de kaart
 
 Bovenaan `content/locaties.json` staat de lijst `gebouwen`. Voorbeeld:
@@ -46,6 +58,7 @@ Bovenaan `content/locaties.json` staat de lijst `gebouwen`. Voorbeeld:
 - **Een locatie ontbreekt:** de locatie is overgeslagen omdat er iets ontbreekt (titel, tekst, vraag, vier opties of een geldige positie).
 - **Een gebouw staat als stip in plaats van ingekleurd:** het adres is niet gevonden in het Kadaster. Controleer straat en huisnummer, of geef een eigen `vorm` op.
 - **De kaart blijft grijs:** de kaartdienst PDOK is niet bereikbaar of er is geen internet. De lijst met plekken werkt gewoon.
+- **Een vraag gaat niet open terwijl je er staat:** de telefoon is onzeker over de locatie (de app toont dan "Locatie nog onzeker…"). Even naar een open plek lopen helpt. Blijft het misgaan, maak `straal` iets groter.
 - **Gebruikers zien een wijziging niet:** de app ververst de inhoud vanzelf; soms pas bij de tweede keer openen.
 
 ## Licentie en rechten

@@ -56,7 +56,7 @@ h1, h2, legend { font-family: var(--letter); }
 
 /* Kopbalk */
 .kop {
-  position: sticky; top: 0; z-index: 5;
+  position: sticky; top: 0; z-index: 1001; /* boven de kaartlagen van Leaflet (tot 1000) */
   display: flex; align-items: center; gap: 8px;
   min-height: 56px;
   padding: env(safe-area-inset-top) var(--ruimte) 0;
@@ -145,7 +145,7 @@ body:has(#scherm-start:not([hidden])) {
 
 /* Voetbalk met hoofdknop binnen duimbereik */
 .voet {
-  position: sticky; bottom: 0;
+  position: sticky; bottom: 0; z-index: 1001;
   padding: 12px var(--ruimte) calc(12px + env(safe-area-inset-bottom));
   background: var(--wit); border-top: 1px solid var(--lijn);
   text-align: center;
@@ -196,3 +196,18 @@ body:has(#scherm-start:not([hidden])) {
 .gebouwkeuze__titel { margin: 0; font-weight: 600; }
 .gebouwkeuze .lijst { margin-top: 10px; }
 .tussenkop { font: 400 1.3rem/1.2 var(--kopletter); margin: 24px 0 0; }
+
+/* GPS en ontgrendelen (js/locatie.js, js/afstand.js) */
+.gps { margin-top: 16px; padding: 12px 14px; background: var(--vlak); border: 1px solid var(--lijn); border-radius: var(--rond); display: grid; gap: 10px; }
+.gps__tekst { margin: 0; font-size: 0.9375rem; }
+.gps__knop {
+  justify-self: start; min-height: 44px; padding: 8px 16px;
+  background: var(--wit); color: var(--rood); border: 2px solid var(--rood); border-radius: var(--rond);
+  font: 600 1rem var(--letter); cursor: pointer;
+}
+.gps__knop--stil { color: var(--grijs); border-color: var(--lijn); font-weight: 400; font-size: 0.9375rem; }
+.slot { margin-top: 8px; }
+.slot__teaser { font: 400 1.25rem/1.4 var(--kopletter); margin: 0 0 12px; }
+.slot__uitleg { margin: 0; }
+.slot__afstand { margin: 8px 0 0; font: 700 1.5rem/1.3 var(--letter); color: var(--tekst); min-height: 1.3em; }
+.net-open { padding: 10px 14px; background: var(--goed-licht); color: var(--goed); font-weight: 600; border-radius: var(--rond); }
