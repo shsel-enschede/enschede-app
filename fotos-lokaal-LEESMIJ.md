@@ -13,11 +13,23 @@ Die foto's komen nooit op GitHub of op de live site.
 
 ## De app lokaal starten
 
+**Makkelijkst:** dubbelklik op **`start-lokaal.bat`** in de map van de app.
+Er opent een zwart venster en je browser toont de app op `http://localhost:8000`.
+Klaar? Sluit het zwarte venster.
+
+- Windows kan de eerste keer waarschuwen ("Windows heeft uw pc beschermd"). Klik op **Meer info** en dan **Toch uitvoeren**.
+- Zonder het zwarte venster werkt de app niet lokaal. Lijkt hij toch te laden, dan is dat een opgeslagen (oude) versie.
+- Oude versie te zien? Druk in de browser op **Ctrl + F5**.
+
+**Met de hand** (als het bestand niet werkt):
+
 1. Open in Verkenner de map van de app (waar `index.html` staat).
-2. Klik in de adresbalk, typ `cmd` en druk op Enter.
-3. Typ `python -m http.server 8000` en druk op Enter. Laat dit venster open.
-4. Open in je browser `http://localhost:8000`.
-5. Klaar? Sluit het zwarte venster.
+2. Klik op een leeg stuk in de adresbalk, typ `cmd` en druk op Enter.
+3. Typ `python -m http.server 8000 --bind 127.0.0.1` en druk op Enter. Laat dit venster open.
+4. Open in je browser `http://localhost:8000` (let op: `http`, niet `https`).
+
+`--bind 127.0.0.1` zorgt dat alleen jouw computer de app ziet, en niet andere apparaten op hetzelfde wifi-netwerk.
+Belangrijk, want de proeffoto's mogen nog niet gedeeld worden.
 
 ## Als de rechten geregeld zijn
 
