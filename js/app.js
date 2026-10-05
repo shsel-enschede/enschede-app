@@ -1,5 +1,6 @@
 // Enschede app — schermen en navigatie.
-// Navigatie via het adres (#/route/...) zodat de terugknop van de telefoon werkt.
+// Uitgangspunt: wandelen zonder vaste volgorde. De wandelaar kiest zelf (zie CLAUDE.md, "Vrij ontdekken").
+// Navigatie via het adres (#/kaart, #/plek/...) zodat de terugknop van de telefoon werkt.
 // Inhoud wordt alleen met textContent op het scherm gezet, nooit met innerHTML (zie CLAUDE.md).
 
 import { laadInhoud } from './inhoud.js';
@@ -17,18 +18,24 @@ const el = {
   terug: $('terug'),
   hoofd: $('hoofd'),
   hoofdknop: $('hoofdknop'),
+  voet: document.querySelector('.voet'),
+  voetInfo: $('voet-info'),
   melding: $('melding'),
   schermen: {
     start: $('scherm-start'),
-    routes: $('scherm-routes'),
-    route: $('scherm-route'),
+    kaart: $('scherm-kaart'),
     locatie: $('scherm-locatie'),
   },
 };
 
+// Grens voor de groep "Dichtbij" in de lijst: ca. 5 minuten lopen.
+const DICHTBIJ = 400; // meter
+
 let inhoud = null;
+let alles = null; // alle plekken als één verzameling: { id, locaties: [ids] }
 let hoofdknopActie = null;
-let huidig = { scherm: 'start', route: null, loc: null };
+let huidig = { scherm: 'start', loc: null };
+let lijstMetAfstand = false; // is de lijst al op afstand gesorteerd?
 
 // ---------- Afstand en ontgrendelen ----------
 // Zie CLAUDE.md: in de testfase ("overal") is elke vraag open; daarna ("ter-plekke") alleen binnen de straal.
@@ -60,21 +67,6 @@ function werkIndicatiesBij() {
 
 function afstandTekst(loc) {
   return positie() ? indicaties.get(loc.id)?.tekst ?? null : null;
-}
-
-// Volgende plek: met GPS de dichtstbijzijnde onbezochte, anders de volgende in de route.
-function volgendePlek(route, vanafId = null) {
-  const open = route.locaties.filter((id) => antwoordVan(id) === null && id !== vanafId);
-  if (!open.length) return null;
-  if (positie()) {
-    return open.reduce((beste, id) => ((indicaties.get(id)?.meters ?? Infinity) < (indicaties.get(beste)?.meters ?? Infinity) ? id : beste));
-  }
-  if (vanafId) {
-    const i = route.locaties.indexOf(vanafId);
-    const naVolgorde = route.locaties.slice(i + 1).concat(route.locaties.slice(0, i));
-    return naVolgorde.find((id) => open.includes(id)) ?? null;
-  }
-  return open[0];
 }
 
 // Paneel met uitleg en de knop om de locatie aan te zetten (alleen na een tik, zie CLAUDE.md).
@@ -132,6 +124,7 @@ function zetHoofdknop(tekst, actie) {
   el.hoofdknop.hidden = !tekst;
   el.hoofdknop.textContent = tekst || '';
   hoofdknopActie = actie || null;
+  el.voet.hidden = !tekst && el.voetInfo.hidden; // geen lege balk onderin
 }
 
 function ga(pad) {
@@ -142,76 +135,32 @@ function ga(pad) {
 
 function startScherm() {
   toonScherm('start', 'Enschede app', { terug: false });
-  huidig = { scherm: 'start', route: null, loc: null };
-  zetHoofdknop('Begin', () => ga('#/routes'));
+  huidig = { scherm: 'start', loc: null };
+  zetHoofdknop('Bekijk de kaart', () => ga('#/kaart'));
 }
 
-function routesScherm() {
-  toonScherm('routes', 'Kies een route');
-  huidig = { scherm: 'routes', route: null, loc: null };
-  const lijst = $('route-lijst');
-  lijst.replaceChildren();
-  for (const route of inhoud.routes.values()) {
-    const knop = maak('button', 'kaart');
-    knop.type = 'button';
-    const tekst = maak('span', 'kaart__tekst');
-    tekst.append(maak('span', 'kaart__titel', route.titel));
-    const klaar = route.locaties.filter((id) => antwoordVan(id) !== null).length;
-    tekst.append(maak('span', 'kaart__sub', `${route.locaties.length} plekken · ${klaar} bezocht`));
-    knop.append(tekst);
-    knop.addEventListener('click', () => ga(`#/route/${route.id}`));
-    const li = maak('li');
-    li.append(knop);
-    lijst.append(li);
-  }
-  zetHoofdknop(null);
+function aantalBezocht() {
+  return alles.locaties.filter((id) => antwoordVan(id) !== null).length;
 }
 
-function routeScherm(route) {
-  toonScherm('route', route.titel);
-  huidig = { scherm: 'route', route, loc: null };
-  vulGpsPaneel($('gps-route'));
-  $('route-intro').textContent = route.intro;
+function kaartScherm() {
+  toonScherm('kaart', 'Kaart');
+  huidig = { scherm: 'kaart', loc: null };
+  vulGpsPaneel($('gps-kaart'));
 
-  const totaal = route.locaties.length;
-  const klaar = route.locaties.filter((id) => antwoordVan(id) !== null).length;
+  const totaal = alles.locaties.length;
+  const klaar = aantalBezocht();
   const balk = $('voortgang');
   balk.setAttribute('aria-valuemax', String(totaal));
   balk.setAttribute('aria-valuenow', String(klaar));
-  balk.setAttribute('aria-label', 'Voortgang van de route');
+  balk.setAttribute('aria-label', 'Bezochte plekken');
   // Eén schuin segment per plek, zoals de rode balk onderaan het briefpapier
-  balk.replaceChildren(...route.locaties.map((_, i) => maak('span', i < klaar ? 'voortgang__deel voortgang__deel--klaar' : 'voortgang__deel')));
+  balk.replaceChildren(...alles.locaties.map((_, i) => maak('span', i < klaar ? 'voortgang__deel voortgang__deel--klaar' : 'voortgang__deel')));
   $('voortgang-tekst').textContent =
-    klaar === totaal ? `Route voltooid: alle ${totaal} plekken bezocht!` : `${klaar} van ${totaal} plekken bezocht`;
+    klaar === totaal ? `Alle ${totaal} plekken bezocht!` : `${klaar} van ${totaal} plekken bezocht`;
 
-  const lijst = $('locatie-lijst');
-  lijst.replaceChildren();
-  // Met GPS: dichtstbijzijnde onbezochte plek bovenaan, bezochte onderaan. De volgorde ligt vast tot je het scherm opnieuw opent.
-  const volgorde = route.locaties.map((id, i) => ({ id, i }));
-  if (positie()) {
-    const sleutel = ({ id }) => (antwoordVan(id) !== null ? 1e9 : 0) + (indicaties.get(id)?.meters ?? 1e8);
-    volgorde.sort((x, y) => sleutel(x) - sleutel(y));
-  }
-  volgorde.forEach(({ id, i }) => {
-    const loc = inhoud.locaties.get(id);
-    const bezocht = antwoordVan(id) !== null;
-    const knop = maak('button', bezocht ? 'kaart kaart--bezocht' : 'kaart');
-    knop.type = 'button';
-    knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : String(i + 1)));
-    const tekst = maak('span', 'kaart__tekst');
-    tekst.append(maak('span', 'kaart__titel', loc.titel));
-    const sub = maak('span', 'kaart__sub', bezocht ? 'Bezocht' : afstandTekst(loc) ?? loc.adres);
-    if (!bezocht) sub.dataset.afstand = id;
-    tekst.append(sub);
-    knop.append(tekst);
-    knop.setAttribute('aria-label', `${i + 1}. ${loc.titel}${bezocht ? ', bezocht' : ''}`);
-    knop.addEventListener('click', () => ga(`#/route/${route.id}/${id}`));
-    const li = maak('li');
-    li.append(knop);
-    lijst.append(li);
-  });
-
-  werkRouteKnopBij(route);
+  vulPlekken();
+  werkKaartKnopBij();
 
   // Opnieuw beginnen: alleen zichtbaar als er iets te wissen is; bevestiging in de pagina zelf.
   $('opnieuw').hidden = klaar === 0;
@@ -219,9 +168,9 @@ function routeScherm(route) {
   $('opnieuw-knop').setAttribute('aria-expanded', 'false');
 
   $('gebouwkeuze').hidden = true;
-  toonKaart($('wijkkaart'), route, inhoud, {
+  toonKaart($('wijkkaart'), alles, inhoud, {
     antwoordVan,
-    kiesGroep: (groep) => kiesGebouw(route, groep),
+    kiesGroep: kiesGebouw,
     meld: toonFout,
   }).then(() => toonPositie(positie())).catch((fout) => {
     console.warn(fout);
@@ -229,52 +178,80 @@ function routeScherm(route) {
   });
 }
 
-// Hoofdknop van het routescherm: sta je bij een plek, dan openen; anders naar de dichtstbijzijnde.
-function werkRouteKnopBij(route) {
-  const hier = route.locaties.find((id) => antwoordVan(id) === null && indicaties.get(id)?.soort === 'er' && positie());
-  if (hier) {
-    zetHoofdknop(`Je bent er! Open: ${inhoud.locaties.get(hier).titel}`, () => ga(`#/route/${route.id}/${hier}`));
-    return;
+// Eén plek als knop in een lijst. Geen nummers: die suggereren een volgorde.
+function plekKnop(loc) {
+  const bezocht = antwoordVan(loc.id) !== null;
+  const knop = maak('button', bezocht ? 'kaart kaart--bezocht' : 'kaart');
+  knop.type = 'button';
+  knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : ''));
+  const tekst = maak('span', 'kaart__tekst');
+  tekst.append(maak('span', 'kaart__titel', loc.titel));
+  const sub = maak('span', 'kaart__sub', bezocht ? 'Bezocht' : afstandTekst(loc) ?? loc.adres);
+  if (!bezocht) sub.dataset.afstand = loc.id;
+  tekst.append(sub);
+  knop.append(tekst);
+  knop.setAttribute('aria-label', `${loc.titel}${bezocht ? ', bezocht' : ''}`);
+  knop.addEventListener('click', () => ga(`#/plek/${loc.id}`));
+  const li = maak('li');
+  li.append(knop);
+  return li;
+}
+
+function lijstBlok(kop, locaties) {
+  if (!locaties.length) return [];
+  const lijst = maak('ul', 'lijst');
+  lijst.append(...locaties.map(plekKnop));
+  return [maak('h2', 'tussenkop', kop), lijst];
+}
+
+// Lijst onder de kaart (ook het toegankelijke alternatief voor de kaart).
+// Met GPS: "Dichtbij" en "Verder weg" als gelijkwaardige keuzes; zonder GPS op naam.
+// Bezochte plekken onderaan. De volgorde ligt vast tot het scherm opnieuw opent (rustig beeld).
+function vulPlekken() {
+  const locs = alles.locaties.map((id) => inhoud.locaties.get(id));
+  const open = locs.filter((loc) => antwoordVan(loc.id) === null);
+  const bezocht = locs.filter((loc) => antwoordVan(loc.id) !== null);
+  const opNaam = (x, y) => x.titel.localeCompare(y.titel, 'nl');
+  const meters = (loc) => indicaties.get(loc.id)?.meters;
+  lijstMetAfstand = Boolean(positie()) && open.some((loc) => Number.isFinite(meters(loc)) && indicaties.get(loc.id).soort !== 'onzeker');
+
+  const blokken = [];
+  if (lijstMetAfstand) {
+    open.sort((x, y) => (meters(x) ?? Infinity) - (meters(y) ?? Infinity));
+    blokken.push(...lijstBlok('Dichtbij', open.filter((loc) => meters(loc) <= DICHTBIJ)));
+    blokken.push(...lijstBlok('Verder weg', open.filter((loc) => !(meters(loc) <= DICHTBIJ))));
+  } else {
+    blokken.push(...lijstBlok('Alle plekken', open.sort(opNaam)));
   }
-  const volgende = volgendePlek(route);
-  if (!volgende) return zetHoofdknop(null);
-  const afstand = afstandTekst(inhoud.locaties.get(volgende));
-  zetHoofdknop(afstand ? `Volgende: ${inhoud.locaties.get(volgende).titel} · ${afstand}` : 'Naar de volgende plek',
-    () => ga(`#/route/${route.id}/${volgende}`));
+  blokken.push(...lijstBlok('Al bezocht', bezocht.sort(opNaam)));
+  $('plekken').replaceChildren(...blokken);
+}
+
+// Hoofdknop van de kaart: alleen als je bij een plek staat. Verder kiest de wandelaar zelf.
+function werkKaartKnopBij() {
+  const hier = positie() && alles.locaties.find((id) => antwoordVan(id) === null && indicaties.get(id)?.soort === 'er');
+  if (hier) zetHoofdknop(`Je bent er! Open: ${inhoud.locaties.get(hier).titel}`, () => ga(`#/plek/${hier}`));
+  else zetHoofdknop(null);
 }
 
 // Tik op een gebouw: één verhaal -> direct openen; meer verhalen -> kiezen.
-function kiesGebouw(route, groep) {
-  if (groep.locaties.length === 1) return ga(`#/route/${route.id}/${groep.locaties[0].id}`);
+function kiesGebouw(groep) {
+  if (groep.locaties.length === 1) return ga(`#/plek/${groep.locaties[0].id}`);
   $('gebouwkeuze-titel').textContent = `${groep.gebouw.naam}: ${groep.locaties.length} verhalen`;
   const lijst = $('gebouwkeuze-lijst');
-  lijst.replaceChildren();
-  for (const loc of groep.locaties) {
-    const bezocht = antwoordVan(loc.id) !== null;
-    const knop = maak('button', bezocht ? 'kaart kaart--bezocht' : 'kaart');
-    knop.type = 'button';
-    knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : String(route.locaties.indexOf(loc.id) + 1)));
-    const tekst = maak('span', 'kaart__tekst');
-    tekst.append(maak('span', 'kaart__titel', loc.titel));
-    tekst.append(maak('span', 'kaart__sub', bezocht ? 'Bezocht' : afstandTekst(loc) ?? 'Nog niet bezocht'));
-    knop.append(tekst);
-    knop.addEventListener('click', () => ga(`#/route/${route.id}/${loc.id}`));
-    const li = maak('li');
-    li.append(knop);
-    lijst.append(li);
-  }
+  lijst.replaceChildren(...groep.locaties.map(plekKnop));
   const keuze = $('gebouwkeuze');
   keuze.hidden = false;
   keuze.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
 }
 
-function locatieScherm(route, loc, { netOpen = false } = {}) {
+function locatieScherm(loc, { netOpen = false } = {}) {
   toonScherm('locatie', loc.titel);
-  huidig = { scherm: 'locatie', route, loc };
+  huidig = { scherm: 'locatie', loc };
   $('locatie-adres').textContent = loc.adres;
   toonFotos(loc, isOpen(loc));
 
-  // Nog niet ter plekke: alleen een voorproefje en de afstand (nieuwsgierigheid houdt de wandelaar in beweging).
+  // Nog niet ter plekke: alleen een voorproefje en de afstand (nieuwsgierig maken, niet sturen).
   const open = isOpen(loc);
   $('slot').hidden = open;
   $('locatie-tekst').hidden = !open;
@@ -286,7 +263,7 @@ function locatieScherm(route, loc, { netOpen = false } = {}) {
     $('slot-afstand').textContent = afstandTekst(loc) ?? '';
     vulGpsPaneel($('gps-locatie'));
     $('feedback').hidden = true;
-    zetHoofdknop('Bekijk de kaart', () => ga(`#/route/${route.id}`));
+    zetHoofdknop('Terug naar de kaart', () => ga('#/kaart'));
     return;
   }
   $('locatie-tekst').textContent = loc.tekst;
@@ -298,7 +275,7 @@ function locatieScherm(route, loc, { netOpen = false } = {}) {
     const knop = maak('button', 'optie');
     knop.type = 'button';
     knop.append(maak('span', 'optie__letter', LETTERS[i]), maak('span', '', tekst));
-    knop.addEventListener('click', () => beantwoord(route, loc, i, knoppen));
+    knop.addEventListener('click', () => beantwoord(loc, i, knoppen));
     opties.append(knop);
     return knop;
   });
@@ -306,9 +283,9 @@ function locatieScherm(route, loc, { netOpen = false } = {}) {
   $('feedback').hidden = true;
   const eerder = antwoordVan(loc.id);
   if (eerder !== null) {
-    toonUitslag(route, loc, eerder, knoppen, false);
+    toonUitslag(loc, eerder, knoppen, false);
   } else {
-    zetHoofdknop(null);
+    zetHoofdknop('Terug naar de kaart', () => ga('#/kaart'));
   }
 }
 
@@ -339,13 +316,13 @@ function toonFotos(loc, open) {
   }
 }
 
-function beantwoord(route, loc, keuze, knoppen) {
+function beantwoord(loc, keuze, knoppen) {
   if (antwoordVan(loc.id) !== null) return;
   bewaarAntwoord(loc.id, keuze); // automatisch opslaan, geen aparte knop nodig
-  toonUitslag(route, loc, keuze, knoppen, true);
+  toonUitslag(loc, keuze, knoppen, true);
 }
 
-function toonUitslag(route, loc, keuze, knoppen, net) {
+function toonUitslag(loc, keuze, knoppen, net) {
   const goed = keuze === loc.juist;
   knoppen.forEach((knop, i) => {
     knop.disabled = true;
@@ -372,15 +349,9 @@ function toonUitslag(route, loc, keuze, knoppen, net) {
     requestAnimationFrame(() => window.scrollTo(0, document.documentElement.scrollHeight));
   }
 
-  // Nieuwsgierig maken naar de volgende plek (open lus houdt de aandacht vast)
-  const volgendeId = volgendePlek(route, loc.id);
-  if (volgendeId) {
-    const volgende = inhoud.locaties.get(volgendeId);
-    const afstand = afstandTekst(volgende);
-    zetHoofdknop(`Volgende: ${volgende.titel}${afstand ? ` · ${afstand}` : ''}`, () => ga(`#/route/${route.id}/${volgendeId}`));
-  } else {
-    zetHoofdknop('Route voltooid! Bekijk je resultaat', () => ga(`#/route/${route.id}`));
-  }
+  // Geen voorgeschreven volgende plek: terug naar de kaart, de wandelaar kiest zelf.
+  const klaar = aantalBezocht();
+  zetHoofdknop(klaar === alles.locaties.length ? 'Alle plekken bezocht! Bekijk de kaart' : 'Terug naar de kaart', () => ga('#/kaart'));
 }
 
 function toonFout(tekst) {
@@ -393,15 +364,17 @@ function toonFout(tekst) {
 function navigeer() {
   if (!inhoud) return;
   const delen = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
-  const [pagina, routeId, locId] = delen;
+  const [pagina, id, oudId] = delen;
 
-  if (pagina === 'routes') return routesScherm();
-  if (pagina === 'route') {
-    const route = inhoud.routes.get(routeId);
-    if (!route) return ga('#/routes');
-    if (!locId) return routeScherm(route);
-    if (!route.locaties.includes(locId)) return ga(`#/route/${route.id}`);
-    return locatieScherm(route, inhoud.locaties.get(locId));
+  // Oude adressen uit de routeversie (bladwijzers, geïnstalleerde app) blijven werken.
+  if (pagina === 'routes' || (pagina === 'route' && !oudId)) return location.replace('#/kaart');
+  if (pagina === 'route') return location.replace(`#/plek/${oudId}`);
+
+  if (pagina === 'kaart') return kaartScherm();
+  if (pagina === 'plek') {
+    const loc = inhoud.locaties.get(id);
+    if (!loc) return location.replace('#/kaart');
+    return locatieScherm(loc);
   }
   return startScherm();
 }
@@ -418,17 +391,21 @@ volg((p) => {
   const statusAnders = gpsStatus() !== vorigeStatus;
   vorigeStatus = gpsStatus();
   werkIndicatiesBij();
-  if (huidig.scherm === 'route') {
-    if (statusAnders) vulGpsPaneel($('gps-route'));
-    for (const sub of document.querySelectorAll('#locatie-lijst [data-afstand]')) {
-      const loc = inhoud.locaties.get(sub.dataset.afstand);
-      if (loc) sub.textContent = afstandTekst(loc) ?? loc.adres;
+  if (huidig.scherm === 'kaart') {
+    if (statusAnders) vulGpsPaneel($('gps-kaart'));
+    if (!lijstMetAfstand || !positie()) {
+      vulPlekken(); // eerste bruikbare meting (of locatie uit): één keer opnieuw indelen
+    } else {
+      for (const sub of document.querySelectorAll('#plekken [data-afstand]')) {
+        const loc = inhoud.locaties.get(sub.dataset.afstand);
+        if (loc) sub.textContent = afstandTekst(loc) ?? loc.adres;
+      }
     }
-    werkRouteKnopBij(huidig.route);
+    werkKaartKnopBij();
     toonPositie(p);
   } else if (huidig.scherm === 'locatie' && $('slot').hidden === false) {
     if (isOpen(huidig.loc)) {
-      locatieScherm(huidig.route, huidig.loc, { netOpen: true });
+      locatieScherm(huidig.loc, { netOpen: true });
     } else {
       $('slot-afstand').textContent = afstandTekst(huidig.loc) ?? '';
       if (statusAnders) vulGpsPaneel($('gps-locatie'));
@@ -454,12 +431,10 @@ $('opnieuw-nee').addEventListener('click', () => {
   $('opnieuw-knop').focus();
 });
 $('opnieuw-ja').addEventListener('click', () => {
-  const route = huidig.route;
-  if (!route) return;
-  wisAntwoorden(route.locaties);
-  for (const id of route.locaties) ontgrendeld.delete(id);
-  routeScherm(route); // scrollt naar boven: de lege voortgangsbalk laat direct zien dat het gelukt is
-  $('voortgang-tekst').textContent = `Je antwoorden zijn gewist. ${route.locaties.length} plekken te gaan, veel plezier!`;
+  wisAntwoorden(alles.locaties);
+  ontgrendeld.clear();
+  kaartScherm(); // scrollt naar boven: de lege voortgangsbalk laat direct zien dat het gelukt is
+  $('voortgang-tekst').textContent = 'Je antwoorden zijn gewist. Veel plezier met ontdekken!';
 });
 
 el.terug.addEventListener('click', () => {
@@ -473,8 +448,10 @@ async function start() {
   startScherm();
   try {
     inhoud = await laadInhoud('nl');
-    if (!inhoud.routes.size) throw new Error('Geen routes gevonden');
-    $('voet-info').hidden = terPlekkeModus();
+    if (!inhoud.locaties.size) throw new Error('Geen plekken gevonden');
+    // Alle geldige plekken samen; routes uit de inhoud worden (nog) niet gebruikt.
+    alles = { id: 'alles', locaties: [...inhoud.locaties.keys()] };
+    el.voetInfo.hidden = terPlekkeModus();
     navigeer();
     hervatAlsToegestaan();
   } catch (fout) {

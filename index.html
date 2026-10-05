@@ -35,32 +35,26 @@
     <section class="scherm" id="scherm-start">
       <img class="logo" src="icons/shsel-logo.svg" alt="Logo van de Stichting Historische Sociëteit Enschede-Lonneker" width="240" height="150">
       <h2 class="groot">Ontdek de geschiedenis van Enschede</h2>
-      <p>Wandel langs historische plekken in de stad. Sta je ergens? Dan krijg je het verhaal en een vraag.</p>
+      <p>Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.</p>
       <p class="klein">Een wandelquiz van de Historische Sociëteit Enschede-Lonneker.</p>
     </section>
 
-    <!-- Routeoverzicht -->
-    <section class="scherm" id="scherm-routes" hidden>
-      <ul class="lijst" id="route-lijst"></ul>
-    </section>
-
-    <!-- Locaties van één route -->
-    <section class="scherm" id="scherm-route" hidden>
-      <p id="route-intro"></p>
+    <!-- Ontdekkaart: alle plekken, zonder vaste volgorde -->
+    <section class="scherm" id="scherm-kaart" hidden>
+      <p>Rood zijn plekken die je nog kunt ontdekken, groen met ✓ heb je al bezocht. Tik op een gebouw voor het verhaal.</p>
       <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
       <p class="klein" id="voortgang-tekst" role="status"></p>
-      <div class="gps" id="gps-route" hidden></div>
-      <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet bezocht, groen met vinkje is bezocht"></div>
+      <div class="gps" id="gps-kaart" hidden></div>
+      <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet bezocht, groen met vinkje is bezocht. Onder de kaart staan dezelfde plekken als lijst."></div>
       <div class="gebouwkeuze" id="gebouwkeuze" hidden>
         <p class="gebouwkeuze__titel" id="gebouwkeuze-titel"></p>
         <ul class="lijst" id="gebouwkeuze-lijst"></ul>
       </div>
-      <h2 class="tussenkop">Alle plekken</h2>
-      <ol class="lijst" id="locatie-lijst"></ol>
+      <div id="plekken"></div>
       <div class="opnieuw" id="opnieuw">
-        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Route opnieuw beginnen</button>
+        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Alles opnieuw beginnen</button>
         <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
-          <p><strong>Weet je het zeker?</strong> Al je antwoorden van deze route worden gewist. Dit kun je niet ongedaan maken.</p>
+          <p><strong>Weet je het zeker?</strong> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</p>
           <div class="opnieuw__knoppen">
             <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
             <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
@@ -76,7 +70,7 @@
       <p class="net-open" id="net-open" role="status" hidden>✓ Je bent er! Het verhaal en de vraag zijn nu open.</p>
       <div class="slot" id="slot" hidden>
         <p class="slot__teaser" id="slot-teaser"></p>
-        <p class="slot__uitleg">Loop naar deze plek. Daar gaan het verhaal en de vraag open.</p>
+        <p class="slot__uitleg">Kom je hier langs? Dan gaan het verhaal en de vraag open.</p>
         <p class="slot__afstand" id="slot-afstand" aria-live="polite"></p>
         <div class="gps" id="gps-locatie" hidden></div>
       </div>
