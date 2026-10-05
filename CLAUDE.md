@@ -69,7 +69,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 ## Inhoud en didactiek
 
 - **Juiste antwoorden en uitleg** staan in `content/locaties.json`: `juist` (0 = A … 3 = D), `vraag.<taal>.uitleg` (één zin na het antwoord) en `bevestigd`. De brondocumenten bevatten geen antwoorden; een overzicht voor SHSEL staat in het claude.ai-project (`claude/antwoorden-en-uitleg.md`).
-- **Kaart:** elke locatie verwijst met `gebouw` naar een gebouw in `gebouwen`. Meerdere verhalen kunnen bij één gebouw horen. Het gebouw heeft een echt `adres` met huisnummer (voor de BAG-omtrek) of een eigen `vorm` (lijst van [lat, lng]) voor verdwenen gebouwen. Op de kaart: rood met stippelrand = nog niet bezocht, groen met ✓ = alle verhalen bij dat gebouw beantwoord.
+- **Kaart:** elke plek verwijst met `gebouw` naar een gebouw in `gebouwen`. Meerdere verhalen kunnen bij één gebouw horen. Het gebouw heeft een echt `adres` met huisnummer (voor de BAG-omtrek) of een eigen `vorm` (lijst van [lat, lng]) voor verdwenen gebouwen. Op de kaart: rood met stippelrand = nog niet bezocht, groen met ✓ = alle verhalen bij dat gebouw beantwoord.
 - **Ontgrendelen (besluit René, okt 2026):** instelling `instellingen.ontgrendelen` in `content/locaties.json`.
   - `"overal"`: testfase, alle vragen zijn open ("vanaf de bank"). De voettekst meldt dat het een testversie is.
   - `"ter-plekke"`: definitief. Verhaal en vraag gaan pas open binnen `instellingen.straal` meter (afgesproken 30–40 m, standaard 35) van de **rand** van het gebouw. Eenmaal open blijft een plek open. GPS is hulpmiddel, geen controle: de app is statisch, valsspelen is niet te voorkomen en dat is acceptabel.
@@ -81,7 +81,11 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 - Meerkeuzevragen (Haladyna-richtlijnen): vier opties, plausibele afleiders, hooguit één grappige optie, geen "dat is niet te zien", geen ontkennende vraag. Kijkvragen ter plekke hebben de voorkeur.
 - Direct feedback na het antwoord, met één zin uitleg (testing effect).
 - **Historische feiten en juiste antwoorden worden bevestigd door SHSEL**, niet door Claude. Onbevestigde antwoorden krijgen `"bevestigd": false`.
-- Motivatie: korte routes van 6–10 locaties, zichtbare voortgang, teaser van de volgende locatie, beloning bij afronden.
+- **Vrij ontdekken (besluit René, okt 2026):** de app is een wandeling zonder vaste volgorde. Wie toevallig langs een historische plek loopt, kan die bekijken of gewoon doorlopen.
+  - De kaart met alle plekken is het hoofdscherm. Geen routekeuze, geen nummers en geen knop "Volgende" die een volgorde voorschrijft.
+  - De lijst onder de kaart (ook het toegankelijke alternatief voor de kaart): met GPS "Dichtbij" (tot ca. 5 min lopen) en "Verder weg", zonder GPS op naam; bezochte plekken onderaan. De volgorde verspringt niet tijdens het kijken.
+  - `routes` in `content/locaties.json` wordt nu niet gebruikt; kan later terugkomen als optioneel thema- of buurtfilter.
+- Motivatie zonder dwang (zelfdeterminatietheorie: autonomie): zelf kiezen, zichtbare voortgang als verzameling ("plekken ontdekt"), nieuwsgierigheid via de teaser op een plek die nog dicht is. Geen pushmeldingen, trillingen of aftellers.
 
 ## Editor voor vrijwilligers (besluit René, okt 2026)
 

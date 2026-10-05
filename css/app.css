@@ -85,7 +85,7 @@ body:has(#scherm-start:not([hidden])) {
   background: var(--wit) url("../img/vesting-motief.svg") no-repeat left bottom / auto 60vh;
 }
 
-/* Lijsten van routes en locaties */
+/* Lijsten van plekken */
 .lijst { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
 .kaart {
   display: flex; align-items: center; gap: 12px;
@@ -99,7 +99,7 @@ body:has(#scherm-start:not([hidden])) {
 .kaart__nr {
   flex: none; display: grid; place-items: center;
   width: 36px; height: 36px; border-radius: 50%;
-  border: 2px solid var(--grijs); color: var(--grijs);
+  border: 2px dashed var(--rood); color: var(--grijs); /* nog niet bezocht: rode stippelrand, net als op de kaart */
   font: 600 0.95rem var(--letter);
 }
 /* Bezocht = groen met vinkje, net als op de kaart. Rood blijft voor actie en merk. */
