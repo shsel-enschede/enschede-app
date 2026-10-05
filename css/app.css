@@ -135,7 +135,7 @@ body:has(#scherm-start:not([hidden])) {
 .optie--fout { border-color: var(--rood); background: var(--fout-licht); }
 .optie__icoon { margin-left: auto; font: 700 1.1rem var(--letter); }
 
-.feedback { margin-top: 8px; padding: 14px; border-radius: var(--rond); background: var(--vlak); border-left: 6px solid var(--grijs); }
+.feedback { scroll-margin-top: 72px; margin-top: 8px; padding: 14px; border-radius: var(--rond); background: var(--vlak); border-left: 6px solid var(--grijs); }
 .feedback--goed { border-left-color: var(--goed); background: var(--goed-licht); }
 .feedback--fout { border-left-color: var(--rood); }
 .feedback__kop { display: block; font: 700 1.05rem var(--letter); margin-bottom: 4px; }
@@ -235,3 +235,7 @@ body:has(#scherm-start:not([hidden])) {
 .opnieuw__ja, .opnieuw__nee { min-height: 44px; padding: 8px 16px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer; }
 .opnieuw__ja { background: var(--rood); color: #fff; border: 0; }
 .opnieuw__nee { background: var(--wit); color: var(--tekst); border: 1px solid var(--grijs); }
+
+/* Keuzes na een antwoord: "Ook in de buurt" */
+.dichtbij { margin-top: 8px; }
+.dichtbij__klaar { margin: 16px 0 0; padding: 12px 14px; background: var(--goed-licht); color: var(--goed); font-weight: 600; border-radius: var(--rond); }
