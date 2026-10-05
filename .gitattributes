@@ -1,0 +1,2 @@
+# Windows-scripts altijd met Windows-regeleinden, anders werkt dubbelklikken niet.
+*.bat text eol=crlf
