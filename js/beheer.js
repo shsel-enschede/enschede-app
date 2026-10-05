@@ -331,9 +331,13 @@ function toonFotos() {
     if (f.rechten_geregeld !== true) status.push('rechten nog regelen');
     if (!f.alt?.nl) status.push('beschrijving (alt) ontbreekt');
     li.append(maak('span', 'foto-item__status', status.length ? status.join(' · ') : '✓ klaar voor de app'));
-    if (f.bestand && /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/.test(f.bestand)) {
+    // Op je eigen computer (localhost) ook een voorbeeld uit 'fotos-lokaal/' (zie fotos-lokaal-LEESMIJ.md).
+    const lokaal = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+    const naam = f.rechten_geregeld === true || !lokaal ? f.bestand : (f.bestand || f.bestand_klaar);
+    if (naam && /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/.test(naam)) {
       const img = maak('img', 'foto-item__duim');
-      img.src = `fotos/${f.bestand}`;
+      img.src = f.rechten_geregeld === true || !lokaal ? `fotos/${naam}` : `fotos-lokaal/${naam}`;
+      img.addEventListener('error', () => img.remove(), { once: true });
       img.alt = '';
       img.loading = 'lazy';
       li.prepend(img);
