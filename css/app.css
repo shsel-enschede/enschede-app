@@ -239,3 +239,22 @@ body:has(#scherm-start:not([hidden])) {
 /* Keuzes na een antwoord: "Ook in de buurt" */
 .dichtbij { margin-top: 8px; }
 .dichtbij__klaar { margin: 16px 0 0; padding: 12px 14px; background: var(--goed-licht); color: var(--goed); font-weight: 600; border-radius: var(--rond); }
+
+/* "Je loopt langs …" in de voetbalk, binnen duimbereik */
+.langs {
+  max-width: 608px; margin: 0 auto 10px; padding: 10px 12px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  text-align: left; background: var(--vlak); border: 1px solid var(--lijn); border-left: 6px solid var(--merkrood); border-radius: var(--rond);
+}
+.langs__tekst { flex: 1 1 180px; margin: 0; line-height: 1.35; }
+.langs__label { display: block; font-size: 0.875rem; color: var(--grijs); }
+.langs__sub { color: var(--grijs); font-size: 0.9375rem; }
+.langs__knoppen { display: flex; gap: 8px; }
+.langs__bekijk, .langs__verder { min-height: 44px; padding: 8px 14px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer; }
+.langs__bekijk { background: var(--rood); color: #fff; border: 0; }
+.langs__bekijk:hover { background: var(--rood-donker); }
+.langs__verder { background: var(--wit); color: var(--tekst); border: 1px solid var(--grijs); }
+@media (prefers-reduced-motion: no-preference) {
+  .langs:not([hidden]) { animation: langs-in 0.25s ease-out; }
+  @keyframes langs-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}

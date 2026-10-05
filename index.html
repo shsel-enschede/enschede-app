@@ -89,6 +89,14 @@
   </main>
 
   <footer class="voet">
+    <!-- "Je loopt langs …": rustige melding als je toevallig bij een plek bent. Geen pop-up, geen trilling. -->
+    <div class="langs" id="langs" role="status" aria-live="polite" hidden>
+      <p class="langs__tekst"><span class="langs__label">Je loopt langs</span> <strong id="langs-naam"></strong> <span class="langs__sub" id="langs-sub"></span></p>
+      <div class="langs__knoppen">
+        <button type="button" class="langs__bekijk" id="langs-bekijk">Bekijk</button>
+        <button type="button" class="langs__verder" id="langs-verder">Verder lopen</button>
+      </div>
+    </div>
     <button class="knop" id="hoofdknop" type="button">Begin</button>
     <p class="klein voet__info" id="voet-info" hidden>Testversie: alle vragen zijn open, ook als je niet ter plekke bent.</p>
   </footer>

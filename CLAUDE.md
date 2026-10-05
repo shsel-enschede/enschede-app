@@ -85,6 +85,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
   - De kaart met alle plekken is het hoofdscherm. Geen routekeuze, geen nummers en geen knop "Volgende" die een volgorde voorschrijft.
   - De lijst onder de kaart (ook het toegankelijke alternatief voor de kaart): met GPS "Dichtbij" (tot ca. 5 min lopen) en "Verder weg", zonder GPS op naam; bezochte plekken onderaan. De volgorde verspringt niet tijdens het kijken.
   - Na een antwoord: maximaal 3 keuzes "Ook in de buurt" (eerst andere verhalen bij hetzelfde gebouw, dan de dichtstbijzijnde onbezochte plekken, één per ander gebouw; met GPS vanaf je positie, anders vanaf deze plek) en de knop "Terug naar de kaart". Nooit één voorgeschreven "volgende".
+  - **"Je loopt langs …"**: met GPS aan verschijnt bij een onbezochte plek (binnen de straal) een rustige melding in de voetbalk met *Bekijk* en *Verder lopen*. Altijd de dichtstbijzijnde plek. Niet tijdens het lezen van een nog niet beantwoorde plek. Geen pop-up, geen trilling, geen pushmelding; de focus wordt niet verplaatst. *Verder lopen* is een gewone keuze: die plek (of dat gebouw) meldt zich deze sessie niet opnieuw. Dit wordt nergens bewaard.
   - `routes` in `content/locaties.json` wordt nu niet gebruikt; kan later terugkomen als optioneel thema- of buurtfilter.
 - Motivatie zonder dwang (zelfdeterminatietheorie: autonomie): zelf kiezen, zichtbare voortgang als verzameling ("plekken ontdekt"), nieuwsgierigheid via de teaser op een plek die nog dicht is. Geen pushmeldingen, trillingen of aftellers.
 
