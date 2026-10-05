@@ -67,6 +67,15 @@ function leesInstellingen(i) {
 // Foto's uit content/fotos.json. Alleen foto's met een bestand én geregelde rechten komen in de app.
 const BESTAND_PATROON = /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/;
 
+// Lokale proefversie: alleen op je eigen computer (localhost) toont de app ook foto's waarvan de
+// rechten nog niet geregeld zijn. Die staan in de map 'fotos-lokaal/'. Die map staat in .gitignore:
+// hij komt nooit op GitHub en dus nooit op de live site. Zie fotos-lokaal-LEESMIJ.md.
+export const LOKAAL = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+
+function geldigBestand(naam) {
+  return typeof naam === 'string' && BESTAND_PATROON.test(naam);
+}
+
 async function laadFotos(taal) {
   const fotos = new Map();
   try {
@@ -74,11 +83,23 @@ async function laadFotos(taal) {
     if (!antwoord.ok) return fotos;
     const data = await antwoord.json();
     for (const f of Array.isArray(data.fotos) ? data.fotos : []) {
-      if (!ID_PATROON.test(f?.id ?? '') || f.rechten_geregeld !== true) continue;
-      if (typeof f.bestand !== 'string' || !BESTAND_PATROON.test(f.bestand)) continue;
+      if (!ID_PATROON.test(f?.id ?? '')) continue;
+      let src = null;
+      let proef = false;
+      if (f.rechten_geregeld === true && geldigBestand(f.bestand)) {
+        src = `fotos/${f.bestand}`;
+      } else if (LOKAAL) {
+        const naam = geldigBestand(f.bestand) ? f.bestand : f.bestand_klaar;
+        if (geldigBestand(naam)) {
+          src = `fotos-lokaal/${naam}`;
+          proef = true;
+        }
+      }
+      if (!src) continue;
       fotos.set(f.id, {
         id: f.id,
-        src: `fotos/${f.bestand}`,
+        src,
+        proef,
         alt: isTekst(f.alt?.[taal], 300) ? f.alt[taal] : '',
         bijschrift: isTekst(f.bijschrift?.[taal], 300) ? f.bijschrift[taal] : '',
         bron: [f.bron, f.documentnummer].filter((x) => isTekst(x, 100)).join(', '),

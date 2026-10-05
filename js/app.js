@@ -326,7 +326,10 @@ function toonFotos(loc, open) {
     img.alt = open ? foto.alt : '';
     img.loading = 'lazy';
     img.decoding = 'async';
+    // Een foto die niet laadt (ontbreekt in de map) verbergen we, in plaats van een kapot plaatje.
+    img.addEventListener('error', () => { figuur.hidden = true; }, { once: true });
     figuur.append(img);
+    if (foto.proef) figuur.append(maak('span', 'foto__proef', 'Proef: rechten nog niet bevestigd'));
     if (open && (foto.bijschrift || foto.bron)) {
       const onder = maak('figcaption', '', foto.bijschrift);
       if (foto.bron) onder.append(maak('span', 'foto__bron', `Bron: ${foto.bron}`));
