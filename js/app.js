@@ -126,7 +126,12 @@ function zetHoofdknop(tekst, actie) {
   el.hoofdknop.hidden = !tekst;
   el.hoofdknop.textContent = tekst || '';
   hoofdknopActie = actie || null;
-  el.voet.hidden = !tekst && el.voetInfo.hidden; // geen lege balk onderin
+  werkVoetBij();
+}
+
+// Geen lege balk onderin.
+function werkVoetBij() {
+  el.voet.hidden = el.hoofdknop.hidden && el.voetInfo.hidden && $('langs').hidden;
 }
 
 function ga(pad) {
@@ -162,7 +167,8 @@ function kaartScherm() {
     klaar === totaal ? `Alle ${totaal} plekken bezocht!` : `${klaar} van ${totaal} plekken bezocht`;
 
   vulPlekken();
-  werkKaartKnopBij();
+  zetHoofdknop(null); // op de kaart kiest de wandelaar zelf; bij een plek verschijnt "Je loopt langs …"
+  werkLangsBij();
 
   // Opnieuw beginnen: alleen zichtbaar als er iets te wissen is; bevestiging in de pagina zelf.
   $('opnieuw').hidden = klaar === 0;
@@ -229,12 +235,72 @@ function vulPlekken() {
   $('plekken').replaceChildren(...blokken);
 }
 
-// Hoofdknop van de kaart: alleen als je bij een plek staat. Verder kiest de wandelaar zelf.
-function werkKaartKnopBij() {
-  const hier = positie() && alles.locaties.find((id) => antwoordVan(id) === null && indicaties.get(id)?.soort === 'er');
-  if (hier) zetHoofdknop(`Je bent er! Open: ${inhoud.locaties.get(hier).titel}`, () => ga(`#/plek/${hier}`));
-  else zetHoofdknop(null);
+// ---------- "Je loopt langs …" ----------
+// Kom je (met GPS) toevallig bij een plek die je nog niet bezocht hebt, dan verschijnt onderin een rustige melding:
+// Bekijk of Verder lopen. Verder lopen telt als gewone keuze: die plek meldt zich deze sessie niet opnieuw.
+// Niets wordt bewaard of verstuurd (zie CLAUDE.md, Veiligheid).
+
+const weggetikt = new Set(); // gebouw- of plek-sleutels, alleen in het geheugen
+let langsSleutel = null;
+let langsDoel = null;
+
+function sleutelVan(loc) {
+  return loc.gebouw ? `g:${loc.gebouw}` : `p:${loc.id}`;
 }
+
+function werkLangsBij() {
+  const vak = $('langs');
+  let doel = null;
+  // Niet storen tijdens het lezen: op een open, nog niet beantwoorde plek geen melding.
+  const aanHetLezen = huidig.scherm === 'locatie' && isOpen(huidig.loc) && antwoordVan(huidig.loc.id) === null;
+  if (positie() && !aanHetLezen && (huidig.scherm === 'kaart' || huidig.scherm === 'locatie')) {
+    const hier = huidig.loc ? sleutelVan(huidig.loc) : null;
+    // Alle onbezochte plekken waar je nu bent, per gebouw samengenomen.
+    const ter = alles.locaties
+      .map((id) => inhoud.locaties.get(id))
+      .filter((loc) => antwoordVan(loc.id) === null && indicaties.get(loc.id)?.soort === 'er')
+      .filter((loc) => sleutelVan(loc) !== hier && !weggetikt.has(sleutelVan(loc)))
+      .sort((x, y) => indicaties.get(x.id).meters - indicaties.get(y.id).meters); // dichtstbijzijnde eerst
+    if (ter.length) {
+      const eerste = ter[0];
+      const zelfde = ter.filter((loc) => sleutelVan(loc) === sleutelVan(eerste));
+      const gebouw = eerste.gebouw ? inhoud.gebouwen.get(eerste.gebouw) : null;
+      doel = {
+        sleutel: sleutelVan(eerste),
+        id: eerste.id,
+        naam: gebouw?.naam ?? eerste.titel,
+        sub: zelfde.length > 1 ? `· ${zelfde.length} verhalen` : '',
+      };
+    }
+  }
+  if (!doel) {
+    langsSleutel = null;
+    langsDoel = null;
+    vak.hidden = true;
+    werkVoetBij();
+    return;
+  }
+  langsDoel = doel;
+  if (doel.sleutel === langsSleutel && !vak.hidden) return; // niets veranderd: niet opnieuw voorlezen
+  langsSleutel = doel.sleutel;
+  $('langs-naam').textContent = doel.naam;
+  $('langs-sub').textContent = doel.sub;
+  vak.hidden = false;
+  werkVoetBij();
+}
+
+$('langs-bekijk').addEventListener('click', () => {
+  if (!langsDoel) return;
+  const id = langsDoel.id;
+  $('langs').hidden = true;
+  werkVoetBij();
+  ga(`#/plek/${id}`);
+});
+$('langs-verder').addEventListener('click', () => {
+  if (langsDoel) weggetikt.add(langsDoel.sleutel);
+  werkLangsBij(); // eventueel meldt zich een andere plek waar je ook bent
+  el.hoofdknop.focus({ preventScroll: true });
+});
 
 // Tik op een gebouw: één verhaal -> direct openen; meer verhalen -> kiezen.
 function kiesGebouw(groep) {
@@ -354,6 +420,8 @@ function toonUitslag(loc, keuze, knoppen, net) {
     requestAnimationFrame(() => fb.scrollIntoView({ behavior: zacht, block: 'start' }));
   }
 
+  werkLangsBij();
+
   // Geen voorgeschreven volgende plek: de wandelaar kiest zelf uit "Ook in de buurt" of de kaart.
   const klaar = aantalBezocht();
   zetHoofdknop(klaar === alles.locaties.length ? 'Alle plekken bezocht! Bekijk de kaart' : 'Terug naar de kaart', () => ga('#/kaart'));
@@ -414,13 +482,15 @@ function navigeer() {
   if (pagina === 'routes' || (pagina === 'route' && !oudId)) return location.replace('#/kaart');
   if (pagina === 'route') return location.replace(`#/plek/${oudId}`);
 
-  if (pagina === 'kaart') return kaartScherm();
+  if (pagina === 'kaart') return kaartScherm(); // roept zelf werkLangsBij aan
   if (pagina === 'plek') {
     const loc = inhoud.locaties.get(id);
     if (!loc) return location.replace('#/kaart');
-    return locatieScherm(loc);
+    locatieScherm(loc);
+    return werkLangsBij();
   }
-  return startScherm();
+  startScherm();
+  return werkLangsBij();
 }
 
 // Bij elke GPS-meting alleen de afstanden en knoppen bijwerken, niet het hele scherm (rustig beeld).
@@ -445,7 +515,6 @@ volg((p) => {
         if (loc) sub.textContent = afstandTekst(loc) ?? loc.adres;
       }
     }
-    werkKaartKnopBij();
     toonPositie(p);
   } else if (huidig.scherm === 'locatie' && $('slot').hidden === false) {
     if (isOpen(huidig.loc)) {
@@ -455,6 +524,7 @@ volg((p) => {
       if (statusAnders) vulGpsPaneel($('gps-locatie'));
     }
   }
+  werkLangsBij();
 });
 
 $('opnieuw-knop').addEventListener('click', () => {
