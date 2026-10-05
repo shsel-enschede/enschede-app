@@ -30,6 +30,8 @@ const el = {
 
 // Grens voor de groep "Dichtbij" in de lijst: ca. 5 minuten lopen.
 const DICHTBIJ = 400; // meter
+// Na een antwoord: zoveel keuzes "Ook in de buurt". Weinig opties = snel kiezen (wet van Hick).
+const KEUZES_NA_ANTWOORD = 3;
 
 let inhoud = null;
 let alles = null; // alle plekken als één verzameling: { id, locaties: [ids] }
@@ -179,15 +181,15 @@ function kaartScherm() {
 }
 
 // Eén plek als knop in een lijst. Geen nummers: die suggereren een volgorde.
-function plekKnop(loc) {
+function plekKnop(loc, vasteSub = null) {
   const bezocht = antwoordVan(loc.id) !== null;
   const knop = maak('button', bezocht ? 'kaart kaart--bezocht' : 'kaart');
   knop.type = 'button';
   knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : ''));
   const tekst = maak('span', 'kaart__tekst');
   tekst.append(maak('span', 'kaart__titel', loc.titel));
-  const sub = maak('span', 'kaart__sub', bezocht ? 'Bezocht' : afstandTekst(loc) ?? loc.adres);
-  if (!bezocht) sub.dataset.afstand = loc.id;
+  const sub = maak('span', 'kaart__sub', bezocht ? 'Bezocht' : vasteSub ?? afstandTekst(loc) ?? loc.adres);
+  if (!bezocht && !vasteSub) sub.dataset.afstand = loc.id;
   tekst.append(sub);
   knop.append(tekst);
   knop.setAttribute('aria-label', `${loc.titel}${bezocht ? ', bezocht' : ''}`);
@@ -200,7 +202,7 @@ function plekKnop(loc) {
 function lijstBlok(kop, locaties) {
   if (!locaties.length) return [];
   const lijst = maak('ul', 'lijst');
-  lijst.append(...locaties.map(plekKnop));
+  lijst.append(...locaties.map((loc) => plekKnop(loc)));
   return [maak('h2', 'tussenkop', kop), lijst];
 }
 
@@ -239,7 +241,7 @@ function kiesGebouw(groep) {
   if (groep.locaties.length === 1) return ga(`#/plek/${groep.locaties[0].id}`);
   $('gebouwkeuze-titel').textContent = `${groep.gebouw.naam}: ${groep.locaties.length} verhalen`;
   const lijst = $('gebouwkeuze-lijst');
-  lijst.replaceChildren(...groep.locaties.map(plekKnop));
+  lijst.replaceChildren(...groep.locaties.map((loc) => plekKnop(loc)));
   const keuze = $('gebouwkeuze');
   keuze.hidden = false;
   keuze.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
@@ -257,6 +259,7 @@ function locatieScherm(loc, { netOpen = false } = {}) {
   $('locatie-tekst').hidden = !open;
   $('vraag').hidden = !open;
   $('net-open').hidden = !netOpen;
+  $('dichtbij').hidden = true;
   if (!open) {
     const eersteZin = (loc.tekst.match(/^.*?[.!?](\s|$)/) ?? [loc.tekst])[0].trim();
     $('slot-teaser').textContent = eersteZin;
@@ -344,14 +347,55 @@ function toonUitslag(loc, keuze, knoppen, net) {
     maak('span', '', loc.uitleg),
   );
   fb.hidden = false;
+  toonDichtbij(loc);
   if (net) {
-    // De uitleg staat onderaan: scroll naar het einde zodat hij volledig boven de knop staat.
-    requestAnimationFrame(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    // Uitleg bovenaan in beeld (eerst de uitleg lezen), de keuzes eronder lopen het beeld in.
+    const zacht = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    requestAnimationFrame(() => fb.scrollIntoView({ behavior: zacht, block: 'start' }));
   }
 
-  // Geen voorgeschreven volgende plek: terug naar de kaart, de wandelaar kiest zelf.
+  // Geen voorgeschreven volgende plek: de wandelaar kiest zelf uit "Ook in de buurt" of de kaart.
   const klaar = aantalBezocht();
   zetHoofdknop(klaar === alles.locaties.length ? 'Alle plekken bezocht! Bekijk de kaart' : 'Terug naar de kaart', () => ga('#/kaart'));
+}
+
+// Na een antwoord een paar onbezochte plekken in de buurt als keuze aanbieden, plus de kaart (hoofdknop).
+// Eerst andere verhalen bij hetzelfde gebouw, dan de dichtstbijzijnde plekken:
+//   met GPS: gemeten vanaf je eigen positie;  zonder GPS: vanaf deze plek.
+function toonDichtbij(loc) {
+  const vak = $('dichtbij');
+  const metGps = Boolean(positie());
+  const kandidaten = alles.locaties
+    .filter((id) => id !== loc.id && antwoordVan(id) === null)
+    .map((id) => {
+      const ander = inhoud.locaties.get(id);
+      const zelfdeGebouw = Boolean(loc.gebouw) && ander.gebouw === loc.gebouw;
+      const meters = metGps
+        ? indicaties.get(id)?.meters ?? Infinity
+        : afstandTot([loc.positie.lat, loc.positie.lng], { punt: [ander.positie.lat, ander.positie.lng] });
+      return { ander, zelfdeGebouw, meters };
+    })
+    .sort((x, y) => (y.zelfdeGebouw - x.zelfdeGebouw) || (x.meters - y.meters))
+    // Echte keuze in richting: van elk ander gebouw maar één plek.
+    .filter(({ ander, zelfdeGebouw }, _, lijst) => zelfdeGebouw || !ander.gebouw
+      || lijst.find((k) => !k.zelfdeGebouw && k.ander.gebouw === ander.gebouw).ander === ander)
+    .slice(0, KEUZES_NA_ANTWOORD);
+
+  if (!kandidaten.length) {
+    vak.replaceChildren(maak('p', 'dichtbij__klaar', 'Je hebt alle plekken bezocht. Knap gedaan!'));
+    vak.hidden = false;
+    return;
+  }
+  const lijst = maak('ul', 'lijst');
+  for (const { ander, zelfdeGebouw, meters } of kandidaten) {
+    let sub;
+    if (zelfdeGebouw) sub = 'Ook bij dit gebouw';
+    else if (metGps) sub = afstandTekst(ander) ?? ander.adres;
+    else sub = Number.isFinite(meters) && meters >= 1 ? `${indicatie(meters, 0, 0).tekst} vanaf hier` : 'Vlakbij';
+    lijst.append(plekKnop(ander, sub));
+  }
+  vak.replaceChildren(maak('h2', 'tussenkop', 'Ook in de buurt'), lijst);
+  vak.hidden = false;
 }
 
 function toonFout(tekst) {

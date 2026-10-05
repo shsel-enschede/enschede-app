@@ -84,6 +84,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 - **Vrij ontdekken (besluit René, okt 2026):** de app is een wandeling zonder vaste volgorde. Wie toevallig langs een historische plek loopt, kan die bekijken of gewoon doorlopen.
   - De kaart met alle plekken is het hoofdscherm. Geen routekeuze, geen nummers en geen knop "Volgende" die een volgorde voorschrijft.
   - De lijst onder de kaart (ook het toegankelijke alternatief voor de kaart): met GPS "Dichtbij" (tot ca. 5 min lopen) en "Verder weg", zonder GPS op naam; bezochte plekken onderaan. De volgorde verspringt niet tijdens het kijken.
+  - Na een antwoord: maximaal 3 keuzes "Ook in de buurt" (eerst andere verhalen bij hetzelfde gebouw, dan de dichtstbijzijnde onbezochte plekken, één per ander gebouw; met GPS vanaf je positie, anders vanaf deze plek) en de knop "Terug naar de kaart". Nooit één voorgeschreven "volgende".
   - `routes` in `content/locaties.json` wordt nu niet gebruikt; kan later terugkomen als optioneel thema- of buurtfilter.
 - Motivatie zonder dwang (zelfdeterminatietheorie: autonomie): zelf kiezen, zichtbare voortgang als verzameling ("plekken ontdekt"), nieuwsgierigheid via de teaser op een plek die nog dicht is. Geen pushmeldingen, trillingen of aftellers.
 
