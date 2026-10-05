@@ -41,11 +41,16 @@
 
     <!-- Ontdekkaart: alle plekken, zonder vaste volgorde -->
     <section class="scherm" id="scherm-kaart" hidden>
-      <p>Rood zijn plekken die je nog kunt ontdekken, groen met ✓ heb je al bezocht. Tik op een gebouw voor het verhaal.</p>
-      <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
-      <p class="klein" id="voortgang-tekst" role="status"></p>
+      <p>Rood zijn plekken die je nog kunt ontdekken, groen met ✓ heb je al ontdekt. Tik op een gebouw voor het verhaal.</p>
+      <!-- Voortgang als verzameling: wat je al ontdekt hebt, niet wat je nog "moet" -->
+      <div class="ontdekt">
+        <p class="ontdekt__tal" id="voortgang-tekst" role="status"></p>
+        <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
+        <p class="klein ontdekt__totaal" id="voortgang-totaal"></p>
+        <ul class="ontdekt__gebouwen" id="ontdekt-gebouwen" aria-label="Ontdekte gebouwen" hidden></ul>
+      </div>
       <div class="gps" id="gps-kaart" hidden></div>
-      <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet bezocht, groen met vinkje is bezocht. Onder de kaart staan dezelfde plekken als lijst."></div>
+      <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet ontdekt, groen met vinkje is ontdekt. Onder de kaart staan dezelfde plekken als lijst."></div>
       <div class="gebouwkeuze" id="gebouwkeuze" hidden>
         <p class="gebouwkeuze__titel" id="gebouwkeuze-titel"></p>
         <ul class="lijst" id="gebouwkeuze-lijst"></ul>
@@ -82,6 +87,7 @@
         </fieldset>
       </form>
       <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+      <p class="mijlpaal" id="mijlpaal" hidden></p>
       <div class="dichtbij" id="dichtbij" hidden></div>
     </section>
 

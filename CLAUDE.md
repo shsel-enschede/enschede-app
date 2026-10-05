@@ -55,7 +55,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 | Grijs | `#707480` | Secundaire tekst, lijnen (kleur van de logotekst) |
 | Lijn | `#E4E4E7` | Randen, lege voortgang |
 | Wit | `#FFFFFF` | Achtergrond, zoals het briefpapier |
-| Groen | `#1E6B3A` | Goed antwoord en "bezocht", altijd met ✓ |
+| Groen | `#1E6B3A` | Goed antwoord en "ontdekt", altijd met ✓ |
 
 - **Letters:** koppen in Sorts Mill Goudy (vrije variant van Goudy Old Style uit het briefpapier, zelf gehost in `fonts/`, OFL-licentie). Lopende tekst en knoppen in de systeemletter.
 - **Vormtaal:** het vestingmotief linksonder op het startscherm (`img/vesting-motief.svg`) en de voortgangsbalk met schuine segmenten, beide uit het briefpapier.
@@ -69,7 +69,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 ## Inhoud en didactiek
 
 - **Juiste antwoorden en uitleg** staan in `content/locaties.json`: `juist` (0 = A … 3 = D), `vraag.<taal>.uitleg` (één zin na het antwoord) en `bevestigd`. De brondocumenten bevatten geen antwoorden; een overzicht voor SHSEL staat in het claude.ai-project (`claude/antwoorden-en-uitleg.md`).
-- **Kaart:** elke plek verwijst met `gebouw` naar een gebouw in `gebouwen`. Meerdere verhalen kunnen bij één gebouw horen. Het gebouw heeft een echt `adres` met huisnummer (voor de BAG-omtrek) of een eigen `vorm` (lijst van [lat, lng]) voor verdwenen gebouwen. Op de kaart: rood met stippelrand = nog niet bezocht, groen met ✓ = alle verhalen bij dat gebouw beantwoord.
+- **Kaart:** elke plek verwijst met `gebouw` naar een gebouw in `gebouwen`. Meerdere verhalen kunnen bij één gebouw horen. Het gebouw heeft een echt `adres` met huisnummer (voor de BAG-omtrek) of een eigen `vorm` (lijst van [lat, lng]) voor verdwenen gebouwen. Op de kaart: rood met stippelrand = nog niet ontdekt, groen met ✓ = alle verhalen bij dat gebouw beantwoord.
 - **Ontgrendelen (besluit René, okt 2026):** instelling `instellingen.ontgrendelen` in `content/locaties.json`.
   - `"overal"`: testfase, alle vragen zijn open ("vanaf de bank"). De voettekst meldt dat het een testversie is.
   - `"ter-plekke"`: definitief. Verhaal en vraag gaan pas open binnen `instellingen.straal` meter (afgesproken 30–40 m, standaard 35) van de **rand** van het gebouw. Eenmaal open blijft een plek open. GPS is hulpmiddel, geen controle: de app is statisch, valsspelen is niet te voorkomen en dat is acceptabel.
@@ -83,9 +83,11 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 - **Historische feiten en juiste antwoorden worden bevestigd door SHSEL**, niet door Claude. Onbevestigde antwoorden krijgen `"bevestigd": false`.
 - **Vrij ontdekken (besluit René, okt 2026):** de app is een wandeling zonder vaste volgorde. Wie toevallig langs een historische plek loopt, kan die bekijken of gewoon doorlopen.
   - De kaart met alle plekken is het hoofdscherm. Geen routekeuze, geen nummers en geen knop "Volgende" die een volgorde voorschrijft.
-  - De lijst onder de kaart (ook het toegankelijke alternatief voor de kaart): met GPS "Dichtbij" (tot ca. 5 min lopen) en "Verder weg", zonder GPS op naam; bezochte plekken onderaan. De volgorde verspringt niet tijdens het kijken.
+  - De lijst onder de kaart (ook het toegankelijke alternatief voor de kaart): met GPS "Dichtbij" (tot ca. 5 min lopen) en "Verder weg", zonder GPS op naam; ontdekte plekken onderaan ("Al ontdekt"). De volgorde verspringt niet tijdens het kijken.
   - Na een antwoord: maximaal 3 keuzes "Ook in de buurt" (eerst andere verhalen bij hetzelfde gebouw, dan de dichtstbijzijnde onbezochte plekken, één per ander gebouw; met GPS vanaf je positie, anders vanaf deze plek) en de knop "Terug naar de kaart". Nooit één voorgeschreven "volgende".
   - **"Je loopt langs …"**: met GPS aan verschijnt bij een onbezochte plek (binnen de straal) een rustige melding in de voetbalk met *Bekijk* en *Verder lopen*. Altijd de dichtstbijzijnde plek. Niet tijdens het lezen van een nog niet beantwoorde plek. Geen pop-up, geen trilling, geen pushmelding; de focus wordt niet verplaatst. *Verder lopen* is een gewone keuze: die plek (of dat gebouw) meldt zich deze sessie niet opnieuw. Dit wordt nergens bewaard.
+  - **Voortgang als verzameling:** we tellen wat je ontdekt hebt ("3 plekken ontdekt"), niet wat je nog moet. Een plek is ontdekt zodra de vraag beantwoord is, goed of fout. Bewust geen score. Op de kaart een rij met ontdekte gebouwen (alleen wat je al hebt, geen lege vakjes). Na een antwoord een mijlpaal: "Grote Kerk: 2 van 4 verhalen ontdekt" of "Alle 4 verhalen bij Grote Kerk ontdekt!".
+  - In teksten voor de gebruiker: "ontdekt", niet "bezocht".
   - `routes` in `content/locaties.json` wordt nu niet gebruikt; kan later terugkomen als optioneel thema- of buurtfilter.
 - Motivatie zonder dwang (zelfdeterminatietheorie: autonomie): zelf kiezen, zichtbare voortgang als verzameling ("plekken ontdekt"), nieuwsgierigheid via de teaser op een plek die nog dicht is. Geen pushmeldingen, trillingen of aftellers.
 
