@@ -1,6 +1,6 @@
 // Ontdekkaart: de gebouwen van alle plekken worden ingekleurd.
 // (De functies accepteren een verzameling { id, locaties }, zodat later ook een thema of buurt kan.)
-//   rood, stippelrand  = nog niet (alles) bezocht
+//   rood, stippelrand  = nog niet (alles) ontdekt
 //   groen, met ✓       = alle verhalen bij dit gebouw beantwoord
 // Kaartlaag: BRT-Achtergrondkaart (grijs) van PDOK, de geodienst van de overheid. Gratis, zonder sleutel, zonder tracking.
 // Gebouwomtrek: zie gebouwen.js.

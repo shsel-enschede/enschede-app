@@ -146,7 +146,7 @@ function startScherm() {
   zetHoofdknop('Bekijk de kaart', () => ga('#/kaart'));
 }
 
-function aantalBezocht() {
+function aantalOntdekt() {
   return alles.locaties.filter((id) => antwoordVan(id) !== null).length;
 }
 
@@ -156,15 +156,14 @@ function kaartScherm() {
   vulGpsPaneel($('gps-kaart'));
 
   const totaal = alles.locaties.length;
-  const klaar = aantalBezocht();
+  const klaar = aantalOntdekt();
   const balk = $('voortgang');
   balk.setAttribute('aria-valuemax', String(totaal));
   balk.setAttribute('aria-valuenow', String(klaar));
-  balk.setAttribute('aria-label', 'Bezochte plekken');
+  balk.setAttribute('aria-label', 'Ontdekte plekken');
   // Eén schuin segment per plek, zoals de rode balk onderaan het briefpapier
   balk.replaceChildren(...alles.locaties.map((_, i) => maak('span', i < klaar ? 'voortgang__deel voortgang__deel--klaar' : 'voortgang__deel')));
-  $('voortgang-tekst').textContent =
-    klaar === totaal ? `Alle ${totaal} plekken bezocht!` : `${klaar} van ${totaal} plekken bezocht`;
+  toonOntdekt(klaar, totaal);
 
   vulPlekken();
   zetHoofdknop(null); // op de kaart kiest de wandelaar zelf; bij een plek verschijnt "Je loopt langs …"
@@ -186,6 +185,47 @@ function kaartScherm() {
   });
 }
 
+// Voortgang als verzameling: tel wat je ontdekt hebt, niet wat je nog "moet".
+// Goed of fout antwoorden maakt niet uit: een plek is ontdekt zodra je de vraag hebt beantwoord.
+// Er is bewust geen score (lage drempel, ook voor kinderen; leren gaat voor punten).
+function toonOntdekt(klaar, totaal) {
+  const tal = $('voortgang-tekst');
+  if (klaar === 0) tal.textContent = 'Nog niets ontdekt. Begin waar je wilt.';
+  else if (klaar === totaal) tal.textContent = `Alles ontdekt: alle ${totaal} plekken!`;
+  else tal.textContent = `${klaar} ${klaar === 1 ? 'plek' : 'plekken'} ontdekt`;
+  $('voortgang-totaal').textContent = klaar === totaal ? 'Knap gedaan!' : `In de stad zijn ${totaal} plekken met een verhaal.`;
+
+  // Verzameling van gebouwen waar je iets ontdekt hebt (geen lege vakjes: alleen wat je al hebt).
+  const lijst = $('ontdekt-gebouwen');
+  const items = gebouwTellingen()
+    .filter((t) => t.klaar > 0)
+    .sort((x, y) => (y.klaar === y.totaal) - (x.klaar === x.totaal) || x.naam.localeCompare(y.naam, 'nl'))
+    .map((t) => {
+      const af = t.klaar === t.totaal;
+      const li = maak('li', af ? 'ontdekt__gebouw ontdekt__gebouw--af' : 'ontdekt__gebouw',
+        `${af ? '✓ ' : ''}${t.naam}${t.totaal > 1 && !af ? ` ${t.klaar}/${t.totaal}` : ''}`);
+      if (!af) li.setAttribute('aria-label', `${t.naam}: ${t.klaar} van ${t.totaal} verhalen ontdekt`);
+      return li;
+    });
+  lijst.replaceChildren(...items);
+  lijst.hidden = !items.length;
+}
+
+// Per gebouw (of losse plek): naam, aantal verhalen en aantal ontdekt.
+function gebouwTellingen() {
+  const map = new Map();
+  for (const id of alles.locaties) {
+    const loc = inhoud.locaties.get(id);
+    const sleutel = loc.gebouw ?? `p:${loc.id}`;
+    const naam = (loc.gebouw && inhoud.gebouwen.get(loc.gebouw)?.naam) || loc.titel;
+    if (!map.has(sleutel)) map.set(sleutel, { sleutel, naam, totaal: 0, klaar: 0 });
+    const t = map.get(sleutel);
+    t.totaal += 1;
+    if (antwoordVan(id) !== null) t.klaar += 1;
+  }
+  return [...map.values()];
+}
+
 // Eén plek als knop in een lijst. Geen nummers: die suggereren een volgorde.
 function plekKnop(loc, vasteSub = null) {
   const bezocht = antwoordVan(loc.id) !== null;
@@ -194,11 +234,11 @@ function plekKnop(loc, vasteSub = null) {
   knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : ''));
   const tekst = maak('span', 'kaart__tekst');
   tekst.append(maak('span', 'kaart__titel', loc.titel));
-  const sub = maak('span', 'kaart__sub', bezocht ? 'Bezocht' : vasteSub ?? afstandTekst(loc) ?? loc.adres);
+  const sub = maak('span', 'kaart__sub', bezocht ? 'Ontdekt' : vasteSub ?? afstandTekst(loc) ?? loc.adres);
   if (!bezocht && !vasteSub) sub.dataset.afstand = loc.id;
   tekst.append(sub);
   knop.append(tekst);
-  knop.setAttribute('aria-label', `${loc.titel}${bezocht ? ', bezocht' : ''}`);
+  knop.setAttribute('aria-label', `${loc.titel}${bezocht ? ', ontdekt' : ''}`);
   knop.addEventListener('click', () => ga(`#/plek/${loc.id}`));
   const li = maak('li');
   li.append(knop);
@@ -214,7 +254,7 @@ function lijstBlok(kop, locaties) {
 
 // Lijst onder de kaart (ook het toegankelijke alternatief voor de kaart).
 // Met GPS: "Dichtbij" en "Verder weg" als gelijkwaardige keuzes; zonder GPS op naam.
-// Bezochte plekken onderaan. De volgorde ligt vast tot het scherm opnieuw opent (rustig beeld).
+// Ontdekte plekken onderaan. De volgorde ligt vast tot het scherm opnieuw opent (rustig beeld).
 function vulPlekken() {
   const locs = alles.locaties.map((id) => inhoud.locaties.get(id));
   const open = locs.filter((loc) => antwoordVan(loc.id) === null);
@@ -231,7 +271,7 @@ function vulPlekken() {
   } else {
     blokken.push(...lijstBlok('Alle plekken', open.sort(opNaam)));
   }
-  blokken.push(...lijstBlok('Al bezocht', bezocht.sort(opNaam)));
+  blokken.push(...lijstBlok('Al ontdekt', bezocht.sort(opNaam)));
   $('plekken').replaceChildren(...blokken);
 }
 
@@ -326,6 +366,7 @@ function locatieScherm(loc, { netOpen = false } = {}) {
   $('vraag').hidden = !open;
   $('net-open').hidden = !netOpen;
   $('dichtbij').hidden = true;
+  $('mijlpaal').hidden = true;
   if (!open) {
     const eersteZin = (loc.tekst.match(/^.*?[.!?](\s|$)/) ?? [loc.tekst])[0].trim();
     $('slot-teaser').textContent = eersteZin;
@@ -413,6 +454,7 @@ function toonUitslag(loc, keuze, knoppen, net) {
     maak('span', '', loc.uitleg),
   );
   fb.hidden = false;
+  if (net) toonMijlpaal(loc);
   toonDichtbij(loc);
   if (net) {
     // Uitleg bovenaan in beeld (eerst de uitleg lezen), de keuzes eronder lopen het beeld in.
@@ -423,8 +465,24 @@ function toonUitslag(loc, keuze, knoppen, net) {
   werkLangsBij();
 
   // Geen voorgeschreven volgende plek: de wandelaar kiest zelf uit "Ook in de buurt" of de kaart.
-  const klaar = aantalBezocht();
-  zetHoofdknop(klaar === alles.locaties.length ? 'Alle plekken bezocht! Bekijk de kaart' : 'Terug naar de kaart', () => ga('#/kaart'));
+  const klaar = aantalOntdekt();
+  zetHoofdknop(klaar === alles.locaties.length ? 'Alles ontdekt! Bekijk de kaart' : 'Terug naar de kaart', () => ga('#/kaart'));
+}
+
+// Direct na een antwoord: wat dit toevoegt aan je verzameling (ook bij een fout antwoord telt de plek).
+// Bij een gebouw met meer verhalen: hoeveel je er nu hebt, of dat het gebouw compleet is.
+function toonMijlpaal(loc) {
+  const p = $('mijlpaal');
+  const t = loc.gebouw ? gebouwTellingen().find((g) => g.sleutel === loc.gebouw) : null;
+  const klaar = aantalOntdekt();
+  let tekst;
+  if (klaar === alles.locaties.length) tekst = `✓ Je hebt alle ${klaar} plekken ontdekt!`;
+  else if (t && t.totaal > 1 && t.klaar === t.totaal) tekst = `✓ Alle ${t.totaal} verhalen bij ${t.naam} ontdekt!`;
+  else if (t && t.totaal > 1) tekst = `${t.naam}: ${t.klaar} van ${t.totaal} verhalen ontdekt.`;
+  else tekst = `Plek ontdekt. Je hebt er nu ${klaar}.`;
+  p.textContent = tekst;
+  p.classList.toggle('mijlpaal--af', tekst.startsWith('✓'));
+  p.hidden = false;
 }
 
 // Na een antwoord een paar onbezochte plekken in de buurt als keuze aanbieden, plus de kaart (hoofdknop).
@@ -450,7 +508,7 @@ function toonDichtbij(loc) {
     .slice(0, KEUZES_NA_ANTWOORD);
 
   if (!kandidaten.length) {
-    vak.replaceChildren(maak('p', 'dichtbij__klaar', 'Je hebt alle plekken bezocht. Knap gedaan!'));
+    vak.replaceChildren(maak('p', 'dichtbij__klaar', 'Je hebt alle plekken ontdekt. Knap gedaan!'));
     vak.hidden = false;
     return;
   }
