@@ -79,7 +79,8 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 - **Lokale proefversie:** alleen op `localhost` toont de app ook foto's zonder geregelde rechten, uit `fotos-lokaal/` (staat in `.gitignore`, komt nooit op GitHub), met het label "Proef: rechten nog niet bevestigd". Starten met `start-lokaal.bat` (server alleen op 127.0.0.1). Uitleg: `fotos-lokaal-LEESMIJ.md`.
 - Doelgroep: jeugd en gezinnen, ook volwassenen. Moeilijke woorden uitleggen, zoals in de bronteksten.
 - Meerkeuzevragen (Haladyna-richtlijnen): vier opties, plausibele afleiders, hooguit één grappige optie, geen "dat is niet te zien", geen ontkennende vraag. Kijkvragen ter plekke hebben de voorkeur.
-- Direct feedback na het antwoord, met één zin uitleg (testing effect).
+- Direct feedback na het antwoord, met één zin uitleg (testing effect). Bij een fout antwoord noemt de feedback het hele goede antwoord ("Het goede antwoord is B: …"), niet alleen de letter. Na het antwoord blijven je keuze, het goede antwoord en de uitleg samen in beeld als dat past.
+- **Beloningsmoment (piek-eindregel):** na elk antwoord een groen vak "✓ Plek ontdekt!" met de voortgangsbalk, waarin het nieuwe segment volloopt. Ook bij een fout antwoord: ontdekken telt, niet de score.
 - **Plekscherm:** zolang de vraag nog niet beantwoord is, staat er geen knop in de voetbalk (lezen en antwoorden is de taak; terug via de pijl in de kop). Na het antwoord verschijnt "Terug naar de kaart". De vraag staat apart onder een lijn, met het label "Vraag" en in de kopletter.
 - **Historische feiten en juiste antwoorden worden bevestigd door SHSEL**, niet door Claude. Onbevestigde antwoorden krijgen `"bevestigd": false`.
 - **Vrij ontdekken (besluit René, okt 2026):** de app is een wandeling zonder vaste volgorde. Wie toevallig langs een historische plek loopt, kan die bekijken of gewoon doorlopen.

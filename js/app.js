@@ -507,19 +507,33 @@ function toonUitslag(loc, keuze, knoppen, net) {
     }
   });
 
+  // Feedback: bij een fout antwoord het hele goede antwoord noemen, niet alleen de letter
+  // (dan hoef je niet terug te scrollen om te zien wat "B" was). Daarna één zin uitleg.
   const fb = $('feedback');
   fb.className = `feedback ${goed ? 'feedback--goed' : 'feedback--fout'}`;
-  fb.replaceChildren(
-    maak('strong', 'feedback__kop', goed ? '✓ Goed!' : `✗ Helaas, het is ${LETTERS[loc.juist]}`),
-    maak('span', '', loc.uitleg),
-  );
+  const delen = [maak('strong', 'feedback__kop', goed ? '✓ Goed!' : '✗ Helaas, dat is niet goed.')];
+  if (!goed) {
+    const juist = maak('span', 'feedback__juist', 'Het goede antwoord is ');
+    juist.append(maak('strong', '', `${LETTERS[loc.juist]}: ${loc.opties[loc.juist]}`));
+    delen.push(juist);
+  }
+  delen.push(maak('span', 'feedback__uitleg', loc.uitleg));
+  fb.replaceChildren(...delen);
   fb.hidden = false;
   if (net) toonMijlpaal(loc);
   toonDichtbij(loc);
   if (net) {
-    // Uitleg bovenaan in beeld (eerst de uitleg lezen), de keuzes eronder lopen het beeld in.
+    // In beeld houden: je eigen keuze, het goede antwoord én de uitleg.
+    // Past dat niet op het scherm, dan gaat de uitleg voor.
     const zacht = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-    requestAnimationFrame(() => fb.scrollIntoView({ behavior: zacht, block: 'start' }));
+    const bovenste = knoppen[Math.min(keuze, loc.juist)];
+    requestAnimationFrame(() => {
+      const kop = document.querySelector('.kop').getBoundingClientRect().bottom;
+      const voet = el.voet.hidden ? innerHeight : el.voet.getBoundingClientRect().top;
+      const nodig = fb.getBoundingClientRect().bottom - bovenste.getBoundingClientRect().top;
+      const doel = nodig <= voet - kop - 24 ? bovenste : fb;
+      doel.scrollIntoView({ behavior: zacht, block: 'start' });
+    });
   }
 
   werkLangsBij();
@@ -539,9 +553,16 @@ function toonMijlpaal(loc) {
   if (klaar === alles.locaties.length) tekst = `✓ Je hebt alle ${klaar} plekken ontdekt!`;
   else if (t && t.totaal > 1 && t.klaar === t.totaal) tekst = `✓ Alle ${t.totaal} verhalen bij ${t.naam} ontdekt!`;
   else if (t && t.totaal > 1) tekst = `${t.naam}: ${t.klaar} van ${t.totaal} verhalen ontdekt.`;
-  else tekst = `Plek ontdekt. Je hebt er nu ${klaar}.`;
-  p.textContent = tekst;
-  p.classList.toggle('mijlpaal--af', tekst.startsWith('✓'));
+  else tekst = `Plek ontdekt! Je hebt er nu ${klaar}.`;
+  // Altijd een beloning: elke ontdekte plek telt, ook bij een fout antwoord (verzamelen, geen score).
+  if (!tekst.startsWith('✓')) tekst = `✓ ${tekst}`;
+  const balk = maak('div', 'voortgang mijlpaal__balk');
+  balk.setAttribute('aria-hidden', 'true');
+  balk.append(...alles.locaties.map((_, i) => maak('span',
+    i < klaar - 1 ? 'voortgang__deel voortgang__deel--klaar'
+      : i === klaar - 1 ? 'voortgang__deel voortgang__deel--klaar voortgang__deel--nieuw' : 'voortgang__deel')));
+  p.replaceChildren(maak('p', 'mijlpaal__tekst', tekst), balk);
+  p.classList.toggle('mijlpaal--af', klaar === alles.locaties.length || (t && t.totaal > 1 && t.klaar === t.totaal));
   p.hidden = false;
 }
 
