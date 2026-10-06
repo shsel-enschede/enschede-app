@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v15';
+const VERSIE = 'v16';
 const CACHE = `enschede-app-${VERSIE}`;
 const FOTO_CACHE = 'enschede-fotos-v1'; // los van VERSIE: foto's blijven bewaard na een update
 

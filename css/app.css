@@ -260,6 +260,7 @@ body:has(#scherm-start:not([hidden])) {
 
 .wijkkaart .leaflet-container { font-family: var(--letter); }
 .wijkkaart__anker { background: none; border: 0; }
+.wijkkaart__anker--verborgen { visibility: hidden; } /* naam valt over een andere naam: zie ontwar() in kaart.js */
 .wijkkaart__label {
   display: inline-block;
   transform: translate(-50%, -50%);

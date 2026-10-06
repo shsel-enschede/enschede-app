@@ -126,6 +126,7 @@ export async function toonKaart(houder, route, inhoud, opties) {
     laag = L.layerGroup().addTo(kaart);
     if (!aanraak) L.control.zoom({ position: 'topright' }).addTo(kaart); // linksboven staat de teller
     kaart.on('click', () => laatsteOpties?.opLeegTik?.());
+    kaart.on('zoomend', ontwar);
     // De kaart vult het scherm; verandert de ruimte (voetbalk, draaien), dan de kaart opnieuw laten passen.
     new ResizeObserver(() => kaart.invalidateSize()).observe(houder);
   }
@@ -153,6 +154,8 @@ export async function toonKaart(houder, route, inhoud, opties) {
     if (huidigeRoute === route.id) teken(L, groep, vorm, opties);
   }));
 
+  ontwar();
+
   const vlakken = [...getekend.values()].map((g) => g.vlak);
   if (vlakken.length) kaart.fitBounds(L.featureGroup(vlakken).getBounds(), {
     paddingTopLeft: [32, 96], // ruimte voor de teller linksboven
@@ -160,6 +163,27 @@ export async function toonKaart(houder, route, inhoud, opties) {
     maxZoom: 18,
   });
   if (mislukt) opties.meld?.('Niet alle gebouwen konden worden opgezocht. Ze staan als stip op de kaart.');
+}
+
+// Namen mogen elkaar niet overlappen. Bij elke zoomstap: plaats de namen één voor één
+// (gebouwen met de meeste verhalen eerst) en verberg een naam die over een al geplaatste naam valt.
+// Het gebouw zelf blijft zichtbaar en aantikbaar; inzoomen maakt de naam weer zichtbaar.
+// Wie de kaart niet kan of wil gebruiken, heeft de lijst onder de kaart.
+function ontwar() {
+  const geplaatst = [];
+  const MARGE = 4; // px lucht tussen twee namen
+  const groepen = [...getekend.values()].sort((x, y) => y.locaties.length - x.locaties.length);
+  for (const groep of groepen) {
+    const icoon = groep.label.getElement();
+    if (!icoon) continue;
+    icoon.classList.remove('wijkkaart__anker--verborgen');
+    const r = icoon.firstElementChild?.getBoundingClientRect();
+    if (!r || !r.width) continue;
+    const botst = geplaatst.some((p) => r.left < p.right + MARGE && r.right > p.left - MARGE
+      && r.top < p.bottom + MARGE && r.bottom > p.top - MARGE);
+    if (botst) icoon.classList.add('wijkkaart__anker--verborgen');
+    else geplaatst.push(r);
+  }
 }
 
 /** Kleuren en tellers bijwerken na een antwoord. */
@@ -171,6 +195,7 @@ export function ververs(antwoordVan) {
     groep.vlak.setStyle(t.af ? STIJL_KLAAR : STIJL_OPEN);
     groep.label.setIcon(labelIcoon(L, groep, antwoordVan));
   }
+  ontwar(); // nieuwe tekst kan breder zijn
 }
 
 /** Schuif de kaart naar je positie, maar alleen als die binnen het kaartgebied (Enschede) ligt. */
