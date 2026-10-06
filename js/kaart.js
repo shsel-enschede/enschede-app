@@ -12,8 +12,9 @@ import { vormVan } from './gebouwen.js';
 const PDOK_TEGELS = 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png';
 const GRENZEN = [[52.15, 6.75], [52.30, 7.00]]; // ruim rond Enschede
 
-const STIJL_OPEN = { color: '#C10422', weight: 2, dashArray: '6 4', fillColor: '#ED1D27', fillOpacity: 0.28 };
-const STIJL_KLAAR = { color: '#1E6B3A', weight: 2, dashArray: null, fillColor: '#2E9E5B', fillOpacity: 0.45 };
+// bubblingMouseEvents: false = een tik op een gebouw telt niet ook als tik op de lege kaart.
+const STIJL_OPEN = { color: '#C10422', weight: 2, dashArray: '6 4', fillColor: '#ED1D27', fillOpacity: 0.28, bubblingMouseEvents: false };
+const STIJL_KLAAR = { color: '#1E6B3A', weight: 2, dashArray: null, fillColor: '#2E9E5B', fillOpacity: 0.45, bubblingMouseEvents: false };
 
 let leafletLaden = null;
 let kaart = null;
@@ -21,6 +22,7 @@ let laag = null;
 let huidigeRoute = null;
 let mijnStip = null;
 let mijnCirkel = null;
+let laatsteOpties = null;
 const getekend = new Map(); // gebouw-id -> { vlak, label, gebouw, locaties }
 
 // ---------- Leaflet op aanvraag laden ----------
@@ -98,14 +100,17 @@ function groepeer(route, inhoud) {
 
 /**
  * Toont de kaart van een route in 'houder'.
- * opties: { antwoordVan(id), kiesGroep(groep), meld(tekst) }
+ * opties: { antwoordVan(id), kiesGroep(groep), opLeegTik(), meld(tekst) }
  */
 export async function toonKaart(houder, route, inhoud, opties) {
   const L = await laadLeaflet();
+  laatsteOpties = opties;
 
   if (!kaart) {
+    // Op een aanraakscherm geen zoomknoppen: knijpen werkt, en de knoppen nemen ruimte in.
+    const aanraak = matchMedia('(pointer: coarse)').matches;
     kaart = L.map(houder, {
-      zoomControl: true,
+      zoomControl: false,
       minZoom: 14,
       maxZoom: 20,
       maxBounds: GRENZEN,
@@ -119,6 +124,10 @@ export async function toonKaart(houder, route, inhoud, opties) {
       attribution: 'Kaart: PDOK / Kadaster',
     }).addTo(kaart);
     laag = L.layerGroup().addTo(kaart);
+    if (!aanraak) L.control.zoom({ position: 'topright' }).addTo(kaart); // linksboven staat de teller
+    kaart.on('click', () => laatsteOpties?.opLeegTik?.());
+    // De kaart vult het scherm; verandert de ruimte (voetbalk, draaien), dan de kaart opnieuw laten passen.
+    new ResizeObserver(() => kaart.invalidateSize()).observe(houder);
   }
   // De kaart stond mogelijk in een verborgen scherm: grootte opnieuw bepalen.
   kaart.invalidateSize();
@@ -145,7 +154,11 @@ export async function toonKaart(houder, route, inhoud, opties) {
   }));
 
   const vlakken = [...getekend.values()].map((g) => g.vlak);
-  if (vlakken.length) kaart.fitBounds(L.featureGroup(vlakken).getBounds(), { padding: [32, 32], maxZoom: 18 });
+  if (vlakken.length) kaart.fitBounds(L.featureGroup(vlakken).getBounds(), {
+    paddingTopLeft: [32, 96], // ruimte voor de teller linksboven
+    paddingBottomRight: [72, 40], // ruimte voor de locatieknop
+    maxZoom: 18,
+  });
   if (mislukt) opties.meld?.('Niet alle gebouwen konden worden opgezocht. Ze staan als stip op de kaart.');
 }
 
@@ -158,6 +171,16 @@ export function ververs(antwoordVan) {
     groep.vlak.setStyle(t.af ? STIJL_KLAAR : STIJL_OPEN);
     groep.label.setIcon(labelIcoon(L, groep, antwoordVan));
   }
+}
+
+/** Schuif de kaart naar je positie, maar alleen als die binnen het kaartgebied (Enschede) ligt. */
+export function centreer(positie) {
+  const L = window.L;
+  if (!L || !kaart || !positie) return;
+  const ll = L.latLng(positie.lat, positie.lng);
+  if (!L.latLngBounds(GRENZEN).contains(ll)) return;
+  const zacht = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  kaart.setView(ll, Math.max(kaart.getZoom(), 17), { animate: zacht });
 }
 
 /** Toon (of verberg, met null) de eigen positie als blauwe stip met een cirkel voor de onzekerheid. */

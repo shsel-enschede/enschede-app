@@ -5,7 +5,7 @@
 
 import { laadInhoud } from './inhoud.js';
 import { antwoordVan, bewaarAntwoord, wisAntwoorden } from './voortgang.js';
-import { toonKaart, toonPositie } from './kaart.js';
+import { toonKaart, toonPositie, centreer } from './kaart.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
 import { afstandTot, indicatie } from './afstand.js';
 import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegestaan } from './locatie.js';
@@ -153,7 +153,8 @@ function aantalOntdekt() {
 function kaartScherm() {
   toonScherm('kaart', 'Kaart');
   huidig = { scherm: 'kaart', loc: null };
-  vulGpsPaneel($('gps-kaart'));
+  gpsPaneelOpen = false;
+  vulKaartGps();
 
   const totaal = alles.locaties.length;
   const klaar = aantalOntdekt();
@@ -175,13 +176,17 @@ function kaartScherm() {
   $('opnieuw-knop').setAttribute('aria-expanded', 'false');
 
   $('gebouwkeuze').hidden = true;
+  $('lijstgreep-tekst').textContent = `Alle ${totaal} plekken als lijst`;
   toonKaart($('wijkkaart'), alles, inhoud, {
     antwoordVan,
     kiesGroep: kiesGebouw,
+    opLeegTik: sluitKaartpanelen,
     meld: toonFout,
   }).then(() => toonPositie(positie())).catch((fout) => {
     console.warn(fout);
-    $('wijkkaart').hidden = true; // zonder kaart blijft de lijst gewoon werken
+    // Zonder kaart blijft de lijst gewoon werken; teller en locatie-uitleg staan dan boven de lijst.
+    $('kaartvak').classList.add('kaartvak--zonder');
+    vulKaartGps();
   });
 }
 
@@ -348,10 +353,63 @@ function kiesGebouw(groep) {
   $('gebouwkeuze-titel').textContent = `${groep.gebouw.naam}: ${groep.locaties.length} verhalen`;
   const lijst = $('gebouwkeuze-lijst');
   lijst.replaceChildren(...groep.locaties.map((loc) => plekKnop(loc)));
-  const keuze = $('gebouwkeuze');
-  keuze.hidden = false;
-  keuze.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+  // Paneel onderin over de kaart (zoals een kaart-app): de kaart blijft zichtbaar.
+  gpsPaneelOpen = false;
+  vulKaartGps();
+  $('gebouwkeuze').hidden = false;
+  $('gebouwkeuze-titel').focus({ preventScroll: true });
 }
+
+// ---------- Panelen en knoppen op de kaart ----------
+
+let gpsPaneelOpen = false;
+
+// Locatie-uitleg op de kaart: pas zichtbaar na een tik op de locatieknop (eerst uitleg, dan pas toestemming vragen).
+function vulKaartGps() {
+  const paneel = $('gps-kaart');
+  const knop = $('locatieknop');
+  const zonderKaart = $('kaartvak').classList.contains('kaartvak--zonder');
+  vulGpsPaneel(paneel);
+  const kanIets = !paneel.hidden; // vulGpsPaneel verbergt het paneel als er niets te melden is
+  knop.hidden = !kanIets;
+  knop.classList.toggle('locatieknop--aan', gpsStatus() === 'aan');
+  knop.setAttribute('aria-label', gpsStatus() === 'aan' ? 'Mijn locatie (staat aan)' : 'Mijn locatie');
+  if (!zonderKaart) {
+    const sluit = maak('button', 'kaartpaneel__sluit', '×');
+    sluit.type = 'button';
+    sluit.setAttribute('aria-label', 'Sluiten');
+    sluit.addEventListener('click', () => { gpsPaneelOpen = false; vulKaartGps(); knop.focus(); });
+    const kop = maak('div', 'kaartpaneel__kop');
+    kop.append(paneel.firstChild, sluit); // eerste regel tekst naast de sluitknop
+    paneel.prepend(kop);
+    paneel.hidden = !kanIets || !gpsPaneelOpen;
+  }
+  knop.setAttribute('aria-expanded', String(!paneel.hidden));
+}
+
+function sluitKaartpanelen() {
+  $('gebouwkeuze').hidden = true;
+  if (gpsPaneelOpen) { gpsPaneelOpen = false; vulKaartGps(); }
+}
+
+$('locatieknop').addEventListener('click', () => {
+  $('gebouwkeuze').hidden = true;
+  if (gpsStatus() === 'aan' && positie()) centreer(positie());
+  gpsPaneelOpen = !gpsPaneelOpen;
+  vulKaartGps();
+});
+$('gebouwkeuze-sluit').addEventListener('click', () => {
+  $('gebouwkeuze').hidden = true;
+  $('wijkkaart').focus?.();
+});
+$('kaartvak').addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') sluitKaartpanelen();
+});
+$('lijstgreep').addEventListener('click', () => {
+  const zacht = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  $('lijstdeel').scrollIntoView({ behavior: zacht, block: 'start' });
+  $('lijstdeel').focus({ preventScroll: true });
+});
 
 function locatieScherm(loc, { netOpen = false } = {}) {
   toonScherm('locatie', loc.titel);
@@ -564,7 +622,11 @@ volg((p) => {
   vorigeStatus = gpsStatus();
   werkIndicatiesBij();
   if (huidig.scherm === 'kaart') {
-    if (statusAnders) vulGpsPaneel($('gps-kaart'));
+    if (statusAnders) {
+      // Locatie net gevonden: paneel dicht en de kaart naar je toe (alleen als je in Enschede bent).
+      if (gpsStatus() === 'aan' && p) { gpsPaneelOpen = false; centreer(p); }
+      vulKaartGps();
+    }
     if (!lijstMetAfstand || !positie()) {
       vulPlekken(); // eerste bruikbare meting (of locatie uit): één keer opnieuw indelen
     } else {
@@ -615,6 +677,18 @@ el.terug.addEventListener('click', () => {
 });
 el.hoofdknop.addEventListener('click', () => hoofdknopActie?.());
 window.addEventListener('hashchange', navigeer);
+
+// Hoogte van kop- en voetbalk doorgeven aan de CSS, zodat de kaart precies het scherm ertussen vult.
+// De voetbalk verandert van hoogte (bijv. "Je loopt langs …"), daarom meten we doorlopend.
+const kopbalk = document.querySelector('.kop');
+new ResizeObserver(() => {
+  const stijl = document.documentElement.style;
+  stijl.setProperty('--kop-h', `${kopbalk.offsetHeight}px`);
+  stijl.setProperty('--voet-h', `${el.voet.hidden ? 0 : el.voet.offsetHeight}px`);
+}).observe(el.voet);
+new ResizeObserver(() => {
+  document.documentElement.style.setProperty('--kop-h', `${kopbalk.offsetHeight}px`);
+}).observe(kopbalk);
 
 async function start() {
   startScherm();
