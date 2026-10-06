@@ -59,11 +59,15 @@ h1, h2, legend { font-family: var(--letter); }
   position: sticky; top: 0; z-index: 1001; /* boven de kaartlagen van Leaflet (tot 1000) */
   display: flex; align-items: center; gap: 8px;
   min-height: 56px;
-  padding: env(safe-area-inset-top) var(--ruimte) 0;
+  padding: calc(6px + env(safe-area-inset-top)) var(--ruimte) 6px; /* lucht als een lange titel over twee regels loopt */
   background: var(--wit);
   border-bottom: 1px solid var(--lijn);
 }
-.kop__titel { margin: 0; font: 400 1.4rem/1.2 var(--kopletter); color: var(--tekst); }
+.kop__titel { flex: 1; min-width: 0; margin: 0; font: 400 1.4rem/1.2 var(--kopletter); color: var(--tekst); }
+.kop__test {
+  flex: none; padding: 2px 8px; border: 1px solid var(--grijs); border-radius: 999px;
+  font: 600 0.8125rem/1.4 var(--letter); color: var(--grijs); text-transform: uppercase; letter-spacing: 0.04em;
+}
 .kop__terug {
   display: grid; place-items: center;
   width: 44px; height: 44px; margin-left: -10px;
@@ -77,6 +81,7 @@ main:focus { outline: none; }
 .scherm > :first-child { margin-top: 0; }
 .groot { font: 400 1.75rem/1.2 var(--kopletter); color: var(--tekst); margin: 0.5em 0; text-wrap: balance; }
 .klein { font-size: 0.9375rem; color: var(--grijs); }
+.testuitleg { display: inline-block; margin-top: 8px; padding: 8px 12px; font-size: 0.9375rem; color: var(--tekst); background: var(--vlak); border: 1px dashed var(--grijs); border-radius: var(--rond); }
 .logo { display: block; margin: 8px auto 20px; width: 240px; max-width: 70%; height: auto; }
 
 /* Startscherm met het vestingmotief van het briefpapier linksonder */
@@ -158,7 +163,6 @@ body:has(#scherm-start:not([hidden])) {
 .knop:hover { background: var(--rood-donker); }
 .knop:active { background: var(--rood-donker); }
 .knop[hidden] { display: none; }
-.voet__info { margin: 6px 0 0; font-size: 0.8125rem; }
 
 [hidden] { display: none !important; }
 

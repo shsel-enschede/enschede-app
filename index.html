@@ -28,6 +28,8 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <h1 class="kop__titel" id="kop-titel">Enschede app</h1>
+    <!-- Testfase: klein label in de kop in plaats van een regel in de voetbalk (die ruimte is voor knoppen) -->
+    <span class="kop__test" id="kop-test" hidden>Test</span>
   </header>
 
   <main id="hoofd" tabindex="-1">
@@ -37,6 +39,7 @@
       <h2 class="groot">Ontdek de geschiedenis van Enschede</h2>
       <p>Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.</p>
       <p class="klein">Een wandelquiz van de Historische Sociëteit Enschede-Lonneker.</p>
+      <p class="testuitleg" id="test-uitleg" hidden><strong>Testversie.</strong> Alle vragen zijn open, ook als je niet ter plekke bent.</p>
     </section>
 
     <!-- Ontdekkaart: alle plekken, zonder vaste volgorde.
@@ -122,7 +125,6 @@
       </div>
     </div>
     <button class="knop" id="hoofdknop" type="button">Begin</button>
-    <p class="klein voet__info" id="voet-info" hidden>Testversie: alle vragen zijn open, ook als je niet ter plekke bent.</p>
   </footer>
 </body>
 </html>
