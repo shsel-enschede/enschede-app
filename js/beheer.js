@@ -2,7 +2,8 @@
 // Deze pagina schrijft niets naar de website; de vrijwilliger plaatst het bestand zelf op GitHub.
 // Alle teksten uit de inhoud gaan via textContent op het scherm, nooit via innerHTML (zie CLAUDE.md).
 
-import { controleerLocatie } from './inhoud.js';
+import { controleerLocatie, geldigBestand, LOKAAL } from './inhoud.js';
+import { maak } from './hulp.js';
 import { zoekAdres, zoekPand } from './gebouwen.js';
 
 const CONCEPT_SLEUTEL = 'enschede-app:beheer-concept:v1';
@@ -26,13 +27,6 @@ let speld;
 const overlay = { anderen: null, gebouw: null, tekening: null };
 
 // ---------- Hulpjes ----------
-
-function maak(tag, klasse, tekst) {
-  const e = document.createElement(tag);
-  if (klasse) e.className = klasse;
-  if (tekst !== undefined) e.textContent = tekst;
-  return e;
-}
 
 function rond(x) { return Math.round(x * 1e6) / 1e6; } // ~10 cm, ruim voldoende
 
@@ -332,11 +326,11 @@ function toonFotos() {
     if (!f.alt?.nl) status.push('beschrijving (alt) ontbreekt');
     li.append(maak('span', 'foto-item__status', status.length ? status.join(' · ') : '✓ klaar voor de app'));
     // Op je eigen computer (localhost) ook een voorbeeld uit 'fotos-lokaal/' (zie fotos-lokaal-LEESMIJ.md).
-    const lokaal = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-    const naam = f.rechten_geregeld === true || !lokaal ? f.bestand : (f.bestand || f.bestand_klaar);
-    if (naam && /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/.test(naam)) {
+    const echt = f.rechten_geregeld === true || !LOKAAL;
+    const naam = echt ? f.bestand : (f.bestand || f.bestand_klaar);
+    if (geldigBestand(naam)) {
       const img = maak('img', 'foto-item__duim');
-      img.src = f.rechten_geregeld === true || !lokaal ? `fotos/${naam}` : `fotos-lokaal/${naam}`;
+      img.src = echt ? `fotos/${naam}` : `fotos-lokaal/${naam}`;
       img.addEventListener('error', () => img.remove(), { once: true });
       img.alt = '';
       img.loading = 'lazy';
@@ -471,6 +465,8 @@ function koppel() {
   $('kopieer').addEventListener('click', kopieer);
   $('download').addEventListener('click', download);
   $('herstel').addEventListener('click', () => {
+    // Weggooien kan niet ongedaan worden gemaakt: eerst vragen.
+    if (alsTekst(data) !== origineel && !window.confirm('Al je wijzigingen op deze pagina weggooien? Dit kun je niet ongedaan maken.')) return;
     try { localStorage.removeItem(CONCEPT_SLEUTEL); } catch { /* niets */ }
     location.reload();
   });

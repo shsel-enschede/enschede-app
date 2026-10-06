@@ -9,6 +9,7 @@ import { toonKaart, toonPositie, centreer } from './kaart.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
 import { afstandTot, indicatie } from './afstand.js';
 import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegestaan } from './locatie.js';
+import { maak, scrolGedrag } from './hulp.js';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const $ = (id) => document.getElementById(id);
@@ -18,6 +19,7 @@ const el = {
   terug: $('terug'),
   hoofd: $('hoofd'),
   hoofdknop: $('hoofdknop'),
+  kop: document.querySelector('.kop'),
   voet: document.querySelector('.voet'),
   melding: $('melding'),
   schermen: {
@@ -33,7 +35,7 @@ const DICHTBIJ = 400; // meter
 const KEUZES_NA_ANTWOORD = 3;
 
 let inhoud = null;
-let alles = null; // alle plekken als één verzameling: { id, locaties: [ids] }
+let alles = null; // alle plekken als één verzameling: { id, locaties: [ids] } (kaart.js kan later ook een thema of buurt tonen)
 let hoofdknopActie = null;
 let huidig = { scherm: 'start', loc: null };
 let lijstMetAfstand = false; // is de lijst al op afstand gesorteerd?
@@ -102,13 +104,6 @@ function vulGpsPaneel(paneel) {
     knop.addEventListener('click', zetAan);
   }
   paneel.append(knop);
-}
-
-function maak(tag, klasse, tekst) {
-  const e = document.createElement(tag);
-  if (klasse) e.className = klasse;
-  if (tekst !== undefined) e.textContent = tekst;
-  return e;
 }
 
 function toonScherm(naam, titel, { terug = true } = {}) {
@@ -405,8 +400,7 @@ $('kaartvak').addEventListener('keydown', (e) => {
   if (e.key === 'Escape') sluitKaartpanelen();
 });
 $('lijstgreep').addEventListener('click', () => {
-  const zacht = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-  $('lijstdeel').scrollIntoView({ behavior: zacht, block: 'start' });
+  $('lijstdeel').scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
   $('lijstdeel').focus({ preventScroll: true });
 });
 
@@ -525,14 +519,13 @@ function toonUitslag(loc, keuze, knoppen, net) {
   if (net) {
     // In beeld houden: je eigen keuze, het goede antwoord én de uitleg.
     // Past dat niet op het scherm, dan gaat de uitleg voor.
-    const zacht = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
     const bovenste = knoppen[Math.min(keuze, loc.juist)];
     requestAnimationFrame(() => {
-      const kop = document.querySelector('.kop').getBoundingClientRect().bottom;
+      const kop = el.kop.getBoundingClientRect().bottom;
       const voet = el.voet.hidden ? innerHeight : el.voet.getBoundingClientRect().top;
       const nodig = fb.getBoundingClientRect().bottom - bovenste.getBoundingClientRect().top;
       const doel = nodig <= voet - kop - 24 ? bovenste : fb;
-      doel.scrollIntoView({ behavior: zacht, block: 'start' });
+      doel.scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
     });
   }
 
@@ -677,8 +670,8 @@ $('opnieuw-knop').addEventListener('click', () => {
   if (open) {
     // Zorg dat de vraag boven de vaste voetbalk staat.
     const onder = $('opnieuw-vraag').getBoundingClientRect().bottom;
-    const voet = document.querySelector('.voet').getBoundingClientRect().top;
-    if (onder > voet - 12) window.scrollBy({ top: onder - voet + 12, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    const voet = el.voet.getBoundingClientRect().top;
+    if (onder > voet - 12) window.scrollBy({ top: onder - voet + 12, behavior: scrolGedrag() });
     $('opnieuw-nee').focus({ preventScroll: true });
   }
 });
@@ -703,15 +696,13 @@ window.addEventListener('hashchange', navigeer);
 
 // Hoogte van kop- en voetbalk doorgeven aan de CSS, zodat de kaart precies het scherm ertussen vult.
 // De voetbalk verandert van hoogte (bijv. "Je loopt langs …"), daarom meten we doorlopend.
-const kopbalk = document.querySelector('.kop');
-new ResizeObserver(() => {
+const balkMeter = new ResizeObserver(() => {
   const stijl = document.documentElement.style;
-  stijl.setProperty('--kop-h', `${kopbalk.offsetHeight}px`);
+  stijl.setProperty('--kop-h', `${el.kop.offsetHeight}px`);
   stijl.setProperty('--voet-h', `${el.voet.hidden ? 0 : el.voet.offsetHeight}px`);
-}).observe(el.voet);
-new ResizeObserver(() => {
-  document.documentElement.style.setProperty('--kop-h', `${kopbalk.offsetHeight}px`);
-}).observe(kopbalk);
+});
+balkMeter.observe(el.kop);
+balkMeter.observe(el.voet);
 
 async function start() {
   startScherm();
