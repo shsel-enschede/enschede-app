@@ -11,6 +11,7 @@ import { vormVan } from './gebouwen.js';
 
 const PDOK_TEGELS = 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png';
 const GRENZEN = [[52.15, 6.75], [52.30, 7.00]]; // ruim rond Enschede
+const KLEIN_OBJECT = 10; // meter: een vorm kleiner dan dit krijgt een groter tikvlak
 
 // bubblingMouseEvents: false = een tik op een gebouw telt niet ook als tik op de lege kaart.
 const STIJL_OPEN = { color: '#C10422', weight: 2, dashArray: '6 4', fillColor: '#ED1D27', fillOpacity: 0.28, bubblingMouseEvents: false };
@@ -55,6 +56,7 @@ function labelElement(groep, antwoordVan) {
   const t = telling(groep, antwoordVan);
   const span = document.createElement('span');
   span.className = t.af ? 'wijkkaart__label wijkkaart__label--klaar' : 'wijkkaart__label';
+  if (groep.klein) span.classList.add('wijkkaart__label--klein'); // naam boven het object, zodat het zichtbaar blijft
   span.textContent = `${t.af ? '✓ ' : ''}${groep.gebouw.naam}${t.totaal > 1 ? ` ${t.klaar}/${t.totaal}` : ''}`;
   return span;
 }
@@ -71,6 +73,12 @@ function teken(L, groep, vorm, opties) {
     : L.circleMarker(groep.locaties[0].positie, { ...(t.af ? STIJL_KLAAR : STIJL_OPEN), radius: 14 });
   vlak.addTo(laag);
   const midden = vorm ? vlak.getBounds().getCenter() : vlak.getLatLng();
+  // Kleine objecten (zoals het brandmonument of de zonnewijzer, enkele meters groot) zijn op de kaart
+  // maar een paar pixels. Ze krijgen een onzichtbaar groter tikvlak (min. 44 px) en de naam erboven.
+  if (vorm) {
+    const b = vlak.getBounds();
+    groep.klein = b.getNorthWest().distanceTo(b.getSouthEast()) < KLEIN_OBJECT;
+  }
   const label = L.marker(midden, {
     icon: labelIcoon(L, groep, antwoordVan),
     keyboard: true,
@@ -80,6 +88,10 @@ function teken(L, groep, vorm, opties) {
   const kies = () => kiesGroep(groep);
   vlak.on('click', kies);
   label.on('click', kies);
+  if (groep.klein) {
+    L.circleMarker(midden, { radius: 22, stroke: false, fill: true, fillOpacity: 0, bubblingMouseEvents: false })
+      .addTo(laag).on('click', kies);
+  }
   getekend.set(groep.gebouw.id, { vlak, label, ...groep });
 }
 
