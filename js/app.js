@@ -19,7 +19,6 @@ const el = {
   hoofd: $('hoofd'),
   hoofdknop: $('hoofdknop'),
   voet: document.querySelector('.voet'),
-  voetInfo: $('voet-info'),
   melding: $('melding'),
   schermen: {
     start: $('scherm-start'),
@@ -131,7 +130,7 @@ function zetHoofdknop(tekst, actie) {
 
 // Geen lege balk onderin.
 function werkVoetBij() {
-  el.voet.hidden = el.hoofdknop.hidden && el.voetInfo.hidden && $('langs').hidden;
+  el.voet.hidden = el.hoofdknop.hidden && $('langs').hidden;
 }
 
 function ga(pad) {
@@ -697,7 +696,10 @@ async function start() {
     if (!inhoud.locaties.size) throw new Error('Geen plekken gevonden');
     // Alle geldige plekken samen; routes uit de inhoud worden (nog) niet gebruikt.
     alles = { id: 'alles', locaties: [...inhoud.locaties.keys()] };
-    el.voetInfo.hidden = terPlekkeModus();
+    // Testfase: label "Test" in de kop en één zin uitleg op het startscherm (niet in de voetbalk).
+    $('kop-test').hidden = terPlekkeModus();
+    $('test-uitleg').hidden = terPlekkeModus();
+    if (!terPlekkeModus()) $('kop-test').title = 'Testversie: alle vragen zijn open, ook als je niet ter plekke bent.';
     navigeer();
     hervatAlsToegestaan();
   } catch (fout) {
