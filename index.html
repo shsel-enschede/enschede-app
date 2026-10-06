@@ -39,30 +39,48 @@
       <p class="klein">Een wandelquiz van de Historische Sociëteit Enschede-Lonneker.</p>
     </section>
 
-    <!-- Ontdekkaart: alle plekken, zonder vaste volgorde -->
+    <!-- Ontdekkaart: alle plekken, zonder vaste volgorde.
+         Op de telefoon vult de kaart het scherm (de kaart is het hoofdscherm); de lijst staat eronder.
+         Teller, locatieknop en keuzepanelen liggen óp de kaart. Zonder kaart (bijv. laden mislukt) staan ze gewoon onder elkaar. -->
     <section class="scherm" id="scherm-kaart" hidden>
-      <p>Rood zijn plekken die je nog kunt ontdekken, groen met ✓ heb je al ontdekt. Tik op een gebouw voor het verhaal.</p>
-      <!-- Voortgang als verzameling: wat je al ontdekt hebt, niet wat je nog "moet" -->
-      <div class="ontdekt">
-        <p class="ontdekt__tal" id="voortgang-tekst" role="status"></p>
-        <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
-        <p class="klein ontdekt__totaal" id="voortgang-totaal"></p>
-        <ul class="ontdekt__gebouwen" id="ontdekt-gebouwen" aria-label="Ontdekte gebouwen" hidden></ul>
+      <div class="kaartvak" id="kaartvak">
+        <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet ontdekt, groen met vinkje is ontdekt. Tik op een gebouw voor het verhaal. Onder de kaart staan dezelfde plekken als lijst."></div>
+        <!-- Voortgang als verzameling: wat je al ontdekt hebt, niet wat je nog "moet" -->
+        <div class="teller" id="teller">
+          <p class="teller__tal" id="voortgang-tekst" role="status"></p>
+          <p class="teller__legenda" aria-hidden="true"><span class="legenda legenda--open"></span>nog te ontdekken <span class="legenda legenda--klaar">✓</span>ontdekt</p>
+        </div>
+        <button class="locatieknop" id="locatieknop" type="button" aria-label="Mijn locatie" aria-expanded="false" aria-controls="gps-kaart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg>
+        </button>
+        <div class="gps kaartpaneel" id="gps-kaart" hidden></div>
+        <div class="gebouwkeuze kaartpaneel" id="gebouwkeuze" role="region" aria-labelledby="gebouwkeuze-titel" hidden>
+          <div class="kaartpaneel__kop">
+            <p class="gebouwkeuze__titel" id="gebouwkeuze-titel" tabindex="-1"></p>
+            <button class="kaartpaneel__sluit" id="gebouwkeuze-sluit" type="button" aria-label="Sluiten">×</button>
+          </div>
+          <ul class="lijst" id="gebouwkeuze-lijst"></ul>
+        </div>
       </div>
-      <div class="gps" id="gps-kaart" hidden></div>
-      <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet ontdekt, groen met vinkje is ontdekt. Onder de kaart staan dezelfde plekken als lijst."></div>
-      <div class="gebouwkeuze" id="gebouwkeuze" hidden>
-        <p class="gebouwkeuze__titel" id="gebouwkeuze-titel"></p>
-        <ul class="lijst" id="gebouwkeuze-lijst"></ul>
-      </div>
-      <div id="plekken"></div>
-      <div class="opnieuw" id="opnieuw">
-        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Alles opnieuw beginnen</button>
-        <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
-          <p><strong>Weet je het zeker?</strong> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</p>
-          <div class="opnieuw__knoppen">
-            <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
-            <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
+      <button class="lijstgreep" id="lijstgreep" type="button" aria-controls="lijstdeel">
+        <span id="lijstgreep-tekst">Alle plekken als lijst</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lijstdeel" id="lijstdeel" tabindex="-1">
+        <div class="ontdekt">
+          <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
+          <p class="klein ontdekt__totaal" id="voortgang-totaal"></p>
+          <ul class="ontdekt__gebouwen" id="ontdekt-gebouwen" aria-label="Ontdekte gebouwen" hidden></ul>
+        </div>
+        <div id="plekken"></div>
+        <div class="opnieuw" id="opnieuw">
+          <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Alles opnieuw beginnen</button>
+          <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
+            <p><strong>Weet je het zeker?</strong> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</p>
+            <div class="opnieuw__knoppen">
+              <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
+              <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
+            </div>
           </div>
         </div>
       </div>
