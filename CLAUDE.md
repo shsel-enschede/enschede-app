@@ -10,9 +10,20 @@ De Enschede app van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL
 
 ## Communicatie
 
-- Antwoorden aan René in het Nederlands, kort en direct.
+- Antwoorden aan de beheerders (nu René) in het Nederlands, kort en direct.
 - Code-commentaar en commitberichten in het Nederlands.
-- René is nieuw met GitHub: leg GitHub-handelingen stap voor stap uit.
+- Beheerders zijn vrijwilligers die GitHub nog leren: leg GitHub-handelingen stap voor stap uit.
+
+## Rollen (voorstel René, okt 2026; benoeming door het bestuur van SHSEL)
+
+- **Bestuur SHSEL:** besluit over veranderingen en varianten van de app; benoemt beheerders en contentbeheerders.
+- **Beheerders (twee):** vrijwilligers van SHSEL, verantwoordelijk voor het functioneren van de Enschede app. Taken:
+  1. inhoudelijke wijzigingen (tekst en beeldmateriaal) verwerken: voorstellen beoordelen en samenvoegen, of een vraag terugsturen;
+  2. storingen en fouten in de app verhelpen;
+  3. veranderingen en varianten analyseren, voorbereiden en voorleggen aan het bestuur.
+  Daarnaast: sleutels van contentbeheerders aanmaken en intrekken, de beveiliging van `main` en de GitHub-organisatie beheren. Beide beheerders staan in `CODEOWNERS` en keuren elkaars technische wijzigingen goed.
+- **Contentbeheerders (team):** schrijven kort, aansprekend en historisch verantwoord over gebouwen en locaties; kiezen passende foto's van goede kwaliteit met een onderschrift; laten tekst en beeld controleren door een collega-contentbeheerder; dienen wijzigingen in via de editor. Geen technische kennis nodig.
+- Claude werkt in opdracht van een beheerder. Architectuurkeuzes legt Claude voor als voorstel; het bestuur besluit, de beheerders bereiden voor.
 
 ## Architectuur (niet zonder overleg wijzigen)
 
@@ -98,10 +109,11 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.ai-project. Hieronder de vaste afspraken.
 
 - **Doel:** vrijwilligers onderhouden gebouwen, verhalen, vragen en foto's zonder iets van GitHub te merken. Woorden als branch, commit of pull request komen in de editor niet voor.
-- **Git-based CMS, geen server:** de editor (`beheer.html`) praat vanuit de browser met de GitHub-API. De knop **Wijziging voorstellen** maakt een branch vanaf de nieuwste `main`, slaat de gewijzigde bestanden op en opent een pull request met een beschrijving in gewone taal. René voegt samen; pas dan is het live. Geen Decap, Pages CMS of andere externe CMS.
-- **Toestanden voor de vrijwilliger:** Concept (in eigen browser), Voorstel verstuurd, Live.
+- **Git-based CMS, geen server:** de editor (`beheer.html`) praat vanuit de browser met de GitHub-API. De knop **Wijziging voorstellen** maakt een branch vanaf de nieuwste `main`, slaat de gewijzigde bestanden op en opent een pull request met een beschrijving in gewone taal. Na akkoord van een collega-contentbeheerder voegt een beheerder samen; pas dan is het live. Geen Decap, Pages CMS of andere externe CMS.
+- **Toestanden voor de contentbeheerder:** Concept (in eigen browser), Wacht op collega, Bij beheerder, Live.
+- **Collegiale controle:** een collega-contentbeheerder beoordeelt het voorstel in de editor (*Akkoord* of *Opmerking*); de editor zet dat als review op de pull request.
 - **Veiligheid:**
-  - Ruleset op `main`: alleen via pull request met goedkeuring van René. Dit is het vangnet; ook een uitgelekte sleutel kan de live app niet direct veranderen.
+  - Ruleset op `main`: alleen via pull request met goedkeuring van een beheerder (Code Owner). Dit is het vangnet; ook een uitgelekte sleutel kan de live app niet direct veranderen.
   - Elke vrijwilliger een eigen *fine-grained token*: alleen deze repository, alleen *Contents* en *Pull requests* schrijven, verloopt na 1 jaar. Nooit een gedeelde sleutel.
   - CSP van `beheer.html`: alleen `https://api.github.com` erbij in `connect-src`. De app zelf (`index.html`) praat nooit met GitHub.
   - Uitloggen-knop wist de sleutel. Validatie vóór versturen: versturen kan pas als alles klopt.
@@ -112,13 +124,13 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
   - Inhoudelijke wijziging in EN of DE: de andere talen krijgen *Controleren*.
   - De app toont een verouderde **vraag of uitleg niet** (kans op fout antwoord), wel een verouderd verhaal, titel of bijschrift. Terugvaltaal: nog te besluiten.
 - **Foto's:** elke foto krijgt een `rol` (bijv. herkenning, hoofd, detail, toen/nu). Welke rollen SHSEL wil, is nog open. De editor verkleint naar WebP (max. 1200 px, ca. 150 kB) en vraagt bron, aanleverder, periode en rechten.
-- **Nog open:** inhoud splitsen in één bestand per locatie; terugvaltaal; fotogebruik; wie mag `bevestigd` aanzetten.
+- **Nog open:** inhoud splitsen in één bestand per locatie; terugvaltaal; fotogebruik; wie mag `bevestigd` aanzetten; zijn vertalers ook contentbeheerders.
 
 ## Werkwijze
 
-- Werk altijd in een aparte branch en bied wijzigingen aan via een pull request. René kijkt en voegt samen. Nooit direct naar `main`.
+- Werk altijd in een aparte branch en bied wijzigingen aan via een pull request. Een beheerder kijkt en voegt samen. Nooit direct naar `main`.
 - Kleine stappen: één onderwerp per pull request.
-- Beschrijf in elke pull request in gewone taal: wat is veranderd, hoe René het kan testen, en wat er nog niet werkt.
+- Beschrijf in elke pull request in gewone taal: wat is veranderd, hoe een beheerder het kan testen, en wat er nog niet werkt.
 - Test op een smal (mobiel) scherm voordat je een pull request aanbiedt.
 
 ## Bronnen
