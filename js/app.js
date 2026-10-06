@@ -452,7 +452,10 @@ function locatieScherm(loc, { netOpen = false } = {}) {
   if (eerder !== null) {
     toonUitslag(loc, eerder, knoppen, false);
   } else {
-    zetHoofdknop('Terug naar de kaart', () => ga('#/kaart'));
+    // Lezen en antwoorden is nu de taak: geen rode knop die de aandacht trekt.
+    // Terug kan altijd met de pijl in de kopbalk (of de terugknop van de telefoon).
+    // Na het antwoord verschijnt "Terug naar de kaart" wel (zie toonUitslag).
+    zetHoofdknop(null);
   }
 }
 
