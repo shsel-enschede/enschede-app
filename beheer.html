@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <!-- Beheerpagina voor vrijwilligers van de SHSEL. Deze pagina wijzigt niets op de website:
-       hij maakt een nieuw bestand content/locaties.json dat je zelf op GitHub plaatst.
-       Zelfde veiligheidsregels als de app (zie CLAUDE.md); PDOK-luchtfoto is extra toegestaan. -->
+  <!-- Editor voor contentbeheerders van de SHSEL. Met de knop "Wijziging voorstellen" gaat een
+       gecontroleerde wijziging naar GitHub als voorstel; live komt het pas als een beheerder het samenvoegt.
+       Zelfde veiligheidsregels als de app (zie CLAUDE.md). Extra toegestaan: PDOK-luchtfoto en de GitHub-API. -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://service.pdok.nl; connect-src 'self' https://api.pdok.nl; object-src 'none'; base-uri 'self'; form-action 'none'">
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob: https://service.pdok.nl; connect-src 'self' https://api.pdok.nl https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex, nofollow">
-  <title>Beheer · Enschede app</title>
+  <title>Editor · Enschede app</title>
   <link rel="icon" href="icons/favicon.ico" sizes="any">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/app.css">
@@ -21,16 +21,61 @@
 </head>
 <body class="beheer">
   <header class="kop">
-    <h1 class="kop__titel">Beheer · Enschede app</h1>
+    <h1 class="kop__titel">Editor · Enschede app</h1>
   </header>
 
   <main class="beheer__vlak">
-    <p class="beheer__uitleg">
-      Kies een plek, controleer de positie en het gebouw op de kaart en kies de foto's.
-      <strong>Deze pagina verandert niets aan de app.</strong> Je krijgt onderaan een nieuw bestand
-      <code>locaties.json</code> dat je op GitHub plaatst. Je werk wordt tussentijds bewaard in deze browser.
-    </p>
     <p class="melding" id="melding" role="alert" hidden></p>
+
+    <!-- Inloggen met een persoonlijke sleutel -->
+    <section class="blok" id="blok-inloggen" aria-labelledby="kop-inloggen" hidden>
+      <h2 id="kop-inloggen">Inloggen</h2>
+      <p>Om wijzigingen voor te stellen heb je een <strong>persoonlijke sleutel</strong> nodig. Die maak je één keer aan, samen met een beheerder.</p>
+      <label class="veld">
+        <span>Jouw sleutel</span>
+        <input id="sleutel" type="password" autocomplete="off" spellcheck="false" maxlength="300" placeholder="github_pat_…">
+      </label>
+      <label class="vink"><input type="checkbox" id="onthouden"> Onthoud mij op deze computer (niet aanvinken op een gedeelde computer)</label>
+      <div class="knoppenrij">
+        <button type="button" class="knop" id="inloggen">Inloggen</button>
+      </div>
+      <p class="status" id="inlog-status" role="status"></p>
+      <details class="uitklap">
+        <summary>Hoe krijg ik een sleutel?</summary>
+        <ol class="stappen">
+          <li>Een beheerder zet je in het team van contentbeheerders. Je hebt een (gratis) GitHub-account nodig.</li>
+          <li>Open <a id="sleutel-link" href="#" target="_blank" rel="noopener noreferrer">deze link</a>. Naam, geldigheid (1 jaar) en rechten zijn al ingevuld.</li>
+          <li>Kies bij <em>Repository access</em>: <strong>Only select repositories</strong> en dan <strong>enschede-app</strong>.</li>
+          <li>Klik onderaan op <em>Generate token</em> en kopieer de sleutel. Je ziet hem maar één keer.</li>
+          <li>Plak de sleutel hierboven en klik op <strong>Inloggen</strong>. Deel je sleutel met niemand.</li>
+        </ol>
+      </details>
+    </section>
+
+    <!-- Na inloggen: wie ben je, en je voorstellen -->
+    <section class="blok" id="blok-voorstellen" aria-labelledby="kop-voorstellen" hidden>
+      <div class="kopregel">
+        <h2 id="kop-voorstellen">Voorstellen</h2>
+        <p class="account"><span id="ingelogd-als"></span> <button type="button" class="knop-klein" id="uitloggen">Uitloggen</button></p>
+      </div>
+      <p class="hint">Een voorstel gaat in vier stappen: <strong>Concept</strong> (hieronder, in je eigen browser) → <strong>Wacht op collega</strong> → <strong>Bij beheerder</strong> → <strong>Live</strong>.</p>
+
+      <h3 id="kop-collegas">Voorstellen van collega's</h3>
+      <ul class="voorstellen" id="lijst-collegas" aria-labelledby="kop-collegas"></ul>
+
+      <h3 id="kop-mijn">Mijn voorstellen</h3>
+      <ul class="voorstellen" id="lijst-mijn" aria-labelledby="kop-mijn"></ul>
+
+      <div class="knoppenrij">
+        <button type="button" class="knop-klein" id="ververs">Lijst verversen</button>
+      </div>
+      <p class="status" id="lijst-status" role="status"></p>
+    </section>
+
+    <p class="aanpassen" id="aanpassen-melding" hidden>
+      <span id="aanpassen-tekst"></span>
+      <button type="button" class="knop-klein" id="stop-aanpassen">Stoppen met aanpassen</button>
+    </p>
 
     <section class="blok" aria-labelledby="kop-plek">
       <h2 id="kop-plek">1. Plek</h2>
@@ -90,23 +135,51 @@
       <label class="vink"><input type="checkbox" id="alle-fotos"> Toon ook foto's van andere plekken</label>
     </section>
 
-    <section class="blok" aria-labelledby="kop-opslaan">
-      <h2 id="kop-opslaan">4. Opslaan op GitHub</h2>
+    <section class="blok" id="blok-versturen" aria-labelledby="kop-versturen" tabindex="-1">
+      <h2 id="kop-versturen">4. Wijziging voorstellen</h2>
+
+      <h3>Wat verandert er</h3>
+      <ul class="wijzigingen" id="wijzigingen"></ul>
+
+      <h3>Controle</h3>
       <ul class="controle" id="controle"></ul>
+
+      <label class="veld veld--breed">
+        <span>Toelichting voor je collega (mag leeg)</span>
+        <textarea id="toelichting" rows="3" maxlength="1500" placeholder="Bijvoorbeeld: positie op 7 oktober ter plekke gecontroleerd."></textarea>
+      </label>
+
+      <!-- Botsing: iemand anders heeft intussen dezelfde plek veranderd -->
+      <div class="botsing" id="botsing" hidden>
+        <h3>Iemand anders heeft intussen hetzelfde aangepast</h3>
+        <p>Kies per onderdeel welke versie blijft. Twijfel je? Kies dan de versie van de ander en doe jouw wijziging daarna opnieuw.</p>
+        <div id="botsing-keuzes"></div>
+      </div>
+
       <div class="knoppenrij">
-        <button type="button" class="knop" id="kopieer">Kopieer locaties.json</button>
-        <button type="button" class="knop-klein" id="download">Download locaties.json</button>
+        <button type="button" class="knop" id="voorstellen">Wijziging voorstellen</button>
+      </div>
+      <p class="status status--groot" id="opslaan-status" role="status"></p>
+
+      <div class="knoppenrij">
         <button type="button" class="knop-klein" id="herstel">Wijzigingen weggooien</button>
       </div>
-      <p class="status" id="opslaan-status" role="status"></p>
-      <ol class="stappen">
-        <li>Open op GitHub het bestand <code>content/locaties.json</code> en klik op het potloodje (<em>Edit</em>).</li>
-        <li>Selecteer alles (Ctrl+A, op de Mac Cmd+A) en plak (Ctrl+V of Cmd+V).</li>
-        <li>Klik op <em>Commit changes…</em>, kies <strong>Create a new branch</strong> en daarna <em>Propose changes</em>.</li>
-        <li>Laat iemand meekijken en voeg de wijziging samen (<em>Merge</em>).</li>
-      </ol>
-      <textarea id="uitvoer" class="uitvoer" rows="8" readonly aria-label="Nieuwe inhoud van locaties.json"></textarea>
+
+      <details class="uitklap">
+        <summary>Voor beheerders: het bestand zelf</summary>
+        <p class="hint">Alleen nodig als GitHub niet bereikbaar is. Een contentbeheerder gebruikt altijd de knop hierboven.</p>
+        <div class="knoppenrij">
+          <button type="button" class="knop-klein" id="download">Download locaties.json</button>
+        </div>
+        <textarea id="uitvoer" class="uitvoer" rows="8" readonly aria-label="Nieuwe inhoud van locaties.json"></textarea>
+      </details>
     </section>
   </main>
+
+  <!-- Altijd zichtbaar zolang er iets veranderd is: duimbereik, zonder te zoeken -->
+  <div class="verstuurbalk" id="verstuurbalk" hidden>
+    <span id="verstuurbalk-tekst"></span>
+    <button type="button" class="knop" id="naar-versturen">Bekijken en voorstellen</button>
+  </div>
 </body>
 </html>
