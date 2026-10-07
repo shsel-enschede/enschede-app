@@ -2,6 +2,8 @@
 // Bron: 'vorm' in de inhoud, anders het Kadaster (BAG) via PDOK op basis van het adres.
 // Een opgezochte omtrek wordt op dit toestel bewaard (geen persoonsgegevens: alleen de vorm van het gebouw).
 
+import { puntInRing } from './hulp.js';
+
 const PDOK_ZOEK = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/free';
 const PDOK_BAG = 'https://api.pdok.nl/kadaster/bag/ogc/v2/collections/pand/items';
 const VORM_SLEUTEL = 'enschede-app:vormen:v1';
@@ -9,7 +11,16 @@ const geheugen = new Map(); // gebouw-id -> Promise<vorm|null>
 const bekend = new Map();   // gebouw-id -> vorm (direct beschikbaar)
 
 function leesBewaard() {
-  try { return JSON.parse(localStorage.getItem(VORM_SLEUTEL)) || {}; } catch { return {}; }
+  try {
+    const alles = JSON.parse(localStorage.getItem(VORM_SLEUTEL));
+    return alles && typeof alles === 'object' && !Array.isArray(alles) ? alles : {};
+  } catch { return {}; }
+}
+
+// Een bewaarde omtrek komt uit de browser en wordt net zo gecontroleerd als de inhoud.
+function geldigeVorm(vorm) {
+  return Array.isArray(vorm) && vorm.length >= 3 && vorm.length <= 500
+    && vorm.every((p) => Array.isArray(p) && p.length === 2 && isGetal(p[0]) && isGetal(p[1]));
 }
 function bewaar(sleutel, vorm) {
   const alles = leesBewaard();
@@ -21,16 +32,6 @@ async function haalJson(url) {
   const antwoord = await fetch(url, { credentials: 'omit', referrerPolicy: 'no-referrer' });
   if (!antwoord.ok) throw new Error(`PDOK antwoordt ${antwoord.status}`);
   return antwoord.json();
-}
-
-function puntInRing(x, y, ring) {
-  let binnen = false;
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-    const [xi, yi] = ring[i];
-    const [xj, yj] = ring[j];
-    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) binnen = !binnen;
-  }
-  return binnen;
 }
 
 function isGetal(w) { return typeof w === 'number' && Number.isFinite(w); }
@@ -64,7 +65,7 @@ async function zoek(gebouw) {
   if (!gebouw.adres) return null;
   const sleutel = `${gebouw.id}|${gebouw.adres}`;
   const bewaard = leesBewaard()[sleutel];
-  if (Array.isArray(bewaard)) return bewaard;
+  if (geldigeVorm(bewaard)) return bewaard;
 
   const { lat, lng } = await zoekAdres(gebouw.adres);
   const vorm = await zoekPand(lat, lng);
@@ -72,7 +73,6 @@ async function zoek(gebouw) {
   bewaar(sleutel, vorm);
   return vorm;
 }
-
 
 /** Omtrek van een gebouw (lijst van [lat, lng]) of null. Eén opzoekactie per gebouw per sessie. */
 export function vormVan(gebouw) {

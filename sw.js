@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v17';
+const VERSIE = 'v18';
 const CACHE = `enschede-app-${VERSIE}`;
 const FOTO_CACHE = 'enschede-fotos-v1'; // los van VERSIE: foto's blijven bewaard na een update
 
@@ -17,6 +17,7 @@ const APP_SCHIL = [
   'js/gebouwen.js',
   'js/afstand.js',
   'js/locatie.js',
+  'js/hulp.js',
   'vendor/leaflet/leaflet.js',
   'vendor/leaflet/leaflet.css',
   'content/locaties.json',
@@ -25,6 +26,8 @@ const APP_SCHIL = [
   'icons/icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
+  'icons/icon-maskable-192.png',
+  'icons/icon-maskable-512.png',
   'icons/shsel-logo.svg',
   'icons/favicon.ico',
   'icons/apple-touch-icon.png',
@@ -57,9 +60,13 @@ self.addEventListener('fetch', (event) => {
       caches.open(FOTO_CACHE).then(async (cache) => {
         const bewaard = await cache.match(verzoek);
         if (bewaard) return bewaard;
-        const antwoord = await fetch(verzoek);
-        if (antwoord.ok) cache.put(verzoek, antwoord.clone());
-        return antwoord;
+        try {
+          const antwoord = await fetch(verzoek);
+          if (antwoord.ok) cache.put(verzoek, antwoord.clone());
+          return antwoord;
+        } catch {
+          return Response.error(); // offline: de app verbergt een foto die niet laadt
+        }
       }),
     );
     return;
@@ -72,7 +79,7 @@ self.addEventListener('fetch', (event) => {
         const vers = fetch(verzoek).then((antwoord) => {
           if (antwoord.ok) cache.put(verzoek, antwoord.clone());
           return antwoord;
-        }).catch(() => bewaard);
+        }).catch(() => bewaard || Response.error()); // offline én nog nooit geladen: nette fout i.p.v. een crash
         return bewaard || vers;
       }),
     );

@@ -7,9 +7,11 @@
 //   meer dan 1 km          "ca. 1,5 km"                   (afgerond op halve km)
 //   GPS-onzekerheid > 50 m "Locatie nog onzeker"         -> er gaat niets open
 
-export const ONZEKER_BOVEN = 50;      // meter: grotere GPS-onzekerheid vertrouwen we niet
-export const VLAKBIJ = 100;           // meter
-export const MARGE = 10;              // meter: voorkomt heen-en-weer springen rond een grens
+import { puntInRing } from './hulp.js';
+
+const ONZEKER_BOVEN = 50;      // meter: grotere GPS-onzekerheid vertrouwen we niet
+const VLAKBIJ = 100;           // meter
+const MARGE = 10;              // meter: voorkomt heen-en-weer springen rond een grens
 const LOOPSNELHEID = 75;              // meter per minuut (4,5 km/u)
 const MINUTEN = [2, 3, 5, 10, 15];
 
@@ -29,16 +31,6 @@ function afstandTotLijnstuk([px, py], [ax, ay], [bx, by]) {
   return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
 }
 
-function binnen([px, py], ring) {
-  let ja = false;
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-    const [xi, yi] = ring[i];
-    const [xj, yj] = ring[j];
-    if ((yi > py) !== (yj > py) && px < ((xj - xi) * (py - yi)) / (yj - yi) + xi) ja = !ja;
-  }
-  return ja;
-}
-
 /**
  * Afstand in meters van 'positie' [lat, lng] tot een plek.
  * Met een omtrek (lijst van [lat, lng]): afstand tot de rand, 0 als je erin staat.
@@ -47,8 +39,8 @@ function binnen([px, py], ring) {
 export function afstandTot(positie, { vorm = null, punt = null } = {}) {
   if (Array.isArray(vorm) && vorm.length >= 3) {
     const ring = vorm.map((p) => naarMeters(p, positie));
-    const ik = [0, 0];
-    if (binnen(ik, ring)) return 0;
+    const ik = [0, 0]; // jouw positie is het nulpunt
+    if (puntInRing(...ik, ring)) return 0;
     let kleinste = Infinity;
     for (let i = 0; i < ring.length; i += 1) {
       kleinste = Math.min(kleinste, afstandTotLijnstuk(ik, ring[i], ring[(i + 1) % ring.length]));

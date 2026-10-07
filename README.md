@@ -10,7 +10,8 @@ Openen op je telefoon en via het menu van de browser kiezen voor *Zet op beginsc
 
 | Map of bestand | Wat staat erin | Wie past het aan |
 | --- | --- | --- |
-| `content/locaties.json` | Alle teksten, vragen, antwoorden, routes en coördinaten | Vrijwilligers |
+| `content/locaties.json` | Alle teksten, vragen, antwoorden, gebouwen en coördinaten | Vrijwilligers |
+| `content/fotos.json` | Lijst van foto's met bron, bijschrift en rechten | Vrijwilligers |
 | `index.html`, `css/`, `js/` | De app zelf | Ontwikkelaar of Claude |
 | `sw.js` | Zorgt dat de app offline werkt | Ontwikkelaar of Claude |
 | `icons/` | App-icoon en logo | Ontwikkelaar |
@@ -71,7 +72,7 @@ Bovenaan `content/locaties.json` staat de lijst `gebouwen`. Voorbeeld:
 - **Een gebouw staat als stip in plaats van ingekleurd:** het adres is niet gevonden in het Kadaster. Controleer straat en huisnummer, of geef een eigen `vorm` op.
 - **De kaart blijft grijs:** de kaartdienst PDOK is niet bereikbaar of er is geen internet. De lijst met plekken werkt gewoon.
 - **Een vraag gaat niet open terwijl je er staat:** de telefoon is onzeker over de locatie (de app toont dan "Locatie nog onzeker…"). Even naar een open plek lopen helpt. Blijft het misgaan, maak `straal` iets groter.
-- **Opnieuw testen:** onderaan het routescherm staat **Route opnieuw beginnen**. Dat wist alleen de antwoorden van die route, na een bevestiging.
+- **Opnieuw testen:** onderaan de lijst met plekken (onder de kaart) staat **Alles opnieuw beginnen**. Dat wist je antwoorden op dit toestel, na een bevestiging.
 - **Gebruikers zien een wijziging niet:** de app ververst de inhoud vanzelf; soms pas bij de tweede keer openen.
 
 ## Licentie en rechten

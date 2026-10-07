@@ -72,7 +72,7 @@ const BESTAND_PATROON = /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/;
 // hij komt nooit op GitHub en dus nooit op de live site. Zie fotos-lokaal-LEESMIJ.md.
 export const LOKAAL = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
 
-function geldigBestand(naam) {
+export function geldigBestand(naam) {
   return typeof naam === 'string' && BESTAND_PATROON.test(naam);
 }
 

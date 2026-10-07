@@ -42,13 +42,8 @@ export function bewaarAntwoord(locatieId, keuze) {
   schrijf();
 }
 
-/** Wis de antwoorden van de gegeven plekken (bijvoorbeeld één route). */
+/** Wis de antwoorden van de gegeven plekken ("Alles opnieuw beginnen"). */
 export function wisAntwoorden(locatieIds) {
   for (const id of locatieIds) delete geheugen.antwoorden[id];
-  schrijf();
-}
-
-export function wisAlles() {
-  geheugen = { antwoorden: {} };
   schrijf();
 }

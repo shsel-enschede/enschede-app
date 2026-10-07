@@ -8,6 +8,7 @@
 // Inhoud wordt alleen met textContent op het scherm gezet, nooit met innerHTML (zie CLAUDE.md).
 
 import { vormVan } from './gebouwen.js';
+import { scrolGedrag } from './hulp.js';
 
 const PDOK_TEGELS = 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png';
 const GRENZEN = [[52.15, 6.75], [52.30, 7.00]]; // ruim rond Enschede
@@ -20,7 +21,7 @@ const STIJL_KLAAR = { color: '#1E6B3A', weight: 2, dashArray: null, fillColor: '
 let leafletLaden = null;
 let kaart = null;
 let laag = null;
-let huidigeRoute = null;
+let huidigeVerzameling = null; // id van de getekende verzameling (nu altijd 'alles')
 let mijnStip = null;
 let mijnCirkel = null;
 let laatsteOpties = null;
@@ -95,11 +96,11 @@ function teken(L, groep, vorm, opties) {
   getekend.set(groep.gebouw.id, { vlak, label, ...groep });
 }
 
-// Groepeer de locaties van een route per gebouw, in route-volgorde.
+// Groepeer de locaties van een verzameling per gebouw.
 // Een locatie zonder (bekend) gebouw krijgt een eigen stip op haar positie.
-function groepeer(route, inhoud) {
+function groepeer(verzameling, inhoud) {
   const groepen = new Map();
-  for (const id of route.locaties) {
+  for (const id of verzameling.locaties) {
     const loc = inhoud.locaties.get(id);
     const gebouw = (loc.gebouw && inhoud.gebouwen.get(loc.gebouw)) || { id: `los-${loc.id}`, naam: loc.titel, adres: null, vorm: null };
     if (!groepen.has(gebouw.id)) groepen.set(gebouw.id, { gebouw, locaties: [] });
@@ -111,10 +112,10 @@ function groepeer(route, inhoud) {
 // ---------- Openbaar ----------
 
 /**
- * Toont de kaart van een route in 'houder'.
+ * Toont de kaart van een verzameling plekken ({ id, locaties }) in 'houder'.
  * opties: { antwoordVan(id), kiesGroep(groep), opLeegTik(), meld(tekst) }
  */
-export async function toonKaart(houder, route, inhoud, opties) {
+export async function toonKaart(houder, verzameling, inhoud, opties) {
   const L = await laadLeaflet();
   laatsteOpties = opties;
 
@@ -145,15 +146,15 @@ export async function toonKaart(houder, route, inhoud, opties) {
   // De kaart stond mogelijk in een verborgen scherm: grootte opnieuw bepalen.
   kaart.invalidateSize();
 
-  if (huidigeRoute === route.id) {
+  if (huidigeVerzameling === verzameling.id) {
     ververs(opties.antwoordVan);
     return;
   }
-  huidigeRoute = route.id;
+  huidigeVerzameling = verzameling.id;
   laag.clearLayers();
   getekend.clear();
 
-  const groepen = groepeer(route, inhoud);
+  const groepen = groepeer(verzameling, inhoud);
   let mislukt = 0;
   await Promise.all(groepen.map(async (groep) => {
     let vorm = null;
@@ -163,7 +164,7 @@ export async function toonKaart(houder, route, inhoud, opties) {
       mislukt += 1;
       console.warn(fout);
     }
-    if (huidigeRoute === route.id) teken(L, groep, vorm, opties);
+    if (huidigeVerzameling === verzameling.id) teken(L, groep, vorm, opties);
   }));
 
   ontwar();
@@ -199,7 +200,7 @@ function ontwar() {
 }
 
 /** Kleuren en tellers bijwerken na een antwoord. */
-export function ververs(antwoordVan) {
+function ververs(antwoordVan) {
   const L = window.L;
   if (!L) return;
   for (const groep of getekend.values()) {
@@ -216,8 +217,7 @@ export function centreer(positie) {
   if (!L || !kaart || !positie) return;
   const ll = L.latLng(positie.lat, positie.lng);
   if (!L.latLngBounds(GRENZEN).contains(ll)) return;
-  const zacht = !matchMedia('(prefers-reduced-motion: reduce)').matches;
-  kaart.setView(ll, Math.max(kaart.getZoom(), 17), { animate: zacht });
+  kaart.setView(ll, Math.max(kaart.getZoom(), 17), { animate: scrolGedrag() === 'smooth' });
 }
 
 /** Toon (of verberg, met null) de eigen positie als blauwe stip met een cirkel voor de onzekerheid. */
