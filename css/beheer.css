@@ -20,6 +20,7 @@
 .vink input { width: 20px; height: 20px; accent-color: var(--goed); }
 
 .status { color: var(--grijs); font-size: 0.9375rem; }
+.linkregel a { overflow-wrap: anywhere; color: var(--rood); }
 .hint { color: var(--grijs); font-size: 0.9375rem; }
 
 .knoppenrij { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; }

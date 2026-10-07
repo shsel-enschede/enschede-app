@@ -70,9 +70,20 @@ Lees de vraag en het verhaal en bepaal het **kenmerk**: de toren, een gevelsteen
 6. **Let op scheve daken.** Een luchtfoto is iets schuin genomen, waardoor daken en torens verschoven lijken ten opzichte van de voet van het gebouw. Gebruik daarom de rode Kadaster-omtrek als muurlijn, niet de dakrand op de foto.
 7. Laat **Positie gecontroleerd** nog uit.
 
+### Link naar de luchtfoto
+
+Onder **Positie van de plek** staat een link die precies op dat punt de luchtfoto opent, bijvoorbeeld:
+
+`https://shsel-enschede.github.io/enschede-app/beheer.html#plek=jacobuskerk&lat=52.221900&lng=6.894000`
+
+- Met **Kopieer link** stuur je hem naar de andere beheerder ("klopt dit kijkpunt?") of naar jezelf voor de veldtest.
+- Je kunt ook zelf een link maken: vervang `plek`, `lat` (breedte, rond 52,2) en `lng` (lengte, rond 6,9). Gebruik een **punt** als decimaalteken.
+- Een link verandert nooit iets. Wijkt het punt uit de link af van de opgeslagen positie, dan zie je een **blauw rondje** naast de rode speld, met de afstand ertussen. Wil je dat punt gebruiken, sleep de speld er dan zelf naartoe.
+- De link werkt pas op de live site als deze beheerpagina daar staat (na samenvoegen).
+
 ### Stap 2: ter plekke controleren (veldtest)
 
-1. Loop naar het punt dat je op de luchtfoto koos.
+1. Open de link van de plek op je telefoon en loop naar het punt dat je op de luchtfoto koos.
 2. Kijk of je het kenmerk goed ziet en er veilig kunt staan. Is het niet goed, onthoud dan een **vast herkenningspunt** waar het wél goed is, zoals een lantaarnpaal, een boom, een putdeksel of een hoek van de stoep.
 3. Schuif de speld thuis op de luchtfoto naar dat herkenningspunt. Dat is nauwkeuriger dan de GPS van je telefoon.
 4. Maak een **foto vanaf het kijkpunt**. Die kan later als herkenningsfoto in de app.

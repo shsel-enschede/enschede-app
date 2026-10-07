@@ -24,7 +24,10 @@ let kadasterPunt = null; // laatst opgezochte adrespunt
 let kaart;
 let lagen;
 let speld;
-const overlay = { anderen: null, gebouw: null, tekening: null };
+const overlay = { anderen: null, gebouw: null, tekening: null, linkpunt: null };
+
+// Grenzen van de kaart (zie maakKaart). Een link met een punt daarbuiten wordt genegeerd.
+const GRENS = { latMin: 52.15, latMax: 52.3, lngMin: 6.75, lngMax: 7.0 };
 
 // ---------- Hulpjes ----------
 
@@ -102,6 +105,8 @@ function kiesPlek(id) {
   $('adres-naar-positie').disabled = true;
   $('kadaster-status').textContent = '';
   toonPositie();
+  overlay.linkpunt?.remove();
+  overlay.linkpunt = null;
   vulGebouwKeuze();
   toonGebouw();
   toonFotos();
@@ -123,7 +128,7 @@ function plekStatus() {
 
 function maakKaart() {
   const L = window.L;
-  kaart = L.map('kaart', { maxZoom: 21, maxBounds: [[52.15, 6.75], [52.3, 7.0]] }).setView([52.2219, 6.894], 17);
+  kaart = L.map('kaart', { maxZoom: 21, maxBounds: [[GRENS.latMin, GRENS.lngMin], [GRENS.latMax, GRENS.lngMax]] }).setView([52.2219, 6.894], 17);
   kaart.attributionControl.setPrefix(false);
   lagen = {
     kaart: L.tileLayer(TEGELS.kaart, { maxNativeZoom: 19, maxZoom: 21, attribution: 'Kaart: PDOK / Kadaster' }),
@@ -141,13 +146,77 @@ function maakKaart() {
   });
 
   for (const naam of ['kaart', 'luchtfoto']) {
-    $(`laag-${naam}`).addEventListener('click', () => {
-      for (const [n, laag] of Object.entries(lagen)) {
-        if (n === naam) laag.addTo(kaart); else laag.remove();
-        $(`laag-${n}`).setAttribute('aria-pressed', String(n === naam));
-      }
-    });
+    $(`laag-${naam}`).addEventListener('click', () => kiesLaag(naam));
   }
+}
+
+function kiesLaag(naam) {
+  for (const [n, laag] of Object.entries(lagen)) {
+    if (n === naam) laag.addTo(kaart); else laag.remove();
+    $(`laag-${n}`).setAttribute('aria-pressed', String(n === naam));
+  }
+}
+
+// ---------- Link naar een positie op de luchtfoto ----------
+// Vorm: beheer.html#plek=<id>&lat=<breedte>&lng=<lengte>
+// Openen kiest die plek, zet de luchtfoto aan en zoomt in op het punt uit de link.
+// Een link verandert nooit iets aan de inhoud: wijkt het punt af van de opgeslagen positie,
+// dan verschijnt het als blauw rondje en kun je de speld er zelf naartoe slepen.
+
+function maakLink() {
+  const url = new URL(location.href);
+  url.hash = new URLSearchParams({ plek: plek.id, lat: plek.positie.lat.toFixed(6), lng: plek.positie.lng.toFixed(6) }).toString();
+  return url.toString();
+}
+
+function toonLink() {
+  const url = maakLink();
+  $('luchtfoto-link').href = url;
+  $('luchtfoto-link').textContent = url;
+  $('link-status').textContent = '';
+}
+
+async function kopieerLink() {
+  try {
+    await navigator.clipboard.writeText(maakLink());
+    $('link-status').textContent = '✓ Link gekopieerd.';
+  } catch {
+    $('link-status').textContent = 'Kopiëren lukte niet automatisch. Houd de link hierboven ingedrukt (of klik met rechts) en kies "Link kopiëren".';
+  }
+}
+
+function leesLink() {
+  const p = new URLSearchParams(location.hash.slice(1));
+  const id = p.get('plek');
+  const lat = Number(p.get('lat'));
+  const lng = Number(p.get('lng'));
+  const plekOk = id !== null && ID_PATROON.test(id) && data.locaties.some((l) => l.id === id);
+  const puntOk = Number.isFinite(lat) && Number.isFinite(lng)
+    && lat >= GRENS.latMin && lat <= GRENS.latMax && lng >= GRENS.lngMin && lng <= GRENS.lngMax;
+  return { id: plekOk ? id : null, punt: puntOk ? { lat, lng } : null };
+}
+
+function volgLink() {
+  const { id, punt } = leesLink();
+  if (!id && !punt) return false;
+  if (id) {
+    $('plek').value = id;
+    kiesPlek(id);
+  } else if (!plek) {
+    kiesPlek($('plek').value);
+  }
+  kiesLaag('luchtfoto');
+  overlay.linkpunt?.remove();
+  overlay.linkpunt = null;
+  if (punt) {
+    const verschil = kaart.distance([punt.lat, punt.lng], [plek.positie.lat, plek.positie.lng]);
+    if (verschil > 1) {
+      overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
+      $('link-status').textContent = `Het blauwe rondje is het punt uit de link. Het ligt ${Math.round(verschil)} m van de opgeslagen positie (rode speld).`;
+    }
+    kaart.setView([punt.lat, punt.lng], 20);
+  }
+  return true;
 }
 
 function zetPositie({ lat, lng }) {
@@ -162,6 +231,7 @@ function toonPositie() {
   $('lng').textContent = plek.positie.lng.toFixed(6);
   $('positie-ok').checked = plek.positie.bevestigd === true;
   plekStatus();
+  toonLink();
 }
 
 // Andere plekken als grijze stipjes, zodat je ziet wat er al in de buurt staat.
@@ -415,6 +485,8 @@ function download() {
 
 function koppel() {
   $('plek').addEventListener('change', (e) => kiesPlek(e.target.value));
+  $('kopieer-link').addEventListener('click', kopieerLink);
+  window.addEventListener('hashchange', volgLink);
   $('positie-ok').addEventListener('change', (e) => { plek.positie.bevestigd = e.target.checked; plekStatus(); gewijzigd(); });
 
   $('gebouw').addEventListener('change', (e) => {
@@ -490,7 +562,7 @@ async function start() {
   maakKaart();
   koppel();
   vulPlekken();
-  kiesPlek($('plek').value);
+  if (!volgLink()) kiesPlek($('plek').value);
   werkUitvoerBij();
 }
 
