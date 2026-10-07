@@ -42,7 +42,7 @@ Bovenaan `content/locaties.json` staat:
 - `"ter-plekke"`: een verhaal en vraag gaan pas open als je binnen `straal` meter van het gebouw staat. Zet dit aan als de app klaar is voor publiek.
 - `straal` mag tussen 20 en 60 meter liggen. Afgesproken is 30 tot 40 meter, omdat GPS in de binnenstad 10 tot 20 meter kan afwijken.
 
-## De beheerpagina
+## De editor
 
 Op https://shsel-enschede.github.io/enschede-app/beheer.html kies je per plek:
 
@@ -50,7 +50,23 @@ Op https://shsel-enschede.github.io/enschede-app/beheer.html kies je per plek:
 - het **gebouw**: bestaand, nieuw, of zelf een omtrek tekenen voor een verdwenen gebouw;
 - de **foto's** uit de lijst van beschikbare foto's voor die plek.
 
-De pagina verandert zelf niets aan de app. Onderaan krijg je de nieuwe inhoud van `content/locaties.json`, met de stappen om die op GitHub te plaatsen. Je werk blijft tussentijds bewaard in je browser.
+Onderaan zie je in gewone taal wat er verandert en of alles klopt. Met **Wijziging voorstellen** gaat je wijziging naar GitHub als voorstel; GitHub zelf zie je niet. Een voorstel gaat in vier stappen:
+
+1. **Concept**: je werk, tussentijds bewaard in je eigen browser.
+2. **Wacht op collega**: een andere contentbeheerder bekijkt het in de editor en kiest *Akkoord* of *Opmerking*. Bij een opmerking kies je *Aanpassen* en verstuur je het opnieuw.
+3. **Bij beheerder**: een beheerder voegt het samen.
+4. **Live**: binnen enkele minuten in de app.
+
+Je logt in met een persoonlijke sleutel. In de editor staat onder *Hoe krijg ik een sleutel?* hoe je die samen met een beheerder aanmaakt.
+
+### Voor beheerders: eenmalig instellen
+
+- Contentbeheerders in een team met de rol *Write* op deze repository.
+- Organisatie-instelling: fine-grained sleutels toestaan, met goedkeuring door een beheerder.
+- Ruleset op `main`: alleen via pull request, goedkeuring van een Code Owner vereist, oude goedkeuringen vervallen bij een nieuwe wijziging, geen force-push.
+- Bestand `CODEOWNERS` met beide beheerders.
+
+Is GitHub niet bereikbaar, dan kan een beheerder onder *Voor beheerders: het bestand zelf* `locaties.json` downloaden.
 
 Nieuwe foto's voeg je toe zoals beschreven in `fotos/LEESMIJ.md`.
 

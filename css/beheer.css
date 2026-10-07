@@ -1,4 +1,4 @@
-/* Beheerpagina (beheer.html). Bouwt voort op de kleuren en letters uit app.css. */
+/* Editor (beheer.html). Bouwt voort op de kleuren en letters uit app.css. */
 
 .beheer__vlak { max-width: 960px; display: grid; gap: 16px; }
 .beheer__uitleg { margin: 0; max-width: 70ch; }
@@ -12,7 +12,8 @@
 
 .veld { display: grid; gap: 4px; margin: 10px 0; max-width: 520px; }
 .veld span { font-weight: 600; font-size: 0.9375rem; }
-.veld select, .veld input {
+.veld > * { min-width: 0; max-width: 100%; } /* lange plaknamen mogen het scherm niet breder maken */
+.veld select, .veld input, .veld textarea {
   min-height: 44px; padding: 8px 10px; font: inherit; color: var(--tekst);
   background: var(--wit); border: 1px solid var(--grijs); border-radius: 8px;
 }
@@ -55,5 +56,65 @@
 .controle { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 4px; }
 .controle__fout { color: var(--rood); }
 .controle__goed { color: var(--goed); font-weight: 600; }
-.stappen { padding-left: 1.4em; max-width: 70ch; }
 .uitvoer { width: 100%; font: 0.8125rem/1.4 ui-monospace, Menlo, Consolas, monospace; border: 1px solid var(--lijn); border-radius: 8px; padding: 8px; color: var(--tekst); background: var(--vlak); }
+
+.stappen { padding-left: 1.4em; max-width: 70ch; }
+.stappen li { margin: 4px 0; }
+.veld--breed { max-width: 70ch; }
+.veld textarea { resize: vertical; line-height: 1.4; }
+.vink--boven { align-items: flex-start; padding: 6px 0; }
+.vink--boven input { margin-top: 2px; flex: none; }
+
+/* Inloggen en account */
+.uitklap { margin-top: 12px; }
+.uitklap summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--rood); }
+.uitklap a { color: var(--rood); }
+.kopregel { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.kopregel h2 { margin-bottom: 4px; }
+.account { margin: 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; color: var(--grijs); }
+
+/* Voorstellen en hun toestand */
+.voorstellen { list-style: none; margin: 4px 0 8px; padding: 0; display: grid; gap: 8px; }
+.voorstel { padding: 10px 12px; border: 1px solid var(--lijn); border-left-width: 4px; border-radius: 8px; }
+.voorstel p { margin: 2px 0; }
+.voorstel__kop { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.voorstel__details { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--lijn); }
+.voorstel__details h4 { margin: 0 0 4px; }
+.voorstel--opmerking { border-left-color: var(--rood); }
+.voorstel--beheerder { border-left-color: var(--tekst); }
+.voorstel--live { border-left-color: var(--goed); }
+
+.toestand {
+  display: inline-flex; gap: 4px; align-items: center; padding: 1px 8px;
+  font-size: 0.875rem; font-weight: 600; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap;
+}
+.toestand__icoon { font-weight: 700; }
+.toestand--wacht, .toestand--gesloten { color: var(--grijs); }
+.toestand--beheerder { color: var(--tekst); }
+.toestand--opmerking { color: var(--rood); background: var(--fout-licht); }
+.toestand--live { color: var(--goed); background: var(--goed-licht); }
+.opmerking { margin: 6px 0; padding: 8px 12px; background: var(--fout-licht); border-radius: 8px; }
+
+/* Wat verandert er */
+.wijzigingen { margin: 4px 0 8px; padding-left: 1.2em; display: grid; gap: 6px; }
+.wijzigingen ul { margin: 2px 0 0; padding-left: 1.2em; }
+.wijzigingen a { color: var(--rood); }
+
+.aanpassen {
+  margin: 0; padding: 12px 14px; display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center;
+  background: var(--goed-licht); border: 1px solid var(--goed); border-radius: var(--rond);
+}
+.botsing { margin: 12px 0; padding: 12px 14px; border: 2px solid var(--rood); border-radius: var(--rond); }
+.botsing h3 { margin-top: 0; }
+.botsing__groep { margin: 8px 0; border: 1px solid var(--lijn); border-radius: 8px; padding: 6px 12px; }
+.botsing__groep legend { font-weight: 600; padding: 0 4px; }
+.status--groot { font-size: 1rem; color: var(--tekst); }
+
+/* Balk onderin, binnen duimbereik, zolang er iets te versturen is */
+.verstuurbalk {
+  position: sticky; bottom: 0; z-index: 1000; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between;
+  padding: 10px max(16px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  background: var(--wit); border-top: 1px solid var(--lijn); box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+.verstuurbalk[hidden] { display: none; }
+.verstuurbalk .knop { min-height: 44px; }
