@@ -48,11 +48,17 @@
         <button type="button" class="schakel" id="laag-luchtfoto" aria-pressed="false">Luchtfoto</button>
       </div>
       <div class="beheerkaart" id="kaart" aria-label="Kaart: tik om de positie te kiezen"></div>
-      <p class="hint" id="modus-hint">Tik op de kaart of versleep de rode speld om de positie te kiezen.</p>
+      <p class="hint" id="modus-hint">Tik op de kaart of versleep de rode speld naar het kijkpunt: de plek op de stoep of het plein waar je ziet waar de vraag over gaat. Zie coordinaten-LEESMIJ.md.</p>
 
       <h3>Positie van de plek</h3>
       <p>Breedte <output id="lat">–</output> · Lengte <output id="lng">–</output></p>
-      <label class="vink"><input type="checkbox" id="positie-ok"> Positie gecontroleerd (ter plekke of op de luchtfoto)</label>
+      <p class="hint">Link naar deze positie op de luchtfoto, bijvoorbeeld om te delen of ter plekke op je telefoon te openen:</p>
+      <p class="linkregel"><a id="luchtfoto-link" href="#"></a></p>
+      <div class="knoppenrij">
+        <button type="button" class="knop-klein" id="kopieer-link">Kopieer link</button>
+      </div>
+      <p class="status" id="link-status" aria-live="polite"></p>
+      <label class="vink"><input type="checkbox" id="positie-ok"> Positie ter plekke gecontroleerd (alleen beheerders, na de veldtest)</label>
 
       <h3>Gebouw</h3>
       <label class="veld">
