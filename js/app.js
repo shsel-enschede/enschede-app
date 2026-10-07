@@ -515,17 +515,27 @@ function toonUitslag(loc, keuze, knoppen, net) {
   fb.replaceChildren(...delen);
   fb.hidden = false;
   if (net) toonMijlpaal(loc);
-  toonDichtbij(loc);
+  toonDichtbij(loc, net);
   if (net) {
     // In beeld houden: je eigen keuze, het goede antwoord én de uitleg.
     // Past dat niet op het scherm, dan gaat de uitleg voor.
+    // Is er nog een verhaal bij hetzelfde gebouw, dan moet ook die knop (in de mijlpaal) boven de voetbalk
+    // staan, anders zie je hem over het hoofd. Volgorde: alles in beeld; anders uitleg + mijlpaal; anders de uitleg.
     const bovenste = knoppen[Math.min(keuze, loc.juist)];
+    const mijlpaal = $('mijlpaal');
+    const vervolg = !mijlpaal.hidden && mijlpaal.querySelector('.mijlpaal__lijst');
     requestAnimationFrame(() => {
       const kop = el.kop.getBoundingClientRect().bottom;
       const voet = el.voet.hidden ? innerHeight : el.voet.getBoundingClientRect().top;
-      const nodig = fb.getBoundingClientRect().bottom - bovenste.getBoundingClientRect().top;
-      const doel = nodig <= voet - kop - 24 ? bovenste : fb;
-      doel.scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
+      const ruimte = voet - kop - 24;
+      const onderkant = (vervolg ? mijlpaal : fb).getBoundingClientRect().bottom;
+      if (onderkant - bovenste.getBoundingClientRect().top <= ruimte) {
+        bovenste.scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
+      } else if (vervolg && onderkant - fb.getBoundingClientRect().top <= ruimte) {
+        scrollBy({ top: onderkant - (voet - 12), behavior: scrolGedrag() }); // mijlpaal net boven de voetbalk
+      } else {
+        fb.scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
+      }
     });
   }
 
@@ -554,19 +564,37 @@ function toonMijlpaal(loc) {
   balk.append(...alles.locaties.map((_, i) => maak('span',
     i < klaar - 1 ? 'voortgang__deel voortgang__deel--klaar'
       : i === klaar - 1 ? 'voortgang__deel voortgang__deel--klaar voortgang__deel--nieuw' : 'voortgang__deel')));
-  p.replaceChildren(maak('p', 'mijlpaal__tekst', tekst), balk);
+  p.replaceChildren(maak('p', 'mijlpaal__tekst', tekst), balk, ...overigeVerhalen(loc));
   p.classList.toggle('mijlpaal--af', klaar === alles.locaties.length || (t && t.totaal > 1 && t.klaar === t.totaal));
   p.hidden = false;
 }
 
-// Na een antwoord een paar onbezochte plekken in de buurt als keuze aanbieden, plus de kaart (hoofdknop).
-// Eerst andere verhalen bij hetzelfde gebouw, dan de dichtstbijzijnde plekken:
+// Nog niet beantwoorde verhalen bij hetzelfde gebouw, direct onder de mijlpaal ("1 van 2 verhalen"),
+// zodat je het tweede verhaal niet over het hoofd ziet (en het onaf-gevoel meteen een uitweg heeft).
+function overigeVerhalen(loc) {
+  if (!loc.gebouw) return [];
+  const overig = alles.locaties
+    .filter((id) => id !== loc.id && antwoordVan(id) === null)
+    .map((id) => inhoud.locaties.get(id))
+    .filter((ander) => ander.gebouw === loc.gebouw);
+  if (!overig.length) return [];
+  const naam = inhoud.gebouwen.get(loc.gebouw)?.naam ?? '';
+  const lijst = maak('ul', 'lijst mijlpaal__lijst');
+  lijst.append(...overig.map((ander) => plekKnop(ander, 'Ook bij dit gebouw')));
+  return [maak('p', 'mijlpaal__vervolg', overig.length === 1 ? `Nog 1 verhaal bij ${naam}:` : `Nog ${overig.length} verhalen bij ${naam}:`), lijst];
+}
+
+// Na een antwoord een paar onbezochte plekken bij andere gebouwen als keuze aanbieden, plus de kaart (hoofdknop).
+// Direct na het antwoord staan andere verhalen bij hetzelfde gebouw al in de mijlpaal (zie overigeVerhalen());
+// kom je later terug op deze plek (geen mijlpaal), dan staan ze hier bovenaan.
+// Daarna de dichtstbijzijnde plekken:
 //   met GPS: gemeten vanaf je eigen positie;  zonder GPS: vanaf deze plek.
-function toonDichtbij(loc) {
+function toonDichtbij(loc, inMijlpaal) {
   const vak = $('dichtbij');
   const metGps = Boolean(positie());
   const kandidaten = alles.locaties
     .filter((id) => id !== loc.id && antwoordVan(id) === null)
+    .filter((id) => !inMijlpaal || !loc.gebouw || inhoud.locaties.get(id).gebouw !== loc.gebouw)
     .map((id) => {
       const ander = inhoud.locaties.get(id);
       const zelfdeGebouw = Boolean(loc.gebouw) && ander.gebouw === loc.gebouw;
@@ -582,6 +610,8 @@ function toonDichtbij(loc) {
     .slice(0, KEUZES_NA_ANTWOORD);
 
   if (!kandidaten.length) {
+    // Alleen nog verhalen bij dit gebouw over? Die staan al in de mijlpaal.
+    if (alles.locaties.some((id) => antwoordVan(id) === null)) { vak.hidden = true; return; }
     vak.replaceChildren(maak('p', 'dichtbij__klaar', 'Je hebt alle plekken ontdekt. Knap gedaan!'));
     vak.hidden = false;
     return;

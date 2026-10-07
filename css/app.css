@@ -356,6 +356,8 @@ body:has(#scherm-start:not([hidden])) {
 .mijlpaal { margin: 12px 0 0; padding: 14px 16px 16px; border-radius: var(--rond); background: var(--goed-licht); border: 1px solid var(--goed); }
 .mijlpaal__tekst { margin: 0; font: 400 1.35rem/1.25 var(--kopletter); color: var(--goed); }
 .mijlpaal__balk { margin-top: 12px; }
+.mijlpaal__vervolg { margin: 14px 0 0; font-weight: 600; color: var(--tekst); }
+.mijlpaal__lijst { margin-top: 8px; }
 .mijlpaal--af { background: var(--goed); }
 .mijlpaal--af .mijlpaal__tekst { color: #fff; }
 .mijlpaal--af .voortgang__deel--klaar { background: #fff; }
