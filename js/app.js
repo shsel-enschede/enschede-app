@@ -584,14 +584,46 @@ function overigeVerhalen(loc) {
   return [maak('p', 'mijlpaal__vervolg', overig.length === 1 ? `Nog 1 verhaal bij ${naam}:` : `Nog ${overig.length} verhalen bij ${naam}:`), lijst];
 }
 
+// Afstand tussen twee plekken zonder GPS: van de rand van het ene gebouw tot de rand van het andere.
+// De omtrek (Kadaster of eigen 'vorm') is betrouwbaarder dan het coördinaat van een plek, dat nog
+// voorlopig kan zijn. Zonder bekende omtrek valt de app terug op het coördinaat.
+function afstandTussen(a, b) {
+  const vormA = a.gebouw ? bekendeVorm(a.gebouw) : null;
+  const vormB = b.gebouw ? bekendeVorm(b.gebouw) : null;
+  const puntA = [a.positie.lat, a.positie.lng];
+  const puntB = [b.positie.lat, b.positie.lng];
+  if (vormA && vormB) {
+    // Kleinste afstand tussen twee omtrekken: van elke hoek van de één tot de rand van de ander, en andersom.
+    let kleinste = Infinity;
+    for (const p of vormA) kleinste = Math.min(kleinste, afstandTot(p, { vorm: vormB }));
+    for (const p of vormB) kleinste = Math.min(kleinste, afstandTot(p, { vorm: vormA }));
+    return kleinste;
+  }
+  if (vormB) return afstandTot(puntA, { vorm: vormB });
+  if (vormA) return afstandTot(puntB, { vorm: vormA });
+  return afstandTot(puntA, { punt: puntB });
+}
+
 // Na een antwoord een paar onbezochte plekken bij andere gebouwen als keuze aanbieden, plus de kaart (hoofdknop).
 // Direct na het antwoord staan andere verhalen bij hetzelfde gebouw al in de mijlpaal (zie overigeVerhalen());
 // kom je later terug op deze plek (geen mijlpaal), dan staan ze hier bovenaan.
 // Daarna de dichtstbijzijnde plekken:
-//   met GPS: gemeten vanaf je eigen positie;  zonder GPS: vanaf deze plek.
-function toonDichtbij(loc, inMijlpaal) {
+//   met GPS: gemeten vanaf je eigen positie;  zonder GPS: van gebouw tot gebouw (zie afstandTussen).
+async function toonDichtbij(loc, inMijlpaal) {
   const vak = $('dichtbij');
   const metGps = Boolean(positie());
+  if (!metGps) {
+    // Omtrekken nodig voor afstandTussen(). Meestal al bekend (kaart of eerder bezoek, bewaard op het toestel);
+    // anders even wachten op het Kadaster, maar nooit langer dan anderhalve seconde.
+    const nodig = [...inhoud.gebouwen.values()].filter((g) => !bekendeVorm(g.id) && (g.adres || g.vorm));
+    if (nodig.length) {
+      await Promise.race([
+        Promise.allSettled(nodig.map((g) => vormVan(g))),
+        new Promise((klaar) => { setTimeout(klaar, 1500); }),
+      ]);
+      if (huidig.loc !== loc) return; // inmiddels naar een ander scherm
+    }
+  }
   const kandidaten = alles.locaties
     .filter((id) => id !== loc.id && antwoordVan(id) === null)
     .filter((id) => !inMijlpaal || !loc.gebouw || inhoud.locaties.get(id).gebouw !== loc.gebouw)
@@ -600,7 +632,7 @@ function toonDichtbij(loc, inMijlpaal) {
       const zelfdeGebouw = Boolean(loc.gebouw) && ander.gebouw === loc.gebouw;
       const meters = metGps
         ? indicaties.get(id)?.meters ?? Infinity
-        : afstandTot([loc.positie.lat, loc.positie.lng], { punt: [ander.positie.lat, ander.positie.lng] });
+        : afstandTussen(loc, ander);
       return { ander, zelfdeGebouw, meters };
     })
     .sort((x, y) => (y.zelfdeGebouw - x.zelfdeGebouw) || (x.meters - y.meters))
