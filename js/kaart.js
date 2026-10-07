@@ -23,7 +23,13 @@ const stipStijl = (af) => ({ ...STIP, fillColor: af ? '#1E6B3A' : '#C10422' });
 // Plaatsen waar een naam mag staan, in volgorde van voorkeur (klassieke regel uit de kaartkunde:
 // eerst een andere plek rond het object proberen, pas daarna de naam verbergen).
 const POSITIES_KLEIN = ['boven', 'onder', 'rechts', 'links'];
-const POSITIES_GROOT = ['midden', 'onder', 'boven'];
+const POSITIES_GROOT = ['midden', 'onder', 'boven', 'rechts', 'links'];
+// Volgorde voor dit gebouw: eerst de 'naamPlek' uit de inhoud (als die er is), dan de standaardvolgorde.
+function posities(groep) {
+  const standaard = groep.klein ? POSITIES_KLEIN : POSITIES_GROOT;
+  const voorkeur = groep.gebouw.naamPlek;
+  return voorkeur ? [voorkeur, ...standaard.filter((p) => p !== voorkeur)] : standaard;
+}
 const POSITIE_KLASSEN = ['midden', 'boven', 'onder', 'rechts', 'links'].map((p) => `wijkkaart__label--${p}`);
 
 let leafletLaden = null;
@@ -65,7 +71,7 @@ function labelElement(groep, antwoordVan) {
   const t = telling(groep, antwoordVan);
   const span = document.createElement('span');
   span.className = t.af ? 'wijkkaart__label wijkkaart__label--klaar' : 'wijkkaart__label';
-  span.classList.add(`wijkkaart__label--${groep.positie || (groep.klein ? 'boven' : 'midden')}`);
+  span.classList.add(`wijkkaart__label--${groep.positie || posities(groep)[0]}`);
   span.textContent = `${t.af ? '✓ ' : ''}${groep.gebouw.naam}${t.totaal > 1 ? ` ${t.klaar}/${t.totaal}` : ''}`;
   return span;
 }
@@ -192,9 +198,10 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
 }
 
 // Namen mogen elkaar niet overlappen. Bij elke zoomstap: plaats de namen één voor één.
-// Volgorde: eerst gebouwen die nog niet ontdekt zijn (die wil je vinden), dan de meeste verhalen,
-// dan kleine objecten (een groot gebouw herken je ook zonder naam aan zijn vorm).
-// Elke naam probeert een paar plaatsen rond het object. Past geen enkele, dan wordt de naam verborgen;
+// Volgorde: eerst gebouwen die nog niet ontdekt zijn (die wil je vinden), dan kleine objecten
+// (een groot gebouw herken je ook zonder naam aan zijn vorm, een zonnewijzer niet), dan de meeste verhalen.
+// Elke naam probeert een paar plaatsen rond het object, te beginnen bij 'naamPlek' uit de inhoud
+// (bijv. de straatkant van de zonnewijzer). Past geen enkele, dan wordt de naam verborgen;
 // het gebouw zelf (of de stip van een klein object) blijft zichtbaar en aantikbaar, en inzoomen maakt
 // de naam weer zichtbaar. Wie de kaart niet kan of wil gebruiken, heeft de lijst onder de kaart.
 function ontwar() {
@@ -217,8 +224,8 @@ function ontwar() {
 
   const open = (g) => (telling(g, antwoordVan).af ? 1 : 0);
   const groepen = alle.sort((x, y) => open(x) - open(y)
-    || y.locaties.length - x.locaties.length
     || Number(Boolean(y.klein)) - Number(Boolean(x.klein))
+    || y.locaties.length - x.locaties.length
     || x.gebouw.naam.localeCompare(y.gebouw.naam, 'nl'));
 
   const geplaatst = [];
@@ -229,7 +236,7 @@ function ontwar() {
     icoon.classList.remove('wijkkaart__anker--verborgen');
     const anderen = stippen.filter((s) => s.eigenaar !== groep);
     let gevonden = null;
-    for (const positie of groep.klein ? POSITIES_KLEIN : POSITIES_GROOT) {
+    for (const positie of posities(groep)) {
       span.classList.remove(...POSITIE_KLASSEN);
       span.classList.add(`wijkkaart__label--${positie}`);
       const r = span.getBoundingClientRect();
@@ -243,7 +250,7 @@ function ontwar() {
       // Niets past: terug naar de voorkeursplaats en verbergen tot je inzoomt.
       groep.positie = null;
       span.classList.remove(...POSITIE_KLASSEN);
-      span.classList.add(`wijkkaart__label--${groep.klein ? 'boven' : 'midden'}`);
+      span.classList.add(`wijkkaart__label--${posities(groep)[0]}`);
       icoon.classList.add('wijkkaart__anker--verborgen');
     }
   }

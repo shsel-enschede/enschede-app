@@ -37,6 +37,9 @@ function leesVorm(vorm) {
   return ok ? vorm.map(([lat, lng]) => [lat, lng]) : null;
 }
 
+// Waar de naam van een gebouw op de kaart mag staan (zie ontwar() in kaart.js).
+const NAAMPLEKKEN = ['midden', 'boven', 'onder', 'rechts', 'links'];
+
 function leesGebouwen(lijst) {
   const gebouwen = new Map();
   for (const g of Array.isArray(lijst) ? lijst : []) {
@@ -47,7 +50,9 @@ function leesGebouwen(lijst) {
     const adres = isTekst(g.adres, 120) && /\d/.test(g.adres) ? g.adres : null;
     const vorm = leesVorm(g.vorm);
     if (g.vorm !== undefined && !vorm) console.warn(`Gebouw "${g.id}": vorm ongeldig, wordt genegeerd`);
-    gebouwen.set(g.id, { id: g.id, naam: g.naam, adres, vorm });
+    const naamPlek = NAAMPLEKKEN.includes(g.naamPlek) ? g.naamPlek : null;
+    if (g.naamPlek !== undefined && !naamPlek) console.warn(`Gebouw "${g.id}": naamPlek ongeldig, wordt genegeerd`);
+    gebouwen.set(g.id, { id: g.id, naam: g.naam, adres, vorm, naamPlek });
   }
   return gebouwen;
 }

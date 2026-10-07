@@ -1,6 +1,6 @@
 {
   "versie": 1,
-  "toelichting": "Inhoud van de Enschede app. Teksten per taal (nl, en, de). Per locatie een vraag met 'tekst', vier 'opties' (A t/m D) en een korte 'uitleg' die na het antwoord verschijnt. 'juist' is het nummer van het goede antwoord, tellend vanaf 0 (0 = A, 1 = B, 2 = C, 3 = D). 'bevestigd': false betekent dat SHSEL het antwoord of de coordinaat nog moet controleren. 'gebouw' verwijst naar een gebouw in de lijst 'gebouwen'; dat gebouw wordt op de kaart ingekleurd. Meerdere locaties kunnen bij hetzelfde gebouw horen. Bij een gebouw is 'adres' een echt adres met huisnummer: daarmee zoekt de app de omtrek op in het Kadaster (BAG). Optioneel 'vorm': een eigen omtrek als lijst van [lat, lng], bijvoorbeeld voor een verdwenen gebouw of een klein object op straat (beeld, zonnewijzer). Optioneel 'toelichting' bij een gebouw: uitleg voor beheerders, niet zichtbaar in de app. 'instellingen.ontgrendelen': 'overal' = vragen overal te beantwoorden (testfase), 'ter-plekke' = alleen binnen 'straal' meter van het gebouw, met GPS.",
+  "toelichting": "Inhoud van de Enschede app. Teksten per taal (nl, en, de). Per locatie een vraag met 'tekst', vier 'opties' (A t/m D) en een korte 'uitleg' die na het antwoord verschijnt. 'juist' is het nummer van het goede antwoord, tellend vanaf 0 (0 = A, 1 = B, 2 = C, 3 = D). 'bevestigd': false betekent dat SHSEL het antwoord of de coordinaat nog moet controleren. 'gebouw' verwijst naar een gebouw in de lijst 'gebouwen'; dat gebouw wordt op de kaart ingekleurd. Meerdere locaties kunnen bij hetzelfde gebouw horen. Bij een gebouw is 'adres' een echt adres met huisnummer: daarmee zoekt de app de omtrek op in het Kadaster (BAG). Optioneel 'vorm': een eigen omtrek als lijst van [lat, lng], bijvoorbeeld voor een verdwenen gebouw of een klein object op straat (beeld, zonnewijzer). Optioneel 'naamPlek' bij een gebouw: waar de naam op de kaart bij voorkeur staat ('boven', 'onder', 'links', 'rechts' of 'midden'), bijvoorbeeld aan de straatkant van een klein object; past hij daar niet, dan zoekt de app zelf een andere plek. Optioneel 'toelichting' bij een gebouw: uitleg voor beheerders, niet zichtbaar in de app. 'instellingen.ontgrendelen': 'overal' = vragen overal te beantwoorden (testfase), 'ter-plekke' = alleen binnen 'straal' meter van het gebouw, met GPS.",
   "instellingen": {
     "ontgrendelen": "overal",
     "straal": 35
@@ -41,6 +41,7 @@
     {
       "id": "brandmonument",
       "naam": "Brandmonument",
+      "naamPlek": "boven",
       "toelichting": "Geen gebouw met een adres maar een beeld op de Oude Markt. Eigen vorm: een cirkel van 2,5 m doorsnede, ca. 12 m voor de torengevel van de Grote Kerk, richting Marktstraat. Positie nog te controleren door SHSEL.",
       "vorm": [
         [
@@ -144,6 +145,7 @@
     {
       "id": "zonnewijzer",
       "naam": "Zonnewijzer",
+      "naamPlek": "onder",
       "toelichting": "De zonnewijzer hangt op ca. 2,5 m hoogte aan de zuidmuur van de Grote Kerk, ca. 2 m van de straat aan de voorkant (ingang). Op de kaart een halve cirkel van 2,5 m tegen de muur. Positie nog te controleren door SHSEL.",
       "vorm": [
         [
