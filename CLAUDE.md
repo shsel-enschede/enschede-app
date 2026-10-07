@@ -32,6 +32,7 @@ De Enschede app van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL
   - Enige uitzondering: **Leaflet 1.9.4** voor de kaart, als vast bestand in `vendor/leaflet/` (BSD-licentie). Wordt pas geladen als de kaart nodig is. Niet bijwerken zonder overleg.
 - **Inhoud gescheiden van code:** alle teksten, vragen, antwoorden en coördinaten staan in `content/`. Een vrijwilliger moet inhoud kunnen aanpassen zonder JavaScript te lezen.
 - **Offline eerst:** de service worker (`sw.js`) slaat de app-schil en de inhoud op. Na het eerste bezoek moet een route zonder bereik te lopen zijn.
+  - **Updates:** de service worker haalt bij een nieuwe `VERSIE` alle bestanden vers op (niet uit de browsercache). De app kijkt bij openen en bij terugkeren uit de achtergrond of er een nieuwe versie is, en laadt die bij de volgende schermwissel. Een gebruiker ziet een wijziging dus uiterlijk na één schermwissel nadat GitHub Pages hem heeft gepubliceerd (meestal binnen enkele minuten na samenvoegen).
 - **Voortgang alleen op het toestel** (`localStorage`). Er verlaat geen gebruikersgegeven het toestel.
 
 ## Veiligheid (verplicht bij elke wijziging)

@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v21';
+const VERSIE = 'v22';
 const CACHE = `enschede-app-${VERSIE}`;
 const FOTO_CACHE = 'enschede-fotos-v1'; // los van VERSIE: foto's blijven bewaard na een update
 
@@ -36,7 +36,10 @@ const APP_SCHIL = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SCHIL)).then(() => self.skipWaiting()));
+  // cache: 'reload' = altijd vers van de server, niet uit de browsercache (GitHub Pages bewaart bestanden
+  // daar 10 minuten). Anders kan een nieuwe versie oude bestanden opslaan.
+  const vers = APP_SCHIL.map((pad) => new Request(pad, { cache: 'reload' }));
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(vers)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
