@@ -17,6 +17,14 @@ const KLEIN_OBJECT = 10; // meter: een vorm kleiner dan dit krijgt een groter ti
 // bubblingMouseEvents: false = een tik op een gebouw telt niet ook als tik op de lege kaart.
 const STIJL_OPEN = { color: '#C10422', weight: 2, dashArray: '6 4', fillColor: '#ED1D27', fillOpacity: 0.28, bubblingMouseEvents: false };
 const STIJL_KLAAR = { color: '#1E6B3A', weight: 2, dashArray: null, fillColor: '#2E9E5B', fillOpacity: 0.45, bubblingMouseEvents: false };
+// Stip voor kleine objecten: blijft altijd zichtbaar, ook als de naam moet wijken (zie ontwar()).
+const STIP = { radius: 7, color: '#fff', weight: 2, fillOpacity: 1, bubblingMouseEvents: false };
+const stipStijl = (af) => ({ ...STIP, fillColor: af ? '#1E6B3A' : '#C10422' });
+// Plaatsen waar een naam mag staan, in volgorde van voorkeur (klassieke regel uit de kaartkunde:
+// eerst een andere plek rond het object proberen, pas daarna de naam verbergen).
+const POSITIES_KLEIN = ['boven', 'onder', 'rechts', 'links'];
+const POSITIES_GROOT = ['midden', 'onder', 'boven'];
+const POSITIE_KLASSEN = ['midden', 'boven', 'onder', 'rechts', 'links'].map((p) => `wijkkaart__label--${p}`);
 
 let leafletLaden = null;
 let kaart = null;
@@ -57,7 +65,7 @@ function labelElement(groep, antwoordVan) {
   const t = telling(groep, antwoordVan);
   const span = document.createElement('span');
   span.className = t.af ? 'wijkkaart__label wijkkaart__label--klaar' : 'wijkkaart__label';
-  if (groep.klein) span.classList.add('wijkkaart__label--klein'); // naam boven het object, zodat het zichtbaar blijft
+  span.classList.add(`wijkkaart__label--${groep.positie || (groep.klein ? 'boven' : 'midden')}`);
   span.textContent = `${t.af ? '✓ ' : ''}${groep.gebouw.naam}${t.totaal > 1 ? ` ${t.klaar}/${t.totaal}` : ''}`;
   return span;
 }
@@ -75,7 +83,8 @@ function teken(L, groep, vorm, opties) {
   vlak.addTo(laag);
   const midden = vorm ? vlak.getBounds().getCenter() : vlak.getLatLng();
   // Kleine objecten (zoals het brandmonument of de zonnewijzer, enkele meters groot) zijn op de kaart
-  // maar een paar pixels. Ze krijgen een onzichtbaar groter tikvlak (min. 44 px) en de naam erboven.
+  // maar een paar pixels. Ze krijgen een stip die altijd zichtbaar blijft, een onzichtbaar groter
+  // tikvlak (min. 44 px) en de naam ernaast (bij voorkeur erboven).
   if (vorm) {
     const b = vlak.getBounds();
     groep.klein = b.getNorthWest().distanceTo(b.getSouthEast()) < KLEIN_OBJECT;
@@ -89,11 +98,15 @@ function teken(L, groep, vorm, opties) {
   const kies = () => kiesGroep(groep);
   vlak.on('click', kies);
   label.on('click', kies);
+  let stip = null;
   if (groep.klein) {
+    stip = L.circleMarker(midden, stipStijl(t.af)).addTo(laag).on('click', kies);
     L.circleMarker(midden, { radius: 22, stroke: false, fill: true, fillOpacity: 0, bubblingMouseEvents: false })
       .addTo(laag).on('click', kies);
   }
-  getekend.set(groep.gebouw.id, { vlak, label, ...groep });
+  // Een stip die altijd zichtbaar blijft: een naam mag er niet overheen vallen (ook niet een losse plek zonder omtrek).
+  const punt = groep.klein ? { latLng: midden, straal: STIP.radius } : (vorm ? null : { latLng: midden, straal: 14 });
+  getekend.set(groep.gebouw.id, { vlak, label, stip, punt, ...groep });
 }
 
 // Groepeer de locaties van een verzameling per gebouw.
@@ -178,24 +191,61 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
   if (mislukt) opties.meld?.('Niet alle gebouwen konden worden opgezocht. Ze staan als stip op de kaart.');
 }
 
-// Namen mogen elkaar niet overlappen. Bij elke zoomstap: plaats de namen één voor één
-// (gebouwen met de meeste verhalen eerst) en verberg een naam die over een al geplaatste naam valt.
-// Het gebouw zelf blijft zichtbaar en aantikbaar; inzoomen maakt de naam weer zichtbaar.
-// Wie de kaart niet kan of wil gebruiken, heeft de lijst onder de kaart.
+// Namen mogen elkaar niet overlappen. Bij elke zoomstap: plaats de namen één voor één.
+// Volgorde: eerst gebouwen die nog niet ontdekt zijn (die wil je vinden), dan de meeste verhalen,
+// dan kleine objecten (een groot gebouw herken je ook zonder naam aan zijn vorm).
+// Elke naam probeert een paar plaatsen rond het object. Past geen enkele, dan wordt de naam verborgen;
+// het gebouw zelf (of de stip van een klein object) blijft zichtbaar en aantikbaar, en inzoomen maakt
+// de naam weer zichtbaar. Wie de kaart niet kan of wil gebruiken, heeft de lijst onder de kaart.
 function ontwar() {
-  const geplaatst = [];
+  if (!kaart) return;
   const MARGE = 4; // px lucht tussen twee namen
-  const groepen = [...getekend.values()].sort((x, y) => y.locaties.length - x.locaties.length);
+  const antwoordVan = laatsteOpties?.antwoordVan || (() => null);
+  const kader = kaart.getContainer().getBoundingClientRect();
+  const alle = [...getekend.values()];
+
+  // Stippen van kleine objecten en losse plekken: daar mag geen naam overheen.
+  const stippen = alle.filter((g) => g.punt).map((g) => {
+    const p = kaart.latLngToContainerPoint(g.punt.latLng);
+    const x = kader.left + p.x;
+    const y = kader.top + p.y;
+    const s = g.punt.straal + 2;
+    return { eigenaar: g, left: x - s, right: x + s, top: y - s, bottom: y + s };
+  });
+  const botst = (r, rechthoeken, marge) => rechthoeken.some((p) => r.left < p.right + marge
+    && r.right > p.left - marge && r.top < p.bottom + marge && r.bottom > p.top - marge);
+
+  const open = (g) => (telling(g, antwoordVan).af ? 1 : 0);
+  const groepen = alle.sort((x, y) => open(x) - open(y)
+    || y.locaties.length - x.locaties.length
+    || Number(Boolean(y.klein)) - Number(Boolean(x.klein))
+    || x.gebouw.naam.localeCompare(y.gebouw.naam, 'nl'));
+
+  const geplaatst = [];
   for (const groep of groepen) {
     const icoon = groep.label.getElement();
-    if (!icoon) continue;
+    const span = icoon?.firstElementChild;
+    if (!span) continue;
     icoon.classList.remove('wijkkaart__anker--verborgen');
-    const r = icoon.firstElementChild?.getBoundingClientRect();
-    if (!r || !r.width) continue;
-    const botst = geplaatst.some((p) => r.left < p.right + MARGE && r.right > p.left - MARGE
-      && r.top < p.bottom + MARGE && r.bottom > p.top - MARGE);
-    if (botst) icoon.classList.add('wijkkaart__anker--verborgen');
-    else geplaatst.push(r);
+    const anderen = stippen.filter((s) => s.eigenaar !== groep);
+    let gevonden = null;
+    for (const positie of groep.klein ? POSITIES_KLEIN : POSITIES_GROOT) {
+      span.classList.remove(...POSITIE_KLASSEN);
+      span.classList.add(`wijkkaart__label--${positie}`);
+      const r = span.getBoundingClientRect();
+      if (!r.width) break; // kaart (nog) niet zichtbaar
+      if (!botst(r, geplaatst, MARGE) && !botst(r, anderen, 0)) { gevonden = { positie, r }; break; }
+    }
+    if (gevonden) {
+      groep.positie = gevonden.positie;
+      geplaatst.push(gevonden.r);
+    } else {
+      // Niets past: terug naar de voorkeursplaats en verbergen tot je inzoomt.
+      groep.positie = null;
+      span.classList.remove(...POSITIE_KLASSEN);
+      span.classList.add(`wijkkaart__label--${groep.klein ? 'boven' : 'midden'}`);
+      icoon.classList.add('wijkkaart__anker--verborgen');
+    }
   }
 }
 
@@ -206,6 +256,7 @@ function ververs(antwoordVan) {
   for (const groep of getekend.values()) {
     const t = telling(groep, antwoordVan);
     groep.vlak.setStyle(t.af ? STIJL_KLAAR : STIJL_OPEN);
+    groep.stip?.setStyle(stipStijl(t.af));
     groep.label.setIcon(labelIcoon(L, groep, antwoordVan));
   }
   ontwar(); // nieuwe tekst kan breder zijn
