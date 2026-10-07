@@ -360,7 +360,9 @@ body:has(#scherm-start:not([hidden])) {
 .mijlpaal__lijst { margin-top: 8px; }
 .mijlpaal--af { background: var(--goed); }
 .mijlpaal--af .mijlpaal__tekst { color: #fff; }
-.mijlpaal--af .voortgang__deel--klaar { background: #fff; }
+/* Alles bij dit gebouw ontdekt: donkergroen vak. De balk houdt zijn eigen kleuren (rood = ontdekt, grijs = nog niet)
+   op een witte strook, zodat hij overal hetzelfde leest en het verschil zichtbaar blijft. */
+.mijlpaal--af .mijlpaal__balk { margin-inline: 0; padding: 5px 10px; height: 22px; background: #fff; border-radius: 6px; }
 /* Het nieuwe segment loopt vol: zichtbaar wat je net hebt toegevoegd */
 @media (prefers-reduced-motion: no-preference) {
   .voortgang__deel--nieuw { animation: deel-vol 0.9s ease-out 0.3s both; }
