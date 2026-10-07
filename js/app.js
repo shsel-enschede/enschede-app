@@ -754,7 +754,20 @@ async function start() {
   }
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch((fout) => console.warn('Offline werken niet beschikbaar:', fout));
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      // Een app op de telefoon wordt vaak uit de achtergrond hervat zonder te herladen.
+      // Kijk dan of er een nieuwe versie is.
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') reg.update().catch(() => {});
+      });
+    }).catch((fout) => console.warn('Offline werken niet beschikbaar:', fout));
+    // Nieuwe versie actief? Niet midden in het lezen herladen, maar bij de volgende schermwissel.
+    // (Voortgang staat in localStorage en het scherm in de URL, dus er gaat niets verloren.)
+    const hadVersie = Boolean(navigator.serviceWorker.controller);
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!hadVersie) return; // eerste bezoek: er draait al de nieuwste code
+      addEventListener('hashchange', () => location.reload(), { once: true });
+    });
   }
 }
 
