@@ -12,6 +12,7 @@ Openen op je telefoon en via het menu van de browser kiezen voor *Zet op beginsc
 | --- | --- | --- |
 | `content/locaties.json` | Alle teksten, vragen, antwoorden, gebouwen en coördinaten | Vrijwilligers |
 | `content/fotos.json` | Lijst van foto's met bron, bijschrift en rechten | Vrijwilligers |
+| `content/oude-app-fotos.json` | Naslag: welke foto's de oude app (2019) per locatie liet zien. Uitleg in `fotocodering-LEESMIJ.md` | Alleen lezen |
 | `index.html`, `css/`, `js/` | De app zelf | Ontwikkelaar of Claude |
 | `sw.js` | Zorgt dat de app offline werkt | Ontwikkelaar of Claude |
 | `icons/` | App-icoon en logo | Ontwikkelaar |
