@@ -1,0 +1,327 @@
+{
+  "versie": 1,
+  "toelichting": "Welke foto's de oude app (2019) per locatie liet zien, in de volgorde van de app: de eerste is de hoofdfoto (links in de beschrijvingen, eerste foto van de carrousel, miniatuur in de lijst). Namen zijn de oorspronkelijke bestandsnamen in de SHSEL-map 'Afbeeldingen', zonder extensie; dezelfde vorm als 'documentnummer' in fotos.json. Achterhaald in okt 2026 door de foto's in de beschrijvingen (NL, EN, DE) beeldvergelijkend te koppelen aan die map. Alleen naslag: de app laadt dit bestand niet. Uitleg van de codering: fotocodering-LEESMIJ.md.",
+  "verschillen_tussen_talen": {
+    "21": "De Nederlandse beschrijving heeft een derde foto (21a Molenstraat Joodse begraafplaats bw); Engels en Duits niet."
+  },
+  "locaties": {
+    "1": [
+      "01a Alphons Ariens JB",
+      "01a Alphons Ariens PS",
+      "01a Alphons Ariens 3 JB"
+    ],
+    "2": [
+      "02a St. Josephziekenhuis bw JB",
+      "02a RK Ziekenhuis ca.1955 JB",
+      "02a RK Ziekenhuis PS"
+    ],
+    "3": [
+      "03a Huize Sonnevanck en beeld Ariens JB",
+      "03a Huize Sonnevanck PS",
+      "03a Huize Sonnevanck 2 PS"
+    ],
+    "4": [
+      "04 HTS 6 JB",
+      "04a HTS JB",
+      "04a HTS 4 JB"
+    ],
+    "5": [
+      "05a Lyceum 4 PS",
+      "05a Lyceum 1958 JB",
+      "05 Lyceum PS"
+    ],
+    "6": [
+      "06a Postkantoor 3 PS",
+      "06a Postkantoor 4 PS",
+      "06a Postkantoor 2 PS"
+    ],
+    "7": [
+      "07a Burgermeesterstraat 3 PS",
+      "07 Burgermeesterstraat PS",
+      "07a Burgermeesterstraat FN"
+    ],
+    "8": [
+      "08a Overgang - Kleiboer JB",
+      "08a Villa Kleiboer JB",
+      "08a van Heek - Kleiboer 1955b JB"
+    ],
+    "9": [
+      "09a Koningshuizen 2 PS",
+      "09a Koningshuizen 3 PS",
+      "09a Koningshuizen 1 PS"
+    ],
+    "10": [
+      "10a Twentsche Bank JB",
+      "10a Twentsche Bank 3 PS",
+      "10 Twentsche Bank 2 PS"
+    ],
+    "11": [
+      "11a Kaart 1862 na de brand 2",
+      "11a Kalanderstraat 4 PS",
+      "11a Kalanderstraat 5 PS"
+    ],
+    "12": [
+      "12a Elderinkshuis JB",
+      "12a Elderinkshuis",
+      "12a Elderinkshuis 2"
+    ],
+    "13": [
+      "13a V&D 2 JB",
+      "13 V&D 34 PS",
+      "13a V&D 2 PS"
+    ],
+    "14": [
+      "14a Kruispunt De Graaff JB",
+      "14a Kruispunt De Graaff 1905 JB",
+      "14a Hotel De Graaff bw JB"
+    ],
+    "15": [
+      "15a Langestraat Veldpoort JB",
+      "15a Langestraat opgraving JB",
+      "15a Langestraat Veldpoort"
+    ],
+    "16": [
+      "16a Stadhuis 1910 bw JB",
+      "16 Stadhuis oud en nieuw 5-1931 JB",
+      "16 Stadhuis 3 PS"
+    ],
+    "17": [
+      "17a Janninkshuis 2 PS",
+      "17a janninkshuis PS",
+      "17a Janninkshuis 3 PS"
+    ],
+    "18": [
+      "18a Twentsche Schouwburg  1 PS",
+      "18a Twentsche Schouwburg  2 PS",
+      "18a Twentsche Schouwburg  5 PS"
+    ],
+    "19": [
+      "19a Beltstraat 2",
+      "19a Beltstraat 3",
+      "19a Beltstraat 4"
+    ],
+    "20": [
+      "20a Molenstraat 2 JB",
+      "20 Gerechtsgebouw 5 PS",
+      "20a Molenstraat PS"
+    ],
+    "21": [
+      "21a Joodse begraafplaats  2 PS",
+      "21a Joodse begraafplaats PS",
+      "21a Molenstraat Joodse begraafplaats bw"
+    ],
+    "22": [
+      "22a Fabrieksschool 2",
+      "22a Fabrieksschool PS",
+      "22a Fabrieksschool 3 PS"
+    ],
+    "23": [
+      "23a Larinksticht JB",
+      "23a Larinksticht 3 PS",
+      "23a Larinksticht PS"
+    ],
+    "24": [
+      "24a Irene 2 PS",
+      "24a Irene 4 PS",
+      "24 Irene 3 PS"
+    ],
+    "25": [
+      "25a Politiebureau 2 JB",
+      "25a Politiebureau JB",
+      "25a Politiebureau 2 PS"
+    ],
+    "26": [
+      "26a Nijverheid fabriek PS",
+      "26a Nijverheid fabriek 4 PS",
+      "26a Joodse ster"
+    ],
+    "27": [
+      "27a Striekiezer PS",
+      "27a Striekiezer 2 PS",
+      "27a Striekiezer"
+    ],
+    "28": [
+      "28a St Josefkerk 3 PS",
+      "28 St Josefkerk 4 JB",
+      "28a St Josefkerk PS"
+    ],
+    "29": [
+      "29a St Jacobuskerk 3 JB",
+      "29a Oude Jacobuskerk",
+      "29a St Jacobuskerk 2 JB"
+    ],
+    "30": [
+      "30a Grote Kerk 5 PS",
+      "30a Grote Kerk 6  PS",
+      "30a Grote Kerk 7  PS"
+    ],
+    "31": [
+      "31a 1862 PS",
+      "11a Kaart 1862 na de brand 2",
+      "31 Grote kerk torenspitsen JB"
+    ],
+    "32": [
+      "32a Brandmonument 3 PS",
+      "32a Brandmonument  JB",
+      "32a Brandmonument 4 PS"
+    ],
+    "33": [
+      "33a Zonnewijzer 3 PS",
+      "33a Zonnewijzer 2 PS",
+      "33a Zonnewijzer PS"
+    ],
+    "34": [
+      "34a Concordia 3 PS",
+      "34a Concordia 4 PS",
+      "34a Concordia 5 PS"
+    ],
+    "35": [
+      "35a Pakhuis PS",
+      "35a Pakhuis",
+      "35a oude markt - de beiaard PS"
+    ],
+    "36": [
+      "36a oude markt - de hoge stoep 3 PS",
+      "36a oude markt - de hoge stoep 2 PS",
+      "36a hoge stoep 2"
+    ],
+    "37": [
+      "37a Overschot PS",
+      "37 Overschot 4 PS",
+      "37a Overschot 3 PS"
+    ],
+    "38": [
+      "38a Van Heek & Co 3 PS",
+      "38a Van Heek & Co PS",
+      "38a Van Heek & Co 2 PS"
+    ],
+    "39": [
+      "39a Station Staatsspoor 4 JB",
+      "39a Station Staatsspoor ca 1935 bw JB",
+      "39a Station Staatsspoor JB"
+    ],
+    "40": [
+      "40a Tram PS",
+      "40a Tram  PS",
+      "40a Tram 2 PS"
+    ],
+    "41": [
+      "41a Ter Kuile villa-ESV 1 PS",
+      "41a Ter Kuile villa-ESV 2 PS",
+      "41 Ter Kuile villa-ESV 3 PS"
+    ],
+    "42": [
+      "42a Incassobank 4 PS",
+      "42a Incassobank 2 PS",
+      "42a Incassobank 5 PS"
+    ],
+    "43": [
+      "43a Piet Heinstraat SLO",
+      "43a SLO FN",
+      "43a SLO 2 PS"
+    ],
+    "44": [
+      "44a Synagoge 2 PS",
+      "44a Synagoge 4 PS",
+      "44a Synagoge PS"
+    ],
+    "45": [
+      "45 Jannink Beltstraat 8 PS",
+      "45a Jannink Beltstraat 3 PS",
+      "45a Jannink Beltstraat 5 PS"
+    ],
+    "46": [
+      "46a Ripperdastraat 1 JB",
+      "46a Ripperdastraat 2 PS",
+      "46a Ripperdastraat 3 PS"
+    ],
+    "47": [
+      "47a Ziekenzorg 1950 bw JB",
+      "47 Ziekenzorg 3 PS",
+      "47a Ziekenzorg 2 PS"
+    ],
+    "48": [
+      "31a Kaart 1862 na de brand",
+      "48a Stadsgravenstraat 2 PS",
+      "48a Stadsgravenstraat PS"
+    ],
+    "49": [
+      "49a Joodse school PS",
+      "49a Joodse school FN",
+      "49a Joodse school 2 PS"
+    ],
+    "50": [
+      "50a Menistenkerk JB",
+      "50a Menistenkerk 2 PS",
+      "50a Menistenkerk PS"
+    ],
+    "51": [
+      "51 Wilhelminaflat PS",
+      "51a Wilhelminaflat 2 PS",
+      "51a Wilhelminaflat 3 PS"
+    ],
+    "52": [
+      "52a Atjehpark bw JB",
+      "52 Atjehpark 2 PS",
+      "52a Atjehpark 3 PS"
+    ],
+    "53": [
+      "53 stationsplein PS",
+      "53 Stationsplein 1965 bw JB",
+      "53a Station terras 1957 JB"
+    ],
+    "54": [
+      "54a ter Kuile 4 PS",
+      "54a ter Kuile PS",
+      "54a ter Kuile 5 PS"
+    ],
+    "55": [
+      "55a Cromhoff 3 PS",
+      "55a Cromhoff PS",
+      "55a Cromhoff 4 PS"
+    ],
+    "56": [
+      "56a Tromplaan 3 PS",
+      "56a Tromplaan 1 PS",
+      "56a Tromplaan 2 PS"
+    ],
+    "57": [
+      "57a Tromplaan 8 2 PS",
+      "57a Tromplaan 8 3 PS",
+      "57a Tromplaan 8 PS"
+    ],
+    "58": [
+      "58a Tromplaan Staalbankiers"
+    ],
+    "59": [
+      "59a serphos 2 PS",
+      "59a serphos 3 PS",
+      "59a serphos PS"
+    ],
+    "60": [
+      "60a De grote schuur 4 PS",
+      "60a De grote schuur 5 PS",
+      "60a De grote schuur PS"
+    ],
+    "61": [
+      "61a menko van damhuis 3 PS",
+      "61a menko van damhuis PS",
+      "61a menko van damhuis 2 PS"
+    ],
+    "62": [
+      "62a memphis 2 PS",
+      "62a memphis 3 PS",
+      "62a Memphis 5 PS"
+    ],
+    "63": [
+      "63a Willem Wilminkplein 6 PS",
+      "63a Willem Wilminkplein PS",
+      "63a Willem Wilminkplein 3 PS"
+    ],
+    "64": [
+      "64 Postkantoor Haaksbergerstr 2 PS",
+      "64a Postkantoor Haaksbergerstr PS",
+      "64a Postkantoor Haaksbergerstr"
+    ]
+  }
+}
