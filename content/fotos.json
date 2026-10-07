@@ -1915,6 +1915,22 @@
       "rechten_geregeld": false
     },
     {
+      "id": "shsel-kaart-1862",
+      "locaties": [31, 11, 48],
+      "bron": "SHSEL",
+      "documentnummer": "11a Kaart 1862 na de brand 2",
+      "bestand": null,
+      "bestand_klaar": "kaart-1862-na-de-brand.webp",
+      "bijschrift": {
+        "nl": "Plattegrond van Enschede na de brand van 7 mei 1862. Het grijze deel is afgebrand; de rode pijl wijst waar de brand begon."
+      },
+      "alt": {
+        "nl": "Oude plattegrond van de binnenstad binnen de stadsgracht, met de Markt, de Grote Kerk en het stadhuis. Bijna alles binnen de gracht is grijs. Rechtsonder een rode pijl met de tekst 'Begin stadsbrand 1862'."
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
       "id": "shsel-brandmonument-oud",
       "locaties": [32],
       "bron": "SHSEL",
@@ -2050,7 +2066,7 @@
       "bestand": null,
       "bestand_klaar": "villa-van-heek-oud.webp",
       "bijschrift": {
-        "nl": "De villa vroeger, met de hoge stoep naar de voordeur."
+        "nl": "De villa toen de openbare leeszaal en bibliotheek erin zat (1947–1977), met de hoge stoep naar de voordeur."
       },
       "alt": {
         "nl": "Zwart-witfoto van een wit herenhuis met een brede trap naar de voordeur, een auto en een fietser op straat."
@@ -2114,10 +2130,10 @@
       "bestand": null,
       "bestand_klaar": "pakhuis-haverstraat.webp",
       "bijschrift": {
-        "nl": "Het pakhuis op de hoek van de Oude Markt en de Haverstraat, op een oude prentbriefkaart."
+        "nl": "Het pakhuis op de hoek van de Oude Markt en de Haverstraat, nog met één verdieping en de dakkapel. Bij een verbouwing kwam er een verdieping bij en verdween de dakkapel."
       },
       "alt": {
-        "nl": "Zwart-witfoto van een straathoek met een wit hoekpand, bomen en mensen op straat."
+        "nl": "Oude prentbriefkaart 'Haverstraat – Enschede': een licht hoekpand met één verdieping en een dakkapel, met bomen en mensen op straat."
       },
       "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
       "rechten_geregeld": false

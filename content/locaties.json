@@ -320,7 +320,8 @@
       "bevestigd": false,
       "fotos": [
         "shsel-grote-kerk-ruine-1862",
-        "shsel-grote-kerk-torenspitsen"
+        "shsel-grote-kerk-torenspitsen",
+        "shsel-kaart-1862"
       ]
     },
     {
@@ -458,9 +459,9 @@
       "juist": 3,
       "bevestigd": false,
       "fotos": [
+        "shsel-pakhuis-haverstraat",
         "shsel-pakhuis-oud",
-        "shsel-pakhuis-nu",
-        "shsel-pakhuis-haverstraat"
+        "shsel-pakhuis-nu"
       ]
     },
     {
@@ -494,8 +495,8 @@
       "juist": 0,
       "bevestigd": false,
       "fotos": [
-        "shsel-villa-van-heek-nu",
-        "shsel-villa-van-heek-oud"
+        "shsel-villa-van-heek-oud",
+        "shsel-villa-van-heek-nu"
       ]
     },
     {
