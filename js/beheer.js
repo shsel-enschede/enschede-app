@@ -269,7 +269,7 @@ function stopTekenen() {
   $('teken').setAttribute('aria-pressed', 'false');
   $('teken').textContent = 'Omtrek tekenen';
   $('teken-terug').disabled = true;
-  $('modus-hint').textContent = 'Tik op de kaart of versleep de rode speld om de positie te kiezen.';
+  $('modus-hint').textContent = 'Tik op de kaart of versleep de rode speld naar het kijkpunt: de plek op de stoep of het plein waar je ziet waar de vraag over gaat. Zie coordinaten-LEESMIJ.md.';
   kaart?.getContainer().classList.remove('beheerkaart--tekenen');
   const g = plek && gebouwVan(plek.gebouw);
   if (g && Array.isArray(g.vorm) && g.vorm.length < 3) {
