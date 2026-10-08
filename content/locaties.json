@@ -249,7 +249,7 @@
     },
     {
       "id": "burgermeesterstraat",
-      "naam": "Burgermeesterstraat",
+      "naam": "Burgemeesterstraat",
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
     },
     {
@@ -276,7 +276,8 @@
     {
       "id": "elderinkshuis",
       "naam": "Elderinkshuis",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "De Klomp 35"
     },
     {
       "id": "voormalige-v-d-pand",
@@ -427,7 +428,8 @@
     {
       "id": "wilhelminaflat",
       "naam": "Wilhelminaflat",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Stadsmatenstraat 1"
     },
     {
       "id": "stationsplein-atjehpark",
@@ -504,7 +506,24 @@
         "nl": "Alphons Ariëns"
       },
       "adres": "Ariënsplein",
-      "gebouw": "alphons-ariens"
+      "gebouw": "alphons-ariens",
+      "tekst": {
+        "nl": "Dr. Alphons Ariëns (1860-1928) was van 1886 tot 1901 kapelaan (priester) in Enschede. Hij heeft veel gedaan voor de rooms-katholieke arbeiders en gaf de aanzet tot de oprichting van een RK werkliedenvereniging. Verder bestreed hij het drankmisbruik onder de textielarbeiders. Zes jaar na zijn dood werd het standbeeld geplaatst op het plein dat ook naar hem vernoemd is."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "In welk jaar werd het standbeeld van Alphons Ariëns geplaatst?",
+          "opties": [
+            "1932",
+            "1933",
+            "1934",
+            "1935"
+          ],
+          "uitleg": "Ariëns stierf in 1928. Zes jaar later, in 1934, kwam zijn beeld op dit plein."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
@@ -514,7 +533,24 @@
         "nl": "Ziekenhuis st Joseph/Stadsmaten"
       },
       "adres": "Ariënsplein",
-      "gebouw": "ziekenhuis-st-joseph-stadsmaten"
+      "gebouw": "ziekenhuis-st-joseph-stadsmaten",
+      "tekst": {
+        "nl": "Het R.K. ziekenhuis is in gebruik genomen op 2 april 1914 met 54 bedden. Het verving het oude ziekenhuis uit 1889 in de oude pastorie (= het huis van de pastoor) op de Markt. In 1970 is de naam St. Joseph veranderd in de naam van de wijk waarin het staat: 'De Stadsmaten'. In het begin werden de zieken verzorgd door nonnen, ook wel zusters genoemd. Heel officieel: de Zusters Franciscanessen van Thuine. Toen in 2016 het geheel nieuwe ziekenhuis klaar was, werden de gebouwen aan het Ariënsplein gesloten."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Toen het ziekenhuis nog uit 2 gebouwen bestond, hoe ging je dan van het ene naar het andere gebouw?",
+          "opties": [
+            "Over een lange brug over de Haaksbergerstraat",
+            "Door een lange tunnel onder de Haaksbergerstraat",
+            "Met taxibusjes",
+            "Met ambulances"
+          ],
+          "uitleg": "Patiënten, bedden en personeel gingen ondergronds van het ene gebouw naar het andere, zonder door het verkeer te hoeven."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "huize-sonnevanck-burgemeesterswoning",
@@ -524,7 +560,24 @@
         "nl": "Huize Sonnevanck – Burgemeesterswoning"
       },
       "adres": "Ariënsplein 2",
-      "gebouw": "huize-sonnevanck-burgemeesterswoning"
+      "gebouw": "huize-sonnevanck-burgemeesterswoning",
+      "tekst": {
+        "nl": "In 1911 is deze ambtswoning gebouwd voor burgemeester Edo Bergsma. Tot 1972 hebben hier verschillende burgemeesters gewoond. Het gebouw is speels van opzet door de verschillende uitbouwen, erkers (= een uitbouw aan een huis), dakkapellen en inpandige balkons. De ingang zit in de uitbouw. Het ingangsportaal bestaat uit houten stutten en dragers met daarop de tekst 'Sonnevanck'."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waardoor kennen oudere Enschedeërs de burgemeesterswoning vooral?",
+          "opties": [
+            "Start- en eindpunt van de carnavalsoptocht",
+            "De Sinterklaasintocht",
+            "De officiële opening van de kermis",
+            "De viering van Bevrijdingsdag"
+          ],
+          "uitleg": "Bij de intocht kwam Sinterklaas hier langs bij de burgemeester."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "schoolgebouw-de-maere",
@@ -534,7 +587,24 @@
         "nl": "Schoolgebouw De Maere"
       },
       "adres": "Ariënsplein 3",
-      "gebouw": "schoolgebouw-de-maere"
+      "gebouw": "schoolgebouw-de-maere",
+      "tekst": {
+        "nl": "Het gebouw is officieel in gebruik genomen op 12 september 1922 en is een overblijfsel van de Twentse textielindustrie. In de gevel zitten groene tegels met voorstellingen uit de textielindustrie: zaadbollen (katoen), ramskoppen (wol) en spinnen (het bewerken). Nu is het een rijksmonument en een onderdeel van Saxion Hogeschool."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarvoor was deze school oorspronkelijk bedoeld?",
+          "opties": [
+            "Middelbare school (HBS)",
+            "Hogere Textielschool",
+            "Basisschool voor slechtlerende kinderen",
+            "School voor volwassenenonderwijs"
+          ],
+          "uitleg": "Hier leerden jongeren het vak voor de textielfabrieken. Daarom zie je katoen, wol en spinnen op de tegels."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "gemeentelijk-lyceum",
@@ -544,7 +614,24 @@
         "nl": "Gemeentelijk Lyceum"
       },
       "adres": "Boulevard/C.F. Klaarstraat",
-      "gebouw": "gemeentelijk-lyceum"
+      "gebouw": "gemeentelijk-lyceum",
+      "tekst": {
+        "nl": "Deze school werd in 1916 gebouwd als school voor Nijverheid en Handel. Het was de eerste HBS in Enschede, met speciale lokalen voor natuurkunde, scheikunde, biologie, aardrijkskunde en laboratoria. De school stond op de plek naast de zijkant van het oude politiebureau. Hier stond in 2018 een leeg gebouw van de SLO, dat zou worden afgebroken. De oude school is net als het oude politiebureau afgebroken om plaats te maken voor de Boulevard."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waar staan de letters SLO voor?",
+          "opties": [
+            "Staat Later Op",
+            "Stichting Lager Onderwijs",
+            "Stichting Leerplan Ontwikkeling",
+            "Steeds Langer Onderweg"
+          ],
+          "uitleg": "De SLO bedenkt wat je op school leert, en in welke klas."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "postkantoor",
@@ -554,17 +641,51 @@
         "nl": "Postkantoor"
       },
       "adres": "Boulevard",
-      "gebouw": "postkantoor"
+      "gebouw": "postkantoor",
+      "tekst": {
+        "nl": "Het postkantoor aan de Boulevard 1945 werd in 1960 gebouwd en was tot mei 2009 in gebruik als postkantoor. Het is een opvallend gebouw dat bestaat uit verschillende staande en liggende dozen. Opvallend is de liggende doos met glazen gevel en betonnen lijst die op de derde verdieping door het gebouw steekt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waaraan kun je nog goed zien dat dit een postkantoor is geweest?",
+          "opties": [
+            "Postbodes lopen nog in en uit",
+            "Er staan veel auto's van PostNL bij het gebouw",
+            "Er staan veel brievenbussen bij het gebouw",
+            "Naast de ingang is een stenen versiering met een ruiter en een posthoorn"
+          ],
+          "uitleg": "Vroeger bracht een postrijder te paard de post. Met de posthoorn liet hij horen dat hij eraan kwam."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
     },
     {
       "id": "burgermeesterstraat",
       "nummer": 7,
       "concept": true,
       "titel": {
-        "nl": "Burgermeesterstraat"
+        "nl": "Burgemeesterstraat"
       },
       "adres": "Burgermeesterstraat",
-      "gebouw": "burgermeesterstraat"
+      "gebouw": "burgermeesterstraat",
+      "tekst": {
+        "nl": "Het deel van de Haverstraatpassage tussen Noorderhagen en de Stadsgravenstraat heette vroeger de Burgemeesterstraat. De straat werd zo genoemd omdat hier in de 18e eeuw de burgemeesters woonden. De straat loopt een beetje rond. De rij huizen tegenover juwelier Koelink laat zien hoe Enschede er na de brand van 1862 uitzag. Vanaf de jaren 50 van de 20e eeuw werd de Haverstraat de duurste winkelstraat van Enschede. De straat werd voetgangersgebied en grotendeels met luifels overkapt. Gelukkig kun je de mooie gevels van de winkels nu weer goed zien, omdat de luifels zijn verdwenen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waaraan dankt de Haverstraat zijn naam?",
+          "opties": [
+            "Hier werd vroeger haver verhandeld",
+            "Je kon hier haverkoeken kopen",
+            "Er werd hier haver verbouwd",
+            "De straat moest een naam krijgen"
+          ],
+          "uitleg": "Haver was voer voor paarden. Boeren brachten het naar de stad om het te verkopen."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "villa-ledeboer-pension-kleiboer",
@@ -574,7 +695,24 @@
         "nl": "Villa Ledeboer/Pension Kleiboer"
       },
       "adres": "Deurningerstraat",
-      "gebouw": "villa-ledeboer-pension-kleiboer"
+      "gebouw": "villa-ledeboer-pension-kleiboer",
+      "tekst": {
+        "nl": "Villa Ledeboer werd vooral bekend door de latere huurder Jacques Kleiboer. Hij organiseerde tussen 1920 en 1950 veel tentoonstellingen in Enschede, met duizenden bezoekers uit binnen- en buitenland. Het pand is in 1972 gesloopt. Aan de overkant, waar nu een winkelflat staat, stond een van de villa's van Van Heek. Het hek om die villa is bewaard gebleven en herplaatst bij een van de vele parken van Enschede."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Bij de ingang van welk park staat nu het mooie hek van de villa?",
+          "opties": [
+            "Het Wooldrikspark",
+            "Het Volkspark",
+            "Het G.J. van Heekpark",
+            "Het Ledeboerpark"
+          ],
+          "uitleg": "Zo leeft een stukje van de verdwenen villa voort in een park dat iedereen kan bezoeken."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "koningshuizen",
@@ -584,7 +722,24 @@
         "nl": "Koningshuizen"
       },
       "adres": "Emmastraat 2 t/m 8",
-      "gebouw": "koningshuizen"
+      "gebouw": "koningshuizen",
+      "tekst": {
+        "nl": "Koning Lodewijk Napoleon schonk in 1809 enkele huizen op de hoek van de Haaksbergerstraat en de Emmastraat. De voorwaarde was dat ze als ziekenhuis gebruikt zouden worden. Ze kregen de toepasselijke naam 'Koningshuizen'. De vier karakteristieke panden die er nu staan, zijn gebouwd in 1864. Ze zijn echter nooit als ziekenhuis gebruikt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Tegenover deze huizen ligt een straat die naar Lodewijk Napoleon is genoemd. Welke?",
+          "opties": [
+            "Lodewijk Napoleonstraat",
+            "Ziekenhuisstraat",
+            "Koningstraat",
+            "Er is helemaal geen straat naar de koning genoemd"
+          ],
+          "uitleg": "Lodewijk Napoleon was koning van Holland. De straat heet daarom gewoon de Koningstraat."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "twentsche-bank",
@@ -594,7 +749,24 @@
         "nl": "Twentsche Bank"
       },
       "adres": "Hoedemakerplein 1",
-      "gebouw": "twentsche-bank"
+      "gebouw": "twentsche-bank",
+      "tekst": {
+        "nl": "De bank is in 1909 gebouwd door architect G. Beltman. Het heeft muren van vijf stenen dik, voor kelders en kluizen. Het was een belangrijke bank, vooral voor de textielfabrikanten. Door fusies is de bank een paar keer van naam veranderd; nu heet hij ABN AMRO. Boven de deur staan de naam van de stichter en de wapens van zijn familie en van de gemeente Enschede."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Boven de hoofdingang staat nog de naam van de eerste bankiers. Welke naam is dat?",
+          "opties": [
+            "B.W. Blijdenstein",
+            "H.J. van Heek en Zn",
+            "Snelder-Zijlstra",
+            "Stichting Historische Sociëteit Enschede-Lonneker"
+          ],
+          "uitleg": "De familie Blijdenstein richtte in 1861 de Twentsche Bank op, als bank voor de textielindustrie."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "kalanderstraat",
@@ -604,7 +776,24 @@
         "nl": "Kalanderstraat"
       },
       "adres": "Kalanderstraat",
-      "gebouw": "kalanderstraat"
+      "gebouw": "kalanderstraat",
+      "tekst": {
+        "nl": "In deze straat stonden in 1862 bijna allemaal houten huizen. Begin mei was koning Willem III op bezoek geweest in Enschede. De mensen waren heel blij dat de koning kwam en versierden hun huizen onder andere met dennentakken. Het was een erg droge meimaand en op 7 mei waaide het hard. In een van de houten huizen was iemand heel onvoorzichtig met vuur. Daardoor ontstond er brand. Door de droogte en de harde wind stond binnen een half uur de hele straat in brand, en niet veel later de hele stad. Alle huizen, fabrieken en kantoren gingen in vlammen op. De brandweer kon de brand niet blussen, ook niet met hulp van brandweerlieden uit andere plaatsen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom kon de brandweer de brand niet blussen?",
+          "opties": [
+            "De elektrische pompen werkten niet goed",
+            "Doordat veel huizen van hout waren",
+            "De brandweerlieden moesten eerst eten",
+            "Het was veel te warm"
+          ],
+          "uitleg": "Droog hout en harde wind: het vuur sprong sneller van huis naar huis dan de brandweer kon blussen."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "elderinkshuis",
@@ -614,7 +803,24 @@
         "nl": "Elderinkshuis"
       },
       "adres": "De Klomp/Gronausestraat",
-      "gebouw": "elderinkshuis"
+      "gebouw": "elderinkshuis",
+      "tekst": {
+        "nl": "Het Elderinkshuis werd gebouwd als herberg, onder andere voor mensen die 's avonds de stad niet meer in konden omdat de Espoort al dicht was. Het bleef gespaard bij de grote stadsbrand van 1862. Het pand kreeg pas deze naam toen de familie Elderink het kocht en op de benedenverdieping een bankierskantoor opende. Ze verhuurden de bovenverdieping als woning en gingen zelf in het huis ernaast wonen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Welke naam had het gebouw toen het een herberg was?",
+          "opties": [
+            "Herberg In de Lindeboom",
+            "Herberg Voor de gesloten poort",
+            "Herberg Slaap zacht",
+            "Herberg De Dronken Drinkaard"
+          ],
+          "uitleg": "Herbergen kregen vaak de naam van een boom of dier, zodat iedereen ze herkende aan het uithangbord."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "voormalige-v-d-pand",
@@ -624,7 +830,24 @@
         "nl": "Voormalige V&D pand"
       },
       "adres": "Korte Hengelosestraat 1",
-      "gebouw": "voormalige-v-d-pand"
+      "gebouw": "voormalige-v-d-pand",
+      "tekst": {
+        "nl": "Waar nu een sportwinkel zit, zat ooit het eerste grote warenhuis van Twente. Het gebouw is ontworpen door architect J. Kuit Wzn. en werd op 1 april 1939 feestelijk geopend. Tot 1969, toen V&D naar de Boulevard verhuisde, was dit deel van de stad het hart van het winkelcentrum. Het pand heeft mooie glas-in-loodramen en verschillende stijlvolle, ronde vensters."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waar staat de afkorting V&D voor?",
+          "opties": [
+            "Vroom & Dreesmann",
+            "Vroom & Droom",
+            "Veel & Duur",
+            "Veel & Doordacht"
+          ],
+          "uitleg": "Willem Vroom en Anton Dreesmann begonnen samen een winkel in Amsterdam. Hun namen werden V&D."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "kruispunt-de-graaff",
@@ -634,7 +857,24 @@
         "nl": "Kruispunt De Graaff"
       },
       "adres": "Kruispunt De Graaff",
-      "gebouw": "kruispunt-de-graaff"
+      "gebouw": "kruispunt-de-graaff",
+      "tekst": {
+        "nl": "Hier stond Hotel De Graaff, genoemd naar de eerste eigenaar Johan de Graaff. In het hotel logeerden veel belangrijke mensen uit de textielwereld, ook veel mensen uit het buitenland. Het was een chic hotel, waar arbeiders niet binnenkwamen. Toen het steeds slechter ging met de textielindustrie, kwamen er ook steeds minder gasten. In 1972 werd het hotel, dat er slecht aan toe was, afgebroken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom was het hotel in slechte staat?",
+          "opties": [
+            "Het onderhoud was veel te duur",
+            "Er was een hevige storm geweest",
+            "De eigenaar was niet handig",
+            "Er was nog geen doe-het-zelfzaak"
+          ],
+          "uitleg": "Met minder gasten kwam er minder geld binnen. Dan blijft onderhoud aan een groot gebouw liggen."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "langestraat-en-stadspoorten",
@@ -644,7 +884,24 @@
         "nl": "Langestraat en stadspoorten"
       },
       "adres": "Langestraat en stadspoorten",
-      "gebouw": "langestraat-en-stadspoorten"
+      "gebouw": "langestraat-en-stadspoorten",
+      "tekst": {
+        "nl": "In de middeleeuwen (500-1500) kon je maar op 2 manieren de stad in: in het westen door de Veldpoort en in het oosten door de Eschpoort. Een hele lange straat verbond deze twee poorten. Die heette, en heet nog steeds, de Langestraat. Alleen het stukje van de Oude Markt tot het kruispunt De Graaff heet nu Marktstraat. Net buiten de Eschpoort stond een herberg waar je kon overnachten als de stadspoort al dicht was. Dat is het Elderinkshuis, het oudste gebouw van Enschede buiten de gracht. Het heeft de brand van 1862 overleefd."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Net voorbij de Walstraat/Stadsgravenstraat liggen links en rechts in de straat grijze stenen. Waarom liggen die daar?",
+          "opties": [
+            "Ter versiering",
+            "Daar mag je parkeren",
+            "Daar wordt nog gebouwd",
+            "Ze geven de vorm van de Veldpoort aan"
+          ],
+          "uitleg": "De poort zelf is verdwenen. De stenen laten zien waar hij stond en hoe groot hij was."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
     },
     {
       "id": "stadhuis",
@@ -654,7 +911,24 @@
         "nl": "Stadhuis"
       },
       "adres": "Langestraat 24",
-      "gebouw": "stadhuis"
+      "gebouw": "stadhuis",
+      "tekst": {
+        "nl": "Op de plek van het huidige stadhuis heeft altijd een stadhuis gestaan, al vanaf 1325. Toen kreeg Enschede stadsrechten. Na de stadsbrand van 1862 werd een nieuw stadhuis gebouwd. Dat werd door de groeiende bevolking al snel te klein. Daarom kwam er tussen 1930 en 1933 weer een nieuw stadhuis. Het ontwerp is van ir. G. Friedhoff. Hij ontwierp niet alleen het gebouw, maar ook de lampen, stoelen, bureaus en nog veel meer. Het balkonhek boven de ingang vertelt de geschiedenis van Enschede."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom groeide de bevolking van Enschede tussen de stadsbrand van 1862 en de Tweede Wereldoorlog zo snel?",
+          "opties": [
+            "Er kwamen toen veel vluchtelingen",
+            "De textielindustrie werd steeds groter en had veel mensen nodig",
+            "Veel mensen verhuisden hierheen vanwege de natuur",
+            "Dat was in alle steden zo"
+          ],
+          "uitleg": "De fabrieken trokken arbeiders van het platteland en van ver daarbuiten aan."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "janninkshuis",
@@ -664,7 +938,24 @@
         "nl": "Janninkshuis"
       },
       "adres": "Langestraat 41",
-      "gebouw": "janninkshuis"
+      "gebouw": "janninkshuis",
+      "tekst": {
+        "nl": "Tegenover de zijkant van het stadhuis in de Langestraat staat dit huis. Na de stadsbrand van 1862 was het als enige huis nog in redelijke staat. Eigenlijk is dit het oudste huis van Enschede dat binnen de grachten van toen lag. Bij de voordeur staan 2 zuilen. Dat was gewoon in de tijd dat het huis werd gebouwd."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Aan welke periode uit de geschiedenis herinneren die zuilen ons?",
+          "opties": [
+            "Aan de Eerste Wereldoorlog",
+            "Aan de Tweede Wereldoorlog",
+            "Aan de oude Grieken en Romeinen",
+            "Aan Legoland"
+          ],
+          "uitleg": "Grieken en Romeinen bouwden tempels met zuilen. Later deden rijke mensen dat na bij hun eigen huis."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "societeit-en-twentsche-schouwburg",
@@ -674,7 +965,24 @@
         "nl": "Sociëteit en Twentsche schouwburg"
       },
       "adres": "Langestraat 45",
-      "gebouw": "societeit-en-twentsche-schouwburg"
+      "gebouw": "societeit-en-twentsche-schouwburg",
+      "tekst": {
+        "nl": "Naast het Janninkshuis staat een gebouw met groene beelden op het dak en aan de gevel. Tot 1862 was hier de Heeren Sociëteit (= een gebouw om gezellig bij elkaar te zijn). Daar kwamen de directeuren van de textielfabrieken voor de gezelligheid en om te vergaderen. Na de brand van 1862 werd het gebouw herbouwd, met een kleine theaterzaal. Later werd die zaal groter gemaakt en heette het gebouw de Twentsche Schouwburg. Nu zitten er winkels in. Alleen de kleine zaal is nog in gebruik: de 'Kleine Willem'. Alle andere zalen zitten nu in het nieuwe theater in het Muziekkwartier."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Naar welke bekende Enschedeër is de kleine zaal genoemd?",
+          "opties": [
+            "Willem Bever",
+            "Willem Wilmink",
+            "Willem van Hanegem",
+            "Willem Wever"
+          ],
+          "uitleg": "Willem Wilmink schreef liedjes en gedichten, ook voor kinderen. Ook het grote theater is naar hem genoemd."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
@@ -684,7 +992,24 @@
         "nl": "Koningsplein & Textielfabriek Gerhard Jannink en zonen"
       },
       "adres": "Van Loenshof",
-      "gebouw": "koningsplein-textielfabriek-gerhard-jannink-en-zon"
+      "gebouw": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
+      "tekst": {
+        "nl": "Op de hoek van de Beltstraat en de Pijpenstraat stond tot 1964 een hele grote fabriek van de firma Jannink. Op deze plek staan nu de openbare bibliotheek en winkelcentrum Koningsplein."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Voordat het winkelcentrum Koningsplein heette, heette het 'De Zuidmolen'. Waarom?",
+          "opties": [
+            "Op deze plek stond een molen die zo heette",
+            "Het winkelcentrum ligt in het zuiden",
+            "Er werd graan gemalen voor de stad",
+            "Er heeft heel lang een draaimolen gestaan"
+          ],
+          "uitleg": "Enschede had vroeger meerdere molens. Hun namen leven voort in straten en gebouwen."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "gerechtsgebouw",
@@ -694,7 +1019,24 @@
         "nl": "Gerechtsgebouw"
       },
       "adres": "Molenstraat 23",
-      "gebouw": "gerechtsgebouw"
+      "gebouw": "gerechtsgebouw",
+      "tekst": {
+        "nl": "Het Gerechtsgebouw werd in 1923 in opdracht van de gemeente Enschede gebouwd. Het ontwerp is van de zoon van W.C. Metzelaar, de hoofdingenieur voor gevangenissen en rechtsgebouwen. De plint (de onderkant) is van natuursteen, en lichte bakstenen banden sieren de gevels. Opvallend is de uitstekende trappentoren met een tentdak."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat is een gerechtsgebouw?",
+          "opties": [
+            "Een gebouw waar gerechten worden gemaakt voor restaurants",
+            "Een gebouw waar recht wordt gesproken (rechtbank)",
+            "Een gebouw dat gerecht (rechtop) is gebouwd",
+            "Een gebouw waar ze kromme voorwerpen weer recht maken"
+          ],
+          "uitleg": "In een rechtbank beslist een rechter of iemand iets verkeerds heeft gedaan, en welke straf daarbij hoort."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "joodse-begraafplaats",
@@ -704,7 +1046,24 @@
         "nl": "Joodse begraafplaats"
       },
       "adres": "Molenstraat",
-      "gebouw": "joodse-begraafplaats"
+      "gebouw": "joodse-begraafplaats",
+      "tekst": {
+        "nl": "De begraafplaats werd in 1768 aangelegd en is sinds 1841 niet meer in gebruik. Na de stadsbrand van 1862 kwam de kleine begraafplaats midden tussen de huizen en langs een drukke straat te liggen. In 1912 werd de houten schutting om de begraafplaats om veiligheidsredenen vervangen door een hek, en kwam er een voetpad. In 1947 zijn de resten overgebracht naar de Joodse begraafplaats aan de Noord Esmarkerrondweg. Alleen een klein monument op de hoek van de Molenstraat en de Nieuwe Schoolweg herinnert nog aan de begraafplaats."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Aan beide kanten van het hek hing een bordje. Wat stond erop?",
+          "opties": [
+            "Pas op, overstekende voetgangers",
+            "Langzaam rijden bij de begraafplaats",
+            "Gesloten Israëlitische Begraafplaats",
+            "Verboden over te steken"
+          ],
+          "uitleg": "Israëlitisch is een ouder woord voor Joods. 'Gesloten' betekent: hier wordt niemand meer begraven."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "fabrieksschool",
@@ -714,7 +1073,24 @@
         "nl": "Fabrieksschool"
       },
       "adres": "Noorderhagen 13",
-      "gebouw": "fabrieksschool"
+      "gebouw": "fabrieksschool",
+      "tekst": {
+        "nl": "Zo'n 15 Enschedese fabrikanten richtten in 1866 de Fabrieksschool op. Hier kregen 362 fabriekskinderen onder de 14 jaar verplicht les. De kinderen gingen vóór of na hun werktijd in de fabriek naar school. De school is nu een rijksmonument en werd pas in 1974 opgeheven. Let vooral op de klapramen met hun vele kleine ruitjes op de eerste verdieping. Die zijn gelukkig nooit vervangen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wie mocht naar de Fabrieksschool?",
+          "opties": [
+            "Kinderen van wie de vader in een textielfabriek werkte",
+            "Kinderen van wie de moeder in een textielfabriek werkte",
+            "Kinderen die zelf in een textielfabriek werkten",
+            "Kinderen die bevriend waren met een textielfabrikant"
+          ],
+          "uitleg": "Kinderen werkten toen al jong in de fabriek. Op deze school leerden ze toch lezen, schrijven en rekenen."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "klooster-larinksticht",
@@ -724,7 +1100,24 @@
         "nl": "Klooster Larinksticht"
       },
       "adres": "Noorderhagen 25",
-      "gebouw": "klooster-larinksticht"
+      "gebouw": "klooster-larinksticht",
+      "tekst": {
+        "nl": "Het Larinksticht is genoemd naar Gerhardus Larink, die een koperslagerij had. Hij maakte hier koperen potten en pannen. Na zijn dood werd het een klooster. Het complex bestaat uit verschillende delen rond een kapel met toren. Bij de opening van het klooster op 2 juni 1869 zaten er een handwerkschool voor meisjes en een bewaarschool (een soort kleuterschool) in."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarvoor wordt het klooster nu gebruikt?",
+          "opties": [
+            "Als kantoor van de gemeente",
+            "Er wonen oudere mensen met een handicap",
+            "Er woont de woon- en leefgemeenschap De Wonne",
+            "Als sportschool"
+          ],
+          "uitleg": "In een woongemeenschap heeft iedereen een eigen plek, maar doen de bewoners veel samen. Net als vroeger de kloosterzusters."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "verenigingsgebouw-irene",
@@ -734,7 +1127,24 @@
         "nl": "Verenigingsgebouw Irene"
       },
       "adres": "Noorderhagen",
-      "gebouw": "verenigingsgebouw-irene"
+      "gebouw": "verenigingsgebouw-irene",
+      "tekst": {
+        "nl": "Dit gebouw is na de brand van 1862 gebouwd als een klein café (Hemken). Door verbouwingen werd het steeds groter, onder andere met een theaterzaal. Het gebouw was van een protestantse vereniging. In de jaren 60 van de vorige eeuw waren hier de eerste pop- en jazzconcerten van Enschede (Cottontown Jazzband). Ook dansavonden, cabaretavonden (met de bekende Enschedeër Henk Elsink), diploma-uitreikingen en examenfeesten van middelbare scholen vonden allemaal in 'Irene' plaats. Alleen de naam 'Irenepassage' van de winkelpromenade die hier nu staat, herinnert nog aan dit vroegere cultuur- en uitgaanscentrum."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom wilden protestanten een eigen gebouw met een theater?",
+          "opties": [
+            "De katholieken en de socialisten hadden ook een eigen gebouw",
+            "Ze waren heel rijk en lieten daarom dit gebouw bouwen",
+            "Ze waren jaloers op de anderen",
+            "Ze konden heel goed toneelspelen"
+          ],
+          "uitleg": "Vroeger had elke groep (katholiek, protestant, socialist) zijn eigen scholen, clubs en zalen. Dat heet verzuiling."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "politiebureau",
@@ -744,7 +1154,24 @@
         "nl": "Politiebureau"
       },
       "adres": "Nijverheidstraat",
-      "gebouw": "politiebureau"
+      "gebouw": "politiebureau",
+      "tekst": {
+        "nl": "Dit oude politiebureau werd in 1912 gebouwd aan de Haaksbergerstraat. Dit stukje straat bij de rotonde heet nu Nijverheidstraat. In 2018 stond hier nog het bankgebouw van de ING. De stijl van het politiebureau was heel ongewoon voor Enschede: met trapgeveltjes (= het dak lijkt net een trapje), een torentje en een driehoek (timpaan) boven de ingang. De inwoners vonden het heel mooi. Toen de Boulevard werd aangelegd, werd het gesloopt (1968)."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom waren de inwoners van Enschede erg boos dat het gebouw werd afgebroken?",
+          "opties": [
+            "Het stamde nog van vóór de brand van 1862",
+            "Het leek op een Amsterdams huis",
+            "Het was zo'n mooi en bijzonder gebouw",
+            "De bakstenen hadden een mooie kleur"
+          ],
+          "uitleg": "Met zijn trapgevels en torentje was het uniek in de stad. Daarom misten mensen het."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "stoomweverij-de-nijverheid",
@@ -754,7 +1181,24 @@
         "nl": "Stoomweverij De Nijverheid"
       },
       "adres": "Nijverheidstraat",
-      "gebouw": "stoomweverij-de-nijverheid"
+      "gebouw": "stoomweverij-de-nijverheid",
+      "tekst": {
+        "nl": "N.V. Stoomweverij De Nijverheid begon in 1889 en kreeg later ook een blekerij, ververij en ruwerij. De eigenaren waren de Joodse familie M.L. van Gelderen. In 1966 ging de fabriek over naar Texoprint in Boekelo. In 1967 stopte de productie in De Nijverheid en in 1973 werd het complex gesloopt. Sinds 1983 staat hier het politiebureau."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom heeft de Stoomweverij een slechte naam gekregen?",
+          "opties": [
+            "In de fabriek hing altijd een vieze lucht",
+            "De arbeiders moesten er heel hard werken",
+            "In de Tweede Wereldoorlog werden hier de Jodensterren gedrukt",
+            "Het was in de fabriek heel ongezond"
+          ],
+          "uitleg": "De Duitse bezetter dwong de fabriek de gele sterren te drukken die Joden op hun kleding moesten dragen."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "striekiezer",
@@ -764,7 +1208,24 @@
         "nl": "Striekiezer"
       },
       "adres": "Oldenzaalsestraat/De Heurne",
-      "gebouw": "striekiezer"
+      "gebouw": "striekiezer",
+      "tekst": {
+        "nl": "Deze winkel werd in 1870 gebouwd in opdracht van smid J.Th. Tönies en wordt 't Striekiezer' genoemd. Jarenlang zat hier ijzerwarenhandelaar Tönies, daarna speelgoedwinkel Van Ulzen en later nog veel andere winkels. Andere bekende striekiezers (strijkijzers) staan op de hoek Kuipersdijk-Lippinkhofsweg (Brünen) en op de hoek Molenstraat-Nieuwe Schoolweg."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom heet het winkelpand 't Striekiezer'?",
+          "opties": [
+            "IJzerhandelaar Tönies verkocht veel strijkijzers",
+            "Het pand heeft de vorm van een strijkijzer",
+            "In het pand zit veel glad gestreken ijzer",
+            "Het was een reclamestunt van Tönies"
+          ],
+          "uitleg": "Waar twee straten schuin samenkomen, wordt een pand smal en puntig, net als een strijkijzer."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "r-k-sint-jozefkerk",
@@ -774,7 +1235,24 @@
         "nl": "R.K. Sint-Jozefkerk"
       },
       "adres": "Oldenzaalsestraat 115",
-      "gebouw": "r-k-sint-jozefkerk"
+      "gebouw": "r-k-sint-jozefkerk",
+      "tekst": {
+        "nl": "De kerk is in 1894 gebouwd in neogotische stijl (= de ramen lopen aan de bovenkant niet rond, maar in een punt), in de tijd van dr. Alphons Ariëns. De kerktoren staat tegen de voorgevel. Met 77 meter is het de hoogste kerktoren van Enschede en het op één na hoogste gebouw van de stad."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Sint-Jozef is een parochie (= groep katholieken die bij één kerkgebouw hoort). De hoeveelste parochie van Enschede is dat?",
+          "opties": [
+            "De 1e parochie",
+            "De 2e parochie",
+            "De 3e parochie",
+            "De 4e parochie"
+          ],
+          "uitleg": "Door de vele textielarbeiders werd de oude parochie van de Jacobuskerk te groot. Daarom kwam er een tweede bij."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "jacobuskerk",
@@ -1102,7 +1580,24 @@
         "nl": "Fabrieken langs de spoorlijn naar Gronau"
       },
       "adres": "Parallelweg",
-      "gebouw": "fabrieken-langs-de-spoorlijn-naar-gronau"
+      "gebouw": "fabrieken-langs-de-spoorlijn-naar-gronau",
+      "tekst": {
+        "nl": "Van de plek waar nu het Wilminktheater staat tot voorbij de brug op de Oliemolensingel stond langs de spoorlijn naar Gronau ruim 1,5 km aan textielfabrieken. Het waren de fabrieken van Van Heek & Co en Nico ter Kuile. Hier werkten duizenden mensen, en Van Heek was ooit de grootste werkgever van Nederland. In 1967 ging het bedrijf dicht en werd het complex verkocht aan de gemeente. Twee fabrieksgebouwen aan de Parallelweg/Van Lochemstraat zijn blijven staan en verbouwd tot woningen. Alle andere gebouwen zijn gesloopt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom gingen de textielfabrieken dicht?",
+          "opties": [
+            "Niemand had nog belang bij textiel",
+            "De machines waren kapotgegaan",
+            "Mensen gingen plastic kleding dragen",
+            "In landen als Turkije, Marokko, India en Vietnam konden ze goedkoper stoffen maken"
+          ],
+          "uitleg": "Daar waren de lonen veel lager. Twentse stof werd daardoor te duur."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
     },
     {
       "id": "station-staatsspoor",
@@ -1112,7 +1607,24 @@
         "nl": "Station Staatsspoor"
       },
       "adres": "Parkweg",
-      "gebouw": "station-staatsspoor"
+      "gebouw": "station-staatsspoor",
+      "tekst": {
+        "nl": "Op 1 juli 1866 kreeg Enschede een station aan de spoorlijn Zutphen-Hengelo-Enschede. De lijn was al eerder open voor vrachtvervoer, maar nu konden ook reizigers gebruikmaken van de nieuwe verbinding. Op de eerste dag werden 700 kaartjes verkocht. Het station stond zo'n driehonderd meter verderop dan het huidige station aan de Parkweg, op een verhoogd stuk weg dat de naam Stationsweg kreeg. Het gebouw bestond uit twee lage gebouwtjes met een hoger middendeel dat naar voren stak."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waaraan kun je nog zien waar het oude station stond?",
+          "opties": [
+            "De tramlijn ligt er nog",
+            "Het perronbordje staat er nog",
+            "De trap naar het station",
+            "Niet meer te zien"
+          ],
+          "uitleg": "Het station lag hoger dan de straat. De trap omhoog is overgebleven."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
@@ -1122,7 +1634,24 @@
         "nl": "De elektrische tram van de Twentsche Electrische Tramwegmaatschappij (TET)"
       },
       "adres": "Parkweg",
-      "gebouw": "de-elektrische-tram-van-de-twentsche-electrische-t"
+      "gebouw": "de-elektrische-tram-van-de-twentsche-electrische-t",
+      "tekst": {
+        "nl": "Van 1908 tot 1933 reed elk half uur een elektrische tram van het oude station aan de Parkweg naar de grensovergang in Glanerbrug. Voor de stroom moesten er bovenleidingen worden aangelegd. Die zijn na 1933 allemaal weggehaald. Op verschillende plekken, bijvoorbeeld in de Marktstraat, zie je nog de haken aan de huizen waar de bovenleidingen aan vastzaten. Vanaf 1923 werden voor het openbaar vervoer ook bussen gebruikt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom is de tram na 1933 gestopt?",
+          "opties": [
+            "De tram vervuilde veel te veel",
+            "Vervoer met bussen was toen goedkoper",
+            "Mensen waren bang in een tram",
+            "De tram reed maar 6 keer per dag"
+          ],
+          "uitleg": "Een bus heeft geen rails en geen bovenleiding nodig. Dat scheelt veel geld."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "h-ter-kuile-huis",
@@ -1132,7 +1661,24 @@
         "nl": "H. Ter Kuile huis"
       },
       "adres": "Piet Heinstraat 1",
-      "gebouw": "h-ter-kuile-huis"
+      "gebouw": "h-ter-kuile-huis",
+      "tekst": {
+        "nl": "Het herenhuis is in 1907 gebouwd door fabrikant H. ter Kuile. Op de natuurstenen gevelstenen aan beide kanten van de balkondeuren boven de serre staat 'Anno 1907'. Het is gebouwd in dezelfde stijl als De Bijenkorf in Amsterdam. Tot 1976 zat in dit gebouw een school: de ESV (Enschedese Schoolvereniging). 'Goudzoekers' hebben ooit geprobeerd om vanuit de kelder van de villa een tunnel te graven naar de bank aan de overkant."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "In deze villa heeft een uitzendbureau gezeten dat nu aan de overkant zit. Welk?",
+          "opties": [
+            "In Person",
+            "Randstad",
+            "Tempo-Team",
+            "Timing"
+          ],
+          "uitleg": "Kijk maar naar de overkant van de straat."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "incassobank",
@@ -1142,7 +1688,24 @@
         "nl": "Incassobank"
       },
       "adres": "Piet Heinstraat 4",
-      "gebouw": "incassobank"
+      "gebouw": "incassobank",
+      "tekst": {
+        "nl": "De vroegere Incassobank is in 1929 gebouwd voor de Incasso Bank uit Amsterdam. Het pand is uitgebreid na de fusie met de Amsterdamsche Bank en in 1988 verbouwd. Als gevelversiering zie je 5 leeuwen. Ze dragen allemaal een wapenschild, van Enschede, Amsterdam en Lonneker."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Rond het meest linkse raam beneden hebben de stenen een andere kleur dan de rest. Hoe komt dat?",
+          "opties": [
+            "Er werd in de Tweede Wereldoorlog op geschoten",
+            "Hier zat vroeger de ingang, die later is verplaatst",
+            "Hier is iemand met een auto naar binnen gereden",
+            "Bankrovers hebben de gevel opgeblazen"
+          ],
+          "uitleg": "Toen de deur verdween, werd het gat dichtgemetseld met nieuwe stenen. Die hebben een andere kleur."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "slo",
@@ -1152,7 +1715,24 @@
         "nl": "SLO"
       },
       "adres": "Piet Heinstraat 12",
-      "gebouw": "slo"
+      "gebouw": "slo",
+      "tekst": {
+        "nl": "De Stichting Leerplanontwikkeling (SLO) maakt leerplannen (een overzicht van de leerstof die in een klas wordt behandeld) voor het basisonderwijs, speciaal onderwijs en voortgezet onderwijs. Dit pand is in 2002 gebouwd en is genoemd naar de bijzondere opbouw op het dak: een enorme, glinsterende aluminium wolk van honderden bloemblaadjes op stelen. Het was helaas te duur om er waterdamp uit te laten komen, zodat het op een echte wolk zou lijken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Naar welke versiering op het dak wordt het gebouw ook wel genoemd?",
+          "opties": [
+            "De wolk",
+            "De sterrenhemel",
+            "De regenbui",
+            "De sneeuwvlokken"
+          ],
+          "uitleg": "Kijk omhoog: de aluminium blaadjes vangen het licht, net als een wolk in de zon."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "synagoge",
@@ -1162,7 +1742,24 @@
         "nl": "Synagoge"
       },
       "adres": "Prinsestraat 14",
-      "gebouw": "synagoge"
+      "gebouw": "synagoge",
+      "tekst": {
+        "nl": "De synagoge werd op 13 december 1928 ingewijd en geopend. Het is een van de mooiste sjoels (= Joodse gebedshuizen) van West-Europa. Je herkent het gebouw aan de drie opvallende koperen koepels. In het middendeel zijn de grote sjoel, de dagsjoel en de kerkeraadskamer. Heel mooi zijn ook de originele feestzaal, de Joodse school en de bezoekersruimte."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarvoor is dit gebouw in de Tweede Wereldoorlog gebruikt?",
+          "opties": [
+            "Als onderkomen van Duitsers",
+            "Als gevangenis",
+            "Als opslagplaats van munitie",
+            "Als onderduikadres voor Joden"
+          ],
+          "uitleg": "De Duitse veiligheidsdienst (SD) sloot hier mensen op."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "gerard-jannink-en-zonen",
@@ -1172,7 +1769,24 @@
         "nl": "Gerard Jannink en zonen"
       },
       "adres": "Pijpenstraat",
-      "gebouw": "gerard-jannink-en-zonen"
+      "gebouw": "gerard-jannink-en-zonen",
+      "tekst": {
+        "nl": "Deze fabriek ontstond in 1844 uit de firma E. Jannink en zonen. Er was een spinnerij en een weverij. In 1886 hadden ze twee merken: 'Drie Boompjes' en 'Stoomschip op effen water'. Het complex stond waar nu winkelcentrum Koningsplein (lang 'Zuidmolen' genoemd) staat. In 1964 werd het gesloopt. Het terrein heeft lang braak gelegen en diende als parkeerterrein. In 1982 werd hier ook de bibliotheek gebouwd."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat betekent 'braak liggen'?",
+          "opties": [
+            "Dat je gaat liggen om over te geven",
+            "Dat je heel erg ziek wordt van het terrein",
+            "Dat er niets op het terrein staat",
+            "Dat er veel inbraken waren"
+          ],
+          "uitleg": "Een braakliggend terrein is leeg: er staat niets en er groeit hooguit onkruid."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "de-gouden-bocht",
@@ -1182,7 +1796,24 @@
         "nl": "De Gouden bocht"
       },
       "adres": "Ripperdastraat 9 t/m 21",
-      "gebouw": "de-gouden-bocht"
+      "gebouw": "de-gouden-bocht",
+      "tekst": {
+        "nl": "De huidige Ripperdastraat was vroeger een deftige, brede laan met bomen in de middenberm. De statige panden in jugendstil (= een bouwstijl met veel ronde vormen) zijn als enige overgebleven."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wie gebruikten de huizen van de Gouden Bocht vroeger ook?",
+          "opties": [
+            "De gemeente Enschede",
+            "Notarissen en advocaten",
+            "De Hogere Textielschool",
+            "Ziekenhuis De Stadsmaten"
+          ],
+          "uitleg": "Een deftig huis aan een mooie laan was een goed visitekaartje voor een notaris of advocaat."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "ziekenhuis-ziekenzorg",
@@ -1192,7 +1823,24 @@
         "nl": "Ziekenhuis Ziekenzorg"
       },
       "adres": "De Ruyterlaan",
-      "gebouw": "ziekenhuis-ziekenzorg"
+      "gebouw": "ziekenhuis-ziekenzorg",
+      "tekst": {
+        "nl": "Het gebouw werd geopend in 1941. De hoofdingang bestond uit 2 deuren met een portiersloge ertussen. De rechterdeur was voor het personeel en de bezoekers, de linkerdeur voor de polikliniek en patiënten die moesten worden opgenomen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Los van het ziekenhuis stonden nog 2 gebouwen. Waarvoor waren die?",
+          "opties": [
+            "Voor lastige patiënten",
+            "Als garage voor ziekenauto's en auto's van artsen",
+            "Voor overleden patiënten en patiënten met een besmettelijke ziekte",
+            "Als voorraadkamers voor medicijnen, verband en bedden"
+          ],
+          "uitleg": "Wie besmettelijk ziek was, lag apart. Zo konden andere patiënten niet besmet raken."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "stadsgravenstraat",
@@ -1202,7 +1850,24 @@
         "nl": "Stadsgravenstraat"
       },
       "adres": "Stadsgravenstraat",
-      "gebouw": "stadsgravenstraat"
+      "gebouw": "stadsgravenstraat",
+      "tekst": {
+        "nl": "Met de stadsgraven wordt de stadsgracht bedoeld. Tot 1862 liep er om de stad een gracht, een wal en een haag. Dat was allemaal om de stad te kunnen verdedigen. Sommige straatnamen herinneren hier nog aan, zoals Noorderhagen, Zuiderhagen en Walstraat. Op de plattegrond zie je dat ze als een ring om de stad lopen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom verdween de gracht na 1862?",
+          "opties": [
+            "Er was geen oorlog meer",
+            "De boten verdwenen en de auto's kwamen",
+            "Na de brand was er veel puin, dat in de gracht werd gegooid",
+            "Op die plek moest juist een park komen"
+          ],
+          "uitleg": "Met het puin van de afgebrande huizen werd de gracht gedempt. Daarna kon de stad groeien."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "joodse-school-en-synagoge",
@@ -1212,7 +1877,24 @@
         "nl": "Joodse school en synagoge"
       },
       "adres": "Stadsgravenstraat",
-      "gebouw": "joodse-school-en-synagoge"
+      "gebouw": "joodse-school-en-synagoge",
+      "tekst": {
+        "nl": "Enschede had in de 19e eeuw een vrij grote Joodse gemeenschap. Een groot aantal van hen had ook een textielfabriek. In de school kregen kinderen les in de Joodse taal en cultuur. Naast de school stond de synagoge (het Joodse gebedshuis). Begin 20e eeuw raakte het gebouw in slechte staat en werd besloten een nieuwe synagoge te bouwen. De oude werd afgebroken, maar de school staat er nog. De nieuwe synagoge staat in de Prinsestraat en is een van de mooiste van Europa."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Joodse gemeenschap is nu veel kleiner dan vroeger. Waardoor komt dat?",
+          "opties": [
+            "Veel mensen zijn verhuisd",
+            "De textielindustrie is verdwenen",
+            "De Jodenvervolging in de Tweede Wereldoorlog",
+            "Er werden geen kinderen meer geboren"
+          ],
+          "uitleg": "In de oorlog werden veel Joodse inwoners van Enschede weggevoerd en vermoord. Een deel overleefde door onder te duiken."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "menistenkerk",
@@ -1222,7 +1904,24 @@
         "nl": "Menistenkerk"
       },
       "adres": "Stadsgravenstraat 59",
-      "gebouw": "menistenkerk"
+      "gebouw": "menistenkerk",
+      "tekst": {
+        "nl": "Dit kerkje werd bezocht door mensen die doopsgezind of mennoniet waren. Bij dit geloof worden mensen pas gedoopt als ze volwassen zijn. Het gebouw is niet meer in gebruik als kerk. Het is opslagruimte en discotheek geweest, en nu zit er een bierbrouwerij in."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom is dit gebouw niet meer in gebruik als kerk?",
+          "opties": [
+            "Het was veel te koud in het gebouw",
+            "Het gebouw werd te klein",
+            "Er waren geen doopsgezinden meer",
+            "Men had veel meer zin in bier"
+          ],
+          "uitleg": "De doopsgezinde gemeente groeide en had een grotere kerk nodig."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "wilhelminaflat",
@@ -1232,7 +1931,24 @@
         "nl": "Wilhelminaflat"
       },
       "adres": "Stadsmatenstraat",
-      "gebouw": "wilhelminaflat"
+      "gebouw": "wilhelminaflat",
+      "tekst": {
+        "nl": "Deze flat is gebouwd in 1952 en is daarmee de oudste flat van Twente. Hij werd ook wel een middenstandsflatgebouw genoemd. Hij werd gebouwd voor textielfabrikanten, om er na hun pensioen te gaan wonen. Het waren dan ook heel luxe en dure flats. Er waren zeven logeerkamers, een was- en droogruimte, een lift en centrale verwarming."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom heet het de Wilhelminaflat?",
+          "opties": [
+            "Er wordt veel Wilhelminapepermunt gesnoept",
+            "Hier was ook de kantine van hockeyclub Prinses Wilhelmina",
+            "Hij is genoemd naar koningin Wilhelmina",
+            "Muziekvereniging Wilhelmina oefent hier altijd"
+          ],
+          "uitleg": "Wilhelmina was vijftig jaar koningin, tot 1948. Veel straten en gebouwen zijn naar haar genoemd."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "stationsplein-atjehpark",
@@ -1242,7 +1958,24 @@
         "nl": "Stationsplein/Atjehpark"
       },
       "adres": "Stationsplein/Atjehpark",
-      "gebouw": "stationsplein-atjehpark"
+      "gebouw": "stationsplein-atjehpark",
+      "tekst": {
+        "nl": "Op de plek waar nu het Stationsplein met de platte waterpartij ligt, werd in 1868-1869 een park aangelegd. Het werd genoemd naar burgemeester Clifford. Onder burgemeester Van der Zee kwamen er 3 fonteinen. Omdat deze burgemeester als kapitein in Atjeh had gevochten, werd het park bekend als het Atjehpark. Toen in 1951 het nieuwe station werd gebouwd, werd het park een busstation met taxistandplaatsen en parkeerplaatsen. De naam werd toen Stationsplein."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Atjeh is een provincie in welk land?",
+          "opties": [
+            "Australië",
+            "Afrika",
+            "Indonesië",
+            "Argentinië"
+          ],
+          "uitleg": "Indonesië was toen een kolonie van Nederland. In Atjeh voerde het Nederlandse leger een lange oorlog."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "station-ns",
@@ -1252,7 +1985,24 @@
         "nl": "Station NS"
       },
       "adres": "Stationsplein",
-      "gebouw": "station-ns"
+      "gebouw": "station-ns",
+      "tekst": {
+        "nl": "Enschede was de eerste stad die na de Tweede Wereldoorlog een nieuw station kreeg. Het station werd geopend op 28 oktober 1950. Het gebouw heeft veel zuilen en is van beton, omdat daar na de oorlog veel van was. De automatische deur was bijzonder en speciaal voor Enschede gemaakt. De deur ging open door het gewicht van je lichaam. De jeugd maakte daar meteen zoveel gebruik van, dat er de volgende dag al een bordje 'Defect' op hing. Rond 2000 is de hoofdingang verplaatst van het Stationsplein naar de Piet Heinstraat."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat was de huidige hoofdingang van het station vroeger?",
+          "opties": [
+            "Loketten voor de kaartverkoop",
+            "Een restaurant voor de reizigers",
+            "Een wisselkantoor voor mensen die naar Duitsland gingen",
+            "Een magazijn voor het onderhoud van de treinen"
+          ],
+          "uitleg": "Wie op de trein wachtte, kon hier iets eten en drinken."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "textielfabriek-nico-ter-kuile",
@@ -1262,7 +2012,24 @@
         "nl": "textielfabriek Nico ter Kuile"
       },
       "adres": "Stationsplein",
-      "gebouw": "textielfabriek-nico-ter-kuile"
+      "gebouw": "textielfabriek-nico-ter-kuile",
+      "tekst": {
+        "nl": "Na 1862 werden nieuwe fabrieken zoveel mogelijk buiten het oude centrum gebouwd. De fabriek van Nico ter Kuile kwam in 1886 aan het Stationsplein, op de plek waar nu de stationsparkeergarage staat. Het bedrijf was ook bekend onder de naam Toweltex. In de fabriek werden onder andere handdoeken en tafellakens geweven. In 1967 ging de fabriek dicht en iets later werd hij afgebroken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Onder welke naam werden de producten van Nico ter Kuile verkocht?",
+          "opties": [
+            "Stazione",
+            "Nicolientje",
+            "Kuiltjes",
+            "Doekjes"
+          ],
+          "uitleg": "De fabriek stond naast het station. 'Stazione' is Italiaans voor station."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "textielfabriek-ter-kuile-cromhoff",
@@ -1272,7 +2039,24 @@
         "nl": "textielfabriek Ter Kuile Cromhoff"
       },
       "adres": "Stationsplein/Parkweg",
-      "gebouw": "textielfabriek-ter-kuile-cromhoff"
+      "gebouw": "textielfabriek-ter-kuile-cromhoff",
+      "tekst": {
+        "nl": "In 1865 bouwde de firma Cromhoff een stoomweverij op de hoek van de Piet Heinstraat en het Stationsplein. Op 1 januari 1878 nam Pieter ter Kuile de fabriek over. De naam werd Ter Kuile Cromhoff. Ze maakten bontgeweven stoffen voor overhemden, nachtkleding en sport- en vrijetijdskleding. De fabriek stond precies tegenover het huidige station. In 1967 ging hij dicht en in 1972 werd hij afgebroken. Het Stationsplein heette toen nog Parkweg."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat staat er nu op de plek van de firma Cromhoff?",
+          "opties": [
+            "Een flatgebouw",
+            "Een speelplaats",
+            "Het busstation",
+            "Een gevangenis"
+          ],
+          "uitleg": "Pal tegenover het station is handig om over te stappen van trein op bus."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "villa-scholten",
@@ -1282,7 +2066,24 @@
         "nl": "villa Scholten"
       },
       "adres": "M.H. Tromplaan 1",
-      "gebouw": "villa-scholten"
+      "gebouw": "villa-scholten",
+      "tekst": {
+        "nl": "Dit woonhuis is gebouwd in 1907 in neoclassicistische stijl (= een bouwstijl die lijkt op de gebouwen van de oude Grieken en Romeinen). Architect G. Beltman ontwierp het voor textielfabrikant Julius Scholten. Het is een gemeentelijk monument. De buitenkant is opgeknapt. De aanbouw uit de jaren 70 heeft een moderne gevel van staalplaten met veel gaatjes, waarachter 's avonds geheimzinnig blauw licht schijnt. In het gebouw heeft de SNS Bank gezeten."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waaraan kun je goed zien dat villa Scholten in neoclassicistische stijl is gebouwd?",
+          "opties": [
+            "Aan de ronde vormen",
+            "Aan de nagemaakte zuilen en de driehoek bij onder andere de ingang",
+            "Aan de kleur van het gebouw",
+            "Dat is niet meer te zien"
+          ],
+          "uitleg": "Zuilen en een driehoek (timpaan) boven de deur: zo zag een Griekse tempel eruit."
+        }
+      },
+      "juist": 1,
+      "bevestigd": false
     },
     {
       "id": "ter-kuile-huis",
@@ -1292,7 +2093,24 @@
         "nl": "Ter Kuile huis"
       },
       "adres": "M.H. Tromplaan 8",
-      "gebouw": "ter-kuile-huis"
+      "gebouw": "ter-kuile-huis",
+      "tekst": {
+        "nl": "Bovenin de gevel van dit mooie, bijzonder gebouwde huis zie je een kleurige zonnewijzer. Coenraad ter Kuile bouwde dit huis in 1911. Hij was in heel Nederland bekend als amateur-sterrenkundige. Naast de hoofdingang hangen een prachtige gevellantaarn en een soort familiewapen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat is de zonnewijzer aan het Ter Kuile huis?",
+          "opties": [
+            "Een wijzer (naald) die naar de zon wijst",
+            "Een bord waarop je ziet waar de zon opkomt en ondergaat",
+            "Een soort klok waarop je ziet hoe laat het is",
+            "Hij laat zien hoe wijs het is om in de zon te lopen"
+          ],
+          "uitleg": "De schaduw van de staaf valt op de cijfers en wijst zo de tijd aan. Coenraad ter Kuile maakte ook de zonnewijzer aan de Grote Kerk."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "villa-roozendaal",
@@ -1302,7 +2120,24 @@
         "nl": "Villa Roozendaal"
       },
       "adres": "M.H. Tromplaan 9",
-      "gebouw": "villa-roozendaal"
+      "gebouw": "villa-roozendaal",
+      "tekst": {
+        "nl": "Deze monumentale villa uit 1915 is gebouwd voor de textielfabrikantenfamilie Rozendaal. Dat verklaart meteen de naam. Opvallend zijn de vijfzijdige erker en de mooie veranda. De villa is verbouwd tot kantoor. Het is een van de laatste villa's in deze straat die nog in oude staat zijn."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom zijn veel villa's aan de Tromplaan verbouwd?",
+          "opties": [
+            "Men vond de inrichting niet meer modern genoeg",
+            "Men had genoeg geld om te verbouwen",
+            "De villa's werden te groot en te duur voor één gezin",
+            "Dat moest van de burgemeester"
+          ],
+          "uitleg": "Na de textieltijd kon bijna geen gezin zo'n groot huis met personeel nog betalen. Er kwamen kantoren in."
+        }
+      },
+      "juist": 2,
+      "bevestigd": false
     },
     {
       "id": "villa-serphos",
@@ -1312,7 +2147,24 @@
         "nl": "Villa Serphos"
       },
       "adres": "M.H. Tromplaan 17",
-      "gebouw": "villa-serphos"
+      "gebouw": "villa-serphos",
+      "tekst": {
+        "nl": "De villa is in 1910 gebouwd door Izaak Serphos. Bijzonder is de opgezette ooievaar in de hal. Die herinnert eraan dat onder de vogel een kast verborgen zat. Daarin zat in de Tweede Wereldoorlog de familie Menko ondergedoken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarvoor is villa Serphos vroeger ook gebruikt?",
+          "opties": [
+            "Als directeurswoning van een textielfabriek",
+            "Als directeurswoning van school De Maere",
+            "Als directeurswoning van ziekenhuis De Stadsmaten",
+            "Als natuurmuseum"
+          ],
+          "uitleg": "Van ongeveer 1940 tot 2007 zat hier het Natuurmuseum Enschede. Vandaar ook die opgezette ooievaar."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
     },
     {
       "id": "groote-schuur",
@@ -1322,7 +2174,24 @@
         "nl": "Groote Schuur"
       },
       "adres": "M.H. Tromplaan 23",
-      "gebouw": "groote-schuur"
+      "gebouw": "groote-schuur",
+      "tekst": {
+        "nl": "Bankier B.W. Blijdenstein liet dit herenhuis in 1910-1912 bouwen. Bij De Groote Schuur zie je duidelijk Engelse invloeden, zoals onderdelen in cottagestijl (een cottage is een Engels huis, vaak met een rieten dak). Dat komt waarschijnlijk door het vele contact dat Blijdenstein had met Engelse fabrikanten. Op de hoek van het pand zie je nog een oude tramhaak."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Onder welke naam staat De Groote Schuur ook bekend?",
+          "opties": [
+            "Villa Commandeur (naar de bewoner, de chirurg dr. Commandeur)",
+            "De Keverij (naar de leefgemeenschap die hier jaren was)",
+            "De Engelse villa (naar de Engelse onderdelen in het gebouw)",
+            "Blijdensteinhuis (naar de opdrachtgever)"
+          ],
+          "uitleg": "Een huis wordt vaak genoemd naar een bekende bewoner."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "menko-van-dam-huis",
@@ -1332,7 +2201,24 @@
         "nl": "Menko van Dam huis"
       },
       "adres": "M.H. Tromplaan 52",
-      "gebouw": "menko-van-dam-huis"
+      "gebouw": "menko-van-dam-huis",
+      "tekst": {
+        "nl": "Het Menko-Van Dam huis is ontworpen door Karel de Bazel, die ook de synagoge heeft ontworpen. De bouw begon in 1915 en in 1916 ging de familie Menko er wonen. Op dit adres zat de Joodse Raad van Enschede, waarvan Sigmund Menko de voorzitter was. Hij heeft in de Tweede Wereldoorlog geprobeerd zoveel mogelijk Joden te redden van deportatie."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom heeft het Menko-Van Dam huis een dubbele naam?",
+          "opties": [
+            "De heer Sigmund Nathan Menko en mevrouw Emma van Dam hebben de villa gebouwd",
+            "Het huis van de heer Menko lag aan een mooi aangelegde dam",
+            "De eerste bewoners kwamen uit (Amster)dam",
+            "De oorspronkelijke toegang naar het huis liep over een dam"
+          ],
+          "uitleg": "Het huis is genoemd naar het echtpaar: de naam van de man en de meisjesnaam van de vrouw."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "villa-menko-edersheim-memphis-hotel",
@@ -1342,7 +2228,24 @@
         "nl": "Villa Menko-Edersheim/Memphis hotel"
       },
       "adres": "M.H. Tromplaan 55",
-      "gebouw": "villa-menko-edersheim-memphis-hotel"
+      "gebouw": "villa-menko-edersheim-memphis-hotel",
+      "tekst": {
+        "nl": "In 1923 ontwierp architect K.P.C. de Bazel een woning voor de Joodse textielfabrikant Miljan Isidoor Menko. Tussen de kamers zaten glazen schuifdeuren. Zo konden de biljartkamer, de eetkamer, de huiskamer en de hal één grote ruimte worden. In de oorlog gebruikten Duitse militairen het huis als 'Erholungsheim' (= een plek om uit te rusten). In de jaren 50 werd het hotel Memphis. Het gebouw is een paar keer verbouwd en uitgebreid, tot het hotel halverwege de jaren 90 failliet ging."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarvoor is het gebouw behalve als hotel Memphis ook gebruikt?",
+          "opties": [
+            "Als jeugdherberg",
+            "Als Joods bejaardentehuis",
+            "Als wijkcentrum",
+            "Als asielzoekerscentrum"
+          ],
+          "uitleg": "Een leeg hotel heeft al veel kamers met bedden. Dat maakt het geschikt om mensen tijdelijk op te vangen."
+        }
+      },
+      "juist": 3,
+      "bevestigd": false
     },
     {
       "id": "willem-wilminkplein-theater",
@@ -1352,7 +2255,24 @@
         "nl": "Willem Wilminkplein/theater"
       },
       "adres": "Willem Wilminkplein/theater",
-      "gebouw": "willem-wilminkplein-theater"
+      "gebouw": "willem-wilminkplein-theater",
+      "tekst": {
+        "nl": "Het plein is in 2014 aangelegd. Het is een mooi plein met een stadstuin, genoemd naar de bekende Enschedese dichter en schrijver Willem Wilmink. Vroeger was het vooral een parkeerplaats. Ook het theater is naar de schrijver genoemd. Het hoort bij het Nationaal Muziekkwartier, dat in 2008 is geopend."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat zie je ook als je langs het Muziekkwartier loopt?",
+          "opties": [
+            "Een muziekschool",
+            "Een toneelschool",
+            "Een cafetaria",
+            "Een ijssalon"
+          ],
+          "uitleg": "In het Muziekkwartier zit ook het conservatorium, waar studenten muzikant worden."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     },
     {
       "id": "voormalig-postkantoor",
@@ -1362,7 +2282,24 @@
         "nl": "voormalig postkantoor"
       },
       "adres": "Korte Haaksbergerstraat",
-      "gebouw": "voormalig-postkantoor"
+      "gebouw": "voormalig-postkantoor",
+      "tekst": {
+        "nl": "Op 1 oktober 1904 werd het postkantoor aan de Haaksbergerstraat in gebruik genomen. Behalve de post, de telegraaf en de telefoon kwamen hier in de loop van de jaren ook andere rijksdiensten. In 1933 werd het postkantoor verbouwd en kreeg het een nieuwe ingang. In datzelfde jaar kwam de automatische telefooncentrale van de stad in het postkantoor. Tot 1964 kon je hier terecht voor alle postzaken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Een oudere naam van PostNL is PTT. Waar staan die letters voor?",
+          "opties": [
+            "Posterijen, Telegrafie en Telefonie",
+            "Putje graven, Tentje bouwen, Tukje doen",
+            "Poly(trimethyleentereftalaat), een kunststof",
+            "Per Telefoon Toesturen"
+          ],
+          "uitleg": "Post, telegraaf en telefoon vielen vroeger allemaal onder één staatsbedrijf."
+        }
+      },
+      "juist": 0,
+      "bevestigd": false
     }
   ]
 }
