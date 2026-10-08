@@ -143,17 +143,31 @@
     {
       "id": "postkantoor",
       "naam": "Postkantoor",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Boulevard 1945 326"
     },
     {
       "id": "burgermeesterstraat",
       "naam": "Burgemeesterstraat",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.220577, 6.897505],
+        [52.22087, 6.89817],
+        [52.220788, 6.898245],
+        [52.220551, 6.897671],
+        [52.220439, 6.89759]
+      ]
     },
     {
       "id": "villa-ledeboer-pension-kleiboer",
       "naam": "Villa Ledeboer/Pension Kleiboer",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.223406, 6.892304],
+        [52.223433, 6.892567],
+        [52.223275, 6.892632],
+        [52.223271, 6.892336]
+      ]
     },
     {
       "id": "koningshuizen",
@@ -169,7 +183,20 @@
     {
       "id": "kalanderstraat",
       "naam": "Kalanderstraat",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.219492, 6.898733],
+        [52.219199, 6.898701],
+        [52.218988, 6.898604],
+        [52.218843, 6.898508],
+        [52.218725, 6.898347],
+        [52.218643, 6.898212],
+        [52.218557, 6.898583],
+        [52.218863, 6.898771],
+        [52.219195, 6.898862],
+        [52.219501, 6.898921]
+      ],
+      "adres": "Kalanderstraat"
     },
     {
       "id": "elderinkshuis",
@@ -436,7 +463,7 @@
       "adres": "Ariënsplein",
       "gebouw": "ziekenhuis-st-joseph-stadsmaten",
       "tekst": {
-        "nl": "Het R.K. ziekenhuis is in gebruik genomen op 2 april 1914 met 54 bedden. Het verving het oude ziekenhuis uit 1889 in de oude pastorie (= het huis van de pastoor) op de Markt. In 1970 is de naam St. Joseph veranderd in de naam van de wijk waarin het staat: 'De Stadsmaten'. In het begin werden de zieken verzorgd door nonnen, ook wel zusters genoemd. Heel officieel: de Zusters Franciscanessen van Thuine. Toen in 2016 het geheel nieuwe ziekenhuis klaar was, werden de gebouwen aan het Ariënsplein gesloten."
+        "nl": "Het R.K. ziekenhuis is in gebruik genomen op 2 april 1914 met 54 bedden. Het verving het ziekenhuis uit 1889 in de oude pastorie (= het huis van de pastoor) op de Markt. In 1970 is de naam St. Joseph veranderd in de naam van de wijk waarin het staat: 'De Stadsmaten'. In het begin werden de zieken verzorgd door nonnen, ook wel zusters genoemd. Heel officieel: de Zusters Franciscanessen van Thuine. Toen in 2016 het nieuwe ziekenhuis klaar was, werden de gebouwen aan het Ariënsplein gesloten."
       },
       "vraag": {
         "nl": {
@@ -444,24 +471,23 @@
           "opties": [
             "Over een lange brug over de Haaksbergerstraat",
             "Door een lange tunnel onder de Haaksbergerstraat",
-            "Met taxibusjes",
-            "Met ambulances"
+            "Met taxibusjes van de Stadsmaten naar Ziekenzorg",
+            "Met ambulances van de Stadsmaten naar Ziekenzorg"
           ],
-          "uitleg": "Patiënten, bedden en personeel gingen over een lange brug van het ene gebouw naar het andere, zonder door het verkeer te hoeven."
+          "uitleg": "Patiënten en personeel gingen over de brug zonder door het verkeer te hoeven."
         }
       },
       "juist": 0,
       "bevestigd": true,
       "positie": {
-        "lat": 52.21871,
-        "lng": 6.888017,
+        "lat": 52.218713,
+        "lng": 6.88802,
         "bevestigd": true
       }
     },
     {
       "id": "huize-sonnevanck-burgemeesterswoning",
       "nummer": 3,
-      "concept": true,
       "titel": {
         "nl": "Huize Sonnevanck – Burgemeesterswoning"
       },
@@ -479,21 +505,20 @@
             "De officiële opening van de kermis",
             "De viering van Bevrijdingsdag"
           ],
-          "uitleg": "Sinterklaas woonde elk jaar tijdelijk bij de burgemeester. Samen verschenen ze op het balkon. Ze zwaaiden naar kinderen en hun ouders op het Ariënsplein. De Pieten waren volop aan de slag."
+          "uitleg": "Sinterklaas woonde elke jaar tijdelijk in de burgemeesterswoning."
         }
       },
       "juist": 1,
-      "bevestigd": false,
+      "bevestigd": true,
       "positie": {
-        "lat": 52.219433,
-        "lng": 6.88795,
-        "bevestigd": false
+        "lat": 52.220314,
+        "lng": 6.890618,
+        "bevestigd": true
       }
     },
     {
       "id": "schoolgebouw-de-maere",
       "nummer": 4,
-      "concept": true,
       "titel": {
         "nl": "Schoolgebouw De Maere"
       },
@@ -515,7 +540,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.219364,
+        "lng": 6.888652,
+        "bevestigd": true
+      }
     },
     {
       "id": "gemeentelijk-lyceum",
@@ -547,7 +577,6 @@
     {
       "id": "postkantoor",
       "nummer": 6,
-      "concept": true,
       "titel": {
         "nl": "Postkantoor"
       },
@@ -569,12 +598,16 @@
         }
       },
       "juist": 3,
-      "bevestigd": false
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.217389,
+        "lng": 6.894902,
+        "bevestigd": true
+      }
     },
     {
       "id": "burgermeesterstraat",
       "nummer": 7,
-      "concept": true,
       "titel": {
         "nl": "Burgemeesterstraat"
       },
@@ -596,12 +629,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.220683,
+        "lng": 6.897875,
+        "bevestigd": true
+      }
     },
     {
       "id": "villa-ledeboer-pension-kleiboer",
       "nummer": 8,
-      "concept": true,
       "titel": {
         "nl": "Villa Ledeboer/Pension Kleiboer"
       },
@@ -622,13 +659,17 @@
           "uitleg": "Zo leeft een stukje van de verdwenen villa voort in een park dat iedereen kan bezoeken."
         }
       },
-      "juist": 1,
-      "bevestigd": false
+      "juist": 0,
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.223232,
+        "lng": 6.892371,
+        "bevestigd": true
+      }
     },
     {
       "id": "koningshuizen",
       "nummer": 9,
-      "concept": true,
       "titel": {
         "nl": "Koningshuizen"
       },
@@ -639,7 +680,7 @@
       },
       "vraag": {
         "nl": {
-          "tekst": "Tegenover deze huizen ligt een straat die naar Lodewijk Napoleon is genoemd. Welke?",
+          "tekst": "Wat verderop ligt een straat die naar Lodewijk Napoleon is genoemd. Welke?",
           "opties": [
             "Lodewijk Napoleonstraat",
             "Ziekenhuisstraat",
@@ -650,19 +691,23 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.217826,
+        "lng": 6.890187,
+        "bevestigd": false
+      }
     },
     {
       "id": "twentsche-bank",
       "nummer": 10,
-      "concept": true,
       "titel": {
         "nl": "Twentsche Bank"
       },
       "adres": "Hoedemakerplein 1",
       "gebouw": "twentsche-bank",
       "tekst": {
-        "nl": "De bank is in 1909 gebouwd door architect G. Beltman. Het heeft muren van vijf stenen dik, voor kelders en kluizen. Het was een belangrijke bank, vooral voor de textielfabrikanten. Door fusies is de bank een paar keer van naam veranderd; nu heet hij ABN AMRO. Boven de deur staan de naam van de stichter en de wapens van zijn familie en van de gemeente Enschede."
+        "nl": "De bank is in 1909 gebouwd door architect G. Beltman. Het heeft muren van vijf stenen dik, voor kelders en kluizen. Het was een belangrijke bank, vooral voor de textielfabrikanten. Door fusies is de bank een paar keer van naam veranderd. Boven de deur staan de naam van de stichter en de wapens van zijn familie en van de gemeente Enschede."
       },
       "vraag": {
         "nl": {
@@ -677,12 +722,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220692,
+        "lng": 6.891475,
+        "bevestigd": true
+      }
     },
     {
       "id": "kalanderstraat",
       "nummer": 11,
-      "concept": true,
       "titel": {
         "nl": "Kalanderstraat"
       },
@@ -704,12 +753,16 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.219055,
+        "lng": 6.898792,
+        "bevestigd": true
+      }
     },
     {
       "id": "elderinkshuis",
       "nummer": 12,
-      "concept": true,
       "titel": {
         "nl": "Elderinkshuis"
       },
@@ -731,12 +784,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.219626,
+        "lng": 6.900359,
+        "bevestigd": true
+      }
     },
     {
       "id": "voormalige-v-d-pand",
       "nummer": 13,
-      "concept": true,
       "titel": {
         "nl": "Voormalige V&D pand"
       },
@@ -758,7 +815,12 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221166,
+        "lng": 6.892815,
+        "bevestigd": false
+      }
     },
     {
       "id": "kruispunt-de-graaff",
@@ -817,7 +879,6 @@
     {
       "id": "stadhuis",
       "nummer": 16,
-      "concept": true,
       "titel": {
         "nl": "Stadhuis"
       },
@@ -839,12 +900,16 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219344,
+        "lng": 6.896896,
+        "bevestigd": false
+      }
     },
     {
       "id": "janninkshuis",
       "nummer": 17,
-      "concept": true,
       "titel": {
         "nl": "Janninkshuis"
       },
@@ -866,12 +931,16 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219447,
+        "lng": 6.895856,
+        "bevestigd": false
+      }
     },
     {
       "id": "societeit-en-twentsche-schouwburg",
       "nummer": 18,
-      "concept": true,
       "titel": {
         "nl": "Sociëteit en Twentsche schouwburg"
       },
@@ -893,7 +962,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219615,
+        "lng": 6.895287,
+        "bevestigd": false
+      }
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
@@ -925,7 +999,6 @@
     {
       "id": "gerechtsgebouw",
       "nummer": 20,
-      "concept": true,
       "titel": {
         "nl": "Gerechtsgebouw"
       },
@@ -947,7 +1020,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.223536,
+        "lng": 6.894581,
+        "bevestigd": false
+      }
     },
     {
       "id": "joodse-begraafplaats",
@@ -979,7 +1057,6 @@
     {
       "id": "fabrieksschool",
       "nummer": 22,
-      "concept": true,
       "titel": {
         "nl": "Fabrieksschool"
       },
@@ -1001,12 +1078,16 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221583,
+        "lng": 6.894372,
+        "bevestigd": false
+      }
     },
     {
       "id": "klooster-larinksticht",
       "nummer": 23,
-      "concept": true,
       "titel": {
         "nl": "Klooster Larinksticht"
       },
@@ -1028,7 +1109,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.22208,
+        "lng": 6.895029,
+        "bevestigd": false
+      }
     },
     {
       "id": "verenigingsgebouw-irene",
@@ -1141,7 +1227,6 @@
     {
       "id": "r-k-sint-jozefkerk",
       "nummer": 28,
-      "concept": true,
       "titel": {
         "nl": "R.K. Sint-Jozefkerk"
       },
@@ -1163,7 +1248,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.224499,
+        "lng": 6.898744,
+        "bevestigd": false
+      }
     },
     {
       "id": "jacobuskerk",
@@ -1567,7 +1657,6 @@
     {
       "id": "h-ter-kuile-huis",
       "nummer": 41,
-      "concept": true,
       "titel": {
         "nl": "H. Ter Kuile huis"
       },
@@ -1589,12 +1678,16 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220967,
+        "lng": 6.890602,
+        "bevestigd": false
+      }
     },
     {
       "id": "incassobank",
       "nummer": 42,
-      "concept": true,
       "titel": {
         "nl": "Incassobank"
       },
@@ -1616,12 +1709,16 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221241,
+        "lng": 6.891176,
+        "bevestigd": false
+      }
     },
     {
       "id": "slo",
       "nummer": 43,
-      "concept": true,
       "titel": {
         "nl": "SLO"
       },
@@ -1643,12 +1740,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221582,
+        "lng": 6.891135,
+        "bevestigd": false
+      }
     },
     {
       "id": "synagoge",
       "nummer": 44,
-      "concept": true,
       "titel": {
         "nl": "Synagoge"
       },
@@ -1670,7 +1771,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.217993,
+        "lng": 6.88601,
+        "bevestigd": false
+      }
     },
     {
       "id": "gerard-jannink-en-zonen",
@@ -1702,7 +1808,6 @@
     {
       "id": "de-gouden-bocht",
       "nummer": 46,
-      "concept": true,
       "titel": {
         "nl": "De Gouden bocht"
       },
@@ -1724,7 +1829,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.218309,
+        "lng": 6.889529,
+        "bevestigd": false
+      }
     },
     {
       "id": "ziekenhuis-ziekenzorg",
@@ -1810,7 +1920,6 @@
     {
       "id": "menistenkerk",
       "nummer": 50,
-      "concept": true,
       "titel": {
         "nl": "Menistenkerk"
       },
@@ -1832,12 +1941,16 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221287,
+        "lng": 6.896721,
+        "bevestigd": false
+      }
     },
     {
       "id": "wilhelminaflat",
       "nummer": 51,
-      "concept": true,
       "titel": {
         "nl": "Wilhelminaflat"
       },
@@ -1859,7 +1972,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220494,
+        "lng": 6.881989,
+        "bevestigd": false
+      }
     },
     {
       "id": "stationsplein-atjehpark",
@@ -1972,7 +2090,6 @@
     {
       "id": "villa-scholten",
       "nummer": 56,
-      "concept": true,
       "titel": {
         "nl": "villa Scholten"
       },
@@ -1994,12 +2111,16 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.22065,
+        "lng": 6.89046,
+        "bevestigd": false
+      }
     },
     {
       "id": "ter-kuile-huis",
       "nummer": 57,
-      "concept": true,
       "titel": {
         "nl": "Ter Kuile huis"
       },
@@ -2021,12 +2142,16 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220927,
+        "lng": 6.889966,
+        "bevestigd": false
+      }
     },
     {
       "id": "villa-roozendaal",
       "nummer": 58,
-      "concept": true,
       "titel": {
         "nl": "Villa Roozendaal"
       },
@@ -2048,12 +2173,16 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220436,
+        "lng": 6.88945,
+        "bevestigd": false
+      }
     },
     {
       "id": "villa-serphos",
       "nummer": 59,
-      "concept": true,
       "titel": {
         "nl": "Villa Serphos"
       },
@@ -2075,12 +2204,16 @@
         }
       },
       "juist": 3,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220228,
+        "lng": 6.888569,
+        "bevestigd": false
+      }
     },
     {
       "id": "groote-schuur",
       "nummer": 60,
-      "concept": true,
       "titel": {
         "nl": "Groote Schuur"
       },
@@ -2102,12 +2235,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219949,
+        "lng": 6.887416,
+        "bevestigd": false
+      }
     },
     {
       "id": "menko-van-dam-huis",
       "nummer": 61,
-      "concept": true,
       "titel": {
         "nl": "Menko van Dam huis"
       },
@@ -2129,12 +2266,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219876,
+        "lng": 6.882823,
+        "bevestigd": false
+      }
     },
     {
       "id": "villa-menko-edersheim-memphis-hotel",
       "nummer": 62,
-      "concept": true,
       "titel": {
         "nl": "Villa Menko-Edersheim/Memphis hotel"
       },
@@ -2156,7 +2297,12 @@
         }
       },
       "juist": 3,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.21935,
+        "lng": 6.882829,
+        "bevestigd": false
+      }
     },
     {
       "id": "willem-wilminkplein-theater",
