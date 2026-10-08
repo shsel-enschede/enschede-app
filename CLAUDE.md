@@ -45,7 +45,7 @@ De Enschede app van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL
 - **Valideer `content/*.json` bij het laden**; ongeldige locaties overslaan en melden in de console, niet de hele app laten crashen.
 - **Locatie (GPS):** alleen vragen na een uitleg en een tik van de gebruiker, nooit bij het openen. Coördinaten nooit opslaan of versturen.
 - **Geen geheimen** (wachtwoorden, API-sleutels) in de repository. De repository is openbaar.
-- **Openbaar of privé:** alles in deze repository, ook pull requests, reviews en de geschiedenis, is voor iedereen te lezen. Werkdocumenten vóór een besluit van het bestuur, proeffoto's zonder geregelde rechten, lesmateriaal met antwoorden en interne contactgegevens horen in de privé-repository `shsel-enschede/enschede-app-intern` (alleen het team beheerders) of in het claude.ai-project, niet hier.
+- **Openbaar of privé:** alles in deze repository, ook pull requests, reviews en de geschiedenis, is voor iedereen te lezen. Wat waar hoort: zie **Documenten: wat staat waar** onderaan.
 - **Beeldmateriaal:** alleen toevoegen als de rechten geregeld zijn; bron en rechten vastleggen in `content/`.
 
 ## Schaal
@@ -159,9 +159,6 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
 - Beschrijf in elke pull request in gewone taal: wat is veranderd, hoe een beheerder het kan testen, en wat er nog niet werkt.
 - Test op een smal (mobiel) scherm voordat je een pull request aanbiedt.
 
-## Bronnen
-
-De oorspronkelijke teksten (NL, EN, DE), de lijst met Stadsarchief-foto's en de huisstijl staan in het claude.ai-project "SHSEL app/ website", niet in deze repository. Interne werkdocumenten en proeffoto's staan in de privé-repository `enschede-app-intern`.
 ## Documenten: wat staat waar
 
 **Let op: deze repository is openbaar.** Iedereen op internet kan alles lezen, ook oude versies. Wat er eenmaal op staat, krijg je er praktisch niet meer af. Twijfel je, zet het dan (nog) niet op GitHub.
@@ -174,6 +171,7 @@ De oorspronkelijke teksten (NL, EN, DE), de lijst met Stadsarchief-foto's en de 
 | Vastgestelde ontwerpen (wat de app doet en waarom) | `docs/` |
 | Werkstukken, concepten voor één persoon, gespreksnotities, agenda's | claude.ai-project "SHSEL app/ website", niet op GitHub |
 | Oorspronkelijke teksten (NL, EN, DE), Stadsarchief-lijst, huisstijl, voorwaarden | claude.ai-project |
+| Proeffoto's zonder geregelde rechten, lesmateriaal met antwoorden, interne contactgegevens (wie bel je bij een storing), bestanden die beheerders samen gebruiken | privé-repository `shsel-enschede/enschede-app-intern` (alleen team beheerders), niet in deze repository |
 
 - **Geen persoonsgegevens op GitHub:** geen namen van vrijwilligers, docenten of scholen, geen e-mailadressen of telefoonnummers, tenzij de persoon akkoord heeft gegeven. Schrijf in openbare stukken over rollen ("een docent", "een beheerder").
 - **Geen interne overwegingen** die SHSEL of anderen kunnen schaden (bijvoorbeeld over personen, geld of onderhandelingen), en geen beschrijving van zwakke plekken in de beveiliging die nog niet zijn opgelost.
