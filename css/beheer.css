@@ -118,3 +118,14 @@
 }
 .verstuurbalk[hidden] { display: none; }
 .verstuurbalk .knop { min-height: 44px; }
+
+/* Verhaal en vraag */
+.antwoorden { border: 1px solid var(--lijn); border-radius: 8px; padding: 8px 12px 12px; margin: 10px 0; max-width: 70ch; min-width: 0; }
+.antwoorden legend { font-weight: 600; font-size: 0.9375rem; padding: 0 4px; }
+.antwoord { display: grid; grid-template-columns: 44px 1.5em 1fr; align-items: center; gap: 4px; margin-top: 6px; }
+.antwoord input[type="radio"] { width: 22px; height: 22px; margin: 11px; accent-color: var(--goed); }
+.antwoord label { font-weight: 700; }
+.antwoord input:not([type]) { min-height: 44px; min-width: 0; padding: 8px 10px; font: inherit; color: var(--tekst); background: var(--wit); border: 1px solid var(--grijs); border-radius: 8px; }
+.antwoord--goed input:not([type]) { border: 2px solid var(--goed); background: var(--goed-licht); }
+.schrijfhulp { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; max-width: 70ch; }
+.schrijfhulp li::before { content: "• "; color: var(--grijs); }
