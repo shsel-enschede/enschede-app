@@ -90,7 +90,22 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
 - **Editor** (`beheer.html`, niet gelinkt vanuit de app): per plek de positie (Kadaster-adres, kaart of luchtfoto), het gebouw (of een eigen omtrek voor verdwenen gebouwen) en de foto's kiezen, en die met één knop als voorstel naar GitHub sturen. Zie **Editor voor vrijwilligers** hieronder.
 - **Foto's:** catalogus in `content/fotos.json` (bron, documentnummer, bij welke plek-nummers ze passen, bestand, alt, bijschrift, rechten). Een plek kiest foto's met `"fotos": ["sa-012131", …]`, de eerste is de hoofdfoto. De app toont een foto alleen als `bestand` bestaat én `rechten_geregeld` true is. Nog niet ter plekke: alleen de hoofdfoto, wazig.
 - **Lokale proefversie:** alleen op `localhost` toont de app ook foto's zonder geregelde rechten, uit `fotos-lokaal/` (staat in `.gitignore`, komt nooit op GitHub), met het label "Proef: rechten nog niet bevestigd". Starten met `start-lokaal.bat` (server alleen op 127.0.0.1). Uitleg: `fotos-lokaal-LEESMIJ.md`.
-- Doelgroep: jeugd en gezinnen, ook volwassenen. Moeilijke woorden uitleggen, zoals in de bronteksten.
+- **Doelgroep (René, okt 2026):**
+  - **Hoofddoelgroep: scholieren van ca. 9–14 jaar**: bovenbouw basisschool (groep 6–8) en onderbouw voortgezet onderwijs (klas 1–2). Taalgebruik en meerkeuzevragen zijn op hen gericht.
+  - **Ook geschikt voor gezinnen en families** met kinderen in die leeftijd: samen wandelen, samen kiezen, samen antwoorden.
+  - Volwassenen kunnen de app ook gebruiken; de tekst is dan eenvoudig, maar niet kinderachtig.
+- **Taal voor deze doelgroep** (taalniveau B1, referentieniveau 1F–2F):
+  - Korte zinnen (richtlijn: hooguit ca. 15 woorden), actieve vorm, één gedachte per zin. Spreek de lezer aan met "je".
+  - Concreet en zichtbaar: verwijs naar wat je ter plekke ziet ("Kijk naar de toren …"). Jaartallen liever met een houvast ("ruim 100 jaar geleden, in 1910").
+  - Moeilijke of ouderwetse woorden uitleggen in de tekst zelf, zoals in de bronteksten ("een apostel, een leerling van Jezus").
+  - Niet kinderachtig of betuttelend: kinderen van 12–14 haken af op "kinderpraat", en ouders lezen mee.
+- **Meerkeuzevragen voor deze doelgroep** (aanvulling op de Haladyna-richtlijnen hieronder):
+  - Eén duidelijke vraag per scherm, zonder dubbele ontkenning of strikvraag.
+  - Opties ongeveer even lang en in dezelfde vorm; het goede antwoord valt niet op door lengte of detail.
+  - Afleiders zijn plausibel voor een kind van 10: begrijpelijk, maar niet te raden zonder kijken of lezen.
+  - Geen voorkennis vereisen die niet in de tekst of ter plekke te vinden is (geen schoolstof die groep 6 nog niet heeft gehad).
+  - Kijkvragen werken voor gezinnen extra goed: samen zoeken en overleggen.
+  - Uitleg na het antwoord in één korte zin die de lezer iets nieuws leert, niet alleen herhaalt.
 - Meerkeuzevragen (Haladyna-richtlijnen): vier opties, plausibele afleiders, hooguit één grappige optie, geen "dat is niet te zien", geen ontkennende vraag. Kijkvragen ter plekke hebben de voorkeur.
 - Direct feedback na het antwoord, met één zin uitleg (testing effect). Bij een fout antwoord noemt de feedback het hele goede antwoord ("Het goede antwoord is B: …"), niet alleen de letter. Na het antwoord blijven je keuze, het goede antwoord en de uitleg samen in beeld als dat past.
 - **Beloningsmoment (piek-eindregel):** na elk antwoord een groen vak "✓ Plek ontdekt!" met de voortgangsbalk, waarin het nieuwe segment volloopt. Ook bij een fout antwoord: ontdekken telt, niet de score.
