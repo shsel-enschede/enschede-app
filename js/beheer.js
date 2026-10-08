@@ -198,6 +198,47 @@ function plekStatus() {
   delen.push(`${(plek.fotos ?? []).length} foto('s) gekozen`);
   delen.push(plek.bevestigd ? '✓ antwoord bevestigd' : '○ antwoord nog niet bevestigd');
   $('plek-status').textContent = delen.join(' · ');
+  toonInApp();
+}
+
+// ---------- Concept of in de app ----------
+
+// Wat een plek nog mist voordat hij in de app kan. Leeg = compleet.
+function ontbreektVoorApp(loc) {
+  return controleerLocatie(loc, 'nl').map((f) => (!loc.positie && f.startsWith('positie') ? 'nog geen positie' : f));
+}
+
+function toonInApp() {
+  const vink = $('in-app');
+  const hint = $('in-app-hint');
+  const inApp = !plek.concept;
+  const mist = ontbreektVoorApp(plek);
+  vink.checked = inApp;
+  // Uit de app halen kan altijd; erin zetten alleen als de plek compleet is.
+  vink.disabled = !inApp && mist.length > 0;
+  if (inApp && mist.length) hint.textContent = `Let op: de app slaat deze plek over (${mist.join(', ')}).`;
+  else if (!inApp && mist.length) hint.textContent = `Kan nog niet in de app: ${mist.join(', ')}.`;
+  else hint.textContent = inApp ? '' : 'Compleet. Vink aan om de plek in de app te zetten.';
+  const concepten = data.locaties.filter((l) => l.concept);
+  const klaar = concepten.filter((l) => !ontbreektVoorApp(l).length);
+  $('concept-telling').textContent = `${data.locaties.length - concepten.length} van de ${data.locaties.length} plekken staan in de app. ${klaar.length} concept${klaar.length === 1 ? ' is' : 'en zijn'} compleet.`;
+  $('alles-in-app').disabled = klaar.length === 0;
+}
+
+function zetInApp(loc, aan) {
+  if (aan) delete loc.concept;
+  else loc.concept = true;
+}
+
+function allesInApp() {
+  const klaar = data.locaties.filter((l) => l.concept && !ontbreektVoorApp(l).length);
+  for (const loc of klaar) zetInApp(loc, true);
+  $('alles-in-app-status').textContent = klaar.length
+    ? `✓ ${klaar.length} plekken staan nu in de app: ${klaar.map((l) => l.nummer).join(', ')}. Ze zijn pas live na het voorstel en de goedkeuring.`
+    : 'Er zijn geen complete concepten.';
+  vulPlekken();
+  plekStatus();
+  gewijzigd();
 }
 
 // ---------- Kaart ----------
@@ -1069,6 +1110,8 @@ function koppel() {
   window.addEventListener('hashchange', volgLink);
   $('positie-ok').addEventListener('change', (e) => { if (!plek.positie) return; plek.positie.bevestigd = e.target.checked; plekStatus(); gewijzigd(); });
   $('zoek-alle').addEventListener('click', zoekAlleAdressen);
+  $('in-app').addEventListener('change', (e) => { zetInApp(plek, e.target.checked); vulPlekken(); plekStatus(); gewijzigd(); });
+  $('alles-in-app').addEventListener('click', allesInApp);
 
   $('gebouw').addEventListener('change', (e) => {
     stopTekenen();
