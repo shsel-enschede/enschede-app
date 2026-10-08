@@ -30,6 +30,15 @@
     <h1 class="kop__titel" id="kop-titel">Enschede app</h1>
     <!-- Testfase: klein label in de kop in plaats van een regel in de voetbalk (die ruimte is voor knoppen) -->
     <span class="kop__test" id="kop-test" hidden>Test</span>
+    <!-- Menu: instellingen, taal en informatie. Op elk scherm op dezelfde plek (rechtsboven). -->
+    <a class="kop__menu" id="menuknop" href="#/menu" aria-label="Menu: instellingen en informatie">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle class="kop__menu-tand" cx="12" cy="12" r="9.3"/>
+        <circle cx="12" cy="12" r="7.6"/>
+        <circle class="kop__menu-punt" cx="12" cy="8.4" r="1.2"/>
+        <path d="M12 11.2v4.8"/>
+      </svg>
+    </a>
   </header>
 
   <main id="hoofd" tabindex="-1">
@@ -38,7 +47,7 @@
       <img class="logo" src="icons/shsel-logo.svg" alt="Logo van de Stichting Historische Sociëteit Enschede-Lonneker" width="240" height="150">
       <h2 class="groot">Ontdek de geschiedenis van Enschede</h2>
       <p>Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.</p>
-      <p class="testuitleg" id="test-uitleg" hidden><strong>Testversie.</strong> Alle vragen zijn open, ook als je niet ter plekke bent.</p>
+      <p class="testuitleg" id="test-uitleg" hidden><strong>Alle vragen zijn open,</strong> ook als je niet ter plekke bent. Dit kun je wijzigen in het menu rechtsboven.</p>
     </section>
 
     <!-- Ontdekkaart: alle plekken, zonder vaste volgorde.
@@ -73,6 +82,7 @@
           <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
           <p class="klein ontdekt__totaal" id="voortgang-totaal"></p>
           <ul class="ontdekt__gebouwen" id="ontdekt-gebouwen" aria-label="Ontdekte gebouwen" hidden></ul>
+          <p class="ontdekt__antwoorden" id="antwoorden-link" hidden><a href="#/antwoorden">Mijn antwoorden</a></p>
         </div>
         <div id="plekken"></div>
         <div class="opnieuw" id="opnieuw">
@@ -111,6 +121,94 @@
       <!-- Beloningsmoment: wat dit toevoegt aan je verzameling (piek-eindregel) -->
       <div class="mijlpaal" id="mijlpaal" role="status" hidden></div>
       <div class="dichtbij" id="dichtbij" hidden></div>
+    </section>
+
+    <!-- Menu: keuzes gelden direct en blijven alleen op dit toestel bewaard (js/instellingen.js) -->
+    <section class="scherm menu" id="scherm-menu" hidden>
+      <form class="menu__form" id="menu-form">
+        <h2 class="menu__kop">Je wandeling</h2>
+
+        <fieldset class="keuze">
+          <legend>Wanneer gaan de plekken open?</legend>
+          <label class="keuze__optie">
+            <input type="radio" name="openen" value="overal">
+            <span><strong>Overal</strong> <span class="keuze__standaard" data-standaard="overal" hidden>(standaard)</span>
+              <span class="keuze__uitleg">Alle verhalen en vragen zijn open, ook thuis of in de klas. Handig om te testen of voor te bereiden.</span></span>
+          </label>
+          <label class="keuze__optie">
+            <input type="radio" name="openen" value="ter-plekke">
+            <span><strong>Alleen ter plekke</strong> <span class="keuze__standaard" data-standaard="ter-plekke" hidden>(standaard)</span>
+              <span class="keuze__uitleg">Een verhaal en vraag gaan pas open als je bij de plek bent. Hiervoor zet je je locatie aan.</span></span>
+          </label>
+        </fieldset>
+
+        <fieldset class="keuze">
+          <legend>Heb je een doel?</legend>
+          <label class="keuze__optie">
+            <input type="radio" name="doel" value="geen">
+            <span><strong>Geen doel</strong>
+              <span class="keuze__uitleg">Ontdek zoveel plekken als je wilt.</span></span>
+          </label>
+          <label class="keuze__optie">
+            <input type="radio" name="doel" value="eigen">
+            <span><strong>Een aantal plekken</strong>
+              <span class="keuze__uitleg">Bijvoorbeeld een opdracht van school.</span></span>
+          </label>
+          <div class="keuze__aantal" id="doel-aantal-vak" hidden>
+            <label for="doel-aantal">Aantal plekken</label>
+            <input type="number" id="doel-aantal" inputmode="numeric" min="1" step="1" aria-describedby="doel-bereik">
+            <span class="klein" id="doel-bereik"></span>
+          </div>
+        </fieldset>
+
+        <fieldset class="keuze">
+          <legend>Wanneer zie je of je antwoord goed is?</legend>
+          <label class="keuze__optie">
+            <input type="radio" name="antwoorden" value="direct">
+            <span><strong>Direct na elke vraag</strong>
+              <span class="keuze__uitleg">Met een korte uitleg.</span></span>
+          </label>
+          <label class="keuze__optie">
+            <input type="radio" name="antwoorden" value="eind">
+            <span><strong>Aan het eind</strong>
+              <span class="keuze__uitleg" id="eind-uitleg">Je ziet de goede antwoorden en de uitleg in "Mijn antwoorden".</span></span>
+          </label>
+        </fieldset>
+
+        <h2 class="menu__kop">Taal</h2>
+        <fieldset class="keuze">
+          <legend class="visueel-verborgen">Taal</legend>
+          <label class="keuze__optie" lang="nl">
+            <input type="radio" name="taal" value="nl">
+            <span><strong>Nederlands</strong></span>
+          </label>
+          <label class="keuze__optie keuze__optie--uit" lang="en">
+            <input type="radio" name="taal" value="en" disabled>
+            <span><strong>English</strong> <span class="keuze__uitleg">Coming later</span></span>
+          </label>
+          <label class="keuze__optie keuze__optie--uit" lang="de">
+            <input type="radio" name="taal" value="de" disabled>
+            <span><strong>Deutsch</strong> <span class="keuze__uitleg">Folgt später</span></span>
+          </label>
+        </fieldset>
+      </form>
+
+      <h2 class="menu__kop">Over de Enschede app</h2>
+      <div class="menu__info">
+        <p>Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal en beantwoord je een vraag. Zo ontdek je de geschiedenis van de stad.</p>
+        <p id="info-aantal"></p>
+        <p>De app is gemaakt door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL). De SHSEL controleert de verhalen en de antwoorden.</p>
+        <p><a href="https://www.shsel.nl/" target="_blank" rel="noopener noreferrer">Website van de SHSEL<span class="visueel-verborgen"> (opent in een nieuw venster)</span></a></p>
+        <h3 class="menu__subkop">Privacy</h3>
+        <p>Je antwoorden en keuzes blijven op je eigen telefoon. Je locatie gebruikt de app alleen als je die zelf aanzet. Je locatie wordt niet bewaard of verstuurd. Er is geen account, geen reclame en geen tracking.</p>
+        <p>Voor de kaart haalt de app kaartbeelden en gebouwgegevens op bij PDOK, de kaartdienst van de overheid.</p>
+      </div>
+    </section>
+
+    <!-- Overzicht van je antwoorden. Bij "Aan het eind" pas met goede antwoorden als je doel gehaald is. -->
+    <section class="scherm" id="scherm-antwoorden" hidden>
+      <p id="antwoorden-intro"></p>
+      <ul class="antwoorden" id="antwoorden-lijst"></ul>
     </section>
 
     <p class="melding" id="melding" role="alert" hidden></p>
