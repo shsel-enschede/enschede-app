@@ -5,7 +5,7 @@ Die foto's komen nooit op GitHub of op de live site.
 
 ## Hoe het werkt
 
-- Maak naast `fotos/` een map **`fotos-lokaal/`** en zet daar de foto's in.
+- Maak naast `fotos/` een map **`fotos-lokaal/`** en zet daar de foto's in. Beheerders vinden de proeffoto's in de privé-repository `shsel-enschede/enschede-app-intern`, map `fotos-lokaal`: kopieer die map hierheen.
 - Die map staat in `.gitignore`. GitHub Desktop toont hem daarom niet bij "Changes" en neemt hem nooit mee.
 - De bestandsnaam moet gelijk zijn aan `bestand_klaar` in `content/fotos.json` (bijvoorbeeld `jacobuskerk-nu.webp`).
 - Alleen als je de app opent via `localhost` toont hij deze foto's, met het label **"Proef: rechten nog niet bevestigd"**.
