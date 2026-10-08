@@ -84,6 +84,14 @@
         <select id="plek"></select>
       </label>
       <p class="status" id="plek-status"></p>
+
+      <h3>Posities van alle plekken</h3>
+      <p class="status" id="posities-telling"></p>
+      <p class="hint">Plekken zonder positie waarvan het gebouw een adres met huisnummer heeft, krijgen in één keer de positie van dat adres uit het Kadaster. Bestaande posities blijven staan. Daarna zet je de rest zelf op de luchtfoto.</p>
+      <div class="knoppenrij">
+        <button type="button" class="knop-klein" id="zoek-alle">Zoek alle adressen op in het Kadaster</button>
+      </div>
+      <p class="status" id="zoek-alle-status" aria-live="polite"></p>
     </section>
 
     <section class="blok blok--kaart" aria-labelledby="kop-kaart">
@@ -93,7 +101,7 @@
         <button type="button" class="schakel" id="laag-luchtfoto" aria-pressed="false">Luchtfoto</button>
       </div>
       <div class="beheerkaart" id="kaart" aria-label="Kaart: tik om de positie te kiezen"></div>
-      <p class="hint" id="modus-hint">Tik op de kaart of versleep de rode speld naar het kijkpunt: de plek op de stoep of het plein waar je ziet waar de vraag over gaat. Zie coordinaten-LEESMIJ.md.</p>
+      <p class="hint" id="modus-hint">Tik op de kaart of versleep de rode speld naar het gebouw of object, op de luchtfoto. Bij een straat, plein of park: teken een omtrek. Zie coordinaten-LEESMIJ.md.</p>
 
       <h3>Positie van de plek</h3>
       <p>Breedte <output id="lat">–</output> · Lengte <output id="lng">–</output></p>
@@ -103,7 +111,7 @@
         <button type="button" class="knop-klein" id="kopieer-link">Kopieer link</button>
       </div>
       <p class="status" id="link-status" aria-live="polite"></p>
-      <label class="vink"><input type="checkbox" id="positie-ok"> Positie ter plekke gecontroleerd (alleen beheerders, na de veldtest)</label>
+      <label class="vink"><input type="checkbox" id="positie-ok"> Positie op de luchtfoto gecontroleerd</label>
 
       <h3>Gebouw</h3>
       <label class="veld">

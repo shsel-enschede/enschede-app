@@ -40,6 +40,7 @@ const overlay = { anderen: null, gebouw: null, tekening: null, linkpunt: null };
 
 // Grenzen van de kaart (zie maakKaart). Een link met een punt daarbuiten wordt genegeerd.
 const GRENS = { latMin: 52.15, latMax: 52.3, lngMin: 6.75, lngMax: 7.0 };
+const MIDDEN = [52.2219, 6.894]; // Oude Markt: beginbeeld als een plek nog geen positie heeft
 
 // ---------- Hulpjes ----------
 
@@ -158,16 +159,19 @@ function vulPlekken() {
   keuze.replaceChildren();
   const lijst = [...data.locaties].sort((a, b) => (a.nummer ?? 0) - (b.nummer ?? 0));
   for (const loc of lijst) {
-    const optie = maak('option', '', `${loc.nummer} · ${loc.titel?.nl ?? loc.id}`);
+    const zonder = loc.positie ? '' : ' — nog geen positie';
+    const optie = maak('option', '', `${loc.nummer} · ${loc.titel?.nl ?? loc.id}${loc.concept ? ' (concept)' : ''}${zonder}`);
     optie.value = loc.id;
     keuze.append(optie);
   }
+  if (plek) keuze.value = plek.id;
+  const met = data.locaties.filter((l) => l.positie).length;
+  $('posities-telling').textContent = `${met} van de ${data.locaties.length} plekken hebben een positie.`;
 }
 
 function kiesPlek(id) {
   plek = data.locaties.find((l) => l.id === id);
   if (!plek) return;
-  plek.positie ??= { lat: 52.2219, lng: 6.894, bevestigd: false };
   stopTekenen();
   kadasterPunt = null;
   $('adres-naar-positie').disabled = true;
@@ -179,12 +183,16 @@ function kiesPlek(id) {
   toonGebouw();
   toonFotos();
   toonAnderen();
-  kaart.setView([plek.positie.lat, plek.positie.lng], 18);
+  const g = gebouwVan(plek.gebouw);
+  if (plek.positie) kaart.setView([plek.positie.lat, plek.positie.lng], 18);
+  else if (Array.isArray(g?.vorm) && g.vorm.length >= 3) kaart.fitBounds(g.vorm, { maxZoom: 19, padding: [40, 40] });
+  else kaart.setView(MIDDEN, 16);
 }
 
 function plekStatus() {
   const delen = [];
-  delen.push(plek.positie?.bevestigd ? '✓ positie gecontroleerd' : '○ positie nog niet gecontroleerd');
+  delen.push(!plek.positie ? '○ nog geen positie' : (plek.positie.bevestigd ? '✓ positie gecontroleerd' : '○ positie nog niet gecontroleerd'));
+  if (plek.concept) delen.push('concept: nog niet in de app');
   const g = gebouwVan(plek.gebouw);
   delen.push(g ? `gebouw: ${g.naam}` : 'geen gebouw');
   delen.push(`${(plek.fotos ?? []).length} foto('s) gekozen`);
@@ -232,6 +240,7 @@ function kiesLaag(naam) {
 // dan verschijnt het als blauw rondje en kun je de speld er zelf naartoe slepen.
 
 function maakLink() {
+  if (!plek.positie) return null;
   const url = new URL(location.href);
   url.hash = new URLSearchParams({ plek: plek.id, lat: plek.positie.lat.toFixed(6), lng: plek.positie.lng.toFixed(6) }).toString();
   return url.toString();
@@ -239,14 +248,17 @@ function maakLink() {
 
 function toonLink() {
   const url = maakLink();
-  $('luchtfoto-link').href = url;
-  $('luchtfoto-link').textContent = url;
-  $('link-status').textContent = '';
+  $('luchtfoto-link').href = url ?? '#';
+  $('luchtfoto-link').textContent = url ?? '';
+  $('kopieer-link').disabled = !url;
+  $('link-status').textContent = url ? '' : 'Nog geen positie: tik op de kaart om er een te kiezen.';
 }
 
 async function kopieerLink() {
   try {
-    await navigator.clipboard.writeText(maakLink());
+    const url = maakLink();
+    if (!url) return;
+    await navigator.clipboard.writeText(url);
     $('link-status').textContent = '✓ Link gekopieerd.';
   } catch {
     $('link-status').textContent = 'Kopiëren lukte niet automatisch. Houd de link hierboven ingedrukt (of klik met rechts) en kies "Link kopiëren".';
@@ -277,8 +289,11 @@ function volgLink() {
   overlay.linkpunt?.remove();
   overlay.linkpunt = null;
   if (punt) {
-    const verschil = kaart.distance([punt.lat, punt.lng], [plek.positie.lat, plek.positie.lng]);
-    if (verschil > 1) {
+    const verschil = plek.positie ? kaart.distance([punt.lat, punt.lng], [plek.positie.lat, plek.positie.lng]) : Infinity;
+    if (!plek.positie) {
+      overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
+      $('link-status').textContent = 'Het blauwe rondje is het punt uit de link. Deze plek heeft nog geen positie: tik op het rondje om het over te nemen.';
+    } else if (verschil > 1) {
       overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
       $('link-status').textContent = `Het blauwe rondje is het punt uit de link. Het ligt ${Math.round(verschil)} m van de opgeslagen positie (rode speld).`;
     }
@@ -288,16 +303,25 @@ function volgLink() {
 }
 
 function zetPositie({ lat, lng }) {
+  const nieuw = !plek.positie;
   plek.positie = { lat: rond(lat), lng: rond(lng), bevestigd: plek.positie?.bevestigd === true };
+  if (nieuw) vulPlekken(); // label "nog geen positie" in de keuzelijst bijwerken
   toonPositie();
   gewijzigd();
 }
 
 function toonPositie() {
-  speld.setLatLng([plek.positie.lat, plek.positie.lng]);
-  $('lat').textContent = plek.positie.lat.toFixed(6);
-  $('lng').textContent = plek.positie.lng.toFixed(6);
-  $('positie-ok').checked = plek.positie.bevestigd === true;
+  const p = plek.positie;
+  if (p) {
+    speld.setLatLng([p.lat, p.lng]);
+    if (!kaart.hasLayer(speld)) speld.addTo(kaart);
+  } else {
+    speld.remove(); // geen speld zolang er geen positie is; tik op de kaart om er een te zetten
+  }
+  $('lat').textContent = p ? p.lat.toFixed(6) : 'nog niet gekozen';
+  $('lng').textContent = p ? p.lng.toFixed(6) : '–';
+  $('positie-ok').checked = p?.bevestigd === true;
+  $('positie-ok').disabled = !p;
   plekStatus();
   toonLink();
 }
@@ -386,6 +410,57 @@ async function zoekInKadaster() {
     console.warn(fout);
     $('kadaster-status').textContent = 'Niet gevonden. Controleer straat en huisnummer, of de internetverbinding.';
   }
+}
+
+// ---------- Alle adressen in één keer ----------
+// Alleen plekken zonder positie, waarvan het gebouw een adres met huisnummer heeft. Bestaande posities blijven staan.
+// Eén verzoek tegelijk, met een korte pauze: netjes tegenover PDOK.
+
+async function zoekAlleAdressen() {
+  const knop = $('zoek-alle');
+  const status = $('zoek-alle-status');
+  const perGebouw = new Map();
+  for (const loc of data.locaties) {
+    const g = gebouwVan(loc.gebouw);
+    if (loc.positie || !g?.adres || !/\d/.test(g.adres)) continue;
+    if (!perGebouw.has(g.id)) perGebouw.set(g.id, { g, plekken: [] });
+    perGebouw.get(g.id).plekken.push(loc);
+  }
+  if (!perGebouw.size) {
+    status.textContent = 'Er zijn geen plekken zonder positie met een adres met huisnummer.';
+    return;
+  }
+  knop.disabled = true;
+  const gevonden = [];
+  const nietGevonden = [];
+  const zonderPand = [];
+  let i = 0;
+  for (const { g, plekken } of perGebouw.values()) {
+    i += 1;
+    status.textContent = `Bezig: ${i} van ${perGebouw.size} adressen (${g.adres})…`;
+    try {
+      const punt = await zoekAdres(g.adres);
+      for (const loc of plekken) loc.positie = { lat: rond(punt.lat), lng: rond(punt.lng), bevestigd: false };
+      gevonden.push(...plekken.map((l) => l.nummer));
+      try {
+        if (!(await zoekPand(punt.lat, punt.lng))) zonderPand.push(`${g.naam} (${g.adres})`);
+      } catch { /* de omtrek is alleen een extra controle */ }
+    } catch (fout) {
+      console.warn(fout);
+      nietGevonden.push(`${g.naam} (${g.adres})`);
+    }
+    await new Promise((klaar) => { setTimeout(klaar, 200); });
+  }
+  knop.disabled = false;
+  const delen = [`✓ ${gevonden.length} plekken hebben nu de positie van hun adres.`];
+  if (nietGevonden.length) delen.push(`Niet gevonden: ${nietGevonden.join('; ')}. Controleer het adres, of zet de positie zelf.`);
+  if (zonderPand.length) delen.push(`Adres gevonden, maar geen gebouw in het Kadaster: ${zonderPand.join('; ')}. Teken daar de omtrek zelf.`);
+  delen.push('Controleer de posities op de luchtfoto voordat je ze voorstelt.');
+  status.textContent = delen.join(' ');
+  vulPlekken();
+  toonPositie();
+  toonAnderen();
+  gewijzigd();
 }
 
 // ---------- Omtrek tekenen ----------
@@ -500,14 +575,20 @@ function toonFotos() {
 function controleer(d = data) {
   const fouten = [];
   for (const loc of d.locaties ?? []) {
-    const f = controleerLocatie(loc, 'nl');
+    // Een concept staat niet in de app: verhaal, vraag en positie mogen nog ontbreken (maar een positie moet wel kloppen).
+    const alle = controleerLocatie(loc, 'nl');
+    const f = loc.concept
+      ? alle.filter((fout) => /id|nummer|titel/.test(fout) || (loc.positie && fout.startsWith('positie')))
+      : alle;
     if (f.length) fouten.push(`${loc.nummer} ${loc.titel?.nl ?? loc.id}: ${f.join(', ')}`);
     if (loc.gebouw && !gebouwVan(loc.gebouw, d)) fouten.push(`${loc.nummer}: gebouw "${loc.gebouw}" bestaat niet`);
   }
+  // Adres of omtrek is pas nodig als het gebouw bij een plek hoort die in de app staat.
+  const inApp = new Set((d.locaties ?? []).filter((l) => !l.concept).map((l) => l.gebouw));
   for (const g of d.gebouwen ?? []) {
     if (!g.naam) fouten.push(`Gebouw ${g.id}: naam ontbreekt`);
     const heeftVorm = Array.isArray(g.vorm) && g.vorm.length >= 3;
-    if (!heeftVorm && !(g.adres && /\d/.test(g.adres))) fouten.push(`Gebouw ${g.naam || g.id}: adres met huisnummer of eigen omtrek nodig`);
+    if (inApp.has(g.id) && !heeftVorm && !(g.adres && /\d/.test(g.adres))) fouten.push(`Gebouw ${g.naam || g.id}: adres met huisnummer of eigen omtrek nodig`);
   }
   return fouten;
 }
@@ -904,7 +985,7 @@ async function toonVoorstelDetails(v, vak) {
   const status = maak('p', 'status');
   status.setAttribute('role', 'status');
   rij.append(akkoord, nietAkkoord);
-  vak.append(maak('p', 'hint', 'Klopt het historisch, is de positie het juiste kijkpunt en passen de foto\'s? Kijk zo nodig op de luchtfoto.'), veld, rij, status);
+  vak.append(maak('p', 'hint', 'Klopt het historisch, staat de positie op het goede gebouw of object en passen de foto\'s? Kijk zo nodig op de luchtfoto.'), veld, rij, status);
 
   const stuur = async (isAkkoord) => {
     const tekst = opmerking.value.trim();
@@ -986,7 +1067,8 @@ function koppel() {
   $('plek').addEventListener('change', (e) => kiesPlek(e.target.value));
   $('kopieer-link').addEventListener('click', kopieerLink);
   window.addEventListener('hashchange', volgLink);
-  $('positie-ok').addEventListener('change', (e) => { plek.positie.bevestigd = e.target.checked; plekStatus(); gewijzigd(); });
+  $('positie-ok').addEventListener('change', (e) => { if (!plek.positie) return; plek.positie.bevestigd = e.target.checked; plekStatus(); gewijzigd(); });
+  $('zoek-alle').addEventListener('click', zoekAlleAdressen);
 
   $('gebouw').addEventListener('change', (e) => {
     stopTekenen();

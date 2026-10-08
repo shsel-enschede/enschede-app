@@ -48,7 +48,7 @@ function beschrijfPlek(oud, nieuw, gebouwen, fotoNaam) {
     regels.push(m === null ? 'positie gekozen' : `positie verschoven (ca. ${m} m)`);
   }
   if (Boolean(pOud.bevestigd) !== Boolean(pNieuw.bevestigd)) {
-    regels.push(pNieuw.bevestigd ? 'positie ter plekke gecontroleerd' : 'positie niet meer als gecontroleerd gemarkeerd');
+    regels.push(pNieuw.bevestigd ? 'positie op de luchtfoto gecontroleerd' : 'positie niet meer als gecontroleerd gemarkeerd');
   }
   if (oud.gebouw !== nieuw.gebouw) {
     const naam = (id) => (id ? (gebouwen.get(id)?.naam || id) : 'geen gebouw');
@@ -74,7 +74,8 @@ function beschrijfPlek(oud, nieuw, gebouwen, fotoNaam) {
   if (Boolean(oud.bevestigd) !== Boolean(nieuw.bevestigd)) {
     regels.push(nieuw.bevestigd ? 'antwoord bevestigd door SHSEL' : 'antwoord niet meer als bevestigd gemarkeerd');
   }
-  const bekend = new Set(['id', 'positie', 'gebouw', 'fotos', 'titel', 'tekst', 'vraag', 'juist', 'bevestigd']);
+  if (Boolean(oud.concept) !== Boolean(nieuw.concept)) regels.push(nieuw.concept ? 'weer concept (niet meer in de app)' : 'staat nu in de app (geen concept meer)');
+  const bekend = new Set(['id', 'positie', 'gebouw', 'fotos', 'titel', 'tekst', 'vraag', 'juist', 'bevestigd', 'concept']);
   for (const k of new Set([...Object.keys(oud), ...Object.keys(nieuw)])) {
     if (!bekend.has(k) && !gelijk(oud[k], nieuw[k])) regels.push(`${k} gewijzigd`);
   }

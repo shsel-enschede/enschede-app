@@ -216,9 +216,566 @@
       "id": "villa-van-heek",
       "naam": "Villa Van Heek",
       "adres": "Oude Markt 26"
+    },
+    {
+      "id": "alphons-ariens",
+      "naam": "Alphons Ariëns",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "ziekenhuis-st-joseph-stadsmaten",
+      "naam": "Ziekenhuis st Joseph/Stadsmaten",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "huize-sonnevanck-burgemeesterswoning",
+      "naam": "Huize Sonnevanck – Burgemeesterswoning",
+      "adres": "Ariënsplein 2"
+    },
+    {
+      "id": "schoolgebouw-de-maere",
+      "naam": "Schoolgebouw De Maere",
+      "adres": "Ariënsplein 3"
+    },
+    {
+      "id": "gemeentelijk-lyceum",
+      "naam": "Gemeentelijk Lyceum",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "postkantoor",
+      "naam": "Postkantoor",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "burgermeesterstraat",
+      "naam": "Burgermeesterstraat",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "villa-ledeboer-pension-kleiboer",
+      "naam": "Villa Ledeboer/Pension Kleiboer",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "koningshuizen",
+      "naam": "Koningshuizen",
+      "adres": "Emmastraat 2",
+      "toelichting": "Emmastraat 2 t/m 8: het Kadaster vindt alleen nummer 2. Teken zo nodig de omtrek van de hele rij."
+    },
+    {
+      "id": "twentsche-bank",
+      "naam": "Twentsche Bank",
+      "adres": "Hoedemakerplein 1"
+    },
+    {
+      "id": "kalanderstraat",
+      "naam": "Kalanderstraat",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "elderinkshuis",
+      "naam": "Elderinkshuis",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "voormalige-v-d-pand",
+      "naam": "Voormalige V&D pand",
+      "adres": "Korte Hengelosestraat 1"
+    },
+    {
+      "id": "kruispunt-de-graaff",
+      "naam": "Kruispunt De Graaff",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "langestraat-en-stadspoorten",
+      "naam": "Langestraat en stadspoorten",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "stadhuis",
+      "naam": "Stadhuis",
+      "adres": "Langestraat 24"
+    },
+    {
+      "id": "janninkshuis",
+      "naam": "Janninkshuis",
+      "adres": "Langestraat 41"
+    },
+    {
+      "id": "societeit-en-twentsche-schouwburg",
+      "naam": "Sociëteit en Twentsche schouwburg",
+      "adres": "Langestraat 45"
+    },
+    {
+      "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
+      "naam": "Koningsplein & Textielfabriek Gerhard Jannink en zonen",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "gerechtsgebouw",
+      "naam": "Gerechtsgebouw",
+      "adres": "Molenstraat 23"
+    },
+    {
+      "id": "joodse-begraafplaats",
+      "naam": "Joodse begraafplaats",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "fabrieksschool",
+      "naam": "Fabrieksschool",
+      "adres": "Noorderhagen 13"
+    },
+    {
+      "id": "klooster-larinksticht",
+      "naam": "Klooster Larinksticht",
+      "adres": "Noorderhagen 25"
+    },
+    {
+      "id": "verenigingsgebouw-irene",
+      "naam": "Verenigingsgebouw Irene",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "politiebureau",
+      "naam": "Politiebureau",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "stoomweverij-de-nijverheid",
+      "naam": "Stoomweverij De Nijverheid",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "striekiezer",
+      "naam": "Striekiezer",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "r-k-sint-jozefkerk",
+      "naam": "R.K. Sint-Jozefkerk",
+      "adres": "Oldenzaalsestraat 115"
+    },
+    {
+      "id": "fabrieken-langs-de-spoorlijn-naar-gronau",
+      "naam": "Fabrieken langs de spoorlijn naar Gronau",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "station-staatsspoor",
+      "naam": "Station Staatsspoor",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
+      "naam": "De elektrische tram van de Twentsche Electrische Tramwegmaatschappij (TET)",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "h-ter-kuile-huis",
+      "naam": "H. Ter Kuile huis",
+      "adres": "Piet Heinstraat 1"
+    },
+    {
+      "id": "incassobank",
+      "naam": "Incassobank",
+      "adres": "Piet Heinstraat 4"
+    },
+    {
+      "id": "slo",
+      "naam": "SLO",
+      "adres": "Piet Heinstraat 12"
+    },
+    {
+      "id": "synagoge",
+      "naam": "Synagoge",
+      "adres": "Prinsestraat 14"
+    },
+    {
+      "id": "gerard-jannink-en-zonen",
+      "naam": "Gerard Jannink en zonen",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "de-gouden-bocht",
+      "naam": "De Gouden bocht",
+      "adres": "Ripperdastraat 9",
+      "toelichting": "Ripperdastraat 9 t/m 21: het Kadaster vindt alleen nummer 9. Teken zo nodig de omtrek van de hele rij."
+    },
+    {
+      "id": "ziekenhuis-ziekenzorg",
+      "naam": "Ziekenhuis Ziekenzorg",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "stadsgravenstraat",
+      "naam": "Stadsgravenstraat",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "joodse-school-en-synagoge",
+      "naam": "Joodse school en synagoge",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "menistenkerk",
+      "naam": "Menistenkerk",
+      "adres": "Stadsgravenstraat 59"
+    },
+    {
+      "id": "wilhelminaflat",
+      "naam": "Wilhelminaflat",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "stationsplein-atjehpark",
+      "naam": "Stationsplein/Atjehpark",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "station-ns",
+      "naam": "Station NS",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "textielfabriek-nico-ter-kuile",
+      "naam": "textielfabriek Nico ter Kuile",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "textielfabriek-ter-kuile-cromhoff",
+      "naam": "textielfabriek Ter Kuile Cromhoff",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "villa-scholten",
+      "naam": "villa Scholten",
+      "adres": "M.H. Tromplaan 1"
+    },
+    {
+      "id": "ter-kuile-huis",
+      "naam": "Ter Kuile huis",
+      "adres": "M.H. Tromplaan 8"
+    },
+    {
+      "id": "villa-roozendaal",
+      "naam": "Villa Roozendaal",
+      "adres": "M.H. Tromplaan 9"
+    },
+    {
+      "id": "villa-serphos",
+      "naam": "Villa Serphos",
+      "adres": "M.H. Tromplaan 17"
+    },
+    {
+      "id": "groote-schuur",
+      "naam": "Groote Schuur",
+      "adres": "M.H. Tromplaan 23"
+    },
+    {
+      "id": "menko-van-dam-huis",
+      "naam": "Menko van Dam huis",
+      "adres": "M.H. Tromplaan 52"
+    },
+    {
+      "id": "villa-menko-edersheim-memphis-hotel",
+      "naam": "Villa Menko-Edersheim/Memphis hotel",
+      "adres": "M.H. Tromplaan 55"
+    },
+    {
+      "id": "willem-wilminkplein-theater",
+      "naam": "Willem Wilminkplein/theater",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+    },
+    {
+      "id": "voormalig-postkantoor",
+      "naam": "voormalig postkantoor",
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
     }
   ],
   "locaties": [
+    {
+      "id": "alphons-ariens",
+      "nummer": 1,
+      "concept": true,
+      "titel": {
+        "nl": "Alphons Ariëns"
+      },
+      "adres": "Ariënsplein",
+      "gebouw": "alphons-ariens"
+    },
+    {
+      "id": "ziekenhuis-st-joseph-stadsmaten",
+      "nummer": 2,
+      "concept": true,
+      "titel": {
+        "nl": "Ziekenhuis st Joseph/Stadsmaten"
+      },
+      "adres": "Ariënsplein",
+      "gebouw": "ziekenhuis-st-joseph-stadsmaten"
+    },
+    {
+      "id": "huize-sonnevanck-burgemeesterswoning",
+      "nummer": 3,
+      "concept": true,
+      "titel": {
+        "nl": "Huize Sonnevanck – Burgemeesterswoning"
+      },
+      "adres": "Ariënsplein 2",
+      "gebouw": "huize-sonnevanck-burgemeesterswoning"
+    },
+    {
+      "id": "schoolgebouw-de-maere",
+      "nummer": 4,
+      "concept": true,
+      "titel": {
+        "nl": "Schoolgebouw De Maere"
+      },
+      "adres": "Ariënsplein 3",
+      "gebouw": "schoolgebouw-de-maere"
+    },
+    {
+      "id": "gemeentelijk-lyceum",
+      "nummer": 5,
+      "concept": true,
+      "titel": {
+        "nl": "Gemeentelijk Lyceum"
+      },
+      "adres": "Boulevard/C.F. Klaarstraat",
+      "gebouw": "gemeentelijk-lyceum"
+    },
+    {
+      "id": "postkantoor",
+      "nummer": 6,
+      "concept": true,
+      "titel": {
+        "nl": "Postkantoor"
+      },
+      "adres": "Boulevard",
+      "gebouw": "postkantoor"
+    },
+    {
+      "id": "burgermeesterstraat",
+      "nummer": 7,
+      "concept": true,
+      "titel": {
+        "nl": "Burgermeesterstraat"
+      },
+      "adres": "Burgermeesterstraat",
+      "gebouw": "burgermeesterstraat"
+    },
+    {
+      "id": "villa-ledeboer-pension-kleiboer",
+      "nummer": 8,
+      "concept": true,
+      "titel": {
+        "nl": "Villa Ledeboer/Pension Kleiboer"
+      },
+      "adres": "Deurningerstraat",
+      "gebouw": "villa-ledeboer-pension-kleiboer"
+    },
+    {
+      "id": "koningshuizen",
+      "nummer": 9,
+      "concept": true,
+      "titel": {
+        "nl": "Koningshuizen"
+      },
+      "adres": "Emmastraat 2 t/m 8",
+      "gebouw": "koningshuizen"
+    },
+    {
+      "id": "twentsche-bank",
+      "nummer": 10,
+      "concept": true,
+      "titel": {
+        "nl": "Twentsche Bank"
+      },
+      "adres": "Hoedemakerplein 1",
+      "gebouw": "twentsche-bank"
+    },
+    {
+      "id": "kalanderstraat",
+      "nummer": 11,
+      "concept": true,
+      "titel": {
+        "nl": "Kalanderstraat"
+      },
+      "adres": "Kalanderstraat",
+      "gebouw": "kalanderstraat"
+    },
+    {
+      "id": "elderinkshuis",
+      "nummer": 12,
+      "concept": true,
+      "titel": {
+        "nl": "Elderinkshuis"
+      },
+      "adres": "De Klomp/Gronausestraat",
+      "gebouw": "elderinkshuis"
+    },
+    {
+      "id": "voormalige-v-d-pand",
+      "nummer": 13,
+      "concept": true,
+      "titel": {
+        "nl": "Voormalige V&D pand"
+      },
+      "adres": "Korte Hengelosestraat 1",
+      "gebouw": "voormalige-v-d-pand"
+    },
+    {
+      "id": "kruispunt-de-graaff",
+      "nummer": 14,
+      "concept": true,
+      "titel": {
+        "nl": "Kruispunt De Graaff"
+      },
+      "adres": "Kruispunt De Graaff",
+      "gebouw": "kruispunt-de-graaff"
+    },
+    {
+      "id": "langestraat-en-stadspoorten",
+      "nummer": 15,
+      "concept": true,
+      "titel": {
+        "nl": "Langestraat en stadspoorten"
+      },
+      "adres": "Langestraat en stadspoorten",
+      "gebouw": "langestraat-en-stadspoorten"
+    },
+    {
+      "id": "stadhuis",
+      "nummer": 16,
+      "concept": true,
+      "titel": {
+        "nl": "Stadhuis"
+      },
+      "adres": "Langestraat 24",
+      "gebouw": "stadhuis"
+    },
+    {
+      "id": "janninkshuis",
+      "nummer": 17,
+      "concept": true,
+      "titel": {
+        "nl": "Janninkshuis"
+      },
+      "adres": "Langestraat 41",
+      "gebouw": "janninkshuis"
+    },
+    {
+      "id": "societeit-en-twentsche-schouwburg",
+      "nummer": 18,
+      "concept": true,
+      "titel": {
+        "nl": "Sociëteit en Twentsche schouwburg"
+      },
+      "adres": "Langestraat 45",
+      "gebouw": "societeit-en-twentsche-schouwburg"
+    },
+    {
+      "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
+      "nummer": 19,
+      "concept": true,
+      "titel": {
+        "nl": "Koningsplein & Textielfabriek Gerhard Jannink en zonen"
+      },
+      "adres": "Van Loenshof",
+      "gebouw": "koningsplein-textielfabriek-gerhard-jannink-en-zon"
+    },
+    {
+      "id": "gerechtsgebouw",
+      "nummer": 20,
+      "concept": true,
+      "titel": {
+        "nl": "Gerechtsgebouw"
+      },
+      "adres": "Molenstraat 23",
+      "gebouw": "gerechtsgebouw"
+    },
+    {
+      "id": "joodse-begraafplaats",
+      "nummer": 21,
+      "concept": true,
+      "titel": {
+        "nl": "Joodse begraafplaats"
+      },
+      "adres": "Molenstraat",
+      "gebouw": "joodse-begraafplaats"
+    },
+    {
+      "id": "fabrieksschool",
+      "nummer": 22,
+      "concept": true,
+      "titel": {
+        "nl": "Fabrieksschool"
+      },
+      "adres": "Noorderhagen 13",
+      "gebouw": "fabrieksschool"
+    },
+    {
+      "id": "klooster-larinksticht",
+      "nummer": 23,
+      "concept": true,
+      "titel": {
+        "nl": "Klooster Larinksticht"
+      },
+      "adres": "Noorderhagen 25",
+      "gebouw": "klooster-larinksticht"
+    },
+    {
+      "id": "verenigingsgebouw-irene",
+      "nummer": 24,
+      "concept": true,
+      "titel": {
+        "nl": "Verenigingsgebouw Irene"
+      },
+      "adres": "Noorderhagen",
+      "gebouw": "verenigingsgebouw-irene"
+    },
+    {
+      "id": "politiebureau",
+      "nummer": 25,
+      "concept": true,
+      "titel": {
+        "nl": "Politiebureau"
+      },
+      "adres": "Nijverheidstraat",
+      "gebouw": "politiebureau"
+    },
+    {
+      "id": "stoomweverij-de-nijverheid",
+      "nummer": 26,
+      "concept": true,
+      "titel": {
+        "nl": "Stoomweverij De Nijverheid"
+      },
+      "adres": "Nijverheidstraat",
+      "gebouw": "stoomweverij-de-nijverheid"
+    },
+    {
+      "id": "striekiezer",
+      "nummer": 27,
+      "concept": true,
+      "titel": {
+        "nl": "Striekiezer"
+      },
+      "adres": "Oldenzaalsestraat/De Heurne",
+      "gebouw": "striekiezer"
+    },
+    {
+      "id": "r-k-sint-jozefkerk",
+      "nummer": 28,
+      "concept": true,
+      "titel": {
+        "nl": "R.K. Sint-Jozefkerk"
+      },
+      "adres": "Oldenzaalsestraat 115",
+      "gebouw": "r-k-sint-jozefkerk"
+    },
     {
       "id": "jacobuskerk",
       "nummer": 29,
@@ -536,6 +1093,276 @@
         "shsel-mauritsstraat",
         "shsel-overschot"
       ]
+    },
+    {
+      "id": "fabrieken-langs-de-spoorlijn-naar-gronau",
+      "nummer": 38,
+      "concept": true,
+      "titel": {
+        "nl": "Fabrieken langs de spoorlijn naar Gronau"
+      },
+      "adres": "Parallelweg",
+      "gebouw": "fabrieken-langs-de-spoorlijn-naar-gronau"
+    },
+    {
+      "id": "station-staatsspoor",
+      "nummer": 39,
+      "concept": true,
+      "titel": {
+        "nl": "Station Staatsspoor"
+      },
+      "adres": "Parkweg",
+      "gebouw": "station-staatsspoor"
+    },
+    {
+      "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
+      "nummer": 40,
+      "concept": true,
+      "titel": {
+        "nl": "De elektrische tram van de Twentsche Electrische Tramwegmaatschappij (TET)"
+      },
+      "adres": "Parkweg",
+      "gebouw": "de-elektrische-tram-van-de-twentsche-electrische-t"
+    },
+    {
+      "id": "h-ter-kuile-huis",
+      "nummer": 41,
+      "concept": true,
+      "titel": {
+        "nl": "H. Ter Kuile huis"
+      },
+      "adres": "Piet Heinstraat 1",
+      "gebouw": "h-ter-kuile-huis"
+    },
+    {
+      "id": "incassobank",
+      "nummer": 42,
+      "concept": true,
+      "titel": {
+        "nl": "Incassobank"
+      },
+      "adres": "Piet Heinstraat 4",
+      "gebouw": "incassobank"
+    },
+    {
+      "id": "slo",
+      "nummer": 43,
+      "concept": true,
+      "titel": {
+        "nl": "SLO"
+      },
+      "adres": "Piet Heinstraat 12",
+      "gebouw": "slo"
+    },
+    {
+      "id": "synagoge",
+      "nummer": 44,
+      "concept": true,
+      "titel": {
+        "nl": "Synagoge"
+      },
+      "adres": "Prinsestraat 14",
+      "gebouw": "synagoge"
+    },
+    {
+      "id": "gerard-jannink-en-zonen",
+      "nummer": 45,
+      "concept": true,
+      "titel": {
+        "nl": "Gerard Jannink en zonen"
+      },
+      "adres": "Pijpenstraat",
+      "gebouw": "gerard-jannink-en-zonen"
+    },
+    {
+      "id": "de-gouden-bocht",
+      "nummer": 46,
+      "concept": true,
+      "titel": {
+        "nl": "De Gouden bocht"
+      },
+      "adres": "Ripperdastraat 9 t/m 21",
+      "gebouw": "de-gouden-bocht"
+    },
+    {
+      "id": "ziekenhuis-ziekenzorg",
+      "nummer": 47,
+      "concept": true,
+      "titel": {
+        "nl": "Ziekenhuis Ziekenzorg"
+      },
+      "adres": "De Ruyterlaan",
+      "gebouw": "ziekenhuis-ziekenzorg"
+    },
+    {
+      "id": "stadsgravenstraat",
+      "nummer": 48,
+      "concept": true,
+      "titel": {
+        "nl": "Stadsgravenstraat"
+      },
+      "adres": "Stadsgravenstraat",
+      "gebouw": "stadsgravenstraat"
+    },
+    {
+      "id": "joodse-school-en-synagoge",
+      "nummer": 49,
+      "concept": true,
+      "titel": {
+        "nl": "Joodse school en synagoge"
+      },
+      "adres": "Stadsgravenstraat",
+      "gebouw": "joodse-school-en-synagoge"
+    },
+    {
+      "id": "menistenkerk",
+      "nummer": 50,
+      "concept": true,
+      "titel": {
+        "nl": "Menistenkerk"
+      },
+      "adres": "Stadsgravenstraat 59",
+      "gebouw": "menistenkerk"
+    },
+    {
+      "id": "wilhelminaflat",
+      "nummer": 51,
+      "concept": true,
+      "titel": {
+        "nl": "Wilhelminaflat"
+      },
+      "adres": "Stadsmatenstraat",
+      "gebouw": "wilhelminaflat"
+    },
+    {
+      "id": "stationsplein-atjehpark",
+      "nummer": 52,
+      "concept": true,
+      "titel": {
+        "nl": "Stationsplein/Atjehpark"
+      },
+      "adres": "Stationsplein/Atjehpark",
+      "gebouw": "stationsplein-atjehpark"
+    },
+    {
+      "id": "station-ns",
+      "nummer": 53,
+      "concept": true,
+      "titel": {
+        "nl": "Station NS"
+      },
+      "adres": "Stationsplein",
+      "gebouw": "station-ns"
+    },
+    {
+      "id": "textielfabriek-nico-ter-kuile",
+      "nummer": 54,
+      "concept": true,
+      "titel": {
+        "nl": "textielfabriek Nico ter Kuile"
+      },
+      "adres": "Stationsplein",
+      "gebouw": "textielfabriek-nico-ter-kuile"
+    },
+    {
+      "id": "textielfabriek-ter-kuile-cromhoff",
+      "nummer": 55,
+      "concept": true,
+      "titel": {
+        "nl": "textielfabriek Ter Kuile Cromhoff"
+      },
+      "adres": "Stationsplein/Parkweg",
+      "gebouw": "textielfabriek-ter-kuile-cromhoff"
+    },
+    {
+      "id": "villa-scholten",
+      "nummer": 56,
+      "concept": true,
+      "titel": {
+        "nl": "villa Scholten"
+      },
+      "adres": "M.H. Tromplaan 1",
+      "gebouw": "villa-scholten"
+    },
+    {
+      "id": "ter-kuile-huis",
+      "nummer": 57,
+      "concept": true,
+      "titel": {
+        "nl": "Ter Kuile huis"
+      },
+      "adres": "M.H. Tromplaan 8",
+      "gebouw": "ter-kuile-huis"
+    },
+    {
+      "id": "villa-roozendaal",
+      "nummer": 58,
+      "concept": true,
+      "titel": {
+        "nl": "Villa Roozendaal"
+      },
+      "adres": "M.H. Tromplaan 9",
+      "gebouw": "villa-roozendaal"
+    },
+    {
+      "id": "villa-serphos",
+      "nummer": 59,
+      "concept": true,
+      "titel": {
+        "nl": "Villa Serphos"
+      },
+      "adres": "M.H. Tromplaan 17",
+      "gebouw": "villa-serphos"
+    },
+    {
+      "id": "groote-schuur",
+      "nummer": 60,
+      "concept": true,
+      "titel": {
+        "nl": "Groote Schuur"
+      },
+      "adres": "M.H. Tromplaan 23",
+      "gebouw": "groote-schuur"
+    },
+    {
+      "id": "menko-van-dam-huis",
+      "nummer": 61,
+      "concept": true,
+      "titel": {
+        "nl": "Menko van Dam huis"
+      },
+      "adres": "M.H. Tromplaan 52",
+      "gebouw": "menko-van-dam-huis"
+    },
+    {
+      "id": "villa-menko-edersheim-memphis-hotel",
+      "nummer": 62,
+      "concept": true,
+      "titel": {
+        "nl": "Villa Menko-Edersheim/Memphis hotel"
+      },
+      "adres": "M.H. Tromplaan 55",
+      "gebouw": "villa-menko-edersheim-memphis-hotel"
+    },
+    {
+      "id": "willem-wilminkplein-theater",
+      "nummer": 63,
+      "concept": true,
+      "titel": {
+        "nl": "Willem Wilminkplein/theater"
+      },
+      "adres": "Willem Wilminkplein/theater",
+      "gebouw": "willem-wilminkplein-theater"
+    },
+    {
+      "id": "voormalig-postkantoor",
+      "nummer": 64,
+      "concept": true,
+      "titel": {
+        "nl": "voormalig postkantoor"
+      },
+      "adres": "Korte Haaksbergerstraat",
+      "gebouw": "voormalig-postkantoor"
     }
   ]
 }
