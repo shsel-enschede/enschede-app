@@ -44,102 +44,30 @@
       "naamPlek": "boven",
       "toelichting": "Geen gebouw met een adres maar een beeld op de Oude Markt. Eigen vorm: een cirkel van 2,5 m doorsnede, ca. 12 m voor de torengevel van de Grote Kerk, richting Marktstraat. Positie nog te controleren door SHSEL.",
       "vorm": [
-        [
-          52.2207991,
-          6.8954017
-        ],
-        [
-          52.220802,
-          6.8954011
-        ],
-        [
-          52.2208047,
-          6.8953992
-        ],
-        [
-          52.220807,
-          6.8953963
-        ],
-        [
-          52.2208088,
-          6.8953925
-        ],
-        [
-          52.2208099,
-          6.8953881
-        ],
-        [
-          52.2208103,
-          6.8953833
-        ],
-        [
-          52.2208099,
-          6.8953786
-        ],
-        [
-          52.2208088,
-          6.8953742
-        ],
-        [
-          52.220807,
-          6.8953704
-        ],
-        [
-          52.2208047,
-          6.8953675
-        ],
-        [
-          52.220802,
-          6.8953656
-        ],
-        [
-          52.2207991,
-          6.895365
-        ],
-        [
-          52.2207962,
-          6.8953656
-        ],
-        [
-          52.2207935,
-          6.8953675
-        ],
-        [
-          52.2207911,
-          6.8953704
-        ],
-        [
-          52.2207894,
-          6.8953742
-        ],
-        [
-          52.2207882,
-          6.8953786
-        ],
-        [
-          52.2207878,
-          6.8953833
-        ],
-        [
-          52.2207882,
-          6.8953881
-        ],
-        [
-          52.2207894,
-          6.8953925
-        ],
-        [
-          52.2207911,
-          6.8953963
-        ],
-        [
-          52.2207935,
-          6.8953992
-        ],
-        [
-          52.2207962,
-          6.8954011
-        ]
+        [52.2207991, 6.8954017],
+        [52.220802, 6.8954011],
+        [52.2208047, 6.8953992],
+        [52.220807, 6.8953963],
+        [52.2208088, 6.8953925],
+        [52.2208099, 6.8953881],
+        [52.2208103, 6.8953833],
+        [52.2208099, 6.8953786],
+        [52.2208088, 6.8953742],
+        [52.220807, 6.8953704],
+        [52.2208047, 6.8953675],
+        [52.220802, 6.8953656],
+        [52.2207991, 6.895365],
+        [52.2207962, 6.8953656],
+        [52.2207935, 6.8953675],
+        [52.2207911, 6.8953704],
+        [52.2207894, 6.8953742],
+        [52.2207882, 6.8953786],
+        [52.2207878, 6.8953833],
+        [52.2207882, 6.8953881],
+        [52.2207894, 6.8953925],
+        [52.2207911, 6.8953963],
+        [52.2207935, 6.8953992],
+        [52.2207962, 6.8954011]
       ]
     },
     {
@@ -148,58 +76,19 @@
       "naamPlek": "onder",
       "toelichting": "De zonnewijzer hangt op ca. 2,5 m hoogte aan de zuidmuur van de Grote Kerk, ca. 2 m van de straat aan de voorkant (ingang). Op de kaart een halve cirkel van 2,5 m tegen de muur. Positie nog te controleren door SHSEL.",
       "vorm": [
-        [
-          52.2206239,
-          6.8956592
-        ],
-        [
-          52.2206212,
-          6.8956574
-        ],
-        [
-          52.2206189,
-          6.8956545
-        ],
-        [
-          52.2206171,
-          6.8956507
-        ],
-        [
-          52.220616,
-          6.8956463
-        ],
-        [
-          52.2206156,
-          6.8956415
-        ],
-        [
-          52.220616,
-          6.8956368
-        ],
-        [
-          52.2206171,
-          6.8956323
-        ],
-        [
-          52.2206189,
-          6.8956286
-        ],
-        [
-          52.2206212,
-          6.8956256
-        ],
-        [
-          52.2206239,
-          6.8956238
-        ],
-        [
-          52.2206268,
-          6.8956232
-        ],
-        [
-          52.2206297,
-          6.8956238
-        ]
+        [52.2206239, 6.8956592],
+        [52.2206212, 6.8956574],
+        [52.2206189, 6.8956545],
+        [52.2206171, 6.8956507],
+        [52.220616, 6.8956463],
+        [52.2206156, 6.8956415],
+        [52.220616, 6.8956368],
+        [52.2206171, 6.8956323],
+        [52.2206189, 6.8956286],
+        [52.2206212, 6.8956256],
+        [52.2206239, 6.8956238],
+        [52.2206268, 6.8956232],
+        [52.2206297, 6.8956238]
       ]
     },
     {
@@ -524,7 +413,12 @@
         "nl": "Huize Sonnevanck – Burgemeesterswoning"
       },
       "adres": "Ariënsplein 2",
-      "gebouw": "huize-sonnevanck-burgemeesterswoning"
+      "gebouw": "huize-sonnevanck-burgemeesterswoning",
+      "positie": {
+        "lat": 52.219323,
+        "lng": 6.887685,
+        "bevestigd": false
+      }
     },
     {
       "id": "schoolgebouw-de-maere",
@@ -534,7 +428,12 @@
         "nl": "Schoolgebouw De Maere"
       },
       "adres": "Ariënsplein 3",
-      "gebouw": "schoolgebouw-de-maere"
+      "gebouw": "schoolgebouw-de-maere",
+      "positie": {
+        "lat": 52.219321,
+        "lng": 6.888471,
+        "bevestigd": false
+      }
     },
     {
       "id": "gemeentelijk-lyceum",
@@ -584,7 +483,12 @@
         "nl": "Koningshuizen"
       },
       "adres": "Emmastraat 2 t/m 8",
-      "gebouw": "koningshuizen"
+      "gebouw": "koningshuizen",
+      "positie": {
+        "lat": 52.217775,
+        "lng": 6.890166,
+        "bevestigd": false
+      }
     },
     {
       "id": "twentsche-bank",
@@ -594,7 +498,12 @@
         "nl": "Twentsche Bank"
       },
       "adres": "Hoedemakerplein 1",
-      "gebouw": "twentsche-bank"
+      "gebouw": "twentsche-bank",
+      "positie": {
+        "lat": 52.220726,
+        "lng": 6.891426,
+        "bevestigd": false
+      }
     },
     {
       "id": "kalanderstraat",
@@ -624,7 +533,12 @@
         "nl": "Voormalige V&D pand"
       },
       "adres": "Korte Hengelosestraat 1",
-      "gebouw": "voormalige-v-d-pand"
+      "gebouw": "voormalige-v-d-pand",
+      "positie": {
+        "lat": 52.221061,
+        "lng": 6.893006,
+        "bevestigd": false
+      }
     },
     {
       "id": "kruispunt-de-graaff",
@@ -654,7 +568,12 @@
         "nl": "Stadhuis"
       },
       "adres": "Langestraat 24",
-      "gebouw": "stadhuis"
+      "gebouw": "stadhuis",
+      "positie": {
+        "lat": 52.219318,
+        "lng": 6.896726,
+        "bevestigd": false
+      }
     },
     {
       "id": "janninkshuis",
@@ -664,7 +583,12 @@
         "nl": "Janninkshuis"
       },
       "adres": "Langestraat 41",
-      "gebouw": "janninkshuis"
+      "gebouw": "janninkshuis",
+      "positie": {
+        "lat": 52.219459,
+        "lng": 6.896021,
+        "bevestigd": false
+      }
     },
     {
       "id": "societeit-en-twentsche-schouwburg",
@@ -674,7 +598,12 @@
         "nl": "Sociëteit en Twentsche schouwburg"
       },
       "adres": "Langestraat 45",
-      "gebouw": "societeit-en-twentsche-schouwburg"
+      "gebouw": "societeit-en-twentsche-schouwburg",
+      "positie": {
+        "lat": 52.219693,
+        "lng": 6.895903,
+        "bevestigd": false
+      }
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
@@ -694,7 +623,12 @@
         "nl": "Gerechtsgebouw"
       },
       "adres": "Molenstraat 23",
-      "gebouw": "gerechtsgebouw"
+      "gebouw": "gerechtsgebouw",
+      "positie": {
+        "lat": 52.223447,
+        "lng": 6.894481,
+        "bevestigd": false
+      }
     },
     {
       "id": "joodse-begraafplaats",
@@ -714,7 +648,12 @@
         "nl": "Fabrieksschool"
       },
       "adres": "Noorderhagen 13",
-      "gebouw": "fabrieksschool"
+      "gebouw": "fabrieksschool",
+      "positie": {
+        "lat": 52.221702,
+        "lng": 6.894288,
+        "bevestigd": false
+      }
     },
     {
       "id": "klooster-larinksticht",
@@ -724,7 +663,12 @@
         "nl": "Klooster Larinksticht"
       },
       "adres": "Noorderhagen 25",
-      "gebouw": "klooster-larinksticht"
+      "gebouw": "klooster-larinksticht",
+      "positie": {
+        "lat": 52.221871,
+        "lng": 6.895123,
+        "bevestigd": false
+      }
     },
     {
       "id": "verenigingsgebouw-irene",
@@ -774,7 +718,12 @@
         "nl": "R.K. Sint-Jozefkerk"
       },
       "adres": "Oldenzaalsestraat 115",
-      "gebouw": "r-k-sint-jozefkerk"
+      "gebouw": "r-k-sint-jozefkerk",
+      "positie": {
+        "lat": 52.224336,
+        "lng": 6.899345,
+        "bevestigd": false
+      }
     },
     {
       "id": "jacobuskerk",
@@ -1132,7 +1081,12 @@
         "nl": "H. Ter Kuile huis"
       },
       "adres": "Piet Heinstraat 1",
-      "gebouw": "h-ter-kuile-huis"
+      "gebouw": "h-ter-kuile-huis",
+      "positie": {
+        "lat": 52.220956,
+        "lng": 6.890788,
+        "bevestigd": false
+      }
     },
     {
       "id": "incassobank",
@@ -1142,7 +1096,12 @@
         "nl": "Incassobank"
       },
       "adres": "Piet Heinstraat 4",
-      "gebouw": "incassobank"
+      "gebouw": "incassobank",
+      "positie": {
+        "lat": 52.22118,
+        "lng": 6.891079,
+        "bevestigd": false
+      }
     },
     {
       "id": "slo",
@@ -1152,7 +1111,12 @@
         "nl": "SLO"
       },
       "adres": "Piet Heinstraat 12",
-      "gebouw": "slo"
+      "gebouw": "slo",
+      "positie": {
+        "lat": 52.221513,
+        "lng": 6.890976,
+        "bevestigd": false
+      }
     },
     {
       "id": "synagoge",
@@ -1162,7 +1126,12 @@
         "nl": "Synagoge"
       },
       "adres": "Prinsestraat 14",
-      "gebouw": "synagoge"
+      "gebouw": "synagoge",
+      "positie": {
+        "lat": 52.218021,
+        "lng": 6.886191,
+        "bevestigd": false
+      }
     },
     {
       "id": "gerard-jannink-en-zonen",
@@ -1182,7 +1151,12 @@
         "nl": "De Gouden bocht"
       },
       "adres": "Ripperdastraat 9 t/m 21",
-      "gebouw": "de-gouden-bocht"
+      "gebouw": "de-gouden-bocht",
+      "positie": {
+        "lat": 52.218398,
+        "lng": 6.889619,
+        "bevestigd": false
+      }
     },
     {
       "id": "ziekenhuis-ziekenzorg",
@@ -1222,7 +1196,12 @@
         "nl": "Menistenkerk"
       },
       "adres": "Stadsgravenstraat 59",
-      "gebouw": "menistenkerk"
+      "gebouw": "menistenkerk",
+      "positie": {
+        "lat": 52.221164,
+        "lng": 6.896627,
+        "bevestigd": false
+      }
     },
     {
       "id": "wilhelminaflat",
@@ -1282,7 +1261,12 @@
         "nl": "villa Scholten"
       },
       "adres": "M.H. Tromplaan 1",
-      "gebouw": "villa-scholten"
+      "gebouw": "villa-scholten",
+      "positie": {
+        "lat": 52.220303,
+        "lng": 6.890603,
+        "bevestigd": false
+      }
     },
     {
       "id": "ter-kuile-huis",
@@ -1292,7 +1276,12 @@
         "nl": "Ter Kuile huis"
       },
       "adres": "M.H. Tromplaan 8",
-      "gebouw": "ter-kuile-huis"
+      "gebouw": "ter-kuile-huis",
+      "positie": {
+        "lat": 52.220927,
+        "lng": 6.889966,
+        "bevestigd": false
+      }
     },
     {
       "id": "villa-roozendaal",
@@ -1302,7 +1291,12 @@
         "nl": "Villa Roozendaal"
       },
       "adres": "M.H. Tromplaan 9",
-      "gebouw": "villa-roozendaal"
+      "gebouw": "villa-roozendaal",
+      "positie": {
+        "lat": 52.220536,
+        "lng": 6.889366,
+        "bevestigd": false
+      }
     },
     {
       "id": "villa-serphos",
@@ -1312,7 +1306,12 @@
         "nl": "Villa Serphos"
       },
       "adres": "M.H. Tromplaan 17",
-      "gebouw": "villa-serphos"
+      "gebouw": "villa-serphos",
+      "positie": {
+        "lat": 52.22035,
+        "lng": 6.888422,
+        "bevestigd": false
+      }
     },
     {
       "id": "groote-schuur",
@@ -1322,7 +1321,12 @@
         "nl": "Groote Schuur"
       },
       "adres": "M.H. Tromplaan 23",
-      "gebouw": "groote-schuur"
+      "gebouw": "groote-schuur",
+      "positie": {
+        "lat": 52.220123,
+        "lng": 6.88736,
+        "bevestigd": false
+      }
     },
     {
       "id": "menko-van-dam-huis",
@@ -1332,7 +1336,12 @@
         "nl": "Menko van Dam huis"
       },
       "adres": "M.H. Tromplaan 52",
-      "gebouw": "menko-van-dam-huis"
+      "gebouw": "menko-van-dam-huis",
+      "positie": {
+        "lat": 52.219758,
+        "lng": 6.882677,
+        "bevestigd": false
+      }
     },
     {
       "id": "villa-menko-edersheim-memphis-hotel",
@@ -1342,7 +1351,12 @@
         "nl": "Villa Menko-Edersheim/Memphis hotel"
       },
       "adres": "M.H. Tromplaan 55",
-      "gebouw": "villa-menko-edersheim-memphis-hotel"
+      "gebouw": "villa-menko-edersheim-memphis-hotel",
+      "positie": {
+        "lat": 52.21961,
+        "lng": 6.882717,
+        "bevestigd": false
+      }
     },
     {
       "id": "willem-wilminkplein-theater",
