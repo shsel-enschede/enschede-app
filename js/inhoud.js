@@ -123,7 +123,10 @@ export async function laadInhoud(taal = 'nl') {
   const fotos = await laadFotos(taal);
 
   const locaties = new Map();
+  let concepten = 0;
   for (const loc of Array.isArray(data.locaties) ? data.locaties : []) {
+    // Een concept (nog zonder verhaal of vraag) staat alleen in de beheerpagina, niet in de app.
+    if (loc?.concept === true) { concepten += 1; continue; }
     const fouten = controleerLocatie(loc, taal);
     if (fouten.length) {
       console.warn(`Locatie "${loc?.id}" overgeslagen:`, fouten.join(', '));
@@ -161,5 +164,12 @@ export async function laadInhoud(taal = 'nl') {
     });
   }
 
-  return { routes, locaties, gebouwen: leesGebouwen(data.gebouwen), instellingen: leesInstellingen(data.instellingen) };
+  if (concepten) console.info(`${concepten} plekken zijn nog concept en staan niet in de app.`);
+
+  // Alleen gebouwen van plekken die in de app staan. Zo zoekt de app geen omtrekken op in het Kadaster
+  // voor gebouwen die niemand ziet (scheelt verzoeken aan PDOK bij veel gelijktijdige gebruikers).
+  const inGebruik = new Set([...locaties.values()].map((l) => l.gebouw).filter(Boolean));
+  const gebouwen = leesGebouwen((Array.isArray(data.gebouwen) ? data.gebouwen : []).filter((g) => inGebruik.has(g?.id)));
+
+  return { routes, locaties, gebouwen, instellingen: leesInstellingen(data.instellingen) };
 }

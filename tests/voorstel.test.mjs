@@ -4,6 +4,8 @@ import fs from 'node:fs';
 // Geen npm nodig; alleen Node 18 of nieuwer.
 const v = await import(new URL('../js/voorstel.js', import.meta.url));
 const basis = JSON.parse(fs.readFileSync(new URL('../content/locaties.json', import.meta.url), 'utf8'));
+// Alleen plekken die in de app staan (concepten hebben nog geen positie of vraag).
+basis.locaties = basis.locaties.filter((l) => !l.concept);
 const kopie = () => structuredClone(basis);
 const [a, b] = basis.locaties;
 
@@ -52,4 +54,12 @@ assert.match(t, /^inhoud\/[a-z0-9-]+$/);
 assert.equal(v.titelVoor(w), 'Inhoud: ' + a.titel.nl);
 const tekst = v.omschrijving({ wijzigingen: w, toelichting: 'Ter plekke <b>gecheckt</b>', naam: 'Test', login: 'test', luchtfotoLink: () => 'https://x' });
 assert.ok(tekst.includes(String.raw`\<b\>`) && tekst.includes('enschede-editor:v1'));
+// Concept: een plek uit concept halen wordt in gewone taal beschreven
+const c0 = kopie(); c0.locaties[0].concept = true;
+const c1 = structuredClone(c0); delete c1.locaties[0].concept;
+assert.deepEqual(v.beschrijf(c0, c1)[0].regels, ['staat nu in de app (geen concept meer)']);
+// Nieuwe plek zonder positie (concept) geeft geen fout
+const n1 = kopie(); n1.locaties.push({ id: 'nieuw-x', nummer: 99, concept: true, titel: { nl: 'X' } });
+assert.deepEqual(v.beschrijf(basis, n1).map((w) => w.regels), [['nieuwe plek']]);
+
 console.log('ALLE TESTS GESLAAGD');
