@@ -109,7 +109,15 @@
     {
       "id": "alphons-ariens",
       "naam": "Alphons Ariëns",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Ariensplein 3c",
+      "vorm": [
+        [52.219159, 6.888072],
+        [52.219205, 6.888048],
+        [52.21923, 6.888121],
+        [52.219184, 6.888147],
+        [52.219166, 6.88811]
+      ]
     },
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
@@ -412,7 +420,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219195,
+        "lng": 6.888141,
+        "bevestigd": true
+      }
     },
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
