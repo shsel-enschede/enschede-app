@@ -122,7 +122,8 @@
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
       "naam": "Ziekenhuis st Joseph/Stadsmaten",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Ariënsplein 1"
     },
     {
       "id": "huize-sonnevanck-burgemeesterswoning",
@@ -419,7 +420,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
+      "bevestigd": true,
       "positie": {
         "lat": 52.219195,
         "lng": 6.888141,
@@ -429,7 +430,6 @@
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
       "nummer": 2,
-      "concept": true,
       "titel": {
         "nl": "Ziekenhuis st Joseph/Stadsmaten"
       },
@@ -447,11 +447,16 @@
             "Met taxibusjes",
             "Met ambulances"
           ],
-          "uitleg": "Patiënten, bedden en personeel gingen ondergronds van het ene gebouw naar het andere, zonder door het verkeer te hoeven."
+          "uitleg": "Patiënten, bedden en personeel gingen over een lange brug van het ene gebouw naar het andere, zonder door het verkeer te hoeven."
         }
       },
-      "juist": 1,
-      "bevestigd": false
+      "juist": 0,
+      "bevestigd": true,
+      "positie": {
+        "lat": 52.21871,
+        "lng": 6.888017,
+        "bevestigd": true
+      }
     },
     {
       "id": "huize-sonnevanck-burgemeesterswoning",
@@ -474,11 +479,16 @@
             "De officiële opening van de kermis",
             "De viering van Bevrijdingsdag"
           ],
-          "uitleg": "Bij de intocht kwam Sinterklaas hier langs bij de burgemeester."
+          "uitleg": "Sinterklaas woonde elk jaar tijdelijk bij de burgemeester. Samen verschenen ze op het balkon. Ze zwaaiden naar kinderen en hun ouders op het Ariënsplein. De Pieten waren volop aan de slag."
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219433,
+        "lng": 6.88795,
+        "bevestigd": false
+      }
     },
     {
       "id": "schoolgebouw-de-maere",
