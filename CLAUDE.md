@@ -158,6 +158,21 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
 - Beschrijf in elke pull request in gewone taal: wat is veranderd, hoe een beheerder het kan testen, en wat er nog niet werkt.
 - Test op een smal (mobiel) scherm voordat je een pull request aanbiedt.
 
-## Bronnen
+## Documenten: wat staat waar
 
-De oorspronkelijke teksten (NL, EN, DE), de lijst met Stadsarchief-foto's en de huisstijl staan in het claude.ai-project "SHSEL app/ website", niet in deze repository.
+**Let op: deze repository is openbaar.** Iedereen op internet kan alles lezen, ook oude versies. Wat er eenmaal op staat, krijg je er praktisch niet meer af. Twijfel je, zet het dan (nog) niet op GitHub.
+
+| Wat | Waar |
+| --- | --- |
+| Afspraken en vastgestelde besluiten | `CLAUDE.md` (dit bestand) |
+| Uitleg voor beheerders bij een onderdeel (hoe doe je …) | `*-LEESMIJ.md` naast de code |
+| Ideeën en voorstellen waarover nog niet besloten is | `ideeen/` |
+| Vastgestelde ontwerpen (wat de app doet en waarom) | `docs/` |
+| Werkstukken, concepten voor één persoon, gespreksnotities, agenda's | claude.ai-project "SHSEL app/ website", niet op GitHub |
+| Oorspronkelijke teksten (NL, EN, DE), Stadsarchief-lijst, huisstijl, voorwaarden | claude.ai-project |
+
+- **Geen persoonsgegevens op GitHub:** geen namen van vrijwilligers, docenten of scholen, geen e-mailadressen of telefoonnummers, tenzij de persoon akkoord heeft gegeven. Schrijf in openbare stukken over rollen ("een docent", "een beheerder").
+- **Geen interne overwegingen** die SHSEL of anderen kunnen schaden (bijvoorbeeld over personen, geld of onderhandelingen), en geen beschrijving van zwakke plekken in de beveiliging die nog niet zijn opgelost.
+- **Van project naar GitHub:** een stuk uit het claude.ai-project gaat pas naar `ideeen/` of `docs/` als een algemene versie zonder namen. Vermeld bovenin dat het een kopie is en van welk projectdocument.
+- **Wordt een idee een besluit:** verplaats het van `ideeen/` naar `docs/` en zet de kernafspraak in `CLAUDE.md`.
+- Ook hier: elke wijziging via een eigen branch en pull request.
