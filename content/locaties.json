@@ -466,12 +466,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219438,
-        "lng": 6.887558,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "schoolgebouw-de-maere",
@@ -498,12 +493,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219364,
-        "lng": 6.888652,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "gemeentelijk-lyceum",
@@ -638,12 +628,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.217926,
-        "lng": 6.890054,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "twentsche-bank",
@@ -670,12 +655,7 @@
         }
       },
       "juist": 0,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.220665,
-        "lng": 6.891528,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "kalanderstraat",
@@ -729,12 +709,7 @@
         }
       },
       "juist": 0,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219626,
-        "lng": 6.900359,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "voormalige-v-d-pand",
@@ -761,12 +736,7 @@
         }
       },
       "juist": 0,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.221166,
-        "lng": 6.892815,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "kruispunt-de-graaff",
@@ -847,12 +817,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219344,
-        "lng": 6.896896,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "janninkshuis",
@@ -879,12 +844,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219447,
-        "lng": 6.895856,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "societeit-en-twentsche-schouwburg",
@@ -911,12 +871,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219615,
-        "lng": 6.895287,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
@@ -970,12 +925,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.223536,
-        "lng": 6.894581,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "joodse-begraafplaats",
@@ -1029,12 +979,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.221583,
-        "lng": 6.894372,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "klooster-larinksticht",
@@ -1061,12 +1006,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.22208,
-        "lng": 6.895029,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "verenigingsgebouw-irene",
@@ -1201,12 +1141,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.224499,
-        "lng": 6.898744,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "jacobuskerk",
@@ -1632,12 +1567,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.220967,
-        "lng": 6.890602,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "incassobank",
@@ -1664,12 +1594,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.221241,
-        "lng": 6.891176,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "slo",
@@ -1696,12 +1621,7 @@
         }
       },
       "juist": 0,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.221582,
-        "lng": 6.891135,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "synagoge",
@@ -1728,12 +1648,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.217993,
-        "lng": 6.88601,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "gerard-jannink-en-zonen",
@@ -1787,12 +1702,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.218309,
-        "lng": 6.889529,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "ziekenhuis-ziekenzorg",
@@ -1900,12 +1810,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.221287,
-        "lng": 6.896721,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "wilhelminaflat",
@@ -1932,12 +1837,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.220494,
-        "lng": 6.881989,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "stationsplein-atjehpark",
@@ -2072,12 +1972,7 @@
         }
       },
       "juist": 1,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.22065,
-        "lng": 6.89046,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "ter-kuile-huis",
@@ -2104,12 +1999,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.220927,
-        "lng": 6.889966,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "villa-roozendaal",
@@ -2136,12 +2026,7 @@
         }
       },
       "juist": 2,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.220436,
-        "lng": 6.88945,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "villa-serphos",
@@ -2168,12 +2053,7 @@
         }
       },
       "juist": 3,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.220228,
-        "lng": 6.888569,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "groote-schuur",
@@ -2200,12 +2080,7 @@
         }
       },
       "juist": 0,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219949,
-        "lng": 6.887416,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "menko-van-dam-huis",
@@ -2232,12 +2107,7 @@
         }
       },
       "juist": 0,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.219876,
-        "lng": 6.882823,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "villa-menko-edersheim-memphis-hotel",
@@ -2264,12 +2134,7 @@
         }
       },
       "juist": 3,
-      "bevestigd": false,
-      "positie": {
-        "lat": 52.21935,
-        "lng": 6.882829,
-        "bevestigd": false
-      }
+      "bevestigd": false
     },
     {
       "id": "willem-wilminkplein-theater",
