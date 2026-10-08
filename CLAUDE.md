@@ -45,6 +45,7 @@ De Enschede app van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL
 - **Valideer `content/*.json` bij het laden**; ongeldige locaties overslaan en melden in de console, niet de hele app laten crashen.
 - **Locatie (GPS):** alleen vragen na een uitleg en een tik van de gebruiker, nooit bij het openen. Coördinaten nooit opslaan of versturen.
 - **Geen geheimen** (wachtwoorden, API-sleutels) in de repository. De repository is openbaar.
+- **Openbaar of privé:** alles in deze repository, ook pull requests, reviews en de geschiedenis, is voor iedereen te lezen. Werkdocumenten vóór een besluit van het bestuur, proeffoto's zonder geregelde rechten, lesmateriaal met antwoorden en interne contactgegevens horen in de privé-repository `shsel-enschede/enschede-app-intern` (alleen het team beheerders) of in het claude.ai-project, niet hier.
 - **Beeldmateriaal:** alleen toevoegen als de rechten geregeld zijn; bron en rechten vastleggen in `content/`.
 
 ## Schaal
@@ -160,4 +161,4 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
 
 ## Bronnen
 
-De oorspronkelijke teksten (NL, EN, DE), de lijst met Stadsarchief-foto's en de huisstijl staan in het claude.ai-project "SHSEL app/ website", niet in deze repository.
+De oorspronkelijke teksten (NL, EN, DE), de lijst met Stadsarchief-foto's en de huisstijl staan in het claude.ai-project "SHSEL app/ website", niet in deze repository. Interne werkdocumenten en proeffoto's staan in de privé-repository `enschede-app-intern`.
