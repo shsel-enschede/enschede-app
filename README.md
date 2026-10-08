@@ -42,6 +42,8 @@ Bovenaan `content/locaties.json` staat:
 - `"ter-plekke"`: een verhaal en vraag gaan pas open als je binnen `straal` meter van het gebouw staat. Zet dit aan als de app klaar is voor publiek.
 - `straal` mag tussen 20 en 60 meter liggen. Afgesproken is 30 tot 40 meter, omdat GPS in de binnenstad 10 tot 20 meter kan afwijken.
 
+Dit is de **standaard**. Op elk toestel kun je het zelf wijzigen in het menu (tandwiel met "i" rechtsboven): *Overal* of *Alleen ter plekke*. Handig om allebei te testen zonder iets aan de inhoud te veranderen. In het menu kies je ook een doel (aantal plekken) en of je de goede antwoorden direct of pas aan het eind ziet.
+
 ## De editor
 
 Op https://shsel-enschede.github.io/enschede-app/beheer.html kies je per plek:
