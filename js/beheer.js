@@ -7,6 +7,7 @@
 import { controleerLocatie, geldigBestand, LOKAAL } from './inhoud.js';
 import { maak } from './hulp.js';
 import { zoekAdres, zoekPand } from './gebouwen.js';
+import { schrijfadvies, woorden, zinnen } from './schrijfhulp.js';
 import * as gh from './github.js';
 import { beschrijf, voegSamen, toestand, titelVoor, omschrijving, takNaam } from './voorstel.js';
 
@@ -182,6 +183,7 @@ function kiesPlek(id) {
   vulGebouwKeuze();
   toonGebouw();
   toonFotos();
+  toonVerhaal();
   toonAnderen();
   const g = gebouwVan(plek.gebouw);
   if (plek.positie) kaart.setView([plek.positie.lat, plek.positie.lng], 18);
@@ -239,6 +241,90 @@ function allesInApp() {
   vulPlekken();
   plekStatus();
   gewijzigd();
+}
+
+// ---------- Verhaal en vraag (Nederlands) ----------
+// Alle tekst gaat via .value en textContent op het scherm, nooit via innerHTML.
+
+const OPTIES = [0, 1, 2, 3];
+
+function nlVraag() {
+  plek.vraag ??= {};
+  plek.vraag.nl ??= { tekst: '', opties: ['', '', '', ''], uitleg: '' };
+  const v = plek.vraag.nl;
+  if (!Array.isArray(v.opties)) v.opties = [];
+  while (v.opties.length < 4) v.opties.push('');
+  return v;
+}
+
+function toonVerhaal() {
+  const v = plek.vraag?.nl ?? {};
+  $('v-titel').value = plek.titel?.nl ?? '';
+  $('v-tekst').value = plek.tekst?.nl ?? '';
+  $('v-vraag').value = v.tekst ?? '';
+  for (const i of OPTIES) {
+    $(`v-optie-${i}`).value = v.opties?.[i] ?? '';
+    $(`v-juist-${i}`).checked = plek.juist === i;
+  }
+  $('v-uitleg').value = v.uitleg ?? '';
+  $('v-bevestigd').checked = plek.bevestigd === true;
+  $('v-status').textContent = '';
+  werkSchrijfhulpBij();
+}
+
+function werkSchrijfhulpBij() {
+  const v = plek.vraag?.nl ?? {};
+  const tekst = plek.tekst?.nl ?? '';
+  $('v-telling').textContent = tekst.trim() ? `${woorden(tekst)} woorden, ${zinnen(tekst).length} zinnen.` : '';
+  for (const i of OPTIES) $(`v-optie-${i}`).parentElement.classList.toggle('antwoord--goed', plek.juist === i);
+  const tips = schrijfadvies({ tekst, vraag: v.tekst, opties: v.opties ?? [], uitleg: v.uitleg, juist: plek.juist });
+  const lijst = $('v-tips');
+  lijst.replaceChildren(...(tips.length ? tips.map((t) => maak('li', '', t.tekst)) : [maak('li', 'hint', 'Geen tips: dit ziet er goed uit.')]));
+}
+
+// Verandert de vraag, een antwoord of het goede antwoord, dan moet SHSEL opnieuw bevestigen.
+function vraagGewijzigd() {
+  if (!plek.bevestigd) return;
+  plek.bevestigd = false;
+  $('v-bevestigd').checked = false;
+  $('v-status').textContent = 'De vraag is veranderd: "bevestigd door SHSEL" staat weer uit. Laat het opnieuw controleren.';
+}
+
+function naVerhaalWijziging() {
+  werkSchrijfhulpBij();
+  plekStatus();
+  gewijzigd();
+}
+
+function koppelVerhaal() {
+  const tekstVeld = (id, zet) => {
+    $(id).addEventListener('input', (e) => { zet(e.target.value); naVerhaalWijziging(); });
+    // Bij verlaten van het veld: spaties aan begin en eind weg.
+    $(id).addEventListener('change', (e) => {
+      const schoon = e.target.value.trim();
+      if (schoon !== e.target.value) { e.target.value = schoon; zet(schoon); naVerhaalWijziging(); }
+    });
+  };
+  tekstVeld('v-titel', (w) => { plek.titel = { ...(plek.titel ?? {}), nl: w }; });
+  $('v-titel').addEventListener('change', () => { vulPlekken(); });
+  tekstVeld('v-tekst', (w) => { plek.tekst = { ...(plek.tekst ?? {}), nl: w }; });
+  tekstVeld('v-vraag', (w) => { nlVraag().tekst = w; vraagGewijzigd(); });
+  for (const i of OPTIES) {
+    tekstVeld(`v-optie-${i}`, (w) => { nlVraag().opties[i] = w; vraagGewijzigd(); });
+    $(`v-juist-${i}`).addEventListener('change', (e) => {
+      if (!e.target.checked) return;
+      plek.juist = i;
+      vraagGewijzigd();
+      naVerhaalWijziging();
+    });
+  }
+  tekstVeld('v-uitleg', (w) => { nlVraag().uitleg = w; vraagGewijzigd(); });
+  $('v-bevestigd').addEventListener('change', (e) => {
+    plek.bevestigd = e.target.checked;
+    $('v-status').textContent = '';
+    plekStatus();
+    gewijzigd();
+  });
 }
 
 // ---------- Kaart ----------
@@ -621,7 +707,8 @@ function controleer(d = data) {
     const f = loc.concept
       ? alle.filter((fout) => /id|nummer|titel/.test(fout) || (loc.positie && fout.startsWith('positie')))
       : alle;
-    if (f.length) fouten.push(`${loc.nummer} ${loc.titel?.nl ?? loc.id}: ${f.join(', ')}`);
+    const leesbaar = f.map((x) => (x.startsWith('opties ongeldig') ? 'niet alle vier antwoorden zijn ingevuld' : x));
+    if (f.length) fouten.push(`${loc.nummer} ${loc.titel?.nl ?? loc.id}: ${leesbaar.join(', ')}`);
     if (loc.gebouw && !gebouwVan(loc.gebouw, d)) fouten.push(`${loc.nummer}: gebouw "${loc.gebouw}" bestaat niet`);
   }
   // Adres of omtrek is pas nodig als het gebouw bij een plek hoort die in de app staat.
@@ -1105,6 +1192,7 @@ function stopAanpassen(zonderVragen = false) {
 let versturenInBeeld = false;
 
 function koppel() {
+  koppelVerhaal();
   $('plek').addEventListener('change', (e) => kiesPlek(e.target.value));
   $('kopieer-link').addEventListener('click', kopieerLink);
   window.addEventListener('hashchange', volgLink);

@@ -146,15 +146,39 @@
       </div>
     </section>
 
+    <section class="blok" aria-labelledby="kop-verhaal">
+      <h2 id="kop-verhaal">3. Verhaal en vraag</h2>
+      <p class="hint">Nederlands. Schrijf voor kinderen van 9 tot 14 jaar: korte zinnen, spreek de lezer aan met "je", en leg moeilijke woorden uit.</p>
+      <label class="veld veld--breed"><span>Titel</span><input id="v-titel" maxlength="120"></label>
+      <label class="veld veld--breed"><span>Verhaal</span><textarea id="v-tekst" rows="10" maxlength="5000"></textarea></label>
+      <p class="hint" id="v-telling"></p>
+
+      <h3>Meerkeuzevraag</h3>
+      <label class="veld veld--breed"><span>Vraag</span><textarea id="v-vraag" rows="2" maxlength="500"></textarea></label>
+      <fieldset class="antwoorden">
+        <legend>Antwoorden. Klik het rondje aan bij het goede antwoord.</legend>
+        <div class="antwoord"><input type="radio" name="v-juist" id="v-juist-0" value="0"><label for="v-juist-0">A</label><input id="v-optie-0" maxlength="200" aria-label="Antwoord A"></div>
+        <div class="antwoord"><input type="radio" name="v-juist" id="v-juist-1" value="1"><label for="v-juist-1">B</label><input id="v-optie-1" maxlength="200" aria-label="Antwoord B"></div>
+        <div class="antwoord"><input type="radio" name="v-juist" id="v-juist-2" value="2"><label for="v-juist-2">C</label><input id="v-optie-2" maxlength="200" aria-label="Antwoord C"></div>
+        <div class="antwoord"><input type="radio" name="v-juist" id="v-juist-3" value="3"><label for="v-juist-3">D</label><input id="v-optie-3" maxlength="200" aria-label="Antwoord D"></div>
+      </fieldset>
+      <label class="veld veld--breed"><span>Uitleg na het antwoord (één korte zin)</span><textarea id="v-uitleg" rows="2" maxlength="500"></textarea></label>
+      <label class="vink"><input type="checkbox" id="v-bevestigd"> Antwoord en uitleg bevestigd door SHSEL</label>
+      <p class="status" id="v-status" aria-live="polite"></p>
+
+      <h3>Schrijftips</h3>
+      <ul class="schrijfhulp" id="v-tips" aria-live="polite"></ul>
+    </section>
+
     <section class="blok" aria-labelledby="kop-fotos">
-      <h2 id="kop-fotos">3. Foto's</h2>
+      <h2 id="kop-fotos">4. Foto's</h2>
       <p class="hint">Vink aan welke foto's bij deze plek horen. De bovenste is de hoofdfoto. Een foto verschijnt pas in de app als het bestand er is en de rechten geregeld zijn.</p>
       <ul class="fotolijst" id="fotolijst"></ul>
       <label class="vink"><input type="checkbox" id="alle-fotos"> Toon ook foto's van andere plekken</label>
     </section>
 
     <section class="blok" id="blok-versturen" aria-labelledby="kop-versturen" tabindex="-1">
-      <h2 id="kop-versturen">4. Wijziging voorstellen</h2>
+      <h2 id="kop-versturen">5. Wijziging voorstellen</h2>
 
       <h3>Wat verandert er</h3>
       <ul class="wijzigingen" id="wijzigingen"></ul>

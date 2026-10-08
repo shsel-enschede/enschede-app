@@ -151,6 +151,7 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
   - Toestand komt uit de beoordelingen op de **huidige** versie van het voorstel: na een aanpassing moet een collega opnieuw kijken. Opmerking = *request changes*, Akkoord = *approve*.
   - Sleutel: alleen `github_pat_…` (oude sleutels met te veel rechten worden geweigerd). Standaard alleen in `sessionStorage`; in `localStorage` alleen als de gebruiker "Onthoud mij" aanvinkt. De editor laadt na inloggen de inhoud rechtstreeks van `main` (GitHub Pages loopt een paar minuten achter).
   - Nodig bij de beheerders (eenmalig): team contentbeheerders met *Write*, ruleset op `main` met Code Owner-goedkeuring en "oude goedkeuringen vervallen bij een nieuwe push", sleutelbeleid in de organisatie, `CODEOWNERS`.
+- **Verhaal en vraag (okt 2026):** blok *3. Verhaal en vraag* in de editor: titel, verhaal, vraag, vier antwoorden met het goede antwoord, uitleg en "bevestigd door SHSEL", voorlopig alleen Nederlands. Verandert de vraag, een antwoord of het goede antwoord, dan gaat "bevestigd" vanzelf uit. Schrijftips uit `js/schrijfhulp.js` (lange zinnen, ontkennende vraag, opvallend lang goed antwoord, ontbrekende uitleg) zijn alleen advies en houden versturen niet tegen; test: `tests/schrijfhulp.test.mjs`.
 - **Nog open:** inhoud splitsen in één bestand per locatie; terugvaltaal; fotogebruik; wie mag `bevestigd` aanzetten; zijn vertalers ook contentbeheerders.
 
 ## Werkwijze
