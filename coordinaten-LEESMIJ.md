@@ -44,7 +44,12 @@ Onder **Positie van de plek** staat een link die precies op dat punt de luchtfot
 
 ## Concepten
 
-Plekken die nog geen verhaal en vraag hebben, staan in `content/locaties.json` met `"concept": true`. De app slaat ze over; in de beheerpagina kun je er wel al een positie en gebouw voor kiezen. Is het verhaal klaar, dan gaat `concept` eraf en staat de plek in de app.
+Plekken die nog geen verhaal en vraag hebben, staan in `content/locaties.json` met `"concept": true`. De app slaat ze over; in de beheerpagina kun je er wel al een positie en gebouw voor kiezen. Is de plek compleet (verhaal, vraag met antwoord én positie), dan zet je hem in de app:
+
+- **Eén plek:** vink onder **1. Plek** het vakje **Staat in de app** aan. Mist er nog iets, dan kun je het niet aanvinken en staat eronder wat ontbreekt.
+- **Alle complete plekken tegelijk:** knop **Zet alle complete plekken in de app** (onder **Plekken in de app zetten**).
+
+Daarna verstuur je het voorstel zoals altijd. Uit de app halen kan ook: vinkje uit, dan is de plek weer concept.
 
 ## Notatie
 

@@ -84,6 +84,8 @@
         <select id="plek"></select>
       </label>
       <p class="status" id="plek-status"></p>
+      <label class="vink"><input type="checkbox" id="in-app"> Staat in de app</label>
+      <p class="hint" id="in-app-hint"></p>
 
       <h3>Posities van alle plekken</h3>
       <p class="status" id="posities-telling"></p>
@@ -92,6 +94,14 @@
         <button type="button" class="knop-klein" id="zoek-alle">Zoek alle adressen op in het Kadaster</button>
       </div>
       <p class="status" id="zoek-alle-status" aria-live="polite"></p>
+
+      <h3>Plekken in de app zetten</h3>
+      <p class="status" id="concept-telling"></p>
+      <p class="hint">Een plek komt in de app als hij een verhaal, een vraag met antwoord en een positie heeft. Met deze knop gaan alle plekken die zo ver zijn in één keer van concept naar de app.</p>
+      <div class="knoppenrij">
+        <button type="button" class="knop-klein" id="alles-in-app">Zet alle complete plekken in de app</button>
+      </div>
+      <p class="status" id="alles-in-app-status" aria-live="polite"></p>
     </section>
 
     <section class="blok blok--kaart" aria-labelledby="kop-kaart">
