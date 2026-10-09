@@ -2505,9 +2505,9 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.217404,
-        "lng": 6.894819,
-        "bevestigd": true
+        "lat": 52.217385,
+        "lng": 6.894962,
+        "bevestigd": false
       }
     }
   ]
