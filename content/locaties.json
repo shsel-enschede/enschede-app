@@ -212,7 +212,13 @@
     {
       "id": "kruispunt-de-graaff",
       "naam": "Kruispunt De Graaff",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.220935, 6.893491],
+        [52.221093, 6.893488],
+        [52.22118, 6.892924],
+        [52.220937, 6.893075]
+      ]
     },
     {
       "id": "langestraat-en-stadspoorten",
@@ -237,7 +243,14 @@
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
       "naam": "Koningsplein & Textielfabriek Gerhard Jannink en zonen",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Beltstraat 44",
+      "vorm": [
+        [52.219135, 6.892906],
+        [52.219266, 6.893738],
+        [52.218569, 6.894393],
+        [52.218197, 6.893406]
+      ]
     },
     {
       "id": "gerechtsgebouw",
@@ -800,7 +813,7 @@
       "adres": "Korte Hengelosestraat 1",
       "gebouw": "voormalige-v-d-pand",
       "tekst": {
-        "nl": "Waar nu een sportwinkel zit, zat ooit het eerste grote warenhuis van Twente. Het gebouw is ontworpen door architect J. Kuit Wzn. en werd op 1 april 1939 feestelijk geopend. Tot 1969, toen V&D naar de Boulevard verhuisde, was dit deel van de stad het hart van het winkelcentrum. Het pand heeft mooie glas-in-loodramen en verschillende stijlvolle, ronde vensters."
+        "nl": "Het eerste grote warenhuis van Twente werd in 1939 geopend. Het gebouw is ontworpen door architect J. Kuit Wzn. Tot 1969, toen V&D naar de Boulevard verhuisde, was dit deel van de stad het hart van het winkelcentrum. Het pand heeft mooie glas-in-loodramen en verschillende stijlvolle, ronde vensters."
       },
       "vraag": {
         "nl": {
@@ -817,15 +830,14 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.221166,
-        "lng": 6.892815,
-        "bevestigd": false
+        "lat": 52.221015,
+        "lng": 6.892467,
+        "bevestigd": true
       }
     },
     {
       "id": "kruispunt-de-graaff",
       "nummer": 14,
-      "concept": true,
       "titel": {
         "nl": "Kruispunt De Graaff"
       },
@@ -847,7 +859,12 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220997,
+        "lng": 6.893245,
+        "bevestigd": true
+      }
     },
     {
       "id": "langestraat-en-stadspoorten",
@@ -874,7 +891,8 @@
         }
       },
       "juist": 3,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Locatie is niet mogelijk doordat het gaat over de Veldpoort, Langestraat en Espoort,"
     },
     {
       "id": "stadhuis",
@@ -902,9 +920,9 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.219344,
-        "lng": 6.896896,
-        "bevestigd": false
+        "lat": 52.219268,
+        "lng": 6.896748,
+        "bevestigd": true
       }
     },
     {
@@ -933,9 +951,9 @@
       "juist": 2,
       "bevestigd": false,
       "positie": {
-        "lat": 52.219447,
-        "lng": 6.895856,
-        "bevestigd": false
+        "lat": 52.219469,
+        "lng": 6.896045,
+        "bevestigd": true
       }
     },
     {
@@ -964,15 +982,14 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.219615,
-        "lng": 6.895287,
-        "bevestigd": false
+        "lat": 52.219785,
+        "lng": 6.89589,
+        "bevestigd": true
       }
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
       "nummer": 19,
-      "concept": true,
       "titel": {
         "nl": "Koningsplein & Textielfabriek Gerhard Jannink en zonen"
       },
@@ -994,7 +1011,12 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.219135,
+        "lng": 6.892938,
+        "bevestigd": true
+      }
     },
     {
       "id": "gerechtsgebouw",
