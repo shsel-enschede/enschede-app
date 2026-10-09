@@ -275,22 +275,26 @@
     {
       "id": "verenigingsgebouw-irene",
       "naam": "Verenigingsgebouw Irene",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Noorderhagen 67"
     },
     {
       "id": "politiebureau",
       "naam": "Politiebureau",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Boulevard 1945 1"
     },
     {
       "id": "stoomweverij-de-nijverheid",
       "naam": "Stoomweverij De Nijverheid",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Hermandad 2"
     },
     {
       "id": "striekiezer",
       "naam": "Striekiezer",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "De Heurne 23"
     },
     {
       "id": "r-k-sint-jozefkerk",
@@ -1074,7 +1078,13 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.223863,
+        "lng": 6.898325,
+        "bevestigd": true
+      },
+      "opmerking": "Bestaat het monument op de hoek Molenstraat/ Nieuwe Schoolweg nog?"
     },
     {
       "id": "fabrieksschool",
@@ -1102,9 +1112,9 @@
       "juist": 2,
       "bevestigd": false,
       "positie": {
-        "lat": 52.221583,
-        "lng": 6.894372,
-        "bevestigd": false
+        "lat": 52.221757,
+        "lng": 6.894216,
+        "bevestigd": true
       }
     },
     {
@@ -1133,15 +1143,14 @@
       "juist": 2,
       "bevestigd": false,
       "positie": {
-        "lat": 52.22208,
-        "lng": 6.895029,
+        "lat": 52.221829,
+        "lng": 6.895047,
         "bevestigd": false
       }
     },
     {
       "id": "verenigingsgebouw-irene",
       "nummer": 24,
-      "concept": true,
       "titel": {
         "nl": "Verenigingsgebouw Irene"
       },
@@ -1163,12 +1172,16 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221484,
+        "lng": 6.897507,
+        "bevestigd": true
+      }
     },
     {
       "id": "politiebureau",
       "nummer": 25,
-      "concept": true,
       "titel": {
         "nl": "Politiebureau"
       },
@@ -1190,12 +1203,17 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Adres toegevoegd van ING gebouw",
+      "positie": {
+        "lat": 52.218247,
+        "lng": 6.891532,
+        "bevestigd": true
+      }
     },
     {
       "id": "stoomweverij-de-nijverheid",
       "nummer": 26,
-      "concept": true,
       "titel": {
         "nl": "Stoomweverij De Nijverheid"
       },
@@ -1217,12 +1235,17 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Adres gebruikt van het politiebureau",
+      "positie": {
+        "lat": 52.219746,
+        "lng": 6.891299,
+        "bevestigd": false
+      }
     },
     {
       "id": "striekiezer",
       "nummer": 27,
-      "concept": true,
       "titel": {
         "nl": "Striekiezer"
       },
@@ -1244,7 +1267,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.220491,
+        "lng": 6.89877,
+        "bevestigd": true
+      }
     },
     {
       "id": "r-k-sint-jozefkerk",
