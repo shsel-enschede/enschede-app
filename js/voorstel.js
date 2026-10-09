@@ -75,11 +75,19 @@ function beschrijfPlek(oud, nieuw, gebouwen, fotoNaam) {
     regels.push(nieuw.bevestigd ? 'antwoord bevestigd door SHSEL' : 'antwoord niet meer als bevestigd gemarkeerd');
   }
   if (Boolean(oud.concept) !== Boolean(nieuw.concept)) regels.push(nieuw.concept ? 'weer concept (niet meer in de app)' : 'staat nu in de app (geen concept meer)');
-  const bekend = new Set(['id', 'positie', 'gebouw', 'fotos', 'titel', 'tekst', 'vraag', 'juist', 'bevestigd', 'concept']);
+  opmerkingRegel(oud.opmerking, nieuw.opmerking, 'opmerking', regels);
+  if (oud.nummer !== nieuw.nummer) regels.push(`nummer is nu ${nieuw.nummer} (was ${oud.nummer})`);
+  const bekend = new Set(['id', 'nummer', 'positie', 'gebouw', 'fotos', 'titel', 'tekst', 'vraag', 'juist', 'bevestigd', 'concept', 'opmerking']);
   for (const k of new Set([...Object.keys(oud), ...Object.keys(nieuw)])) {
     if (!bekend.has(k) && !gelijk(oud[k], nieuw[k])) regels.push(`${k} gewijzigd`);
   }
   return regels;
+}
+
+// Opmerkingen zijn voor collega's en beheerders; ze staan niet in de app.
+function opmerkingRegel(oud, nieuw, label, regels) {
+  if ((oud ?? '') === (nieuw ?? '')) return;
+  regels.push(`${label} ${!oud ? 'toegevoegd' : (nieuw ? 'gewijzigd' : 'verwijderd')}: "${String(nieuw || oud).slice(0, 140)}${String(nieuw || oud).length > 140 ? '…' : ''}"`);
 }
 
 function beschrijfGebouw(oud, nieuw) {
@@ -87,8 +95,9 @@ function beschrijfGebouw(oud, nieuw) {
   if (oud.naam !== nieuw.naam) regels.push(`naam op de kaart: ${nieuw.naam ?? '–'} (was: ${oud.naam ?? '–'})`);
   if (oud.adres !== nieuw.adres) regels.push(nieuw.adres ? `adres: ${nieuw.adres}${oud.adres ? ` (was: ${oud.adres})` : ''}` : 'adres weggehaald');
   if (!gelijk(oud.vorm, nieuw.vorm)) regels.push(!nieuw.vorm ? 'eigen omtrek gewist' : (oud.vorm ? 'eigen omtrek aangepast' : 'eigen omtrek getekend'));
+  opmerkingRegel(oud.toelichting, nieuw.toelichting, 'opmerking bij het gebouw', regels);
   for (const k of new Set([...Object.keys(oud), ...Object.keys(nieuw)])) {
-    if (!['id', 'naam', 'adres', 'vorm'].includes(k) && !gelijk(oud[k], nieuw[k])) regels.push(`${k} gewijzigd`);
+    if (!['id', 'naam', 'adres', 'vorm', 'toelichting'].includes(k) && !gelijk(oud[k], nieuw[k])) regels.push(`${k} gewijzigd`);
   }
   return regels;
 }
@@ -104,7 +113,16 @@ export function beschrijf(oud, nieuw, fotoNaam = (id) => id) {
   const nieuwL = perId(nieuw?.locaties);
   for (const [id, loc] of nieuwL) {
     const vorige = oudL.get(id);
-    if (!vorige) { uit.push({ sleutel: `plek:${id}`, naam: plekNaam(loc), regels: ['nieuwe plek'] }); continue; }
+    if (!vorige) {
+      const regels = [loc.concept ? 'nieuwe plek (concept, nog niet in de app)' : 'nieuwe plek'];
+      if (loc.gebouw) regels.push(`hoort bij ${gebouwen.get(loc.gebouw)?.naam || loc.gebouw}`);
+      if (loc.positie) regels.push('positie gekozen');
+      if (loc.tekst?.nl) regels.push('verhaal (NL) geschreven');
+      if (loc.vraag?.nl?.tekst) regels.push('vraag (NL) geschreven');
+      if (loc.opmerking) regels.push(`opmerking: "${String(loc.opmerking).slice(0, 140)}"`);
+      uit.push({ sleutel: `plek:${id}`, id, naam: plekNaam(loc), regels, punt: loc.positie ? { lat: loc.positie.lat, lng: loc.positie.lng } : null });
+      continue;
+    }
     if (gelijk(vorige, loc)) continue;
     const regels = beschrijfPlek(vorige, loc, gebouwen, fotoNaam);
     if (regels.length) {
@@ -119,7 +137,11 @@ export function beschrijf(oud, nieuw, fotoNaam = (id) => id) {
   const nieuwG = perId(nieuw?.gebouwen);
   for (const [id, g] of nieuwG) {
     const vorige = oudG.get(id);
-    if (!vorige) uit.push({ sleutel: `gebouw:${id}`, naam: gebouwNaam(g), regels: [`nieuw gebouw${g.adres ? ` (${g.adres})` : ''}`] });
+    if (!vorige) {
+      const regels = [`nieuw gebouw${g.adres ? ` (${g.adres})` : ''}`];
+      if (g.toelichting) regels.push(`opmerking bij het gebouw: "${String(g.toelichting).slice(0, 140)}"`);
+      uit.push({ sleutel: `gebouw:${id}`, naam: gebouwNaam(g), regels });
+    }
     else if (!gelijk(vorige, g)) {
       const regels = beschrijfGebouw(vorige, g);
       if (regels.length) uit.push({ sleutel: `gebouw:${id}`, naam: gebouwNaam(g), regels });
@@ -137,6 +159,56 @@ export function beschrijf(oud, nieuw, fotoNaam = (id) => id) {
     uit.push({ sleutel: `algemeen:${k}`, naam: k === 'instellingen' ? 'Instellingen' : `Algemeen: ${k}`, regels });
   }
   return uit;
+}
+
+// ---------- Nieuwe plekken en gebouwen ----------
+
+/** Een id van kleine letters, cijfers en streepjes, gemaakt van een titel (bijv. "Villa Schuttersveld" → "villa-schuttersveld"). */
+export function maakId(titel, bestaand, prefix = '') {
+  const kern = String(titel ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 50).replace(/-+$/, '') || 'plek';
+  const basis = `${prefix}${kern}`.slice(0, 55);
+  let id = basis;
+  for (let i = 2; bestaand.has(id); i += 1) id = `${basis}-${i}`;
+  return id;
+}
+
+/**
+ * Twee contentbeheerders kunnen tegelijk een nieuwe plek of nieuw gebouw toevoegen met hetzelfde id of nummer.
+ * Vóór het samenvoegen krijgen jouw nieuwe plekken en gebouwen dan een vrij id en nummer, zodat er geen
+ * botsing ontstaat en niets van de ander verloren gaat. Verandert mijn (een kopie) en geeft de hernoemingen terug.
+ */
+export function maakNieuwUniek(basis, mijn, hun) {
+  const hernoemd = [];
+  const inBasis = (lijst, id) => (lijst ?? []).some((x) => x?.id === id);
+  const gebouwIds = new Set([...(hun?.gebouwen ?? []), ...(mijn?.gebouwen ?? [])].map((g) => g?.id));
+  for (const g of mijn?.gebouwen ?? []) {
+    if (!g?.id || inBasis(basis?.gebouwen, g.id) || !inBasis(hun?.gebouwen, g.id)) continue;
+    const nieuw = maakId(g.id, gebouwIds);
+    gebouwIds.add(nieuw);
+    for (const loc of mijn.locaties ?? []) if (loc.gebouw === g.id) loc.gebouw = nieuw;
+    hernoemd.push({ soort: 'gebouw', van: g.id, naar: nieuw });
+    g.id = nieuw;
+  }
+  const plekIds = new Set([...(hun?.locaties ?? []), ...(mijn?.locaties ?? [])].map((l) => l?.id));
+  const nummers = new Set((hun?.locaties ?? []).map((l) => l?.nummer));
+  let volgend = Math.max(0, ...[...(hun?.locaties ?? []), ...(mijn?.locaties ?? [])].map((l) => Number(l?.nummer) || 0)) + 1;
+  for (const loc of mijn?.locaties ?? []) {
+    if (!loc?.id || inBasis(basis?.locaties, loc.id)) continue;
+    if (inBasis(hun?.locaties, loc.id)) {
+      const nieuw = maakId(loc.id, plekIds);
+      plekIds.add(nieuw);
+      hernoemd.push({ soort: 'plek', van: loc.id, naar: nieuw });
+      loc.id = nieuw;
+    }
+    if (nummers.has(loc.nummer)) {
+      hernoemd.push({ soort: 'nummer', van: loc.nummer, naar: volgend });
+      loc.nummer = volgend;
+      volgend += 1;
+    }
+    nummers.add(loc.nummer);
+  }
+  return hernoemd;
 }
 
 // ---------- Samenvoegen ----------

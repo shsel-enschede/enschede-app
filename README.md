@@ -52,6 +52,8 @@ Op https://shsel-enschede.github.io/enschede-app/beheer.html kies je per plek:
 - het **gebouw**: bestaand, nieuw, of zelf een omtrek tekenen voor een verdwenen gebouw;
 - de **foto's** uit de lijst van beschikbare foto's voor die plek.
 
+Met **+ Nieuwe plek toevoegen** maak je een nieuwe plek (eerst als concept); met **+ Nieuw gebouw** in de keuzelijst bij *Gebouw* een nieuw gebouw. Bij elke plek en elk gebouw kun je **opmerkingen** kwijt voor collega's en beheerders; die staan niet in de app, maar zijn wel openbaar op GitHub (dus geen persoonsgegevens).
+
 Onderaan zie je in gewone taal wat er verandert en of alles klopt. Met **Wijziging voorstellen** gaat je wijziging naar GitHub als voorstel; GitHub zelf zie je niet. Een voorstel gaat in vier stappen:
 
 1. **Concept**: je werk, tussentijds bewaard in je eigen browser.

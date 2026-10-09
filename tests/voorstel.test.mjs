@@ -60,6 +60,34 @@ const c1 = structuredClone(c0); delete c1.locaties[0].concept;
 assert.deepEqual(v.beschrijf(c0, c1)[0].regels, ['staat nu in de app (geen concept meer)']);
 // Nieuwe plek zonder positie (concept) geeft geen fout
 const n1 = kopie(); n1.locaties.push({ id: 'nieuw-x', nummer: 99, concept: true, titel: { nl: 'X' } });
-assert.deepEqual(v.beschrijf(basis, n1).map((w) => w.regels), [['nieuwe plek']]);
+assert.deepEqual(v.beschrijf(basis, n1).map((w) => w.regels), [['nieuwe plek (concept, nog niet in de app)']]);
 
+
+// 11. Nieuwe plek: id uit de titel, uniek
+assert.equal(v.maakId('Villa „Schuttersveld”', new Set()), 'villa-schuttersveld');
+assert.equal(v.maakId('Grote Kerk', new Set(['grote-kerk', 'grote-kerk-2'])), 'grote-kerk-3');
+// 12. Twee mensen voegen tegelijk een plek toe met hetzelfde id en nummer: niets gaat verloren
+const max = Math.max(...basis.locaties.map((l) => l.nummer));
+const mijnN = kopie(); mijnN.locaties.push({ id: 'villa', nummer: max + 1, concept: true, titel: { nl: 'Villa' } });
+const hunN = kopie(); hunN.locaties.push({ id: 'villa', nummer: max + 1, concept: true, titel: { nl: 'Villa van een ander' } });
+const hern = v.maakNieuwUniek(basis, mijnN, hunN);
+assert.deepEqual(hern.map((h) => h.soort), ['plek', 'nummer']);
+const samen = v.voegSamen(basis, mijnN, hunN);
+assert.equal(samen.botsingen.length, 0);
+assert.equal(samen.resultaat.locaties.length, basis.locaties.length + 2);
+assert.equal(new Set(samen.resultaat.locaties.map((l) => l.nummer)).size, samen.resultaat.locaties.length);
+// 13. Nieuw gebouw met hetzelfde id: mijn plek verwijst mee naar het nieuwe id
+const mijnG = kopie(); mijnG.gebouwen.push({ id: 'gebouw-99', naam: 'A', adres: 'Markt 1' }); mijnG.locaties[0].gebouw = 'gebouw-99';
+const hunG = kopie(); hunG.gebouwen.push({ id: 'gebouw-99', naam: 'B', adres: 'Markt 2' });
+v.maakNieuwUniek(basis, mijnG, hunG);
+assert.equal(mijnG.locaties[0].gebouw, 'gebouw-99-2');
+assert.equal(v.voegSamen(basis, mijnG, hunG).botsingen.length, 0);
+// 14. Bestaande plekken worden nooit hernoemd
+assert.deepEqual(v.maakNieuwUniek(basis, kopie(), kopie()), []);
+// 15. Opmerkingen in gewone taal
+const mijnO = kopie(); mijnO.locaties[0].opmerking = 'Jaartal nakijken'; mijnO.gebouwen[0].toelichting = (basis.gebouwen[0].toelichting ?? '') + ' extra';
+const wO = v.beschrijf(basis, mijnO).flatMap((x) => x.regels).join(' | ');
+assert.match(wO, /opmerking toegevoegd: "Jaartal nakijken"/);
+assert.match(wO, /opmerking bij het gebouw (gewijzigd|toegevoegd)/);
+assert.match(v.beschrijf(basis, mijnN)[0].regels[0], /nieuwe plek \(concept/);
 console.log('ALLE TESTS GESLAAGD');

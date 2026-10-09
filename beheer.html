@@ -86,6 +86,26 @@
       <p class="status" id="plek-status"></p>
       <label class="vink"><input type="checkbox" id="in-app"> Staat in de app</label>
       <p class="hint" id="in-app-hint"></p>
+      <div class="knoppenrij" id="weg-blok" hidden>
+        <button type="button" class="knop-klein" id="plek-weg">Deze nieuwe plek weggooien</button>
+      </div>
+
+      <details class="uitklap" id="nieuw-blok">
+        <summary>+ Nieuwe plek toevoegen</summary>
+        <p class="hint">Een nieuwe plek begint als <strong>concept</strong>: hij komt pas in de app als er een verhaal, een vraag met antwoord en een positie is, en het voorstel is goedgekeurd.</p>
+        <label class="veld veld--breed"><span>Titel van de nieuwe plek</span><input id="nieuw-titel" maxlength="120" placeholder="bijv. Villa Schuttersveld"></label>
+        <div class="knoppenrij">
+          <button type="button" class="knop-klein" id="nieuw-toevoegen">Plek toevoegen</button>
+        </div>
+        <p class="status" id="nieuw-status" role="status"></p>
+      </details>
+
+      <h3>Opmerkingen bij deze plek</h3>
+      <label class="veld veld--breed">
+        <span>Opmerkingen (niet zichtbaar in de app)</span>
+        <textarea id="plek-opmerking" rows="3" maxlength="2000" placeholder="Bijvoorbeeld: jaartal nog nakijken bij het Stadsarchief."></textarea>
+      </label>
+      <p class="hint">Voor collega's en beheerders, en blijft bij de plek staan. Let op: wel openbaar te lezen op GitHub. Schrijf dus geen namen, telefoonnummers of andere persoonsgegevens.</p>
 
       <h3>Posities van alle plekken</h3>
       <p class="status" id="posities-telling"></p>
@@ -136,6 +156,10 @@
           <button type="button" class="knop-klein" id="adres-naar-positie" disabled>Gebruik adres als positie</button>
         </div>
         <p class="status" id="kadaster-status" aria-live="polite"></p>
+        <label class="veld veld--breed">
+          <span>Opmerkingen bij dit gebouw (niet zichtbaar in de app)</span>
+          <textarea id="gebouw-opmerking" rows="2" maxlength="2000"></textarea>
+        </label>
         <h4>Eigen omtrek (alleen voor verdwenen gebouwen)</h4>
         <p class="hint">Bestaat het gebouw niet meer? Teken dan de omtrek, bijvoorbeeld met een oude kaart ernaast (topotijdreis.nl).</p>
         <div class="knoppenrij">
