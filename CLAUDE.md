@@ -162,6 +162,11 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
   - Sleutel: alleen `github_pat_…` (oude sleutels met te veel rechten worden geweigerd). Standaard alleen in `sessionStorage`; in `localStorage` alleen als de gebruiker "Onthoud mij" aanvinkt. De editor laadt na inloggen de inhoud rechtstreeks van `main` (GitHub Pages loopt een paar minuten achter).
   - Nodig bij de beheerders (eenmalig): team contentbeheerders met *Write*, ruleset op `main` met Code Owner-goedkeuring en "oude goedkeuringen vervallen bij een nieuwe push", sleutelbeleid in de organisatie, `CODEOWNERS`.
 - **Verhaal en vraag (okt 2026):** blok *3. Verhaal en vraag* in de editor: titel, verhaal, vraag, vier antwoorden met het goede antwoord, uitleg en "bevestigd door SHSEL", voorlopig alleen Nederlands. Verandert de vraag, een antwoord of het goede antwoord, dan gaat "bevestigd" vanzelf uit. Schrijftips uit `js/schrijfhulp.js` (lange zinnen, ontkennende vraag, opvallend lang goed antwoord, ontbrekende uitleg) zijn alleen advies en houden versturen niet tegen; test: `tests/schrijfhulp.test.mjs`.
+- **Nieuwe plek en opmerkingen (okt 2026):**
+  - *+ Nieuwe plek toevoegen*: alleen een titel; de editor maakt `id` (uit de titel) en het volgende `nummer`, en de plek begint als `concept`. Een nieuwe plek die nog niet op GitHub staat kan weer weg (met een gebouw dat alleen voor die plek gemaakt is). Bestaande plekken worden nooit verwijderd, alleen uit de app gehaald.
+  - Voegen twee mensen tegelijk een plek of gebouw toe met hetzelfde `id` of `nummer`, dan krijgt bij versturen de nieuwe van de verstuurder een vrij id of nummer (`maakNieuwUniek` in `js/voorstel.js`); de editor meldt dat.
+  - Opmerkingen: `opmerking` bij een plek en `toelichting` bij een gebouw. Niet zichtbaar in de app, wel openbaar op GitHub: geen persoonsgegevens (AVG).
+  - Een nieuwe plek heeft alleen Nederlands; in EN en DE verschijnt hij pas na vertaling (fase 3).
 - **Nog open:** inhoud splitsen in één bestand per locatie; terugvaltaal; fotogebruik; wie mag `bevestigd` aanzetten; zijn vertalers ook contentbeheerders.
 
 ## Werkwijze

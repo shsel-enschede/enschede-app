@@ -9,7 +9,7 @@ import { maak } from './hulp.js';
 import { zoekAdres, zoekPand } from './gebouwen.js';
 import { schrijfadvies, woorden, zinnen } from './schrijfhulp.js';
 import * as gh from './github.js';
-import { beschrijf, voegSamen, toestand, titelVoor, omschrijving, takNaam } from './voorstel.js';
+import { beschrijf, voegSamen, toestand, titelVoor, omschrijving, takNaam, maakId, maakNieuwUniek } from './voorstel.js';
 
 const CONCEPT_SLEUTEL = 'enschede-app:beheer-concept:v2';
 const OUD_CONCEPT = 'enschede-app:beheer-concept:v1';
@@ -185,6 +185,8 @@ function kiesPlek(id) {
   toonFotos();
   toonVerhaal();
   toonAnderen();
+  $('plek-opmerking').value = plek.opmerking ?? '';
+  $('weg-blok').hidden = !isNieuw(plek);
   const g = gebouwVan(plek.gebouw);
   if (plek.positie) kaart.setView([plek.positie.lat, plek.positie.lng], 18);
   else if (Array.isArray(g?.vorm) && g.vorm.length >= 3) kaart.fitBounds(g.vorm, { maxZoom: 19, padding: [40, 40] });
@@ -201,6 +203,48 @@ function plekStatus() {
   delen.push(plek.bevestigd ? '✓ antwoord bevestigd' : '○ antwoord nog niet bevestigd');
   $('plek-status').textContent = delen.join(' · ');
   toonInApp();
+}
+
+// ---------- Nieuwe plek ----------
+
+/** Staat deze plek nog niet op GitHub (dus net in deze editor toegevoegd)? Dan mag hij ook weer weg. */
+function isNieuw(loc) {
+  try { return !JSON.parse(origineel).locaties.some((l) => l.id === loc.id); } catch { return false; }
+}
+
+function nieuwePlek() {
+  const titel = $('nieuw-titel').value.trim().replace(/\s+/g, ' ');
+  const status = $('nieuw-status');
+  if (titel.length < 3) { status.textContent = 'Geef de plek eerst een titel van minstens 3 letters.'; $('nieuw-titel').focus(); return; }
+  const dubbel = data.locaties.find((l) => (l.titel?.nl ?? '').toLowerCase() === titel.toLowerCase());
+  if (dubbel) { status.textContent = `Er is al een plek met deze titel (nummer ${dubbel.nummer}). Kies die plek in de lijst, of geef deze een andere titel.`; return; }
+  const id = maakId(titel, new Set(data.locaties.map((l) => l.id)));
+  const nummer = Math.max(0, ...data.locaties.map((l) => Number(l.nummer) || 0)) + 1;
+  // Concept: staat pas in de app als verhaal, vraag en positie klaar zijn (zie toonInApp).
+  data.locaties.push({ id, nummer, concept: true, titel: { nl: titel } });
+  $('nieuw-titel').value = '';
+  status.textContent = `✓ Plek ${nummer} · ${titel} is toegevoegd als concept. Kies hieronder het gebouw (of "+ Nieuw gebouw") en zet de positie op de kaart; schrijf daarna het verhaal en de vraag.`;
+  vulPlekken();
+  $('plek').value = id;
+  kiesPlek(id);
+  gewijzigd();
+}
+
+function plekWeg() {
+  if (!isNieuw(plek)) return; // bestaande plekken haal je uit de app met "Staat in de app", niet weggooien
+  if (!window.confirm(`Nieuwe plek "${plek.titel?.nl ?? plek.id}" weggooien? Dit kun je niet ongedaan maken.`)) return;
+  const weg = plek;
+  data.locaties = data.locaties.filter((l) => l !== weg);
+  // Een gebouw dat alleen voor deze nieuwe plek gemaakt is, gaat ook weg.
+  const g = gebouwVan(weg.gebouw);
+  let gebouwOrigineel = false;
+  try { gebouwOrigineel = JSON.parse(origineel).gebouwen?.some((x) => x.id === g?.id); } catch { /* niets */ }
+  if (g && !gebouwOrigineel && !data.locaties.some((l) => l.gebouw === g.id)) data.gebouwen = data.gebouwen.filter((x) => x !== g);
+  plek = null;
+  vulPlekken();
+  kiesPlek($('plek').value);
+  $('nieuw-status').textContent = '';
+  gewijzigd();
 }
 
 // ---------- Concept of in de app ----------
@@ -496,6 +540,7 @@ function toonGebouw() {
   if (!g) { plekStatus(); return; }
   $('gebouw-naam').value = g.naam ?? '';
   $('gebouw-adres').value = g.adres ?? '';
+  $('gebouw-opmerking').value = g.toelichting ?? '';
   $('teken-wis').disabled = !g.vorm;
   const ook = data.locaties.filter((l) => l !== plek && l.gebouw === g.id).map((l) => l.titel?.nl ?? l.id);
   $('kadaster-status').textContent = ook.length ? `Dit gebouw hoort ook bij: ${ook.join(', ')}. Wijzigingen gelden voor allemaal.` : '';
@@ -701,6 +746,13 @@ function toonFotos() {
 
 function controleer(d = data) {
   const fouten = [];
+  const gezien = { id: new Set(), nummer: new Set() };
+  for (const loc of d.locaties ?? []) {
+    if (gezien.id.has(loc.id)) fouten.push(`Plek ${loc.id} staat er twee keer in`);
+    if (gezien.nummer.has(loc.nummer)) fouten.push(`Nummer ${loc.nummer} wordt door twee plekken gebruikt`);
+    gezien.id.add(loc.id);
+    gezien.nummer.add(loc.nummer);
+  }
   for (const loc of d.locaties ?? []) {
     // Een concept staat niet in de app: verhaal, vraag en positie mogen nog ontbreken (maar een positie moet wel kloppen).
     const alle = controleerLocatie(loc, 'nl');
@@ -890,9 +942,12 @@ async function verstuur() {
     const hunTekst = await gh.leesBestand(PAD, mainKop);
     const hun = JSON.parse(hunTekst);
     const basis = JSON.parse(origineel);
-    const { resultaat, botsingen } = voegSamen(basis, data, hun, keuzes);
+    // Heeft iemand anders intussen een plek met hetzelfde id of nummer toegevoegd? Dan krijgt de jouwe een vrij nummer.
+    const mijn = structuredClone(data);
+    const hernoemd = maakNieuwUniek(basis, mijn, hun);
+    const { resultaat, botsingen } = voegSamen(basis, mijn, hun, keuzes);
     if (botsingen.length) {
-      toonBotsingen(botsingen, basis, data, hun);
+      toonBotsingen(botsingen, basis, mijn, hun);
       zetStatus('Iemand anders heeft intussen hetzelfde aangepast. Kies hierboven welke versie blijft en klik dan opnieuw.', true);
       $('botsing').scrollIntoView({ block: 'start' });
       return;
@@ -930,7 +985,7 @@ async function verstuur() {
       });
       await gh.verplaatsTak(voorstel.tak, commit);
       await gh.werkVoorstelBij(voorstel.nummer, { titel, tekst: beschrijving });
-      zetStatus(`✓ Je aanpassing is verstuurd. Een collega kijkt er opnieuw naar ("Wacht op collega").`, true);
+      zetStatus(`✓ Je aanpassing is verstuurd. Een collega kijkt er opnieuw naar ("Wacht op collega").${hernoemdTekst(hernoemd)}`, true);
     } else {
       const commit = await gh.maakCommit({ ouders: [mainKop], boomVanCommit: mainKop, bestanden: [{ pad: PAD, tekst }], bericht });
       nieuweTak = takNaam(wijzigingen);
@@ -943,7 +998,7 @@ async function verstuur() {
       }
       await gh.openVoorstel({ titel, tekst: beschrijving, tak: nieuweTak });
       nieuweTak = null;
-      zetStatus('✓ Je voorstel is verstuurd. Het staat nu bij "Mijn voorstellen" als "Wacht op collega". Hieronder zie je weer de huidige versie van de app.', true);
+      zetStatus(`✓ Je voorstel is verstuurd. Het staat nu bij "Mijn voorstellen" als "Wacht op collega". Hieronder zie je weer de huidige versie van de app.${hernoemdTekst(hernoemd)}`, true);
     }
 
     // Opnieuw beginnen vanaf de huidige versie van de app.
@@ -964,6 +1019,13 @@ async function verstuur() {
     bezig = false;
     werkUitvoerBij();
   }
+}
+
+function hernoemdTekst(hernoemd) {
+  const nummers = hernoemd.filter((h) => h.soort === 'nummer');
+  return nummers.length
+    ? ` Iemand anders gebruikte intussen hetzelfde nummer; je nieuwe plek heeft nu nummer ${nummers.map((h) => h.naar).join(', ')}.`
+    : '';
 }
 
 /** Scherm opnieuw opbouwen na het wisselen van inhoud; blijf bij dezelfde plek als die er nog is. */
@@ -1226,6 +1288,20 @@ function koppel() {
     gewijzigd();
   });
   $('gebouw-adres').addEventListener('change', vulGebouwKeuze);
+  $('gebouw-opmerking').addEventListener('input', (e) => {
+    const g = gebouwVan(plek.gebouw);
+    if (e.target.value.trim()) g.toelichting = e.target.value;
+    else delete g.toelichting;
+    gewijzigd();
+  });
+  $('plek-opmerking').addEventListener('input', (e) => {
+    if (e.target.value.trim()) plek.opmerking = e.target.value;
+    else delete plek.opmerking;
+    gewijzigd();
+  });
+  $('nieuw-toevoegen').addEventListener('click', nieuwePlek);
+  $('nieuw-titel').addEventListener('keydown', (e) => { if (e.key === 'Enter') nieuwePlek(); });
+  $('plek-weg').addEventListener('click', plekWeg);
   $('zoek-adres').addEventListener('click', zoekInKadaster);
   $('adres-naar-positie').addEventListener('click', () => { if (kadasterPunt) zetPositie(kadasterPunt); });
 
