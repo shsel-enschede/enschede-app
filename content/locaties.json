@@ -304,12 +304,24 @@
     {
       "id": "fabrieken-langs-de-spoorlijn-naar-gronau",
       "naam": "Fabrieken langs de spoorlijn naar Gronau",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.222876, 6.892914],
+        [52.223866, 6.902215],
+        [52.223761, 6.902215],
+        [52.22284, 6.892984]
+      ]
     },
     {
       "id": "station-staatsspoor",
       "naam": "Station Staatsspoor",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.222, 6.886481],
+        [52.222142, 6.886438],
+        [52.22205, 6.885547],
+        [52.221925, 6.885638]
+      ]
     },
     {
       "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
@@ -350,17 +362,50 @@
     {
       "id": "ziekenhuis-ziekenzorg",
       "naam": "Ziekenhuis Ziekenzorg",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.221284, 6.886008],
+        [52.22135, 6.886931],
+        [52.220468, 6.887167],
+        [52.220395, 6.886212]
+      ]
     },
     {
       "id": "stadsgravenstraat",
       "naam": "Stadsgravenstraat",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.221045, 6.894089],
+        [52.221229, 6.894223],
+        [52.221357, 6.89446],
+        [52.221403, 6.894969],
+        [52.221403, 6.895238],
+        [52.221351, 6.895952],
+        [52.221298, 6.896268],
+        [52.221206, 6.896746],
+        [52.221048, 6.897089],
+        [52.220936, 6.89725],
+        [52.220805, 6.897363],
+        [52.220676, 6.897449],
+        [52.220574, 6.897513],
+        [52.220518, 6.897444],
+        [52.220907, 6.897143],
+        [52.221117, 6.896762],
+        [52.221232, 6.896376],
+        [52.221295, 6.895989],
+        [52.221344, 6.895592],
+        [52.221357, 6.895206],
+        [52.221344, 6.894841],
+        [52.221344, 6.894626],
+        [52.221269, 6.894341],
+        [52.221048, 6.894148]
+      ]
     },
     {
       "id": "joodse-school-en-synagoge",
       "naam": "Joodse school en synagoge",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Stadsgravenstraat 69"
     },
     {
       "id": "menistenkerk",
@@ -376,12 +421,19 @@
     {
       "id": "stationsplein-atjehpark",
       "naam": "Stationsplein/Atjehpark",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.222387, 6.89113],
+        [52.222572, 6.892547],
+        [52.222466, 6.892579],
+        [52.22223, 6.891216]
+      ]
     },
     {
       "id": "station-ns",
       "naam": "Station NS",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Stationsplein 33"
     },
     {
       "id": "textielfabriek-nico-ter-kuile",
@@ -431,12 +483,14 @@
     {
       "id": "willem-wilminkplein-theater",
       "naam": "Willem Wilminkplein/theater",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Wenninkgaarde 40-42"
     },
     {
       "id": "voormalig-postkantoor",
       "naam": "voormalig postkantoor",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "adres": "Boulevard 1945 326"
     }
   ],
   "locaties": [
@@ -1246,6 +1300,7 @@
     {
       "id": "striekiezer",
       "nummer": 27,
+      "concept": true,
       "titel": {
         "nl": "Striekiezer"
       },
@@ -1269,9 +1324,9 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.220491,
-        "lng": 6.89877,
-        "bevestigd": true
+        "lat": 52.220526,
+        "lng": 6.898625,
+        "bevestigd": false
       }
     },
     {
@@ -1300,9 +1355,9 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.224499,
-        "lng": 6.898744,
-        "bevestigd": false
+        "lat": 52.224326,
+        "lng": 6.899382,
+        "bevestigd": true
       }
     },
     {
@@ -1626,7 +1681,6 @@
     {
       "id": "fabrieken-langs-de-spoorlijn-naar-gronau",
       "nummer": 38,
-      "concept": true,
       "titel": {
         "nl": "Fabrieken langs de spoorlijn naar Gronau"
       },
@@ -1648,12 +1702,17 @@
         }
       },
       "juist": 3,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.223143,
+        "lng": 6.895911,
+        "bevestigd": true
+      },
+      "opmerking": "Keuze om de spoorlijn te volgen in de tekening, of moet het hele vlak rood gemaakt worden (is wel realistischer)"
     },
     {
       "id": "station-staatsspoor",
       "nummer": 39,
-      "concept": true,
       "titel": {
         "nl": "Station Staatsspoor"
       },
@@ -1675,7 +1734,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.221839,
+        "lng": 6.886277,
+        "bevestigd": false
+      }
     },
     {
       "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
@@ -1730,10 +1794,11 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.220967,
-        "lng": 6.890602,
-        "bevestigd": false
-      }
+        "lat": 52.22103,
+        "lng": 6.890912,
+        "bevestigd": true
+      },
+      "opmerking": "Meerkeuzevraag controleren"
     },
     {
       "id": "incassobank",
@@ -1761,9 +1826,9 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.221241,
-        "lng": 6.891176,
-        "bevestigd": false
+        "lat": 52.22118,
+        "lng": 6.891097,
+        "bevestigd": true
       }
     },
     {
@@ -1792,10 +1857,12 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.221582,
-        "lng": 6.891135,
-        "bevestigd": false
-      }
+        "lat": 52.22153,
+        "lng": 6.891019,
+        "bevestigd": true
+      },
+      "concept": true,
+      "opmerking": "SLO zit hier niet meer, meerkeuzevraag controleren"
     },
     {
       "id": "synagoge",
@@ -1823,9 +1890,9 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.217993,
-        "lng": 6.88601,
-        "bevestigd": false
+        "lat": 52.217997,
+        "lng": 6.886293,
+        "bevestigd": true
       }
     },
     {
@@ -1881,15 +1948,14 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.218309,
-        "lng": 6.889529,
+        "lat": 52.21846,
+        "lng": 6.889511,
         "bevestigd": false
       }
     },
     {
       "id": "ziekenhuis-ziekenzorg",
       "nummer": 47,
-      "concept": true,
       "titel": {
         "nl": "Ziekenhuis Ziekenzorg"
       },
@@ -1911,12 +1977,17 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Van 1941 tot ??? aan De Ruyterstraat, nu hoofdvestiging Saxion",
+      "positie": {
+        "lat": 52.220866,
+        "lng": 6.887301,
+        "bevestigd": true
+      }
     },
     {
       "id": "stadsgravenstraat",
       "nummer": 48,
-      "concept": true,
       "titel": {
         "nl": "Stadsgravenstraat"
       },
@@ -1938,12 +2009,17 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Dit is een lange straat, moeilijk om dat weer te geven op de kaart.",
+      "positie": {
+        "lat": 52.221359,
+        "lng": 6.895192,
+        "bevestigd": false
+      }
     },
     {
       "id": "joodse-school-en-synagoge",
       "nummer": 49,
-      "concept": true,
       "titel": {
         "nl": "Joodse school en synagoge"
       },
@@ -1965,7 +2041,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.22091,
+        "lng": 6.897268,
+        "bevestigd": true
+      }
     },
     {
       "id": "menistenkerk",
@@ -1993,9 +2074,9 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.221287,
-        "lng": 6.896721,
-        "bevestigd": false
+        "lat": 52.221181,
+        "lng": 6.896705,
+        "bevestigd": true
       }
     },
     {
@@ -2024,15 +2105,14 @@
       "juist": 2,
       "bevestigd": false,
       "positie": {
-        "lat": 52.220494,
-        "lng": 6.881989,
-        "bevestigd": false
+        "lat": 52.220439,
+        "lng": 6.881846,
+        "bevestigd": true
       }
     },
     {
       "id": "stationsplein-atjehpark",
       "nummer": 52,
-      "concept": true,
       "titel": {
         "nl": "Stationsplein/Atjehpark"
       },
@@ -2054,12 +2134,16 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.222456,
+        "lng": 6.892065,
+        "bevestigd": false
+      }
     },
     {
       "id": "station-ns",
       "nummer": 53,
-      "concept": true,
       "titel": {
         "nl": "Station NS"
       },
@@ -2077,11 +2161,17 @@
             "Een wisselkantoor voor mensen die naar Duitsland gingen",
             "Een magazijn voor het onderhoud van de treinen"
           ],
-          "uitleg": "Wie op de trein wachtte, kon hier iets eten en drinken."
+          "uitleg": "Antwoord moet gecheckt worden."
         }
       },
-      "juist": 1,
-      "bevestigd": false
+      "juist": 3,
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.22199,
+        "lng": 6.890617,
+        "bevestigd": true
+      },
+      "opmerking": "Meerkeuzevraag controleren"
     },
     {
       "id": "textielfabriek-nico-ter-kuile",
@@ -2108,7 +2198,8 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Locatie onduidelijk"
     },
     {
       "id": "textielfabriek-ter-kuile-cromhoff",
@@ -2135,7 +2226,8 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "opmerking": "Locatie onduidelijk"
     },
     {
       "id": "villa-scholten",
@@ -2163,8 +2255,8 @@
       "juist": 1,
       "bevestigd": false,
       "positie": {
-        "lat": 52.22065,
-        "lng": 6.89046,
+        "lat": 52.220741,
+        "lng": 6.890515,
         "bevestigd": false
       }
     },
@@ -2194,9 +2286,9 @@
       "juist": 2,
       "bevestigd": false,
       "positie": {
-        "lat": 52.220927,
-        "lng": 6.889966,
-        "bevestigd": false
+        "lat": 52.22079,
+        "lng": 6.890118,
+        "bevestigd": true
       }
     },
     {
@@ -2379,7 +2471,12 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.222397,
+        "lng": 6.894671,
+        "bevestigd": true
+      }
     },
     {
       "id": "voormalig-postkantoor",
@@ -2406,7 +2503,12 @@
         }
       },
       "juist": 0,
-      "bevestigd": false
+      "bevestigd": false,
+      "positie": {
+        "lat": 52.217404,
+        "lng": 6.894819,
+        "bevestigd": true
+      }
     }
   ]
 }
