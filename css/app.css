@@ -301,7 +301,9 @@ body:has(#scherm-start:not([hidden])) {
 /* "Je loopt langs …": de plek blijft iets dikker omrand (ook bij 'minder beweging') en licht eerst twee keer zacht op.
    Geen transform op het label: daarmee staat de naam op zijn plek (zie hierboven). */
 path.wijkkaart--langs { stroke-width: 4px; stroke-dasharray: none; }
-.wijkkaart__label.wijkkaart--langs { border: 2px solid var(--merkrood); padding: 1px 7px; }
+/* Rood vlak met witte letters, zoals de knop Bekijk: valt in één oogopslag op tussen de witte namen (pre-attentief).
+   Actierood: wit erop 6,4:1. */
+.wijkkaart__label.wijkkaart--langs { color: #fff; background: var(--rood); border-color: var(--rood); }
 @media (prefers-reduced-motion: no-preference) {
   path.wijkkaart--puls { animation: plek-puls 1.2s ease-in-out 2; }
   .wijkkaart__label.wijkkaart--puls { animation: label-puls 1.2s ease-in-out 2; }

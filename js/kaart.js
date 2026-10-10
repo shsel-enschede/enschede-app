@@ -127,6 +127,8 @@ function elementenVan(g) {
 }
 
 function zetMarkering(g, aan, puls) {
+  g.label.setZIndexOffset(aan ? 1000 : 0); // naam bovenop de andere namen
+  if (aan) g.vlak.bringToFront?.();
   for (const e of elementenVan(g)) {
     e.classList.toggle('wijkkaart--langs', aan);
     e.classList.remove('wijkkaart--puls');
@@ -146,6 +148,7 @@ export function markeerPlek(id) {
   gemarkeerd = id;
   const nieuw = id && getekend.get(id);
   if (nieuw) zetMarkering(nieuw, true, true);
+  ontwar(); // de gemarkeerde naam krijgt voorrang; de andere namen schuiven zo nodig opzij
 }
 
 // Groepeer de locaties van een verzameling per gebouw.
@@ -256,7 +259,10 @@ function ontwar() {
     && r.right > p.left - marge && r.top < p.bottom + marge && r.bottom > p.top - marge);
 
   const open = (g) => (telling(g, antwoordVan).af ? 1 : 0);
-  const groepen = alle.sort((x, y) => open(x) - open(y)
+  const isLangs = (g) => (g.gebouw.id === gemarkeerd ? 1 : 0);
+  // De plek waar je langs loopt (markeerPlek) gaat voor alles: die naam wordt als eerste geplaatst en nooit verborgen.
+  const groepen = alle.sort((x, y) => isLangs(y) - isLangs(x)
+    || open(x) - open(y)
     || Number(Boolean(y.klein)) - Number(Boolean(x.klein))
     || y.locaties.length - x.locaties.length
     || x.gebouw.naam.localeCompare(y.gebouw.naam, 'nl'));
@@ -279,6 +285,12 @@ function ontwar() {
     if (gevonden) {
       groep.positie = gevonden.positie;
       geplaatst.push(gevonden.r);
+    } else if (isLangs(groep)) {
+      // Plek waar je langs loopt: altijd zichtbaar, op de voorkeursplaats (hij ligt bovenop, zie zetMarkering).
+      groep.positie = posities(groep)[0];
+      span.classList.remove(...POSITIE_KLASSEN);
+      span.classList.add(`wijkkaart__label--${groep.positie}`);
+      geplaatst.push(span.getBoundingClientRect());
     } else {
       // Niets past: terug naar de voorkeursplaats en verbergen tot je inzoomt.
       groep.positie = null;
