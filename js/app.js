@@ -5,7 +5,7 @@
 
 import { laadInhoud } from './inhoud.js';
 import { antwoordVan, bewaarAntwoord, wisAntwoorden } from './voortgang.js';
-import { toonKaart, toonPositie, centreer } from './kaart.js';
+import { toonKaart, toonPositie, centreer, markeerPlek } from './kaart.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
 import { afstandTot, indicatie } from './afstand.js';
 import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegestaan } from './locatie.js';
@@ -356,7 +356,10 @@ function werkLangsBij() {
         sleutel: sleutelVan(eerste),
         id: eerste.id,
         naam: gebouw?.naam ?? eerste.titel,
-        sub: zelfde.length > 1 ? `· ${zelfde.length} verhalen` : '',
+        // Uitnodigen, niet opdragen: een vraag wekt nieuwsgierigheid en laat de keuze bij de wandelaar.
+        vraag: zelfde.length > 1 ? `Benieuwd naar de ${zelfde.length} verhalen?` : 'Benieuwd naar het verhaal?',
+        // Zelfde sleutel als kaart.js gebruikt (groepeer): het gebouw, of 'los-<id>' voor een plek zonder bekend gebouw.
+        kaartId: gebouw ? gebouw.id : `los-${eerste.id}`,
       };
     }
   }
@@ -364,22 +367,39 @@ function werkLangsBij() {
     langsSleutel = null;
     langsDoel = null;
     vak.hidden = true;
+    markeerPlek(null);
+    kondigAan('');
     werkVoetBij();
     return;
   }
   langsDoel = doel;
-  if (doel.sleutel === langsSleutel && !vak.hidden) return; // niets veranderd: niet opnieuw voorlezen
+  if (doel.sleutel === langsSleutel && !vak.hidden) return; // niets veranderd: niet opnieuw voorlezen of laten oplichten
   langsSleutel = doel.sleutel;
   $('langs-naam').textContent = doel.naam;
-  $('langs-sub').textContent = doel.sub;
+  $('langs-vraag').textContent = doel.vraag;
   vak.hidden = false;
+  markeerPlek(doel.kaartId); // de plek licht op de kaart kort op en blijft daarna iets dikker omrand
+  kondigAan(`Je loopt langs ${doel.naam}. ${doel.vraag} Onderin staan de knoppen Bekijk en Verder lopen.`);
   werkVoetBij();
+}
+
+// Schermlezers: de tekst gaat naar een live regio die altijd in de pagina staat (index.html).
+// Eerst leegmaken en pas daarna vullen, zodat dezelfde zin bij een volgende plek opnieuw wordt voorgelezen.
+// De focus wordt niet verplaatst: de wandelaar wordt niet uit zijn bezigheid gehaald.
+let aankondigTimer = null;
+function kondigAan(tekst) {
+  const regio = $('langs-aankondiging');
+  clearTimeout(aankondigTimer);
+  regio.textContent = '';
+  if (tekst) aankondigTimer = setTimeout(() => { regio.textContent = tekst; }, 150);
 }
 
 $('langs-bekijk').addEventListener('click', () => {
   if (!langsDoel) return;
   const id = langsDoel.id;
   $('langs').hidden = true;
+  markeerPlek(null);
+  kondigAan('');
   werkVoetBij();
   ga(`#/plek/${id}`);
 });

@@ -40,6 +40,7 @@ let mijnStip = null;
 let mijnCirkel = null;
 let laatsteOpties = null;
 const getekend = new Map(); // gebouw-id -> { vlak, label, gebouw, locaties }
+let gemarkeerd = null; // gebouw-id van de plek waar je nu langs loopt (zie markeerPlek)
 
 // ---------- Leaflet op aanvraag laden ----------
 
@@ -113,6 +114,38 @@ function teken(L, groep, vorm, opties) {
   // Een stip die altijd zichtbaar blijft: een naam mag er niet overheen vallen (ook niet een losse plek zonder omtrek).
   const punt = groep.klein ? { latLng: midden, straal: STIP.radius } : (vorm ? null : { latLng: midden, straal: 14 });
   getekend.set(groep.gebouw.id, { vlak, label, stip, punt, ...groep });
+  if (gemarkeerd === groep.gebouw.id) zetMarkering(getekend.get(groep.gebouw.id), true, false);
+}
+
+// ---------- "Je loopt langs …" op de kaart ----------
+// De plek waar je langs loopt, licht twee keer zacht op en blijft daarna iets dikker omrand.
+// Rustig en in de rand van je aandacht (calm technology): geen pop-up, geen trilling.
+// Met 'minder beweging' (prefers-reduced-motion) blijft alleen de dikkere rand; zie css/app.css.
+
+function elementenVan(g) {
+  return [g.vlak.getElement?.(), g.stip?.getElement?.(), g.label.getElement()?.firstElementChild].filter(Boolean);
+}
+
+function zetMarkering(g, aan, puls) {
+  for (const e of elementenVan(g)) {
+    e.classList.toggle('wijkkaart--langs', aan);
+    e.classList.remove('wijkkaart--puls');
+    if (aan && puls) {
+      void e.getBoundingClientRect(); // animatie opnieuw laten beginnen
+      e.classList.add('wijkkaart--puls');
+      e.addEventListener('animationend', () => e.classList.remove('wijkkaart--puls'), { once: true });
+    }
+  }
+}
+
+/** Markeer het gebouw (id zoals in groepeer) waar je langs loopt, of haal de markering weg met null. */
+export function markeerPlek(id) {
+  if (id === gemarkeerd) return;
+  const oud = gemarkeerd && getekend.get(gemarkeerd);
+  if (oud) zetMarkering(oud, false, false);
+  gemarkeerd = id;
+  const nieuw = id && getekend.get(id);
+  if (nieuw) zetMarkering(nieuw, true, true);
 }
 
 // Groepeer de locaties van een verzameling per gebouw.
@@ -265,6 +298,7 @@ function ververs(antwoordVan) {
     groep.vlak.setStyle(t.af ? STIJL_KLAAR : STIJL_OPEN);
     groep.stip?.setStyle(stipStijl(t.af));
     groep.label.setIcon(labelIcoon(L, groep, antwoordVan));
+    if (gemarkeerd === groep.gebouw.id) zetMarkering(groep, true, false); // nieuw label: markering terug, zonder puls
   }
   ontwar(); // nieuwe tekst kan breder zijn
 }
