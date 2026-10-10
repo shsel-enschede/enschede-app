@@ -40,7 +40,7 @@ let mijnStip = null;
 let mijnCirkel = null;
 let laatsteOpties = null;
 const getekend = new Map(); // gebouw-id -> { vlak, label, gebouw, locaties }
-let gemarkeerd = null; // gebouw-id van de plek waar je nu langs loopt (zie markeerPlek)
+let gemarkeerd = []; // gebouw-id's van de plekken in de melding "Je loopt langs …", in die volgorde (zie markeerPlekken)
 
 // ---------- Leaflet op aanvraag laden ----------
 
@@ -114,11 +114,12 @@ function teken(L, groep, vorm, opties) {
   // Een stip die altijd zichtbaar blijft: een naam mag er niet overheen vallen (ook niet een losse plek zonder omtrek).
   const punt = groep.klein ? { latLng: midden, straal: STIP.radius } : (vorm ? null : { latLng: midden, straal: 14 });
   getekend.set(groep.gebouw.id, { vlak, label, stip, punt, ...groep });
-  if (gemarkeerd === groep.gebouw.id) zetMarkering(getekend.get(groep.gebouw.id), true, false);
+  if (gemarkeerd.includes(groep.gebouw.id)) zetMarkering(getekend.get(groep.gebouw.id), true, false);
 }
 
 // ---------- "Je loopt langs …" op de kaart ----------
-// De plek waar je langs loopt, licht twee keer zacht op en blijft daarna iets dikker omrand.
+// De plekken in de melding hebben een rode naam en een dikkere rand. Een plek die erbij komt, licht twee keer zacht op;
+// een plek die afvalt, wordt stil weer gewoon.
 // Rustig en in de rand van je aandacht (calm technology): geen pop-up, geen trilling.
 // Met 'minder beweging' (prefers-reduced-motion) blijft alleen de dikkere rand; zie css/app.css.
 
@@ -140,15 +141,19 @@ function zetMarkering(g, aan, puls) {
   }
 }
 
-/** Markeer het gebouw (id zoals in groepeer) waar je langs loopt, of haal de markering weg met null. */
-export function markeerPlek(id) {
-  if (id === gemarkeerd) return;
-  const oud = gemarkeerd && getekend.get(gemarkeerd);
-  if (oud) zetMarkering(oud, false, false);
-  gemarkeerd = id;
-  const nieuw = id && getekend.get(id);
-  if (nieuw) zetMarkering(nieuw, true, true);
-  ontwar(); // de gemarkeerde naam krijgt voorrang; de andere namen schuiven zo nodig opzij
+/** Markeer de gebouwen (id's zoals in groepeer) uit de melding; [] haalt alle markeringen weg. */
+export function markeerPlekken(ids) {
+  if (ids.length === gemarkeerd.length && ids.every((id, i) => id === gemarkeerd[i])) return; // niets veranderd
+  for (const id of gemarkeerd) {
+    const g = !ids.includes(id) && getekend.get(id);
+    if (g) zetMarkering(g, false, false); // afgevallen: stil
+  }
+  for (const id of ids) {
+    const g = !gemarkeerd.includes(id) && getekend.get(id);
+    if (g) zetMarkering(g, true, true); // nieuw: even oplichten
+  }
+  gemarkeerd = [...ids];
+  ontwar(); // gemarkeerde namen krijgen voorrang; de andere namen schuiven zo nodig opzij
 }
 
 // Groepeer de locaties van een verzameling per gebouw.
@@ -240,6 +245,13 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
 // (bijv. de straatkant van de zonnewijzer). Past geen enkele, dan wordt de naam verborgen;
 // het gebouw zelf (of de stip van een klein object) blijft zichtbaar en aantikbaar, en inzoomen maakt
 // de naam weer zichtbaar. Wie de kaart niet kan of wil gebruiken, heeft de lijst onder de kaart.
+// Zet een naam op zijn voorkeursplaats en geef de rechthoek die hij dan inneemt.
+function voorkeursplaats(span, groep) {
+  span.classList.remove(...POSITIE_KLASSEN);
+  span.classList.add(`wijkkaart__label--${posities(groep)[0]}`);
+  return span.getBoundingClientRect();
+}
+
 function ontwar() {
   if (!kaart) return;
   const MARGE = 4; // px lucht tussen twee namen
@@ -259,15 +271,17 @@ function ontwar() {
     && r.right > p.left - marge && r.top < p.bottom + marge && r.bottom > p.top - marge);
 
   const open = (g) => (telling(g, antwoordVan).af ? 1 : 0);
-  const isLangs = (g) => (g.gebouw.id === gemarkeerd ? 1 : 0);
-  // De plek waar je langs loopt (markeerPlek) gaat voor alles: die naam wordt als eerste geplaatst en nooit verborgen.
-  const groepen = alle.sort((x, y) => isLangs(y) - isLangs(x)
+  // Plekken uit de melding (markeerPlekken) gaan voor alles, in de volgorde van de melding.
+  const langsRang = (g) => { const i = gemarkeerd.indexOf(g.gebouw.id); return i < 0 ? Infinity : i; };
+  const isLangs = (g) => langsRang(g) !== Infinity;
+  const groepen = alle.sort((x, y) => (langsRang(x) === langsRang(y) ? 0 : langsRang(x) < langsRang(y) ? -1 : 1)
     || open(x) - open(y)
     || Number(Boolean(y.klein)) - Number(Boolean(x.klein))
     || y.locaties.length - x.locaties.length
     || x.gebouw.naam.localeCompare(y.gebouw.naam, 'nl'));
 
   const geplaatst = [];
+  const geplaatstLangs = []; // rode namen: die mogen elkaar niet bedekken
   for (const groep of groepen) {
     const icoon = groep.label.getElement();
     const span = icoon?.firstElementChild;
@@ -285,12 +299,14 @@ function ontwar() {
     if (gevonden) {
       groep.positie = gevonden.positie;
       geplaatst.push(gevonden.r);
-    } else if (isLangs(groep)) {
-      // Plek waar je langs loopt: altijd zichtbaar, op de voorkeursplaats (hij ligt bovenop, zie zetMarkering).
+      if (isLangs(groep)) geplaatstLangs.push(gevonden.r);
+    } else if (isLangs(groep) && !botst(voorkeursplaats(span, groep), geplaatstLangs, MARGE)) {
+      // Plek uit de melding: zichtbaar op de voorkeursplaats, ook over een gewone naam heen (hij ligt bovenop,
+      // zie zetMarkering). Alleen als twee rode namen elkaar zouden bedekken, wijkt de latere tot je inzoomt.
       groep.positie = posities(groep)[0];
-      span.classList.remove(...POSITIE_KLASSEN);
-      span.classList.add(`wijkkaart__label--${groep.positie}`);
-      geplaatst.push(span.getBoundingClientRect());
+      const r = span.getBoundingClientRect();
+      geplaatst.push(r);
+      geplaatstLangs.push(r);
     } else {
       // Niets past: terug naar de voorkeursplaats en verbergen tot je inzoomt.
       groep.positie = null;
@@ -310,7 +326,7 @@ function ververs(antwoordVan) {
     groep.vlak.setStyle(t.af ? STIJL_KLAAR : STIJL_OPEN);
     groep.stip?.setStyle(stipStijl(t.af));
     groep.label.setIcon(labelIcoon(L, groep, antwoordVan));
-    if (gemarkeerd === groep.gebouw.id) zetMarkering(groep, true, false); // nieuw label: markering terug, zonder puls
+    if (gemarkeerd.includes(groep.gebouw.id)) zetMarkering(groep, true, false); // nieuw label: markering terug, zonder puls
   }
   ontwar(); // nieuwe tekst kan breder zijn
 }

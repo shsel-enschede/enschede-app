@@ -5,7 +5,8 @@
 
 import { laadInhoud } from './inhoud.js';
 import { antwoordVan, bewaarAntwoord, wisAntwoorden } from './voortgang.js';
-import { toonKaart, toonPositie, centreer, markeerPlek } from './kaart.js';
+import { toonKaart, toonPositie, centreer, markeerPlekken } from './kaart.js';
+import { volgende, meldingTekst, voorleestekst } from './langs.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
 import { afstandTot, indicatie } from './afstand.js';
 import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegestaan } from './locatie.js';
@@ -209,6 +210,7 @@ function kaartScherm() {
   $('opnieuw-knop').setAttribute('aria-expanded', 'false');
 
   $('gebouwkeuze').hidden = true;
+  if (wachtendeKeuze) { toonKeuze(wachtendeKeuze.titel, wachtendeKeuze.items); wachtendeKeuze = null; }
   $('lijstgreep-tekst').textContent = `Alle ${totaal} plekken als lijst`;
   toonKaart($('wijkkaart'), alles, inhoud, {
     antwoordVan,
@@ -323,63 +325,70 @@ function vulPlekken() {
 }
 
 // ---------- "Je loopt langs …" ----------
-// Kom je (met GPS) toevallig bij een plek die je nog niet bezocht hebt, dan verschijnt onderin een rustige melding:
-// alleen de knop Bekijk. Doorlopen hoeft geen keuze te zijn: loop je verder, dan verdwijnt de melding vanzelf
-// (buiten de straal plus de marge uit afstand.js). Geen knop "Verder lopen" (besluit René, okt 2026).
+// Kom je (met GPS) bij plekken die je nog niet ontdekt hebt, dan verschijnt onderin een rustige melding met
+// alleen de knop Bekijk. Liggen er meer plekken binnen de straal (Grote Kerk, zonnewijzer, brandmonument),
+// dan staan ze samen in één melding en kies je zelf. Onder het lopen kunnen plekken erbij komen of afvallen;
+// de regels daarvoor staan in js/langs.js. Doorlopen hoeft geen keuze te zijn: buiten de straal (plus de marge
+// uit afstand.js) verdwijnt een plek vanzelf. Geen knop "Verder lopen" (besluit René, okt 2026).
 // Niets wordt bewaard of verstuurd (zie CLAUDE.md, Veiligheid).
 
-let langsSleutel = null;
-let langsDoel = null;
+let langsGroepen = []; // groepen in de melding, in vaste volgorde: { sleutel, kaartId, naam, verhalen, meters, locaties }
+let wachtendeKeuze = null; // keuzelijst die opengaat zodra de kaart in beeld is (Bekijk vanaf een ander scherm)
 
 function sleutelVan(loc) {
   return loc.gebouw ? `g:${loc.gebouw}` : `p:${loc.id}`;
 }
 
-function werkLangsBij() {
-  const vak = $('langs');
-  let doel = null;
+// Alle onontdekte plekken waar je nu bent, per gebouw samengenomen.
+function groepenBinnenStraal() {
   // Niet storen tijdens het lezen: op een open, nog niet beantwoorde plek geen melding.
   const aanHetLezen = huidig.scherm === 'locatie' && isOpen(huidig.loc) && antwoordVan(huidig.loc.id) === null;
-  if (positie() && !aanHetLezen && (huidig.scherm === 'kaart' || huidig.scherm === 'locatie')) {
-    const hier = huidig.loc ? sleutelVan(huidig.loc) : null;
-    // Alle onbezochte plekken waar je nu bent, per gebouw samengenomen.
-    const ter = alles.locaties
-      .map((id) => inhoud.locaties.get(id))
-      .filter((loc) => antwoordVan(loc.id) === null && indicaties.get(loc.id)?.soort === 'er')
-      .filter((loc) => sleutelVan(loc) !== hier)
-      .sort((x, y) => indicaties.get(x.id).meters - indicaties.get(y.id).meters); // dichtstbijzijnde eerst
-    if (ter.length) {
-      const eerste = ter[0];
-      const zelfde = ter.filter((loc) => sleutelVan(loc) === sleutelVan(eerste));
-      const gebouw = eerste.gebouw ? inhoud.gebouwen.get(eerste.gebouw) : null;
-      doel = {
-        sleutel: sleutelVan(eerste),
-        id: eerste.id,
-        naam: gebouw?.naam ?? eerste.titel,
-        // Uitnodigen, niet opdragen: een vraag wekt nieuwsgierigheid en laat de keuze bij de wandelaar.
-        vraag: zelfde.length > 1 ? `Benieuwd naar de ${zelfde.length} verhalen?` : 'Benieuwd naar het verhaal?',
+  if (!positie() || aanHetLezen || (huidig.scherm !== 'kaart' && huidig.scherm !== 'locatie')) return [];
+  const hier = huidig.loc ? sleutelVan(huidig.loc) : null;
+  const per = new Map();
+  for (const id of alles.locaties) {
+    const loc = inhoud.locaties.get(id);
+    const ind = indicaties.get(loc.id);
+    if (antwoordVan(loc.id) !== null || ind?.soort !== 'er' || sleutelVan(loc) === hier) continue;
+    const sleutel = sleutelVan(loc);
+    if (!per.has(sleutel)) {
+      const gebouw = loc.gebouw ? inhoud.gebouwen.get(loc.gebouw) : null;
+      per.set(sleutel, {
+        sleutel,
+        naam: gebouw?.naam ?? loc.titel,
         // Zelfde sleutel als kaart.js gebruikt (groepeer): het gebouw, of 'los-<id>' voor een plek zonder bekend gebouw.
-        kaartId: gebouw ? gebouw.id : `los-${eerste.id}`,
-      };
+        kaartId: gebouw ? gebouw.id : `los-${loc.id}`,
+        meters: ind.meters,
+        locaties: [],
+      });
     }
+    const g = per.get(sleutel);
+    g.locaties.push(loc);
+    g.meters = Math.min(g.meters, ind.meters);
   }
-  if (!doel) {
-    langsSleutel = null;
-    langsDoel = null;
+  return [...per.values()].map((g) => ({ ...g, verhalen: g.locaties.length }));
+}
+
+function werkLangsBij() {
+  const vak = $('langs');
+  const vorigeAantal = vak.hidden ? 0 : langsGroepen.length;
+  const { groepen, erbij } = volgende(vak.hidden ? [] : langsGroepen, groepenBinnenStraal());
+  langsGroepen = groepen;
+  // Op de kaart: alle plekken uit de melding rood; alleen een nieuwe plek licht even op (zie kaart.js).
+  markeerPlekken(groepen.map((g) => g.kaartId));
+  if (!groepen.length) {
     vak.hidden = true;
-    markeerPlek(null);
     kondigAan('');
     werkVoetBij();
     return;
   }
-  langsDoel = doel;
-  if (doel.sleutel === langsSleutel && !vak.hidden) return; // niets veranderd: niet opnieuw voorlezen of laten oplichten
-  langsSleutel = doel.sleutel;
-  $('langs-naam').textContent = doel.naam;
-  $('langs-vraag').textContent = doel.vraag;
+  const t = meldingTekst(groepen);
+  $('langs-label').textContent = t.label;
+  $('langs-naam').textContent = t.naam;
+  $('langs-vraag').textContent = t.vraag;
   vak.hidden = false;
-  markeerPlek(doel.kaartId); // de plek licht op de kaart kort op en blijft daarna iets dikker omrand
-  kondigAan(`Je loopt langs ${doel.naam}. ${doel.vraag} Onderin staat de knop Bekijk.`);
+  const zeg = voorleestekst(vorigeAantal, groepen, erbij); // alleen bij iets nieuws; afvallen is stil
+  if (zeg) kondigAan(zeg);
   werkVoetBij();
 }
 
@@ -394,22 +403,37 @@ function kondigAan(tekst) {
   if (tekst) aankondigTimer = setTimeout(() => { regio.textContent = tekst; }, 150);
 }
 
+// Bekijk: één verhaal -> direct openen; meer verhalen -> een korte keuzelijst over de kaart.
+// De lijst is een momentopname: wat erin staat verandert niet meer, ook niet als je een stap zet.
 $('langs-bekijk').addEventListener('click', () => {
-  if (!langsDoel) return;
-  const id = langsDoel.id;
+  const locaties = langsGroepen.flatMap((g) => g.locaties);
+  if (!locaties.length) return;
   $('langs').hidden = true;
-  markeerPlek(null);
+  markeerPlekken([]);
   kondigAan('');
   werkVoetBij();
-  ga(`#/plek/${id}`);
+  if (locaties.length === 1) return ga(`#/plek/${locaties[0].id}`);
+  const titel = langsGroepen.length === 1
+    ? `${langsGroepen[0].naam}: ${locaties.length} verhalen`
+    : `Hier zijn ${langsGroepen.length} plekken`;
+  // Bij een gebouw met meer verhalen staat de naam van het gebouw onder de titel van het verhaal.
+  const items = langsGroepen.flatMap((g) => g.locaties.map((loc) => ({ loc, sub: g.locaties.length > 1 && loc.titel !== g.naam ? g.naam : null })));
+  if (huidig.scherm === 'kaart') return toonKeuze(titel, items);
+  wachtendeKeuze = { titel, items };
+  ga('#/kaart');
 });
 
 // Tik op een gebouw: één verhaal -> direct openen; meer verhalen -> kiezen.
 function kiesGebouw(groep) {
   if (groep.locaties.length === 1) return ga(`#/plek/${groep.locaties[0].id}`);
-  $('gebouwkeuze-titel').textContent = `${groep.gebouw.naam}: ${groep.locaties.length} verhalen`;
+  toonKeuze(`${groep.gebouw.naam}: ${groep.locaties.length} verhalen`, groep.locaties.map((loc) => ({ loc, sub: null })));
+}
+
+// Keuzelijst onderin over de kaart; items: [{ loc, sub }] (sub: vaste tweede regel, anders de afstand).
+function toonKeuze(titel, items) {
+  $('gebouwkeuze-titel').textContent = titel;
   const lijst = $('gebouwkeuze-lijst');
-  lijst.replaceChildren(...groep.locaties.map((loc) => plekKnop(loc)));
+  lijst.replaceChildren(...items.map(({ loc, sub }) => plekKnop(loc, sub)));
   // Paneel onderin over de kaart (zoals een kaart-app): de kaart blijft zichtbaar.
   gpsPaneelOpen = false;
   vulKaartGps();

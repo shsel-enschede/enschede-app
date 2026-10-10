@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v29';
+const VERSIE = 'v30';
 const CACHE = `enschede-app-${VERSIE}`;
 const FOTO_CACHE = 'enschede-fotos-v1'; // los van VERSIE: foto's blijven bewaard na een update
 
@@ -16,6 +16,7 @@ const APP_SCHIL = [
   'js/kaart.js',
   'js/gebouwen.js',
   'js/afstand.js',
+  'js/langs.js',
   'js/locatie.js',
   'js/hulp.js',
   'js/instellingen.js',
