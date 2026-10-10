@@ -371,11 +371,11 @@ path.wijkkaart--langs { stroke-width: 4px; stroke-dasharray: none; }
 .langs__tekst { flex: 1 1 180px; margin: 0; line-height: 1.35; }
 .langs__label { display: block; font-size: 0.875rem; color: var(--grijs); }
 .langs__vraag { display: block; color: var(--tekst); font-size: 0.9375rem; }
-.langs__knoppen { display: flex; gap: 8px; }
-.langs__bekijk, .langs__verder { min-height: 44px; padding: 8px 14px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer; }
-.langs__bekijk { background: var(--rood); color: #fff; border: 0; }
+.langs__bekijk {
+  flex: none; min-height: 44px; padding: 8px 18px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer;
+  background: var(--rood); color: #fff; border: 0;
+}
 .langs__bekijk:hover { background: var(--rood-donker); }
-.langs__verder { background: var(--wit); color: var(--tekst); border: 1px solid var(--grijs); }
 @media (prefers-reduced-motion: no-preference) {
   .langs:not([hidden]) { animation: langs-in 0.25s ease-out; }
   @keyframes langs-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

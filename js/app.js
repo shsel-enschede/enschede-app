@@ -324,10 +324,10 @@ function vulPlekken() {
 
 // ---------- "Je loopt langs …" ----------
 // Kom je (met GPS) toevallig bij een plek die je nog niet bezocht hebt, dan verschijnt onderin een rustige melding:
-// Bekijk of Verder lopen. Verder lopen telt als gewone keuze: die plek meldt zich deze sessie niet opnieuw.
+// alleen de knop Bekijk. Doorlopen hoeft geen keuze te zijn: loop je verder, dan verdwijnt de melding vanzelf
+// (buiten de straal plus de marge uit afstand.js). Geen knop "Verder lopen" (besluit René, okt 2026).
 // Niets wordt bewaard of verstuurd (zie CLAUDE.md, Veiligheid).
 
-const weggetikt = new Set(); // gebouw- of plek-sleutels, alleen in het geheugen
 let langsSleutel = null;
 let langsDoel = null;
 
@@ -346,7 +346,7 @@ function werkLangsBij() {
     const ter = alles.locaties
       .map((id) => inhoud.locaties.get(id))
       .filter((loc) => antwoordVan(loc.id) === null && indicaties.get(loc.id)?.soort === 'er')
-      .filter((loc) => sleutelVan(loc) !== hier && !weggetikt.has(sleutelVan(loc)))
+      .filter((loc) => sleutelVan(loc) !== hier)
       .sort((x, y) => indicaties.get(x.id).meters - indicaties.get(y.id).meters); // dichtstbijzijnde eerst
     if (ter.length) {
       const eerste = ter[0];
@@ -379,7 +379,7 @@ function werkLangsBij() {
   $('langs-vraag').textContent = doel.vraag;
   vak.hidden = false;
   markeerPlek(doel.kaartId); // de plek licht op de kaart kort op en blijft daarna iets dikker omrand
-  kondigAan(`Je loopt langs ${doel.naam}. ${doel.vraag} Onderin staan de knoppen Bekijk en Verder lopen.`);
+  kondigAan(`Je loopt langs ${doel.naam}. ${doel.vraag} Onderin staat de knop Bekijk.`);
   werkVoetBij();
 }
 
@@ -402,11 +402,6 @@ $('langs-bekijk').addEventListener('click', () => {
   kondigAan('');
   werkVoetBij();
   ga(`#/plek/${id}`);
-});
-$('langs-verder').addEventListener('click', () => {
-  if (langsDoel) weggetikt.add(langsDoel.sleutel);
-  werkLangsBij(); // eventueel meldt zich een andere plek waar je ook bent
-  el.hoofdknop.focus({ preventScroll: true });
 });
 
 // Tik op een gebouw: één verhaal -> direct openen; meer verhalen -> kiezen.
