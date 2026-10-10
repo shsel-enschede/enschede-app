@@ -298,6 +298,22 @@ body:has(#scherm-start:not([hidden])) {
 .wijkkaart__label--rechts { transform: translate(14px, -50%); }
 .wijkkaart__label--links  { transform: translate(calc(-100% - 14px), -50%); }
 .wijkkaart__label--klaar { color: var(--goed); border-color: var(--goed); }
+/* "Je loopt langs …": de plek blijft iets dikker omrand (ook bij 'minder beweging') en licht eerst twee keer zacht op.
+   Geen transform op het label: daarmee staat de naam op zijn plek (zie hierboven). */
+path.wijkkaart--langs { stroke-width: 4px; stroke-dasharray: none; }
+/* Rood vlak met witte letters, zoals de knop Bekijk: valt in één oogopslag op tussen de witte namen (pre-attentief).
+   Actierood: wit erop 6,4:1. */
+.wijkkaart__label.wijkkaart--langs { color: #fff; background: var(--rood); border-color: var(--rood); }
+@media (prefers-reduced-motion: no-preference) {
+  path.wijkkaart--puls { animation: plek-puls 1.2s ease-in-out 2; }
+  .wijkkaart__label.wijkkaart--puls { animation: label-puls 1.2s ease-in-out 2; }
+  @keyframes plek-puls {
+    50% { stroke-width: 10px; stroke-opacity: 0.55; fill-opacity: 0.45; }
+  }
+  @keyframes label-puls {
+    50% { box-shadow: 0 0 0 6px rgba(237, 29, 39, 0.25), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  }
+}
 .gebouwkeuze { padding: 12px; border: 1px solid var(--lijn); border-radius: var(--rond); }
 .gebouwkeuze__titel { margin: 0; font-weight: 600; }
 .gebouwkeuze .lijst { margin-top: 10px; }
@@ -354,12 +370,12 @@ body:has(#scherm-start:not([hidden])) {
 }
 .langs__tekst { flex: 1 1 180px; margin: 0; line-height: 1.35; }
 .langs__label { display: block; font-size: 0.875rem; color: var(--grijs); }
-.langs__sub { color: var(--grijs); font-size: 0.9375rem; }
-.langs__knoppen { display: flex; gap: 8px; }
-.langs__bekijk, .langs__verder { min-height: 44px; padding: 8px 14px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer; }
-.langs__bekijk { background: var(--rood); color: #fff; border: 0; }
+.langs__vraag { display: block; color: var(--tekst); font-size: 0.9375rem; }
+.langs__bekijk {
+  flex: none; min-height: 44px; padding: 8px 18px; border-radius: var(--rond); font: 600 1rem var(--letter); cursor: pointer;
+  background: var(--rood); color: #fff; border: 0;
+}
 .langs__bekijk:hover { background: var(--rood-donker); }
-.langs__verder { background: var(--wit); color: var(--tekst); border: 1px solid var(--grijs); }
 @media (prefers-reduced-motion: no-preference) {
   .langs:not([hidden]) { animation: langs-in 0.25s ease-out; }
   @keyframes langs-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
