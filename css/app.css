@@ -362,7 +362,8 @@ html:has(.fotovenster[open]) { overflow: hidden; }
 .fotovenster[open] { display: flex; flex-direction: column; }
 .fotovenster__balk { display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 4px 0 var(--ruimte); }
 .fotovenster__teller { font-size: 1rem; }
-.fotovenster__sluit { width: 48px; height: 48px; border: 0; border-radius: 50%; background: transparent; color: #FFFFFF; font-size: 1.5rem; cursor: pointer; }
+/* Altijd rechtsboven, ook als de teller er niet is (bij één foto). Vaste plek = voorspelbaar (WCAG 3.2.3). */
+.fotovenster__sluit { margin-left: auto; width: 48px; height: 48px; border: 0; border-radius: 50%; background: transparent; color: #FFFFFF; font-size: 1.5rem; cursor: pointer; }
 .fotovenster__rij { flex: 1; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior: contain; scrollbar-width: none; }
 .fotovenster__rij::-webkit-scrollbar { display: none; }
 .fotovenster__foto .foto__proef { position: static; align-self: flex-start; margin: 0 0 8px var(--ruimte); }
