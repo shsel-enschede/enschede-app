@@ -108,6 +108,7 @@ async function laadFotos(taal) {
         alt: isTekst(f.alt?.[taal], 300) ? f.alt[taal] : '',
         bijschrift: isTekst(f.bijschrift?.[taal], 300) ? f.bijschrift[taal] : '',
         bron: [f.bron, f.documentnummer].filter((x) => isTekst(x, 100)).join(', '),
+        maker: isTekst(f.bron, 100) ? f.bron : '', // alleen de bron zelf (bijv. SHSEL), voor de regel onder het mozaïek
       });
     }
   } catch (fout) {

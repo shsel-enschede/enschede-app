@@ -226,5 +226,16 @@
     </div>
     <button class="knop" id="hoofdknop" type="button">Begin</button>
   </footer>
+  <!-- Fotovenster: foto's groot, met bijschrift en bron. Vegen of de pijlen voor de volgende foto.
+       Sluiten met ✕, Escape of de terugknop van de telefoon (js/fotos.js). -->
+  <dialog class="fotovenster" id="fotovenster" aria-label="Foto's">
+    <div class="fotovenster__balk">
+      <span class="fotovenster__teller" id="fotovenster-teller" aria-live="polite"></span>
+      <button type="button" class="fotovenster__sluit" id="fotovenster-sluit" aria-label="Foto's sluiten">✕</button>
+    </div>
+    <div class="fotovenster__rij" id="fotovenster-rij"></div>
+    <button type="button" class="fotovenster__pijl fotovenster__pijl--vorige" id="fotovenster-vorige" aria-label="Vorige foto">‹</button>
+    <button type="button" class="fotovenster__pijl fotovenster__pijl--volgende" id="fotovenster-volgende" aria-label="Volgende foto">›</button>
+  </dialog>
 </body>
 </html>
