@@ -381,10 +381,10 @@ html:has(.fotovenster[open]) { overflow: hidden; }
 /* Opnieuw beginnen (in het menu): gewone knop, de bevestiging erna is het vangnet */
 .opnieuw__uitleg { margin: 0 0 12px; }
 .opnieuw__knop {
-  min-height: 44px; padding: 8px 16px; background: var(--wit); border: 2px solid var(--rood);
+  min-height: 44px; padding: 8px 16px; background: #FDF3F4; border: 2px solid var(--rood);
   border-radius: var(--rond); color: var(--rood); font: 600 1rem var(--letter); cursor: pointer;
 }
-.opnieuw__knop[aria-expanded="true"] { background: #FDF3F4; }
+.opnieuw__knop[aria-expanded="true"], .opnieuw__knop:hover { background: var(--fout-licht); }
 .opnieuw__klaar { margin: 32px 0 0; padding: 12px 14px; border-left: 6px solid var(--goed); background: var(--goed-licht); border-radius: var(--rond); color: var(--goed); font-weight: 600; }
 .opnieuw__vraag { margin-top: 8px; padding: 12px 14px; background: var(--fout-licht); border-radius: var(--rond); }
 .opnieuw__vraag p { margin: 0 0 10px; }
@@ -450,6 +450,8 @@ html:has(.fotovenster[open]) { overflow: hidden; }
 .menu__form { margin: 0; }
 .menu__kop { font: 400 1.4rem/1.2 var(--kopletter); margin: 28px 0 4px; }
 .menu > .menu__form > .menu__kop:first-child { margin-top: 4px; }
+/* "Over de Enschede app": duidelijk een nieuw deel (tekst) na de instellingen */
+.menu > .menu__kop { margin-top: 48px; }
 .menu__subkop { font: 700 1rem/1.3 var(--letter); margin: 20px 0 4px; }
 .menu__info p { margin: 8px 0; }
 .menu a, .ontdekt__antwoorden a, .antwoord__titel { color: var(--rood); font-weight: 600; }
