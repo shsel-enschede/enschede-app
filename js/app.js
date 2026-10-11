@@ -214,11 +214,6 @@ function kaartScherm() {
   zetHoofdknop(null); // op de kaart kiest de wandelaar zelf; bij een plek verschijnt "Je loopt langs …"
   werkLangsBij();
 
-  // Opnieuw beginnen: alleen zichtbaar als er iets te wissen is; bevestiging in de pagina zelf.
-  $('opnieuw').hidden = klaar === 0;
-  $('opnieuw-vraag').hidden = true;
-  $('opnieuw-knop').setAttribute('aria-expanded', 'false');
-
   $('gebouwkeuze').hidden = true;
   if (wachtendeKeuze) { toonKeuze(wachtendeKeuze.titel, wachtendeKeuze.items); wachtendeKeuze = null; }
   $('lijstgreep-tekst').textContent = `Alle ${totaal} plekken als lijst`;
@@ -805,6 +800,16 @@ function menuScherm() {
   menuForm.elements.antwoorden.value = i.antwoorden;
   menuForm.elements.taal.value = i.taal;
   $('info-aantal').textContent = `Er zijn nu ${totaal} plekken met een verhaal.`;
+
+  // Opnieuw beginnen: alleen zichtbaar als er iets te wissen is; bevestiging in de pagina zelf.
+  const klaar = aantalOntdekt();
+  $('opnieuw').hidden = klaar === 0;
+  $('opnieuw-uitleg').textContent = klaar === 1
+    ? 'Je hebt 1 plek ontdekt. Wil je de wandeling opnieuw doen? Dan kun je je antwoord wissen.'
+    : `Je hebt ${klaar} plekken ontdekt. Wil je de wandeling opnieuw doen? Dan kun je je antwoorden wissen.`;
+  $('opnieuw-vraag').hidden = true;
+  $('opnieuw-knop').setAttribute('aria-expanded', 'false');
+  $('opnieuw-klaar').hidden = true;
 }
 
 function sluitMenu() {
@@ -982,8 +987,10 @@ $('opnieuw-nee').addEventListener('click', () => {
 $('opnieuw-ja').addEventListener('click', () => {
   wisAntwoorden(allePlekken.map((loc) => loc.id));
   ontgrendeld.clear();
-  kaartScherm(); // scrollt naar boven: de lege voortgangsbalk laat direct zien dat het gelukt is
-  $('voortgang-tekst').textContent = 'Je antwoorden zijn gewist. Veel plezier met ontdekken!';
+  // Blijf in het menu (zoals bij de instellingen van een telefoon) en bevestig op dezelfde plek.
+  $('opnieuw').hidden = true;
+  $('opnieuw-klaar').hidden = false;
+  $('opnieuw-klaar').focus({ preventScroll: true });
 });
 
 el.terug.addEventListener('click', () => {

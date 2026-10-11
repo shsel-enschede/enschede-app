@@ -378,12 +378,14 @@ html:has(.fotovenster[open]) { overflow: hidden; }
 .fotovenster__pijl[hidden], .fotovenster__teller[hidden] { display: none; }
 .fotovenster button:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
 
-/* Route opnieuw beginnen */
-.opnieuw { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--lijn); }
+/* Opnieuw beginnen (in het menu): gewone knop, de bevestiging erna is het vangnet */
+.opnieuw__uitleg { margin: 8px 0 12px; }
 .opnieuw__knop {
-  min-height: 44px; padding: 8px 0; background: none; border: 0;
-  color: var(--grijs); font: inherit; text-decoration: underline; cursor: pointer;
+  min-height: 44px; padding: 8px 16px; background: var(--wit); border: 2px solid var(--rood);
+  border-radius: var(--rond); color: var(--rood); font: 600 1rem var(--letter); cursor: pointer;
 }
+.opnieuw__knop[aria-expanded="true"] { background: #FDF3F4; }
+.opnieuw__klaar { margin: 28px 0 0; padding: 12px 14px; border-left: 6px solid var(--goed); background: var(--goed-licht); border-radius: var(--rond); color: var(--goed); font-weight: 600; }
 .opnieuw__vraag { margin-top: 8px; padding: 12px 14px; background: var(--fout-licht); border-radius: var(--rond); }
 .opnieuw__vraag p { margin: 0 0 10px; }
 .opnieuw__knoppen { display: flex; flex-wrap: wrap; gap: 8px; }
