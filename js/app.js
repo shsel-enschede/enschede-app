@@ -40,7 +40,8 @@ const DICHTBIJ = 400; // meter
 const KEUZES_NA_ANTWOORD = 3;
 
 let inhoud = null;
-let alles = null; // alle plekken als één verzameling: { id, locaties: [ids] } (kaart.js kan later ook een thema of buurt tonen)
+let allePlekken = []; // alle geldige plekken (objecten uit inhoud.js), in de volgorde van de inhoud
+let kaartVerzameling = null; // dezelfde plekken voor kaart.js: { id, locaties: [ids] } (later kan ook een thema of buurt)
 let hoofdknopActie = null;
 let huidig = { scherm: 'start', loc: null };
 let lijstMetAfstand = false; // is de lijst al op afstand gesorteerd?
@@ -64,12 +65,12 @@ function terPlekkeModus() {
 
 // Het doel uit het menu, nooit meer dan er plekken zijn. Zonder doel: alle plekken.
 function doelAantal() {
-  const totaal = alles.locaties.length;
+  const totaal = allePlekken.length;
   return Math.min(instellingen().doel ?? totaal, totaal);
 }
 
 function heeftDoel() {
-  return instellingen().doel !== null && doelAantal() < alles.locaties.length;
+  return instellingen().doel !== null && doelAantal() < allePlekken.length;
 }
 
 function doelGehaald() {
@@ -83,14 +84,19 @@ function antwoordZichtbaar() {
 
 const plekken = (n) => `${n} ${n === 1 ? 'plek' : 'plekken'}`;
 
+/** Ontdekt = de vraag is beantwoord, goed of fout. */
+function isOntdekt(loc) {
+  return antwoordVan(loc.id) !== null;
+}
+
 function isOpen(loc) {
-  return !terPlekkeModus() || antwoordVan(loc.id) !== null || ontgrendeld.has(loc.id);
+  return !terPlekkeModus() || isOntdekt(loc) || ontgrendeld.has(loc.id);
 }
 
 function werkIndicatiesBij() {
   const p = positie();
   if (!p || !inhoud) return;
-  for (const loc of inhoud.locaties.values()) {
+  for (const loc of allePlekken) {
     const meters = afstandTot([p.lat, p.lng], {
       vorm: loc.gebouw ? bekendeVorm(loc.gebouw) : null,
       punt: [loc.positie.lat, loc.positie.lng],
@@ -171,16 +177,18 @@ function ga(pad) {
   location.hash = pad;
 }
 
+const naarKaart = () => ga('#/kaart');
+
 // ---------- Schermen ----------
 
 function startScherm() {
   toonScherm('start', 'Enschede app', { terug: false });
   huidig = { scherm: 'start', loc: null };
-  zetHoofdknop('Bekijk de kaart', () => ga('#/kaart'));
+  zetHoofdknop('Bekijk de kaart', naarKaart);
 }
 
 function aantalOntdekt() {
-  return alles.locaties.filter((id) => antwoordVan(id) !== null).length;
+  return allePlekken.filter(isOntdekt).length;
 }
 
 function kaartScherm() {
@@ -189,7 +197,7 @@ function kaartScherm() {
   gpsPaneelOpen = false;
   vulKaartGps();
 
-  const totaal = alles.locaties.length;
+  const totaal = allePlekken.length;
   const klaar = aantalOntdekt();
   const balk = $('voortgang');
   // Met een doel loopt de balk naar het doel, anders naar alle plekken.
@@ -198,7 +206,7 @@ function kaartScherm() {
   balk.setAttribute('aria-valuenow', String(Math.min(klaar, delen)));
   balk.setAttribute('aria-label', heeftDoel() ? 'Ontdekte plekken, op weg naar je doel' : 'Ontdekte plekken');
   // Eén schuin segment per plek, zoals de rode balk onderaan het briefpapier
-  balk.replaceChildren(...Array.from({ length: delen }, (_, i) => maak('span', i < klaar ? 'voortgang__deel voortgang__deel--klaar' : 'voortgang__deel')));
+  balk.replaceChildren(...balkSegmenten(delen, klaar));
   toonOntdekt(klaar, totaal);
   $('antwoorden-link').hidden = klaar === 0;
 
@@ -214,7 +222,7 @@ function kaartScherm() {
   $('gebouwkeuze').hidden = true;
   if (wachtendeKeuze) { toonKeuze(wachtendeKeuze.titel, wachtendeKeuze.items); wachtendeKeuze = null; }
   $('lijstgreep-tekst').textContent = `Alle ${totaal} plekken als lijst`;
-  toonKaart($('wijkkaart'), alles, inhoud, {
+  toonKaart($('wijkkaart'), kaartVerzameling, inhoud, {
     antwoordVan,
     kiesGroep: kiesGebouw,
     opLeegTik: sluitKaartpanelen,
@@ -229,7 +237,17 @@ function kaartScherm() {
 
 // Aantal segmenten in de voortgangsbalk: het doel, of alle plekken. Voorbij het doel groeit de balk mee.
 function balkDelen(klaar) {
-  return heeftDoel() ? Math.max(doelAantal(), klaar) : alles.locaties.length;
+  return heeftDoel() ? Math.max(doelAantal(), klaar) : allePlekken.length;
+}
+
+// Segmenten van de voortgangsbalk. 'nieuw': het laatste ontdekte segment loopt vol (mijlpaal na een antwoord).
+function balkSegmenten(delen, klaar, { nieuw = false } = {}) {
+  return Array.from({ length: delen }, (_, i) => {
+    let klasse = 'voortgang__deel';
+    if (i < klaar) klasse += ' voortgang__deel--klaar';
+    if (nieuw && i === klaar - 1) klasse += ' voortgang__deel--nieuw';
+    return maak('span', klasse);
+  });
 }
 
 // Voortgang als verzameling: tel wat je ontdekt hebt, niet wat je nog "moet".
@@ -265,21 +283,20 @@ function toonOntdekt(klaar, totaal) {
 // Per gebouw (of losse plek): naam, aantal verhalen en aantal ontdekt.
 function gebouwTellingen() {
   const map = new Map();
-  for (const id of alles.locaties) {
-    const loc = inhoud.locaties.get(id);
+  for (const loc of allePlekken) {
     const sleutel = loc.gebouw ?? `p:${loc.id}`;
     const naam = (loc.gebouw && inhoud.gebouwen.get(loc.gebouw)?.naam) || loc.titel;
     if (!map.has(sleutel)) map.set(sleutel, { sleutel, naam, totaal: 0, klaar: 0 });
     const t = map.get(sleutel);
     t.totaal += 1;
-    if (antwoordVan(id) !== null) t.klaar += 1;
+    if (isOntdekt(loc)) t.klaar += 1;
   }
   return [...map.values()];
 }
 
 // Eén plek als knop in een lijst. Geen nummers: die suggereren een volgorde.
 function plekKnop(loc, vasteSub = null) {
-  const bezocht = antwoordVan(loc.id) !== null;
+  const bezocht = isOntdekt(loc);
   const knop = maak('button', bezocht ? 'kaart kaart--bezocht' : 'kaart');
   knop.type = 'button';
   knop.append(maak('span', 'kaart__nr', bezocht ? '✓' : ''));
@@ -307,9 +324,8 @@ function lijstBlok(kop, locaties) {
 // Met GPS: "Dichtbij" en "Verder weg" als gelijkwaardige keuzes; zonder GPS op naam.
 // Ontdekte plekken onderaan. De volgorde ligt vast tot het scherm opnieuw opent (rustig beeld).
 function vulPlekken() {
-  const locs = alles.locaties.map((id) => inhoud.locaties.get(id));
-  const open = locs.filter((loc) => antwoordVan(loc.id) === null);
-  const bezocht = locs.filter((loc) => antwoordVan(loc.id) !== null);
+  const open = allePlekken.filter((loc) => !isOntdekt(loc));
+  const bezocht = allePlekken.filter(isOntdekt);
   const opNaam = (x, y) => x.titel.localeCompare(y.titel, 'nl');
   const meters = (loc) => indicaties.get(loc.id)?.meters;
   lijstMetAfstand = Boolean(positie()) && open.some((loc) => Number.isFinite(meters(loc)) && indicaties.get(loc.id).soort !== 'onzeker');
@@ -344,14 +360,13 @@ function sleutelVan(loc) {
 // Alle onontdekte plekken waar je nu bent, per gebouw samengenomen.
 function groepenBinnenStraal() {
   // Niet storen tijdens het lezen: op een open, nog niet beantwoorde plek geen melding.
-  const aanHetLezen = huidig.scherm === 'locatie' && isOpen(huidig.loc) && antwoordVan(huidig.loc.id) === null;
+  const aanHetLezen = huidig.scherm === 'locatie' && isOpen(huidig.loc) && !isOntdekt(huidig.loc);
   if (!positie() || aanHetLezen || (huidig.scherm !== 'kaart' && huidig.scherm !== 'locatie')) return [];
   const hier = huidig.loc ? sleutelVan(huidig.loc) : null;
   const per = new Map();
-  for (const id of alles.locaties) {
-    const loc = inhoud.locaties.get(id);
+  for (const loc of allePlekken) {
     const ind = indicaties.get(loc.id);
-    if (antwoordVan(loc.id) !== null || ind?.soort !== 'er' || sleutelVan(loc) === hier) continue;
+    if (isOntdekt(loc) || ind?.soort !== 'er' || sleutelVan(loc) === hier) continue;
     const sleutel = sleutelVan(loc);
     if (!per.has(sleutel)) {
       const gebouw = loc.gebouw ? inhoud.gebouwen.get(loc.gebouw) : null;
@@ -422,7 +437,7 @@ $('langs-bekijk').addEventListener('click', () => {
   const items = langsGroepen.flatMap((g) => g.locaties.map((loc) => ({ loc, sub: g.locaties.length > 1 && loc.titel !== g.naam ? g.naam : null })));
   if (huidig.scherm === 'kaart') return toonKeuze(titel, items);
   wachtendeKeuze = { titel, items };
-  ga('#/kaart');
+  naarKaart();
 });
 
 // Tik op een gebouw: één verhaal -> direct openen; meer verhalen -> kiezen.
@@ -513,7 +528,7 @@ function locatieScherm(loc, { netOpen = false } = {}) {
     $('slot-afstand').textContent = afstandTekst(loc) ?? '';
     vulGpsPaneel($('gps-locatie'));
     $('feedback').hidden = true;
-    zetHoofdknop('Terug naar de kaart', () => ga('#/kaart'));
+    zetHoofdknop('Terug naar de kaart', naarKaart);
     return;
   }
   $('locatie-tekst').textContent = loc.tekst;
@@ -548,20 +563,28 @@ function beantwoord(loc, keuze, knoppen) {
   toonUitslag(loc, keuze, knoppen, true);
 }
 
+// Een antwoordknop na het antwoorden: kleur, icoon (nooit alleen kleur) en een label voor schermlezers.
+function markeerOptie(knop, loc, i, soort, icoon, toelichting) {
+  knop.classList.add(`optie--${soort}`);
+  knop.append(maak('span', 'optie__icoon', icoon));
+  knop.setAttribute('aria-label', `${LETTERS[i]}: ${loc.opties[i]}, ${toelichting}`);
+}
+
+// Ruimte tussen kop- en voetbalk, om te bepalen wat na een antwoord in beeld kan blijven.
+function zichtbaarDeel() {
+  return {
+    kop: el.kop.getBoundingClientRect().bottom,
+    voet: el.voet.hidden ? innerHeight : el.voet.getBoundingClientRect().top,
+  };
+}
+
 function toonUitslag(loc, keuze, knoppen, net) {
   if (!antwoordZichtbaar()) return toonBewaard(loc, keuze, knoppen, net);
   const goed = keuze === loc.juist;
   knoppen.forEach((knop, i) => {
     knop.disabled = true;
-    if (i === loc.juist) {
-      knop.classList.add('optie--goed');
-      knop.append(maak('span', 'optie__icoon', '✓'));
-      knop.setAttribute('aria-label', `${LETTERS[i]}: ${loc.opties[i]}, juiste antwoord`);
-    } else if (i === keuze) {
-      knop.classList.add('optie--fout');
-      knop.append(maak('span', 'optie__icoon', '✗'));
-      knop.setAttribute('aria-label', `${LETTERS[i]}: ${loc.opties[i]}, jouw antwoord, niet juist`);
-    }
+    if (i === loc.juist) markeerOptie(knop, loc, i, 'goed', '✓', 'juiste antwoord');
+    else if (i === keuze) markeerOptie(knop, loc, i, 'fout', '✗', 'jouw antwoord, niet juist');
   });
 
   // Feedback: bij een fout antwoord het hele goede antwoord noemen, niet alleen de letter
@@ -588,8 +611,7 @@ function toonUitslag(loc, keuze, knoppen, net) {
     const mijlpaal = $('mijlpaal');
     const vervolg = !mijlpaal.hidden && mijlpaal.querySelector('.mijlpaal__lijst');
     requestAnimationFrame(() => {
-      const kop = el.kop.getBoundingClientRect().bottom;
-      const voet = el.voet.hidden ? innerHeight : el.voet.getBoundingClientRect().top;
+      const { kop, voet } = zichtbaarDeel();
       const ruimte = voet - kop - 24;
       const onderkant = (vervolg ? mijlpaal : fb).getBoundingClientRect().bottom;
       if (onderkant - bovenste.getBoundingClientRect().top <= ruimte) {
@@ -605,8 +627,8 @@ function toonUitslag(loc, keuze, knoppen, net) {
   werkLangsBij();
 
   // Geen voorgeschreven volgende plek: de wandelaar kiest zelf uit "Ook in de buurt" of de kaart.
-  const klaar = aantalOntdekt();
-  zetHoofdknop(klaar === alles.locaties.length ? 'Alles ontdekt! Bekijk de kaart' : 'Terug naar de kaart', () => ga('#/kaart'));
+  const allesOntdekt = aantalOntdekt() === allePlekken.length;
+  zetHoofdknop(allesOntdekt ? 'Alles ontdekt! Bekijk de kaart' : 'Terug naar de kaart', naarKaart);
 }
 
 // Antwoorden aan het eind (menu): alleen laten zien welk antwoord je koos, niet of het goed is.
@@ -614,17 +636,13 @@ function toonUitslag(loc, keuze, knoppen, net) {
 function toonBewaard(loc, keuze, knoppen, net) {
   knoppen.forEach((knop, i) => {
     knop.disabled = true;
-    if (i === keuze) {
-      knop.classList.add('optie--gekozen');
-      knop.append(maak('span', 'optie__icoon', '●'));
-      knop.setAttribute('aria-label', `${LETTERS[i]}: ${loc.opties[i]}, jouw antwoord`);
-    }
+    if (i === keuze) markeerOptie(knop, loc, i, 'gekozen', '●', 'jouw antwoord');
   });
   const fb = $('feedback');
   fb.className = 'feedback feedback--bewaard';
   const wanneer = heeftDoel()
     ? `als je ${plekken(doelAantal())} hebt ontdekt`
-    : `als je alle ${alles.locaties.length} plekken hebt ontdekt`;
+    : `als je alle ${allePlekken.length} plekken hebt ontdekt`;
   fb.replaceChildren(
     maak('strong', 'feedback__kop', '✓ Antwoord bewaard'),
     maak('span', 'feedback__uitleg', `Of het goed is, zie je in "Mijn antwoorden" ${wanneer}.`),
@@ -635,15 +653,14 @@ function toonBewaard(loc, keuze, knoppen, net) {
   if (net) {
     // In beeld: je keuze, de melding en de mijlpaal. Past dat niet, dan de melding bovenaan.
     requestAnimationFrame(() => {
-      const kop = el.kop.getBoundingClientRect().bottom;
-      const voet = el.voet.hidden ? innerHeight : el.voet.getBoundingClientRect().top;
+      const { kop, voet } = zichtbaarDeel();
       const onder = ($('mijlpaal').hidden ? fb : $('mijlpaal')).getBoundingClientRect().bottom;
       const boven = knoppen[keuze].getBoundingClientRect().top;
       (onder - boven <= voet - kop - 24 ? knoppen[keuze] : fb).scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
     });
   }
   werkLangsBij();
-  zetHoofdknop('Terug naar de kaart', () => ga('#/kaart'));
+  zetHoofdknop('Terug naar de kaart', naarKaart);
 }
 
 // Direct na een antwoord: wat dit toevoegt aan je verzameling (ook bij een fout antwoord telt de plek).
@@ -654,8 +671,9 @@ function toonMijlpaal(loc) {
   const klaar = aantalOntdekt();
   const doel = heeftDoel() ? doelAantal() : null;
   const doelNetGehaald = doel !== null && klaar === doel;
+  const allesOntdekt = klaar === allePlekken.length;
   let tekst;
-  if (klaar === alles.locaties.length) tekst = `✓ Je hebt alle ${klaar} plekken ontdekt!`;
+  if (allesOntdekt) tekst = `✓ Je hebt alle ${klaar} plekken ontdekt!`;
   else if (doelNetGehaald) tekst = `✓ Doel gehaald! Je hebt ${plekken(doel)} ontdekt.`;
   else if (t && t.totaal > 1 && t.klaar === t.totaal) tekst = `✓ Alle ${t.totaal} verhalen bij ${t.naam} ontdekt!`;
   else if (t && t.totaal > 1) tekst = `${t.naam}: ${t.klaar} van ${t.totaal} verhalen ontdekt.`;
@@ -665,18 +683,16 @@ function toonMijlpaal(loc) {
   if (!tekst.startsWith('✓')) tekst = `✓ ${tekst}`;
   const balk = maak('div', 'voortgang mijlpaal__balk');
   balk.setAttribute('aria-hidden', 'true');
-  balk.append(...Array.from({ length: balkDelen(klaar) }, (_, i) => maak('span',
-    i < klaar - 1 ? 'voortgang__deel voortgang__deel--klaar'
-      : i === klaar - 1 ? 'voortgang__deel voortgang__deel--klaar voortgang__deel--nieuw' : 'voortgang__deel')));
+  balk.append(...balkSegmenten(balkDelen(klaar), klaar, { nieuw: true }));
   const extra = [];
   // Antwoorden aan het eind: nu het doel gehaald is, kun je ze allemaal bekijken.
-  if (instellingen().antwoorden === 'eind' && (doelNetGehaald || klaar === alles.locaties.length)) {
+  if (instellingen().antwoorden === 'eind' && (doelNetGehaald || allesOntdekt)) {
     const link = maak('a', 'mijlpaal__knop', 'Bekijk al je antwoorden');
     link.href = '#/antwoorden';
     extra.push(link);
   }
   p.replaceChildren(maak('p', 'mijlpaal__tekst', tekst), balk, ...extra, ...overigeVerhalen(loc));
-  p.classList.toggle('mijlpaal--af', klaar === alles.locaties.length || doelNetGehaald || (t && t.totaal > 1 && t.klaar === t.totaal));
+  p.classList.toggle('mijlpaal--af', allesOntdekt || doelNetGehaald || (t && t.totaal > 1 && t.klaar === t.totaal));
   p.hidden = false;
 }
 
@@ -684,10 +700,7 @@ function toonMijlpaal(loc) {
 // zodat je het tweede verhaal niet over het hoofd ziet (en het onaf-gevoel meteen een uitweg heeft).
 function overigeVerhalen(loc) {
   if (!loc.gebouw) return [];
-  const overig = alles.locaties
-    .filter((id) => id !== loc.id && antwoordVan(id) === null)
-    .map((id) => inhoud.locaties.get(id))
-    .filter((ander) => ander.gebouw === loc.gebouw);
+  const overig = allePlekken.filter((ander) => ander !== loc && !isOntdekt(ander) && ander.gebouw === loc.gebouw);
   if (!overig.length) return [];
   const naam = inhoud.gebouwen.get(loc.gebouw)?.naam ?? '';
   const lijst = maak('ul', 'lijst mijlpaal__lijst');
@@ -735,17 +748,16 @@ async function toonDichtbij(loc, inMijlpaal) {
       if (huidig.loc !== loc) return; // inmiddels naar een ander scherm
     }
   }
-  const kandidaten = alles.locaties
-    .filter((id) => id !== loc.id && antwoordVan(id) === null)
-    .filter((id) => !inMijlpaal || !loc.gebouw || inhoud.locaties.get(id).gebouw !== loc.gebouw)
-    .map((id) => {
-      const ander = inhoud.locaties.get(id);
+  const kandidaten = allePlekken
+    .filter((ander) => ander !== loc && !isOntdekt(ander))
+    .map((ander) => {
       const zelfdeGebouw = Boolean(loc.gebouw) && ander.gebouw === loc.gebouw;
       const meters = metGps
-        ? indicaties.get(id)?.meters ?? Infinity
+        ? indicaties.get(ander.id)?.meters ?? Infinity
         : afstandTussen(loc, ander);
       return { ander, zelfdeGebouw, meters };
     })
+    .filter(({ zelfdeGebouw }) => !inMijlpaal || !zelfdeGebouw) // die staan al in de mijlpaal
     .sort((x, y) => (y.zelfdeGebouw - x.zelfdeGebouw) || (x.meters - y.meters))
     // Echte keuze in richting: van elk ander gebouw maar één plek.
     .filter(({ ander, zelfdeGebouw }, _, lijst) => zelfdeGebouw || !ander.gebouw
@@ -754,7 +766,7 @@ async function toonDichtbij(loc, inMijlpaal) {
 
   if (!kandidaten.length) {
     // Alleen nog verhalen bij dit gebouw over? Die staan al in de mijlpaal.
-    if (alles.locaties.some((id) => antwoordVan(id) === null)) { vak.hidden = true; return; }
+    if (allePlekken.some((ander) => !isOntdekt(ander))) { vak.hidden = true; return; }
     vak.replaceChildren(maak('p', 'dichtbij__klaar', 'Je hebt alle plekken ontdekt. Knap gedaan!'));
     vak.hidden = false;
     return;
@@ -781,7 +793,7 @@ function menuScherm() {
   huidig = { scherm: 'menu', loc: null };
   zetHoofdknop('Klaar', sluitMenu);
   const i = instellingen();
-  const totaal = alles.locaties.length;
+  const totaal = allePlekken.length;
   const standaard = inhoud.instellingen.ontgrendelen;
   menuForm.elements.openen.value = openenModus();
   for (const s of document.querySelectorAll('[data-standaard]')) s.hidden = s.dataset.standaard !== standaard;
@@ -798,11 +810,11 @@ function menuScherm() {
 function sluitMenu() {
   // Terug naar waar je was; geopend via een link (geen geschiedenis): naar de kaart.
   if (history.length > 1 && huidig.scherm === 'menu') history.back();
-  else ga('#/kaart');
+  else naarKaart();
 }
 
 function bewaarDoel() {
-  const totaal = alles.locaties.length;
+  const totaal = allePlekken.length;
   const getal = Math.round(Number($('doel-aantal').value));
   const doel = Number.isFinite(getal) ? Math.min(Math.max(getal, 1), totaal) : Math.min(10, totaal);
   $('doel-aantal').value = String(doel);
@@ -847,10 +859,9 @@ function werkTestUitlegBij() {
 function antwoordenScherm() {
   toonScherm('antwoorden', 'Mijn antwoorden');
   huidig = { scherm: 'antwoorden', loc: null };
-  zetHoofdknop('Terug naar de kaart', () => ga('#/kaart'));
-  const ontdekt = alles.locaties
-    .map((id) => inhoud.locaties.get(id))
-    .filter((loc) => antwoordVan(loc.id) !== null)
+  zetHoofdknop('Terug naar de kaart', naarKaart);
+  const ontdekt = allePlekken
+    .filter(isOntdekt)
     .sort((x, y) => x.titel.localeCompare(y.titel, 'nl'));
   const zichtbaar = antwoordZichtbaar();
   const intro = $('antwoorden-intro');
@@ -969,7 +980,7 @@ $('opnieuw-nee').addEventListener('click', () => {
   $('opnieuw-knop').focus();
 });
 $('opnieuw-ja').addEventListener('click', () => {
-  wisAntwoorden(alles.locaties);
+  wisAntwoorden(allePlekken.map((loc) => loc.id));
   ontgrendeld.clear();
   kaartScherm(); // scrollt naar boven: de lege voortgangsbalk laat direct zien dat het gelukt is
   $('voortgang-tekst').textContent = 'Je antwoorden zijn gewist. Veel plezier met ontdekken!';
@@ -999,7 +1010,8 @@ async function start() {
     inhoud = await laadInhoud('nl');
     if (!inhoud.locaties.size) throw new Error('Geen plekken gevonden');
     // Alle geldige plekken samen; routes uit de inhoud worden (nog) niet gebruikt.
-    alles = { id: 'alles', locaties: [...inhoud.locaties.keys()] };
+    allePlekken = [...inhoud.locaties.values()];
+    kaartVerzameling = { id: 'alles', locaties: allePlekken.map((loc) => loc.id) };
     // Testfase (SHSEL-instelling "overal"): label "Test" in de kop. De zin op het startscherm volgt
     // de keuze in het menu (niet in de voetbalk: die ruimte is voor knoppen).
     const testfase = inhoud.instellingen.ontgrendelen === 'overal';

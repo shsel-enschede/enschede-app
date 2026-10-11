@@ -9,9 +9,8 @@
 
 import { vormVan } from './gebouwen.js';
 import { scrolGedrag } from './hulp.js';
+import { PDOK_KAART, GRENZEN, MIDDEN, binnenKaart } from './kaartgegevens.js';
 
-const PDOK_TEGELS = 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png';
-const GRENZEN = [[52.15, 6.75], [52.30, 7.00]]; // ruim rond Enschede
 const KLEIN_OBJECT = 10; // meter: een vorm kleiner dan dit krijgt een groter tikvlak
 
 // bubblingMouseEvents: false = een tik op een gebouw telt niet ook als tik op de lege kaart.
@@ -189,9 +188,9 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
       maxBounds: GRENZEN,
       maxBoundsViscosity: 0.8,
       attributionControl: true,
-    }).setView([52.2218, 6.8935], 17);
+    }).setView(MIDDEN, 17);
     kaart.attributionControl.setPrefix(false);
-    L.tileLayer(PDOK_TEGELS, {
+    L.tileLayer(PDOK_KAART, {
       maxNativeZoom: 19,
       maxZoom: 20,
       attribution: 'Kaart: PDOK / Kadaster',
@@ -238,6 +237,17 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
   if (mislukt) opties.meld?.('Niet alle gebouwen konden worden opgezocht. Ze staan als stip op de kaart.');
 }
 
+// Zet een naam op een plaats rond het object en geef de rechthoek die hij dan inneemt.
+function zetPlaats(span, positie) {
+  span.classList.remove(...POSITIE_KLASSEN);
+  span.classList.add(`wijkkaart__label--${positie}`);
+  return span.getBoundingClientRect();
+}
+
+function voorkeursplaats(span, groep) {
+  return zetPlaats(span, posities(groep)[0]);
+}
+
 // Namen mogen elkaar niet overlappen. Bij elke zoomstap: plaats de namen één voor één.
 // Volgorde: eerst gebouwen die nog niet ontdekt zijn (die wil je vinden), dan kleine objecten
 // (een groot gebouw herken je ook zonder naam aan zijn vorm, een zonnewijzer niet), dan de meeste verhalen.
@@ -245,13 +255,6 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
 // (bijv. de straatkant van de zonnewijzer). Past geen enkele, dan wordt de naam verborgen;
 // het gebouw zelf (of de stip van een klein object) blijft zichtbaar en aantikbaar, en inzoomen maakt
 // de naam weer zichtbaar. Wie de kaart niet kan of wil gebruiken, heeft de lijst onder de kaart.
-// Zet een naam op zijn voorkeursplaats en geef de rechthoek die hij dan inneemt.
-function voorkeursplaats(span, groep) {
-  span.classList.remove(...POSITIE_KLASSEN);
-  span.classList.add(`wijkkaart__label--${posities(groep)[0]}`);
-  return span.getBoundingClientRect();
-}
-
 function ontwar() {
   if (!kaart) return;
   const MARGE = 4; // px lucht tussen twee namen
@@ -290,9 +293,7 @@ function ontwar() {
     const anderen = stippen.filter((s) => s.eigenaar !== groep);
     let gevonden = null;
     for (const positie of posities(groep)) {
-      span.classList.remove(...POSITIE_KLASSEN);
-      span.classList.add(`wijkkaart__label--${positie}`);
-      const r = span.getBoundingClientRect();
+      const r = zetPlaats(span, positie);
       if (!r.width) break; // kaart (nog) niet zichtbaar
       if (!botst(r, geplaatst, MARGE) && !botst(r, anderen, 0)) { gevonden = { positie, r }; break; }
     }
@@ -310,8 +311,7 @@ function ontwar() {
     } else {
       // Niets past: terug naar de voorkeursplaats en verbergen tot je inzoomt.
       groep.positie = null;
-      span.classList.remove(...POSITIE_KLASSEN);
-      span.classList.add(`wijkkaart__label--${posities(groep)[0]}`);
+      voorkeursplaats(span, groep);
       icoon.classList.add('wijkkaart__anker--verborgen');
     }
   }
@@ -333,11 +333,9 @@ function ververs(antwoordVan) {
 
 /** Schuif de kaart naar je positie, maar alleen als die binnen het kaartgebied (Enschede) ligt. */
 export function centreer(positie) {
-  const L = window.L;
-  if (!L || !kaart || !positie) return;
-  const ll = L.latLng(positie.lat, positie.lng);
-  if (!L.latLngBounds(GRENZEN).contains(ll)) return;
-  kaart.setView(ll, Math.max(kaart.getZoom(), 17), { animate: scrolGedrag() === 'smooth' });
+  if (!kaart || !positie) return;
+  if (!binnenKaart(positie.lat, positie.lng)) return;
+  kaart.setView([positie.lat, positie.lng], Math.max(kaart.getZoom(), 17), { animate: scrolGedrag() === 'smooth' });
 }
 
 /** Toon (of verberg, met null) de eigen positie als blauwe stip met een cirkel voor de onzekerheid. */

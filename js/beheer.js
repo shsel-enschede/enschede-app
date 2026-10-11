@@ -5,7 +5,8 @@
 // Alle teksten uit de inhoud en van GitHub gaan via textContent op het scherm, nooit via innerHTML (zie CLAUDE.md).
 
 import { controleerLocatie, geldigBestand, LOKAAL } from './inhoud.js';
-import { maak } from './hulp.js';
+import { maak, ID_PATROON, heeftHuisnummer } from './hulp.js';
+import { PDOK_KAART, PDOK_LUCHTFOTO, GRENZEN, MIDDEN, binnenKaart } from './kaartgegevens.js';
 import { zoekAdres, zoekPand } from './gebouwen.js';
 import { schrijfadvies, woorden, zinnen } from './schrijfhulp.js';
 import * as gh from './github.js';
@@ -15,11 +16,6 @@ const CONCEPT_SLEUTEL = 'enschede-app:beheer-concept:v2';
 const OUD_CONCEPT = 'enschede-app:beheer-concept:v1';
 const PAD = 'content/locaties.json';
 const LIVE_EDITOR = 'https://shsel-enschede.github.io/enschede-app/beheer.html';
-const TEGELS = {
-  kaart: 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png',
-  luchtfoto: 'https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueel_orthoHR/EPSG:3857/{z}/{x}/{y}.jpeg',
-};
-const ID_PATROON = /^[a-z0-9-]{1,60}$/;
 const $ = (id) => document.getElementById(id);
 
 let origineel = '';      // de versie van locaties.json waarop je werk gebaseerd is
@@ -38,10 +34,6 @@ let kaart;
 let lagen;
 let speld;
 const overlay = { anderen: null, gebouw: null, tekening: null, linkpunt: null };
-
-// Grenzen van de kaart (zie maakKaart). Een link met een punt daarbuiten wordt genegeerd.
-const GRENS = { latMin: 52.15, latMax: 52.3, lngMin: 6.75, lngMax: 7.0 };
-const MIDDEN = [52.2219, 6.894]; // Oude Markt: beginbeeld als een plek nog geen positie heeft
 
 // ---------- Hulpjes ----------
 
@@ -64,8 +56,32 @@ function fotoNaam(id) {
   return (f ? `${f.bron ?? ''} ${f.documentnummer ?? ''}`.trim() : '') || id;
 }
 
-function luchtfotoLink(id, punt) {
-  return `${LIVE_EDITOR}#${new URLSearchParams({ plek: id, lat: punt.lat.toFixed(6), lng: punt.lng.toFixed(6) })}`;
+/**
+ * Link naar een positie op de luchtfoto: <pagina>#plek=<id>&lat=<breedte>&lng=<lengte> (zie volgLink()).
+ * Standaard naar de live editor (voor in een voorstel op GitHub); in de editor zelf naar deze pagina.
+ */
+function luchtfotoLink(id, punt, pagina = LIVE_EDITOR) {
+  return `${pagina}#${new URLSearchParams({ plek: id, lat: punt.lat.toFixed(6), lng: punt.lng.toFixed(6) })}`;
+}
+
+const dezePagina = () => location.href.split('#')[0];
+
+/** De versie waarop je werk gebaseerd is, als object. */
+function basisVersie() {
+  return JSON.parse(origineel);
+}
+
+/** Opnieuw beginnen vanaf een versie van locaties.json: geen eigen wijzigingen meer. */
+function beginVanaf(versie) {
+  origineel = alsTekst(versie);
+  data = JSON.parse(origineel);
+  data.gebouwen ??= [];
+}
+
+/** Zet een tekstveld, of haal het weg als het leeg is (geen lege velden in het bestand). */
+function zetOfWis(object, veld, waarde) {
+  if (waarde.trim()) object[veld] = waarde;
+  else delete object[veld];
 }
 
 function bewaarConcept() {
@@ -127,7 +143,7 @@ function leesConcept() {
 function zetOpNieuwste(nieuwste) {
   const vers = alsTekst(nieuwste);
   if (vers === origineel) return;
-  const { resultaat, botsingen } = voegSamen(JSON.parse(origineel), data, nieuwste);
+  const { resultaat, botsingen } = voegSamen(basisVersie(), data, nieuwste);
   if (botsingen.length) return;
   origineel = vers;
   data = resultaat;
@@ -146,11 +162,10 @@ async function laad() {
     meld(voorstel
       ? 'Je was je voorstel aan het aanpassen. Dat werk is teruggezet.'
       : 'Je eerdere, nog niet verstuurde werk is teruggezet. Wil je opnieuw beginnen? Kies onderaan "Wijzigingen weggooien".');
+    data.gebouwen ??= [];
   } else {
-    origineel = alsTekst(locaties);
-    data = JSON.parse(origineel);
+    beginVanaf(locaties);
   }
-  data.gebouwen ??= [];
 }
 
 // ---------- Plek kiezen ----------
@@ -209,7 +224,7 @@ function plekStatus() {
 
 /** Staat deze plek nog niet op GitHub (dus net in deze editor toegevoegd)? Dan mag hij ook weer weg. */
 function isNieuw(loc) {
-  try { return !JSON.parse(origineel).locaties.some((l) => l.id === loc.id); } catch { return false; }
+  try { return !basisVersie().locaties.some((l) => l.id === loc.id); } catch { return false; }
 }
 
 function nieuwePlek() {
@@ -238,7 +253,7 @@ function plekWeg() {
   // Een gebouw dat alleen voor deze nieuwe plek gemaakt is, gaat ook weg.
   const g = gebouwVan(weg.gebouw);
   let gebouwOrigineel = false;
-  try { gebouwOrigineel = JSON.parse(origineel).gebouwen?.some((x) => x.id === g?.id); } catch { /* niets */ }
+  try { gebouwOrigineel = basisVersie().gebouwen?.some((x) => x.id === g?.id); } catch { /* niets */ }
   if (g && !gebouwOrigineel && !data.locaties.some((l) => l.gebouw === g.id)) data.gebouwen = data.gebouwen.filter((x) => x !== g);
   plek = null;
   vulPlekken();
@@ -375,16 +390,16 @@ function koppelVerhaal() {
 
 function maakKaart() {
   const L = window.L;
-  kaart = L.map('kaart', { maxZoom: 21, maxBounds: [[GRENS.latMin, GRENS.lngMin], [GRENS.latMax, GRENS.lngMax]] }).setView([52.2219, 6.894], 17);
+  kaart = L.map('kaart', { maxZoom: 21, maxBounds: GRENZEN }).setView(MIDDEN, 17);
   kaart.attributionControl.setPrefix(false);
   lagen = {
-    kaart: L.tileLayer(TEGELS.kaart, { maxNativeZoom: 19, maxZoom: 21, attribution: 'Kaart: PDOK / Kadaster' }),
-    luchtfoto: L.tileLayer(TEGELS.luchtfoto, { maxNativeZoom: 19, maxZoom: 21, attribution: 'Luchtfoto: PDOK / Beeldmateriaal Nederland' }),
+    kaart: L.tileLayer(PDOK_KAART, { maxNativeZoom: 19, maxZoom: 21, attribution: 'Kaart: PDOK / Kadaster' }),
+    luchtfoto: L.tileLayer(PDOK_LUCHTFOTO, { maxNativeZoom: 19, maxZoom: 21, attribution: 'Luchtfoto: PDOK / Beeldmateriaal Nederland' }),
   };
   lagen.kaart.addTo(kaart);
 
   const icoon = L.divIcon({ className: 'speld', iconSize: [28, 28], iconAnchor: [14, 28] });
-  speld = L.marker([52.2219, 6.894], { draggable: true, icon: icoon, keyboard: true, title: 'Positie van de plek', alt: 'Positie van de plek' }).addTo(kaart);
+  speld = L.marker(MIDDEN, { draggable: true, icon: icoon, keyboard: true, title: 'Positie van de plek', alt: 'Positie van de plek' }).addTo(kaart);
   speld.on('dragend', () => zetPositie(speld.getLatLng()));
 
   kaart.on('click', (e) => {
@@ -411,10 +426,7 @@ function kiesLaag(naam) {
 // dan verschijnt het als blauw rondje en kun je de speld er zelf naartoe slepen.
 
 function maakLink() {
-  if (!plek.positie) return null;
-  const url = new URL(location.href);
-  url.hash = new URLSearchParams({ plek: plek.id, lat: plek.positie.lat.toFixed(6), lng: plek.positie.lng.toFixed(6) }).toString();
-  return url.toString();
+  return plek.positie ? luchtfotoLink(plek.id, plek.positie, dezePagina()) : null;
 }
 
 function toonLink() {
@@ -442,8 +454,7 @@ function leesLink() {
   const lat = Number(p.get('lat'));
   const lng = Number(p.get('lng'));
   const plekOk = id !== null && ID_PATROON.test(id) && data.locaties.some((l) => l.id === id);
-  const puntOk = Number.isFinite(lat) && Number.isFinite(lng)
-    && lat >= GRENS.latMin && lat <= GRENS.latMax && lng >= GRENS.lngMin && lng <= GRENS.lngMax;
+  const puntOk = Number.isFinite(lat) && Number.isFinite(lng) && binnenKaart(lat, lng);
   return { id: plekOk ? id : null, punt: puntOk ? { lat, lng } : null };
 }
 
@@ -461,11 +472,12 @@ function volgLink() {
   overlay.linkpunt = null;
   if (punt) {
     const verschil = plek.positie ? kaart.distance([punt.lat, punt.lng], [plek.positie.lat, plek.positie.lng]) : Infinity;
+    const blauwRondje = () => window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
     if (!plek.positie) {
-      overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
+      overlay.linkpunt = blauwRondje();
       $('link-status').textContent = 'Het blauwe rondje is het punt uit de link. Deze plek heeft nog geen positie: tik op het rondje om het over te nemen.';
     } else if (verschil > 1) {
-      overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
+      overlay.linkpunt = blauwRondje();
       $('link-status').textContent = `Het blauwe rondje is het punt uit de link. Het ligt ${Math.round(verschil)} m van de opgeslagen positie (rode speld).`;
     }
     kaart.setView([punt.lat, punt.lng], 20);
@@ -559,7 +571,7 @@ function tekenOmtrek(g) {
 
 async function zoekInKadaster() {
   const g = gebouwVan(plek.gebouw);
-  if (!g?.adres || !/\d/.test(g.adres)) {
+  if (!heeftHuisnummer(g?.adres)) {
     $('kadaster-status').textContent = 'Vul eerst een adres met huisnummer in.';
     return;
   }
@@ -594,7 +606,7 @@ async function zoekAlleAdressen() {
   const perGebouw = new Map();
   for (const loc of data.locaties) {
     const g = gebouwVan(loc.gebouw);
-    if (loc.positie || !g?.adres || !/\d/.test(g.adres)) continue;
+    if (loc.positie || !heeftHuisnummer(g?.adres)) continue;
     if (!perGebouw.has(g.id)) perGebouw.set(g.id, { g, plekken: [] });
     perGebouw.get(g.id).plekken.push(loc);
   }
@@ -768,7 +780,7 @@ function controleer(d = data) {
   for (const g of d.gebouwen ?? []) {
     if (!g.naam) fouten.push(`Gebouw ${g.id}: naam ontbreekt`);
     const heeftVorm = Array.isArray(g.vorm) && g.vorm.length >= 3;
-    if (inApp.has(g.id) && !heeftVorm && !(g.adres && /\d/.test(g.adres))) fouten.push(`Gebouw ${g.naam || g.id}: adres met huisnummer of eigen omtrek nodig`);
+    if (inApp.has(g.id) && !heeftVorm && !heeftHuisnummer(g.adres)) fouten.push(`Gebouw ${g.naam || g.id}: adres met huisnummer of eigen omtrek nodig`);
   }
   return fouten;
 }
@@ -783,7 +795,7 @@ function toonWijzigingen(lijst, wijzigingen, leeg) {
     for (const regel of w.regels) ul.append(maak('li', '', regel));
     if (w.punt && w.id) {
       const a = maak('a', '', 'Bekijk de nieuwe positie op de luchtfoto');
-      a.href = luchtfotoLink(w.id, w.punt).replace(LIVE_EDITOR, new URL('beheer.html', location.href).href);
+      a.href = luchtfotoLink(w.id, w.punt, new URL('beheer.html', location.href).href);
       const r = maak('li');
       r.append(a);
       ul.append(r);
@@ -801,7 +813,7 @@ function heeftWijziging() {
 function werkUitvoerBij() {
   const tekst = alsTekst(data);
   $('uitvoer').value = tekst;
-  const wijzigingen = beschrijf(JSON.parse(origineel), data, fotoNaam);
+  const wijzigingen = beschrijf(basisVersie(), data, fotoNaam);
   toonWijzigingen($('wijzigingen'), wijzigingen, 'Nog niets gewijzigd.');
 
   const fouten = controleer();
@@ -941,7 +953,7 @@ async function verstuur() {
     const mainKop = await gh.takSha(gh.HOOFDTAK);
     const hunTekst = await gh.leesBestand(PAD, mainKop);
     const hun = JSON.parse(hunTekst);
-    const basis = JSON.parse(origineel);
+    const basis = basisVersie();
     // Heeft iemand anders intussen een plek met hetzelfde id of nummer toegevoegd? Dan krijgt de jouwe een vrij nummer.
     const mijn = structuredClone(data);
     const hernoemd = maakNieuwUniek(basis, mijn, hun);
@@ -957,8 +969,7 @@ async function verstuur() {
     if (!wijzigingen.length && !voorstel) {
       zetStatus('Je wijzigingen staan al in de app. Er hoeft niets verstuurd te worden.', true);
       wisConcept();
-      origineel = alsTekst(hun);
-      data = JSON.parse(origineel);
+      beginVanaf(hun);
       herteken(plek?.id);
       return;
     }
@@ -1006,9 +1017,7 @@ async function verstuur() {
     voorstel = null;
     keuzes = {};
     $('toelichting').value = '';
-    origineel = alsTekst(hun);
-    data = JSON.parse(origineel);
-    data.gebouwen ??= [];
+    beginVanaf(hun);
     herteken(plek?.id);
     verversLijsten();
   } catch (fout) {
@@ -1217,7 +1226,7 @@ async function pasAan(v) {
     keuzes = {};
     $('botsing').hidden = true;
     zetStatus('');
-    const eerste = beschrijf(JSON.parse(origineel), data).find((w) => w.id);
+    const eerste = beschrijf(basisVersie(), data).find((w) => w.id);
     herteken(eerste?.id ?? plek?.id);
     bewaarConcept();
     $('lijst-status').textContent = '';
@@ -1288,17 +1297,8 @@ function koppel() {
     gewijzigd();
   });
   $('gebouw-adres').addEventListener('change', vulGebouwKeuze);
-  $('gebouw-opmerking').addEventListener('input', (e) => {
-    const g = gebouwVan(plek.gebouw);
-    if (e.target.value.trim()) g.toelichting = e.target.value;
-    else delete g.toelichting;
-    gewijzigd();
-  });
-  $('plek-opmerking').addEventListener('input', (e) => {
-    if (e.target.value.trim()) plek.opmerking = e.target.value;
-    else delete plek.opmerking;
-    gewijzigd();
-  });
+  $('gebouw-opmerking').addEventListener('input', (e) => { zetOfWis(gebouwVan(plek.gebouw), 'toelichting', e.target.value); gewijzigd(); });
+  $('plek-opmerking').addEventListener('input', (e) => { zetOfWis(plek, 'opmerking', e.target.value); gewijzigd(); });
   $('nieuw-toevoegen').addEventListener('click', nieuwePlek);
   $('nieuw-titel').addEventListener('keydown', (e) => { if (e.key === 'Enter') nieuwePlek(); });
   $('plek-weg').addEventListener('click', plekWeg);

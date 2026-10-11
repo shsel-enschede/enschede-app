@@ -1,33 +1,25 @@
 // Bewaart antwoorden alleen op dit toestel (localStorage). Er wordt niets verstuurd.
 // Werkt ook als opslag geblokkeerd is (privévenster): dan alleen voor deze sessie.
 
+import { ID_PATROON } from './hulp.js';
+import { leesJson, schrijfJson } from './opslag.js';
+
 const SLEUTEL = 'enschede-app:voortgang:v1';
 let geheugen = { antwoorden: {} };
 
+// Opgeslagen data komt uit de browser: alleen geldige antwoorden overnemen. Beschadigd of leeg: begin leeg.
 function lees() {
-  try {
-    const ruw = localStorage.getItem(SLEUTEL);
-    if (!ruw) return;
-    const data = JSON.parse(ruw);
-    if (data && typeof data.antwoorden === 'object' && data.antwoorden !== null) {
-      geheugen = { antwoorden: {} };
-      for (const [id, keuze] of Object.entries(data.antwoorden)) {
-        if (/^[a-z0-9-]{1,60}$/.test(id) && Number.isInteger(keuze) && keuze >= 0 && keuze < 4) {
-          geheugen.antwoorden[id] = keuze;
-        }
-      }
+  const data = leesJson(SLEUTEL);
+  if (!data || typeof data.antwoorden !== 'object' || data.antwoorden === null) return;
+  for (const [id, keuze] of Object.entries(data.antwoorden)) {
+    if (ID_PATROON.test(id) && Number.isInteger(keuze) && keuze >= 0 && keuze < 4) {
+      geheugen.antwoorden[id] = keuze;
     }
-  } catch {
-    /* opslag niet beschikbaar of beschadigd: begin leeg */
   }
 }
 
 function schrijf() {
-  try {
-    localStorage.setItem(SLEUTEL, JSON.stringify(geheugen));
-  } catch {
-    /* opslag niet beschikbaar: voortgang blijft alleen in deze sessie */
-  }
+  schrijfJson(SLEUTEL, geheugen); // lukt dat niet, dan blijft de voortgang alleen in deze sessie
 }
 
 lees();

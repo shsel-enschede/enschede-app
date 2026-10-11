@@ -1,5 +1,13 @@
 // Kleine hulpfuncties die app en beheerpagina allebei gebruiken.
 
+/** Geldig id van een plek, gebouw of foto: kleine letters, cijfers en streepjes (bijv. "grote-kerk"). */
+export const ID_PATROON = /^[a-z0-9-]{1,60}$/;
+
+/** Heeft het adres een huisnummer? Alleen dan kan het Kadaster er een gebouw bij vinden. */
+export function heeftHuisnummer(adres) {
+  return typeof adres === 'string' && /\d/.test(adres);
+}
+
 /** Maak een element; tekst gaat altijd via textContent, nooit via innerHTML (zie CLAUDE.md). */
 export function maak(tag, klasse, tekst) {
   const e = document.createElement(tag);
