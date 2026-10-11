@@ -56,8 +56,32 @@ function fotoNaam(id) {
   return (f ? `${f.bron ?? ''} ${f.documentnummer ?? ''}`.trim() : '') || id;
 }
 
-function luchtfotoLink(id, punt) {
-  return `${LIVE_EDITOR}#${new URLSearchParams({ plek: id, lat: punt.lat.toFixed(6), lng: punt.lng.toFixed(6) })}`;
+/**
+ * Link naar een positie op de luchtfoto: <pagina>#plek=<id>&lat=<breedte>&lng=<lengte> (zie volgLink()).
+ * Standaard naar de live editor (voor in een voorstel op GitHub); in de editor zelf naar deze pagina.
+ */
+function luchtfotoLink(id, punt, pagina = LIVE_EDITOR) {
+  return `${pagina}#${new URLSearchParams({ plek: id, lat: punt.lat.toFixed(6), lng: punt.lng.toFixed(6) })}`;
+}
+
+const dezePagina = () => location.href.split('#')[0];
+
+/** De versie waarop je werk gebaseerd is, als object. */
+function basisVersie() {
+  return JSON.parse(origineel);
+}
+
+/** Opnieuw beginnen vanaf een versie van locaties.json: geen eigen wijzigingen meer. */
+function beginVanaf(versie) {
+  origineel = alsTekst(versie);
+  data = JSON.parse(origineel);
+  data.gebouwen ??= [];
+}
+
+/** Zet een tekstveld, of haal het weg als het leeg is (geen lege velden in het bestand). */
+function zetOfWis(object, veld, waarde) {
+  if (waarde.trim()) object[veld] = waarde;
+  else delete object[veld];
 }
 
 function bewaarConcept() {
@@ -119,7 +143,7 @@ function leesConcept() {
 function zetOpNieuwste(nieuwste) {
   const vers = alsTekst(nieuwste);
   if (vers === origineel) return;
-  const { resultaat, botsingen } = voegSamen(JSON.parse(origineel), data, nieuwste);
+  const { resultaat, botsingen } = voegSamen(basisVersie(), data, nieuwste);
   if (botsingen.length) return;
   origineel = vers;
   data = resultaat;
@@ -138,11 +162,10 @@ async function laad() {
     meld(voorstel
       ? 'Je was je voorstel aan het aanpassen. Dat werk is teruggezet.'
       : 'Je eerdere, nog niet verstuurde werk is teruggezet. Wil je opnieuw beginnen? Kies onderaan "Wijzigingen weggooien".');
+    data.gebouwen ??= [];
   } else {
-    origineel = alsTekst(locaties);
-    data = JSON.parse(origineel);
+    beginVanaf(locaties);
   }
-  data.gebouwen ??= [];
 }
 
 // ---------- Plek kiezen ----------
@@ -201,7 +224,7 @@ function plekStatus() {
 
 /** Staat deze plek nog niet op GitHub (dus net in deze editor toegevoegd)? Dan mag hij ook weer weg. */
 function isNieuw(loc) {
-  try { return !JSON.parse(origineel).locaties.some((l) => l.id === loc.id); } catch { return false; }
+  try { return !basisVersie().locaties.some((l) => l.id === loc.id); } catch { return false; }
 }
 
 function nieuwePlek() {
@@ -230,7 +253,7 @@ function plekWeg() {
   // Een gebouw dat alleen voor deze nieuwe plek gemaakt is, gaat ook weg.
   const g = gebouwVan(weg.gebouw);
   let gebouwOrigineel = false;
-  try { gebouwOrigineel = JSON.parse(origineel).gebouwen?.some((x) => x.id === g?.id); } catch { /* niets */ }
+  try { gebouwOrigineel = basisVersie().gebouwen?.some((x) => x.id === g?.id); } catch { /* niets */ }
   if (g && !gebouwOrigineel && !data.locaties.some((l) => l.gebouw === g.id)) data.gebouwen = data.gebouwen.filter((x) => x !== g);
   plek = null;
   vulPlekken();
@@ -403,10 +426,7 @@ function kiesLaag(naam) {
 // dan verschijnt het als blauw rondje en kun je de speld er zelf naartoe slepen.
 
 function maakLink() {
-  if (!plek.positie) return null;
-  const url = new URL(location.href);
-  url.hash = new URLSearchParams({ plek: plek.id, lat: plek.positie.lat.toFixed(6), lng: plek.positie.lng.toFixed(6) }).toString();
-  return url.toString();
+  return plek.positie ? luchtfotoLink(plek.id, plek.positie, dezePagina()) : null;
 }
 
 function toonLink() {
@@ -452,11 +472,12 @@ function volgLink() {
   overlay.linkpunt = null;
   if (punt) {
     const verschil = plek.positie ? kaart.distance([punt.lat, punt.lng], [plek.positie.lat, plek.positie.lng]) : Infinity;
+    const blauwRondje = () => window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
     if (!plek.positie) {
-      overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
+      overlay.linkpunt = blauwRondje();
       $('link-status').textContent = 'Het blauwe rondje is het punt uit de link. Deze plek heeft nog geen positie: tik op het rondje om het over te nemen.';
     } else if (verschil > 1) {
-      overlay.linkpunt = window.L.circleMarker([punt.lat, punt.lng], { radius: 9, color: '#1d4ed8', weight: 3, fillOpacity: 0.25 }).addTo(kaart);
+      overlay.linkpunt = blauwRondje();
       $('link-status').textContent = `Het blauwe rondje is het punt uit de link. Het ligt ${Math.round(verschil)} m van de opgeslagen positie (rode speld).`;
     }
     kaart.setView([punt.lat, punt.lng], 20);
@@ -774,7 +795,7 @@ function toonWijzigingen(lijst, wijzigingen, leeg) {
     for (const regel of w.regels) ul.append(maak('li', '', regel));
     if (w.punt && w.id) {
       const a = maak('a', '', 'Bekijk de nieuwe positie op de luchtfoto');
-      a.href = luchtfotoLink(w.id, w.punt).replace(LIVE_EDITOR, new URL('beheer.html', location.href).href);
+      a.href = luchtfotoLink(w.id, w.punt, new URL('beheer.html', location.href).href);
       const r = maak('li');
       r.append(a);
       ul.append(r);
@@ -792,7 +813,7 @@ function heeftWijziging() {
 function werkUitvoerBij() {
   const tekst = alsTekst(data);
   $('uitvoer').value = tekst;
-  const wijzigingen = beschrijf(JSON.parse(origineel), data, fotoNaam);
+  const wijzigingen = beschrijf(basisVersie(), data, fotoNaam);
   toonWijzigingen($('wijzigingen'), wijzigingen, 'Nog niets gewijzigd.');
 
   const fouten = controleer();
@@ -932,7 +953,7 @@ async function verstuur() {
     const mainKop = await gh.takSha(gh.HOOFDTAK);
     const hunTekst = await gh.leesBestand(PAD, mainKop);
     const hun = JSON.parse(hunTekst);
-    const basis = JSON.parse(origineel);
+    const basis = basisVersie();
     // Heeft iemand anders intussen een plek met hetzelfde id of nummer toegevoegd? Dan krijgt de jouwe een vrij nummer.
     const mijn = structuredClone(data);
     const hernoemd = maakNieuwUniek(basis, mijn, hun);
@@ -948,8 +969,7 @@ async function verstuur() {
     if (!wijzigingen.length && !voorstel) {
       zetStatus('Je wijzigingen staan al in de app. Er hoeft niets verstuurd te worden.', true);
       wisConcept();
-      origineel = alsTekst(hun);
-      data = JSON.parse(origineel);
+      beginVanaf(hun);
       herteken(plek?.id);
       return;
     }
@@ -997,9 +1017,7 @@ async function verstuur() {
     voorstel = null;
     keuzes = {};
     $('toelichting').value = '';
-    origineel = alsTekst(hun);
-    data = JSON.parse(origineel);
-    data.gebouwen ??= [];
+    beginVanaf(hun);
     herteken(plek?.id);
     verversLijsten();
   } catch (fout) {
@@ -1208,7 +1226,7 @@ async function pasAan(v) {
     keuzes = {};
     $('botsing').hidden = true;
     zetStatus('');
-    const eerste = beschrijf(JSON.parse(origineel), data).find((w) => w.id);
+    const eerste = beschrijf(basisVersie(), data).find((w) => w.id);
     herteken(eerste?.id ?? plek?.id);
     bewaarConcept();
     $('lijst-status').textContent = '';
@@ -1279,17 +1297,8 @@ function koppel() {
     gewijzigd();
   });
   $('gebouw-adres').addEventListener('change', vulGebouwKeuze);
-  $('gebouw-opmerking').addEventListener('input', (e) => {
-    const g = gebouwVan(plek.gebouw);
-    if (e.target.value.trim()) g.toelichting = e.target.value;
-    else delete g.toelichting;
-    gewijzigd();
-  });
-  $('plek-opmerking').addEventListener('input', (e) => {
-    if (e.target.value.trim()) plek.opmerking = e.target.value;
-    else delete plek.opmerking;
-    gewijzigd();
-  });
+  $('gebouw-opmerking').addEventListener('input', (e) => { zetOfWis(gebouwVan(plek.gebouw), 'toelichting', e.target.value); gewijzigd(); });
+  $('plek-opmerking').addEventListener('input', (e) => { zetOfWis(plek, 'opmerking', e.target.value); gewijzigd(); });
   $('nieuw-toevoegen').addEventListener('click', nieuwePlek);
   $('nieuw-titel').addEventListener('keydown', (e) => { if (e.key === 'Enter') nieuwePlek(); });
   $('plek-weg').addEventListener('click', plekWeg);
