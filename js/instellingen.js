@@ -9,6 +9,8 @@
 // Later kan een opdracht van een docent (link of QR-code) deze keuzes vastzetten. Dat is nog een
 // voorstel voor het bestuur (schoolmodus) en zit hier nog niet in.
 
+import { leesJson, schrijfJson } from './opslag.js';
+
 const SLEUTEL = 'enschede-app:instellingen:v1';
 
 export const TALEN = ['nl', 'en', 'de'];
@@ -27,26 +29,12 @@ export function controleer(ruw) {
   return i;
 }
 
-let huidig = { ...STANDAARD };
-
-function lees() {
-  try {
-    const ruw = localStorage.getItem(SLEUTEL);
-    if (ruw) huidig = controleer(JSON.parse(ruw));
-  } catch {
-    /* opslag niet beschikbaar of beschadigd: standaard */
-  }
-}
+// Niets of iets ongeldigs bewaard: de standaard (controleer() maakt er altijd geldige instellingen van).
+let huidig = controleer(leesJson(SLEUTEL));
 
 function schrijf() {
-  try {
-    localStorage.setItem(SLEUTEL, JSON.stringify(huidig));
-  } catch {
-    /* opslag niet beschikbaar: keuze geldt alleen deze sessie */
-  }
+  schrijfJson(SLEUTEL, huidig); // lukt dat niet, dan geldt de keuze alleen deze sessie
 }
-
-lees();
 
 /** Alle instellingen (kopie). */
 export function instellingen() {

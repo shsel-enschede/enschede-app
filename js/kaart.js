@@ -9,9 +9,8 @@
 
 import { vormVan } from './gebouwen.js';
 import { scrolGedrag } from './hulp.js';
+import { PDOK_KAART, GRENZEN, MIDDEN, binnenKaart } from './kaartgegevens.js';
 
-const PDOK_TEGELS = 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png';
-const GRENZEN = [[52.15, 6.75], [52.30, 7.00]]; // ruim rond Enschede
 const KLEIN_OBJECT = 10; // meter: een vorm kleiner dan dit krijgt een groter tikvlak
 
 // bubblingMouseEvents: false = een tik op een gebouw telt niet ook als tik op de lege kaart.
@@ -189,9 +188,9 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
       maxBounds: GRENZEN,
       maxBoundsViscosity: 0.8,
       attributionControl: true,
-    }).setView([52.2218, 6.8935], 17);
+    }).setView(MIDDEN, 17);
     kaart.attributionControl.setPrefix(false);
-    L.tileLayer(PDOK_TEGELS, {
+    L.tileLayer(PDOK_KAART, {
       maxNativeZoom: 19,
       maxZoom: 20,
       attribution: 'Kaart: PDOK / Kadaster',
@@ -335,9 +334,8 @@ function ververs(antwoordVan) {
 export function centreer(positie) {
   const L = window.L;
   if (!L || !kaart || !positie) return;
-  const ll = L.latLng(positie.lat, positie.lng);
-  if (!L.latLngBounds(GRENZEN).contains(ll)) return;
-  kaart.setView(ll, Math.max(kaart.getZoom(), 17), { animate: scrolGedrag() === 'smooth' });
+  if (!binnenKaart(positie.lat, positie.lng)) return;
+  kaart.setView([positie.lat, positie.lng], Math.max(kaart.getZoom(), 17), { animate: scrolGedrag() === 'smooth' });
 }
 
 /** Toon (of verberg, met null) de eigen positie als blauwe stip met een cirkel voor de onzekerheid. */

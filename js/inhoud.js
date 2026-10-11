@@ -1,7 +1,7 @@
 // Laadt en controleert de inhoud uit content/locaties.json.
 // De inhoud wordt behandeld als onbetrouwbare data: alleen geldige locaties komen in de app.
 
-const ID_PATROON = /^[a-z0-9-]{1,60}$/;
+import { ID_PATROON, heeftHuisnummer } from './hulp.js';
 
 function isTekst(waarde, max = 5000) {
   return typeof waarde === 'string' && waarde.trim().length > 0 && waarde.length <= max;
@@ -47,7 +47,7 @@ function leesGebouwen(lijst) {
       console.warn(`Gebouw "${g?.id}" overgeslagen: id of naam ongeldig`);
       continue;
     }
-    const adres = isTekst(g.adres, 120) && /\d/.test(g.adres) ? g.adres : null;
+    const adres = isTekst(g.adres, 120) && heeftHuisnummer(g.adres) ? g.adres : null;
     const vorm = leesVorm(g.vorm);
     if (g.vorm !== undefined && !vorm) console.warn(`Gebouw "${g.id}": vorm ongeldig, wordt genegeerd`);
     const naamPlek = NAAMPLEKKEN.includes(g.naamPlek) ? g.naamPlek : null;

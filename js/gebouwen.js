@@ -3,18 +3,16 @@
 // Een opgezochte omtrek wordt op dit toestel bewaard (geen persoonsgegevens: alleen de vorm van het gebouw).
 
 import { puntInRing } from './hulp.js';
+import { PDOK_ZOEK, PDOK_BAG } from './kaartgegevens.js';
+import { leesJson, schrijfJson } from './opslag.js';
 
-const PDOK_ZOEK = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/free';
-const PDOK_BAG = 'https://api.pdok.nl/kadaster/bag/ogc/v2/collections/pand/items';
 const VORM_SLEUTEL = 'enschede-app:vormen:v1';
 const geheugen = new Map(); // gebouw-id -> Promise<vorm|null>
 const bekend = new Map();   // gebouw-id -> vorm (direct beschikbaar)
 
 function leesBewaard() {
-  try {
-    const alles = JSON.parse(localStorage.getItem(VORM_SLEUTEL));
-    return alles && typeof alles === 'object' && !Array.isArray(alles) ? alles : {};
-  } catch { return {}; }
+  const alles = leesJson(VORM_SLEUTEL);
+  return alles && typeof alles === 'object' && !Array.isArray(alles) ? alles : {};
 }
 
 // Een bewaarde omtrek komt uit de browser en wordt net zo gecontroleerd als de inhoud.
@@ -25,7 +23,7 @@ function geldigeVorm(vorm) {
 function bewaar(sleutel, vorm) {
   const alles = leesBewaard();
   alles[sleutel] = vorm;
-  try { localStorage.setItem(VORM_SLEUTEL, JSON.stringify(alles)); } catch { /* geen opslag: volgende keer opnieuw opzoeken */ }
+  schrijfJson(VORM_SLEUTEL, alles); // geen opslag: volgende keer opnieuw opzoeken
 }
 
 async function haalJson(url) {
