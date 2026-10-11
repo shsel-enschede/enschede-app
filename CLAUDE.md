@@ -95,6 +95,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
   - **Doel:** geen doel, of een aantal plekken. Met een doel lopen teller en voortgangsbalk naar het doel ("3 van 24 plekken ontdekt") en volgt een mijlpaal "Doel gehaald!". Zelfgekozen, dus geen dwang.
   - **Antwoorden:** *Direct na elke vraag* (standaard) of *Aan het eind*: dan zie je alleen "✓ Antwoord bewaard" en je eigen keuze; goed/fout en uitleg pas in **Mijn antwoorden** (`#/antwoorden`) als het doel gehaald is of alles ontdekt (uitgestelde feedback, Butler e.a. 2007).
   - **Mijn antwoorden:** per ontdekte plek de vraag, je antwoord en (als zichtbaar) het goede antwoord met uitleg. Bewust geen totaalscore.
+  - **Opnieuw beginnen** (René, okt 2026): onder de keuzes, vóór "Over de Enschede app", alleen als er iets ontdekt is. Knop *Alles opnieuw beginnen*, daarna een bevestiging in de pagina zelf (geen pop-up). Na wissen blijf je in het menu met "✓ Je antwoorden zijn gewist." Niet meer onder de lijst met plekken (daar stond hij verstopt).
   - **Taal:** alleen Nederlands; English en Deutsch staan er uitgeschakeld bij, in hun eigen taal, zonder vlaggen (zie plan-taalkeuze).
   - **Over de Enschede app:** wat de app is, wie hem maakt (SHSEL, link naar https://www.shsel.nl/), privacy in gewone taal (ook dat kaartbeelden van PDOK komen).
   - Nog niet: een opdracht van een docent via link of QR-code die deze keuzes vastzet, vragen uit, terugblik. Dat is het voorstel schoolmodus; besluit door het bestuur.

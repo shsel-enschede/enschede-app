@@ -85,16 +85,6 @@
           <p class="ontdekt__antwoorden" id="antwoorden-link" hidden><a href="#/antwoorden">Mijn antwoorden</a></p>
         </div>
         <div id="plekken"></div>
-        <div class="opnieuw" id="opnieuw">
-          <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Alles opnieuw beginnen</button>
-          <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
-            <p><strong>Weet je het zeker?</strong> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</p>
-            <div class="opnieuw__knoppen">
-              <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
-              <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -192,6 +182,22 @@
           </label>
         </fieldset>
       </form>
+
+      <!-- Opnieuw beginnen: in het menu (bij de andere keuzes), apart en onder de keuzes, met bevestiging
+           in de pagina zelf. Alleen zichtbaar als er iets te wissen is. -->
+      <div class="opnieuw" id="opnieuw" hidden>
+        <h2 class="menu__kop">Opnieuw beginnen</h2>
+        <p class="opnieuw__uitleg" id="opnieuw-uitleg"></p>
+        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Alles opnieuw beginnen</button>
+        <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
+          <p><strong>Weet je het zeker?</strong> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</p>
+          <div class="opnieuw__knoppen">
+            <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
+            <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
+          </div>
+        </div>
+      </div>
+      <p class="opnieuw__klaar" id="opnieuw-klaar" role="status" tabindex="-1" hidden>✓ Je antwoorden zijn gewist. Veel plezier met ontdekken!</p>
 
       <h2 class="menu__kop">Over de Enschede app</h2>
       <div class="menu__info">
