@@ -335,15 +335,47 @@ path.wijkkaart--langs { stroke-width: 4px; stroke-dasharray: none; }
 .net-open { padding: 10px 14px; background: var(--goed-licht); color: var(--goed); font-weight: 600; border-radius: var(--rond); }
 
 /* Foto's bij een plek */
-.fotos { display: grid; gap: 12px; margin: 8px calc(-1 * var(--ruimte)) 16px; }
-.foto { margin: 0; position: relative; }
-.foto__proef { position: absolute; top: 8px; left: 8px; padding: 2px 8px; border-radius: 4px; background: #C10422; color: #FFFFFF; font-size: 0.8125rem; font-weight: 600; }
-.foto img { display: block; width: 100%; height: auto; background: var(--vlak); }
-.foto figcaption { padding: 6px var(--ruimte) 0; font-size: 0.9375rem; color: var(--grijs); }
+/* Foto's bij een plek: mozaïek (js/fotos.js). Eén foto groot, de rest klein ernaast; samen ca. 200 px hoog,
+   zodat het verhaal nog op het eerste scherm begint. Tik op een foto: groot in het fotovenster. */
+.fotos { position: relative; margin: 8px calc(-1 * var(--ruimte)) 16px; }
+.mozaiek { display: grid; gap: 3px; aspect-ratio: 2 / 1; }
+.mozaiek--1 { aspect-ratio: 3 / 2; max-height: 40vh; }
+.mozaiek--2 { grid-template-columns: 1fr 1fr; }
+.mozaiek--3 { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; }
+.mozaiek--3 > :first-child { grid-row: span 2; }
+.mozaiek__tegel { position: relative; display: block; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; overflow: hidden; background: var(--vlak); }
+button.mozaiek__tegel { cursor: zoom-in; }
+button.mozaiek__tegel:focus-visible { outline: 3px solid var(--rood); outline-offset: -3px; }
+.mozaiek__tegel img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.mozaiek__meer { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, 0.5); color: var(--wit); font-size: 1.5rem; font-weight: 600; }
+.fotos__onder { margin: 6px var(--ruimte) 0; font-size: 0.9375rem; color: var(--grijs); }
+.foto__proef { position: absolute; top: 8px; left: 8px; z-index: 1; padding: 2px 8px; border-radius: 4px; background: #C10422; color: #FFFFFF; font-size: 0.8125rem; font-weight: 600; pointer-events: none; }
 .foto__bron { display: block; font-size: 0.8125rem; }
-.fotos--wazig { overflow: hidden; }
+.fotos--wazig .mozaiek { overflow: hidden; }
 .fotos--wazig img { filter: blur(14px) grayscale(0.4); transform: scale(1.1); }
-@media (min-width: 640px) { .fotos { margin-inline: 0; } .foto img { border-radius: var(--rond); } }
+@media (min-width: 640px) { .fotos { margin-inline: 0; } .mozaiek { border-radius: var(--rond); overflow: hidden; } }
+
+/* Fotovenster: schermvullend, donker, foto in zijn geheel (niet bijgesneden) met bijschrift en bron. */
+html:has(.fotovenster[open]) { overflow: hidden; }
+.fotovenster { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #111214; color: #FFFFFF; font-family: var(--letter); }
+.fotovenster::backdrop { background: #111214; }
+.fotovenster[open] { display: flex; flex-direction: column; }
+.fotovenster__balk { display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 4px 0 var(--ruimte); }
+.fotovenster__teller { font-size: 1rem; }
+.fotovenster__sluit { width: 48px; height: 48px; border: 0; border-radius: 50%; background: transparent; color: #FFFFFF; font-size: 1.5rem; cursor: pointer; }
+.fotovenster__rij { flex: 1; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior: contain; scrollbar-width: none; }
+.fotovenster__rij::-webkit-scrollbar { display: none; }
+.fotovenster__foto .foto__proef { position: static; align-self: flex-start; margin: 0 0 8px var(--ruimte); }
+.fotovenster__foto { flex: 0 0 100%; position: relative; display: flex; flex-direction: column; justify-content: center; margin: 0; scroll-snap-align: center; scroll-snap-stop: always; }
+.fotovenster__foto img { display: block; width: 100%; max-height: 70dvh; object-fit: contain; }
+.fotovenster__foto figcaption { max-width: 40rem; margin: 0 auto; padding: 12px var(--ruimte) 24px; font-size: 1rem; line-height: 1.45; color: #E8E8EA; }
+.fotovenster__foto .foto__bron { margin-top: 4px; font-size: 0.875rem; color: #C4C6CC; }
+.fotovenster__pijl { position: absolute; top: 45%; width: 48px; height: 48px; border: 0; border-radius: 50%; background: rgba(0, 0, 0, 0.55); color: #FFFFFF; font-size: 2rem; line-height: 1; cursor: pointer; }
+.fotovenster__pijl--vorige { left: 8px; }
+.fotovenster__pijl--volgende { right: 8px; }
+.fotovenster__pijl:disabled { opacity: 0.25; cursor: default; }
+.fotovenster__pijl[hidden], .fotovenster__teller[hidden] { display: none; }
+.fotovenster button:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
 
 /* Route opnieuw beginnen */
 .opnieuw { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--lijn); }

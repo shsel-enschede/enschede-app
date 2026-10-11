@@ -12,6 +12,7 @@ import { afstandTot, indicatie } from './afstand.js';
 import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegestaan } from './locatie.js';
 import { maak, scrolGedrag } from './hulp.js';
 import { instellingen, zetInstelling } from './instellingen.js';
+import { toonFotos, zetFotovensterKlaar, sluitFotovenster } from './fotos.js';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 const $ = (id) => document.getElementById(id);
@@ -139,6 +140,7 @@ function vulGpsPaneel(paneel) {
 }
 
 function toonScherm(naam, titel, { terug = true } = {}) {
+  sluitFotovenster();
   for (const [n, s] of Object.entries(el.schermen)) s.hidden = n !== naam;
   el.titel.textContent = titel;
   document.title = naam === 'start' ? 'Enschede app' : `${titel} · Enschede app`;
@@ -495,7 +497,7 @@ function locatieScherm(loc, { netOpen = false } = {}) {
   toonScherm('locatie', loc.titel);
   huidig = { scherm: 'locatie', loc };
   $('locatie-adres').textContent = loc.adres;
-  toonFotos(loc, isOpen(loc));
+  toonFotos($('locatie-fotos'), loc.fotos, { toegankelijk: isOpen(loc) }); // mozaïek + fotovenster (js/fotos.js)
 
   // Nog niet ter plekke: alleen een voorproefje en de afstand (nieuwsgierig maken, niet sturen).
   const open = isOpen(loc);
@@ -537,33 +539,6 @@ function locatieScherm(loc, { netOpen = false } = {}) {
     // Terug kan altijd met de pijl in de kopbalk (of de terugknop van de telefoon).
     // Na het antwoord verschijnt "Terug naar de kaart" wel (zie toonUitslag).
     zetHoofdknop(null);
-  }
-}
-
-// Foto's bij een plek. Nog niet ter plekke: alleen de eerste, wazig (zoals in de oude app).
-function toonFotos(loc, open) {
-  const houder = $('locatie-fotos');
-  houder.replaceChildren();
-  const fotos = open ? loc.fotos : loc.fotos.slice(0, 1);
-  houder.hidden = !fotos.length;
-  houder.classList.toggle('fotos--wazig', !open);
-  for (const foto of fotos) {
-    const figuur = maak('figure', 'foto');
-    const img = maak('img');
-    img.src = foto.src;
-    img.alt = open ? foto.alt : '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    // Een foto die niet laadt (ontbreekt in de map) verbergen we, in plaats van een kapot plaatje.
-    img.addEventListener('error', () => { figuur.hidden = true; }, { once: true });
-    figuur.append(img);
-    if (foto.proef) figuur.append(maak('span', 'foto__proef', 'Proef: rechten nog niet bevestigd'));
-    if (open && (foto.bijschrift || foto.bron)) {
-      const onder = maak('figcaption', '', foto.bijschrift);
-      if (foto.bron) onder.append(maak('span', 'foto__bron', `Bron: ${foto.bron}`));
-      figuur.append(onder);
-    }
-    houder.append(figuur);
   }
 }
 
@@ -1018,6 +993,7 @@ balkMeter.observe(el.kop);
 balkMeter.observe(el.voet);
 
 async function start() {
+  zetFotovensterKlaar();
   startScherm();
   try {
     inhoud = await laadInhoud('nl');
