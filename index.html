@@ -214,14 +214,15 @@
     <p class="melding" id="melding" role="alert" hidden></p>
   </main>
 
+  <!-- Voorleesregel voor schermlezers bij "Je loopt langs …". Staat altijd in de pagina (ook als de voetbalk
+       verborgen is), want een live regio die pas verschijnt, wordt door veel schermlezers niet voorgelezen. -->
+  <p class="visueel-verborgen" id="langs-aankondiging" role="status" aria-live="polite"></p>
+
   <footer class="voet">
     <!-- "Je loopt langs …": rustige melding als je toevallig bij een plek bent. Geen pop-up, geen trilling. -->
-    <div class="langs" id="langs" role="status" aria-live="polite" hidden>
-      <p class="langs__tekst"><span class="langs__label">Je loopt langs</span> <strong id="langs-naam"></strong> <span class="langs__sub" id="langs-sub"></span></p>
-      <div class="langs__knoppen">
-        <button type="button" class="langs__bekijk" id="langs-bekijk">Bekijk</button>
-        <button type="button" class="langs__verder" id="langs-verder">Verder lopen</button>
-      </div>
+    <div class="langs" id="langs" hidden>
+      <p class="langs__tekst"><span class="langs__label" id="langs-label">Je loopt langs</span> <strong id="langs-naam"></strong> <span class="langs__vraag" id="langs-vraag"></span></p>
+      <button type="button" class="langs__bekijk" id="langs-bekijk">Bekijk</button>
     </div>
     <button class="knop" id="hoofdknop" type="button">Begin</button>
   </footer>
