@@ -661,12 +661,15 @@ function startTekenen() {
   kaart.getContainer().classList.add('beheerkaart--tekenen');
 }
 
+// De gewone uitleg onder de kaart staat in beheer.html (één plek); tijdens het tekenen staat er tijdelijk een andere.
+const GEWONE_HINT = $('modus-hint').textContent;
+
 function stopTekenen() {
   tekenen = false;
   $('teken').setAttribute('aria-pressed', 'false');
   $('teken').textContent = 'Omtrek tekenen';
   $('teken-terug').disabled = true;
-  $('modus-hint').textContent = 'Tik op de kaart of versleep de rode speld naar het kijkpunt: de plek op de stoep of het plein waar je ziet waar de vraag over gaat. Zie coordinaten-LEESMIJ.md.';
+  $('modus-hint').textContent = GEWONE_HINT;
   kaart?.getContainer().classList.remove('beheerkaart--tekenen');
   const g = plek && gebouwVan(plek.gebouw);
   if (g && Array.isArray(g.vorm) && g.vorm.length < 3) {
