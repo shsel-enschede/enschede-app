@@ -149,22 +149,6 @@ export async function laadInhoud(taal = 'nl') {
     });
   }
 
-  const routes = new Map();
-  for (const r of Array.isArray(data.routes) ? data.routes : []) {
-    if (!ID_PATROON.test(r?.id ?? '') || !isTekst(r?.titel?.[taal], 120) || !Array.isArray(r.locaties)) {
-      console.warn(`Route "${r?.id}" overgeslagen`);
-      continue;
-    }
-    const ids = r.locaties.filter((id) => locaties.has(id));
-    if (!ids.length) continue;
-    routes.set(r.id, {
-      id: r.id,
-      titel: r.titel[taal],
-      intro: isTekst(r.intro?.[taal], 500) ? r.intro[taal] : '',
-      locaties: ids,
-    });
-  }
-
   if (concepten) console.info(`${concepten} plekken zijn nog concept en staan niet in de app.`);
 
   // Alleen gebouwen van plekken die in de app staan. Zo zoekt de app geen omtrekken op in het Kadaster
@@ -172,5 +156,7 @@ export async function laadInhoud(taal = 'nl') {
   const inGebruik = new Set([...locaties.values()].map((l) => l.gebouw).filter(Boolean));
   const gebouwen = leesGebouwen((Array.isArray(data.gebouwen) ? data.gebouwen : []).filter((g) => inGebruik.has(g?.id)));
 
-  return { routes, locaties, gebouwen, instellingen: leesInstellingen(data.instellingen) };
+  // 'routes' in de inhoud wordt nu niet gebruikt (vrij ontdekken, zie CLAUDE.md). Komen thema- of buurtroutes
+  // terug, lees ze dan hier in; de oude code staat in de geschiedenis van dit bestand op GitHub.
+  return { locaties, gebouwen, instellingen: leesInstellingen(data.instellingen) };
 }
