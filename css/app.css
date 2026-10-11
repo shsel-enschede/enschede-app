@@ -453,8 +453,12 @@ html:has(.fotovenster[open]) { overflow: hidden; }
 .menu__subkop { font: 700 1rem/1.3 var(--letter); margin: 20px 0 4px; }
 .menu__info p { margin: 8px 0; }
 .menu a, .ontdekt__antwoorden a, .antwoord__titel { color: var(--rood); font-weight: 600; }
-.keuze { border: 0; margin: 16px 0 0; padding: 0; }
-.keuze legend { padding: 0; margin-bottom: 8px; font-weight: 600; }
+.keuze { border: 0; margin: 32px 0 0; padding: 0; }
+/* Wet van nabijheid: een vraag staat dicht bij zijn eigen keuzes en ver van de vorige vraag. */
+.menu__kop + .keuze { margin-top: 12px; }
+/* Rangorde: de vraag is groter en zwaarder dan de keuzes eronder. */
+.keuze legend { padding: 0; margin-bottom: 10px; font-size: 1.125rem; font-weight: 700; line-height: 1.3; }
+.keuze__optie strong { font-weight: 600; }
 .keuze__optie {
   display: flex; align-items: flex-start; gap: 12px;
   min-height: 56px; margin-bottom: 8px; padding: 12px 14px;
