@@ -505,3 +505,36 @@ html:has(.fotovenster[open]) { overflow: hidden; }
 .antwoord--goed .antwoord__icoon { color: var(--goed); }
 .antwoord--fout .antwoord__icoon { color: var(--rood); }
 .antwoord__uitleg { color: var(--grijs); }
+
+/* Eindscherm (js/app.js, eindScherm): positief afsluiten (piek-eindregel) */
+.eind__vak { padding: 16px 16px 18px; border-radius: var(--rond); background: var(--goed-licht); border: 1px solid var(--goed); }
+.eind__kop { margin: 0; font: 400 1.75rem/1.2 var(--kopletter); color: var(--goed); text-wrap: balance; }
+.eind__kop:focus { outline: none; }
+.eind__tal { margin: 8px 0 0; font-size: 1.0625rem; color: var(--tekst); }
+.eind__balk { margin-top: 14px; }
+/* Doel gehaald of alles ontdekt: donkergroen vak, zoals de mijlpaal; de balk op een witte strook */
+.eind__vak--af { background: var(--goed); }
+.eind__vak--af .eind__kop, .eind__vak--af .eind__tal { color: #fff; }
+.eind__vak--af .eind__balk { padding: 5px 10px; height: 22px; background: #fff; border-radius: 6px; }
+.eind__score { margin: 16px 0 0; font-weight: 600; font-size: 1.0625rem; }
+.eind__subkop { font: 400 1.3rem/1.2 var(--kopletter); margin: 28px 0 8px; }
+.eind__lijst { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.eind__plek { padding: 3px 10px; font-size: 0.9375rem; color: var(--goed); background: var(--goed-licht); border: 1px solid var(--goed); border-radius: 999px; }
+.eind__plek::before { content: "✓ "; }
+.eind__antwoorden { margin: 12px 0 0; }
+.eind a { color: var(--rood); font-weight: 600; }
+.eind__antwoorden a { display: inline-flex; align-items: center; min-height: 44px; }
+.eind__dank { margin-top: 8px; }
+.eind__dank p { margin: 8px 0; }
+.mijlpaal__eind { margin: 12px 0 0; color: inherit; }
+.mijlpaal--af .mijlpaal__eind { color: #fff; }
+
+/* Menu: naar het eindscherm */
+.menu__eind { margin-top: 32px; }
+.menu__eind-uitleg { margin: 0 0 12px; }
+.menu .menu__eind-knop {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px;
+  background: var(--wit); color: var(--rood); border: 2px solid var(--rood); border-radius: var(--rond);
+  font-weight: 600; text-decoration: none;
+}
+.menu .menu__eind-knop:hover { background: #FDF3F4; }

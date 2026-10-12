@@ -31,6 +31,7 @@ const el = {
     locatie: $('scherm-locatie'),
     menu: $('scherm-menu'),
     antwoorden: $('scherm-antwoorden'),
+    eind: $('scherm-eind'),
   },
 };
 
@@ -622,8 +623,17 @@ function toonUitslag(loc, keuze, knoppen, net) {
   werkLangsBij();
 
   // Geen voorgeschreven volgende plek: de wandelaar kiest zelf uit "Ook in de buurt" of de kaart.
-  const allesOntdekt = aantalOntdekt() === allePlekken.length;
-  zetHoofdknop(allesOntdekt ? 'Alles ontdekt! Bekijk de kaart' : 'Terug naar de kaart', naarKaart);
+  eindKeuze(net);
+}
+
+// Hoofdknop na een antwoord. Net je doel gehaald (of alles ontdekt)? Dan het eindscherm als keuze.
+// Niet automatisch erheen: eerst lees je de uitleg bij deze vraag, en "Ook in de buurt" blijft staan
+// voor wie verder wil (autonomie). Bij een later bezoek aan deze plek gewoon terug naar de kaart.
+function eindKeuze(net) {
+  const klaar = aantalOntdekt();
+  const netAf = net && (klaar === allePlekken.length || (heeftDoel() && klaar === doelAantal()));
+  if (netAf) zetHoofdknop('Naar je eindscherm', () => ga('#/eind'));
+  else zetHoofdknop('Terug naar de kaart', naarKaart);
 }
 
 // Antwoorden aan het eind (menu): alleen laten zien welk antwoord je koos, niet of het goed is.
@@ -655,7 +665,7 @@ function toonBewaard(loc, keuze, knoppen, net) {
     });
   }
   werkLangsBij();
-  zetHoofdknop('Terug naar de kaart', naarKaart);
+  eindKeuze(net);
 }
 
 // Direct na een antwoord: wat dit toevoegt aan je verzameling (ook bij een fout antwoord telt de plek).
@@ -680,11 +690,9 @@ function toonMijlpaal(loc) {
   balk.setAttribute('aria-hidden', 'true');
   balk.append(...balkSegmenten(balkDelen(klaar), klaar, { nieuw: true }));
   const extra = [];
-  // Antwoorden aan het eind: nu het doel gehaald is, kun je ze allemaal bekijken.
-  if (instellingen().antwoorden === 'eind' && (doelNetGehaald || allesOntdekt)) {
-    const link = maak('a', 'mijlpaal__knop', 'Bekijk al je antwoorden');
-    link.href = '#/antwoorden';
-    extra.push(link);
+  // Doel gehaald of alles ontdekt: de hoofdknop wordt "Naar je eindscherm" (zie eindKeuze()).
+  if (doelNetGehaald || allesOntdekt) {
+    extra.push(maak('p', 'mijlpaal__eind', 'Op je eindscherm zie je alles wat je hebt ontdekt.'));
   }
   p.replaceChildren(maak('p', 'mijlpaal__tekst', tekst), balk, ...extra, ...overigeVerhalen(loc));
   p.classList.toggle('mijlpaal--af', allesOntdekt || doelNetGehaald || (t && t.totaal > 1 && t.klaar === t.totaal));
@@ -803,6 +811,7 @@ function menuScherm() {
 
   // Opnieuw beginnen: alleen zichtbaar als er iets te wissen is; bevestiging in de pagina zelf.
   const klaar = aantalOntdekt();
+  $('menu-eind').hidden = klaar === 0;
   $('opnieuw').hidden = klaar === 0;
   $('opnieuw-uitleg').textContent = klaar === 1
     ? 'Je hebt 1 plek ontdekt. Wil je de wandeling opnieuw doen? Dan kun je je antwoord wissen.'
@@ -900,6 +909,65 @@ function antwoordenScherm() {
   }));
 }
 
+// ---------- Eindscherm ----------
+// Samenvatting om positief af te sluiten (piek-eindregel): wat je ontdekt hebt, een bedankje,
+// de SHSEL voor wie meer wil weten, en de keuze om verder te gaan.
+// Het aantal goede antwoorden staat er alleen als de antwoorden al zichtbaar mogen zijn
+// (bij "Aan het eind" pas als het doel gehaald is), zodat er onderweg niets over te nemen valt.
+// Elders in de app bewust geen score: dit is het enige moment, en dan als resultaat om te laten zien.
+
+function eindScherm() {
+  toonScherm('eind', 'Eindscherm');
+  huidig = { scherm: 'eind', loc: null };
+  const totaal = allePlekken.length;
+  const ontdekt = allePlekken.filter(isOntdekt).sort((x, y) => x.titel.localeCompare(y.titel, 'nl'));
+  const klaar = ontdekt.length;
+  const doel = heeftDoel() ? doelAantal() : null;
+  const af = klaar === totaal;
+  const doelGehaald = doel !== null && klaar >= doel;
+
+  let kop;
+  let tal;
+  if (af) {
+    kop = 'Alles ontdekt!';
+    tal = `Je hebt alle ${totaal} plekken ontdekt.`;
+  } else if (doelGehaald) {
+    kop = 'Doel gehaald!';
+    tal = klaar > doel ? `Je hebt ${plekken(klaar)} ontdekt. Dat is meer dan je doel van ${doel}!` : `Je hebt ${plekken(klaar)} ontdekt.`;
+  } else if (klaar === 0) {
+    kop = 'Je wandeling';
+    tal = 'Je hebt nog geen plekken ontdekt. Kies een plek op de kaart.';
+  } else {
+    kop = 'Je wandeling tot nu toe';
+    tal = doel ? `Je hebt ${klaar} van ${doel} plekken ontdekt.` : `Je hebt ${plekken(klaar)} ontdekt. In de stad zijn er ${totaal}.`;
+  }
+  $('eind-kop').textContent = kop;
+  $('eind-tal').textContent = tal;
+  $('eind-vak').classList.toggle('eind__vak--af', af || doelGehaald);
+  $('eind-balk').replaceChildren(...balkSegmenten(balkDelen(klaar), klaar));
+  $('eind-balk').hidden = klaar === 0;
+
+  // Aantal goede antwoorden: alleen als de antwoorden zichtbaar mogen zijn.
+  const score = $('eind-score');
+  score.hidden = !(klaar > 0 && antwoordZichtbaar());
+  if (!score.hidden) {
+    const goed = ontdekt.filter((loc) => antwoordVan(loc.id) === loc.juist).length;
+    // Positief geformuleerd: wat je wist, niet wat fout ging. De uitleg bij elke vraag staat in "Mijn antwoorden".
+    score.textContent = goed === klaar ? `✓ Je wist alle ${klaar} antwoorden goed!` : `Je wist ${goed} van de ${klaar} antwoorden goed.`;
+  }
+
+  // Namen van de ontdekte plekken.
+  $('eind-lijst-kop').textContent = `Ontdekte plekken (${klaar})`;
+  $('eind-lijst-kop').hidden = klaar === 0;
+  $('eind-lijst').hidden = klaar === 0;
+  $('eind-lijst').replaceChildren(...ontdekt.map((loc) => maak('li', 'eind__plek', loc.titel)));
+  $('eind-antwoorden-link').parentElement.hidden = klaar === 0;
+  $('eind-antwoorden-link').textContent = antwoordZichtbaar() ? 'Bekijk je antwoorden met uitleg' : 'Bekijk je antwoorden';
+
+  // Keuze om verder te gaan; bij alles ontdekt is er niets meer te ontdekken.
+  zetHoofdknop(af ? 'Terug naar de kaart' : 'Verder ontdekken', naarKaart);
+}
+
 function toonFout(tekst) {
   el.melding.textContent = tekst;
   el.melding.hidden = false;
@@ -919,6 +987,7 @@ function navigeer() {
   if (pagina === 'kaart') return kaartScherm(); // roept zelf werkLangsBij aan
   if (pagina === 'menu') { menuScherm(); return werkLangsBij(); }
   if (pagina === 'antwoorden') { antwoordenScherm(); return werkLangsBij(); }
+  if (pagina === 'eind') { eindScherm(); return werkLangsBij(); }
   if (pagina === 'plek') {
     const loc = inhoud.locaties.get(id);
     if (!loc) return location.replace('#/kaart');
@@ -989,6 +1058,7 @@ $('opnieuw-ja').addEventListener('click', () => {
   ontgrendeld.clear();
   // Blijf in het menu (zoals bij de instellingen van een telefoon) en bevestig op dezelfde plek.
   $('opnieuw').hidden = true;
+  $('menu-eind').hidden = true;
   $('opnieuw-klaar').hidden = false;
   $('opnieuw-klaar').focus({ preventScroll: true });
 });
