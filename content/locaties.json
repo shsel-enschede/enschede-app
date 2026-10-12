@@ -306,10 +306,16 @@
       "naam": "Fabrieken langs de spoorlijn naar Gronau",
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
-        [52.222876, 6.892914],
-        [52.223866, 6.902215],
-        [52.223761, 6.902215],
-        [52.22284, 6.892984]
+        [52.222827, 6.893685],
+        [52.223341, 6.899245],
+        [52.22438, 6.90912],
+        [52.22463, 6.911804],
+        [52.224064, 6.911868],
+        [52.223906, 6.90927],
+        [52.223367, 6.909335],
+        [52.222472, 6.900082],
+        [52.22309, 6.899739],
+        [52.222709, 6.893685]
       ]
     },
     {
@@ -1844,11 +1850,11 @@
       "juist": 3,
       "bevestigd": false,
       "positie": {
-        "lat": 52.223143,
-        "lng": 6.895911,
+        "lat": 52.22291,
+        "lng": 6.895981,
         "bevestigd": true
       },
-      "opmerking": "Keuze om de spoorlijn te volgen in de tekening, of moet het hele vlak rood gemaakt worden (is wel realistischer)",
+      "opmerking": "Hele vlak rood gemaakt. Geeft een indruk van de grootte van de fabrieken",
       "fotos": [
         "shsel-38a-van-heek-en-co-3-ps",
         "shsel-38a-van-heek-en-co-ps",
