@@ -2137,6 +2137,2598 @@
       },
       "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
       "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-01a-alphons-ariens-jb",
+      "locaties": [1],
+      "bron": "SHSEL",
+      "documentnummer": "01a Alphons Ariens JB",
+      "bestand": null,
+      "bestand_klaar": "01a-alphons-ariens-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-01a-alphons-ariens-ps",
+      "locaties": [1],
+      "bron": "SHSEL",
+      "documentnummer": "01a Alphons Ariens PS",
+      "bestand": null,
+      "bestand_klaar": "01a-alphons-ariens-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-01a-alphons-ariens-3-jb",
+      "locaties": [1],
+      "bron": "SHSEL",
+      "documentnummer": "01a Alphons Ariens 3 JB",
+      "bestand": null,
+      "bestand_klaar": "01a-alphons-ariens-3-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-02a-st-josephziekenhuis-bw-jb",
+      "locaties": [2],
+      "bron": "SHSEL",
+      "documentnummer": "02a St. Josephziekenhuis bw JB",
+      "bestand": null,
+      "bestand_klaar": "02a-st-josephziekenhuis-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-02a-rk-ziekenhuis-ca-1955-jb",
+      "locaties": [2],
+      "bron": "SHSEL",
+      "documentnummer": "02a RK Ziekenhuis ca.1955 JB",
+      "bestand": null,
+      "bestand_klaar": "02a-rk-ziekenhuis-ca-1955-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-02a-rk-ziekenhuis-ps",
+      "locaties": [2],
+      "bron": "SHSEL",
+      "documentnummer": "02a RK Ziekenhuis PS",
+      "bestand": null,
+      "bestand_klaar": "02a-rk-ziekenhuis-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-03a-huize-sonnevanck-en-beeld-ariens-jb",
+      "locaties": [3],
+      "bron": "SHSEL",
+      "documentnummer": "03a Huize Sonnevanck en beeld Ariens JB",
+      "bestand": null,
+      "bestand_klaar": "03a-huize-sonnevanck-en-beeld-ariens-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-03a-huize-sonnevanck-ps",
+      "locaties": [3],
+      "bron": "SHSEL",
+      "documentnummer": "03a Huize Sonnevanck PS",
+      "bestand": null,
+      "bestand_klaar": "03a-huize-sonnevanck-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-03a-huize-sonnevanck-2-ps",
+      "locaties": [3],
+      "bron": "SHSEL",
+      "documentnummer": "03a Huize Sonnevanck 2 PS",
+      "bestand": null,
+      "bestand_klaar": "03a-huize-sonnevanck-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-04-hts-6-jb",
+      "locaties": [4],
+      "bron": "SHSEL",
+      "documentnummer": "04 HTS 6 JB",
+      "bestand": null,
+      "bestand_klaar": "04-hts-6-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-04a-hts-jb",
+      "locaties": [4],
+      "bron": "SHSEL",
+      "documentnummer": "04a HTS JB",
+      "bestand": null,
+      "bestand_klaar": "04a-hts-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-04a-hts-4-jb",
+      "locaties": [4],
+      "bron": "SHSEL",
+      "documentnummer": "04a HTS 4 JB",
+      "bestand": null,
+      "bestand_klaar": "04a-hts-4-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-05a-lyceum-4-ps",
+      "locaties": [5],
+      "bron": "SHSEL",
+      "documentnummer": "05a Lyceum 4 PS",
+      "bestand": null,
+      "bestand_klaar": "05a-lyceum-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-05a-lyceum-1958-jb",
+      "locaties": [5],
+      "bron": "SHSEL",
+      "documentnummer": "05a Lyceum 1958 JB",
+      "bestand": null,
+      "bestand_klaar": "05a-lyceum-1958-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-05-lyceum-ps",
+      "locaties": [5],
+      "bron": "SHSEL",
+      "documentnummer": "05 Lyceum PS",
+      "bestand": null,
+      "bestand_klaar": "05-lyceum-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-06a-postkantoor-3-ps",
+      "locaties": [6],
+      "bron": "SHSEL",
+      "documentnummer": "06a Postkantoor 3 PS",
+      "bestand": null,
+      "bestand_klaar": "06a-postkantoor-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-06a-postkantoor-4-ps",
+      "locaties": [6],
+      "bron": "SHSEL",
+      "documentnummer": "06a Postkantoor 4 PS",
+      "bestand": null,
+      "bestand_klaar": "06a-postkantoor-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-06a-postkantoor-2-ps",
+      "locaties": [6],
+      "bron": "SHSEL",
+      "documentnummer": "06a Postkantoor 2 PS",
+      "bestand": null,
+      "bestand_klaar": "06a-postkantoor-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-07a-burgermeesterstraat-3-ps",
+      "locaties": [7],
+      "bron": "SHSEL",
+      "documentnummer": "07a Burgermeesterstraat 3 PS",
+      "bestand": null,
+      "bestand_klaar": "07a-burgermeesterstraat-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-07-burgermeesterstraat-ps",
+      "locaties": [7],
+      "bron": "SHSEL",
+      "documentnummer": "07 Burgermeesterstraat PS",
+      "bestand": null,
+      "bestand_klaar": "07-burgermeesterstraat-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-07a-burgermeesterstraat-fn",
+      "locaties": [7],
+      "bron": "SHSEL",
+      "documentnummer": "07a Burgermeesterstraat FN",
+      "bestand": null,
+      "bestand_klaar": "07a-burgermeesterstraat-fn.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-08a-overgang-kleiboer-jb",
+      "locaties": [8],
+      "bron": "SHSEL",
+      "documentnummer": "08a Overgang - Kleiboer JB",
+      "bestand": null,
+      "bestand_klaar": "08a-overgang-kleiboer-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-08a-villa-kleiboer-jb",
+      "locaties": [8],
+      "bron": "SHSEL",
+      "documentnummer": "08a Villa Kleiboer JB",
+      "bestand": null,
+      "bestand_klaar": "08a-villa-kleiboer-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-08a-van-heek-kleiboer-1955b-jb",
+      "locaties": [8],
+      "bron": "SHSEL",
+      "documentnummer": "08a van Heek - Kleiboer 1955b JB",
+      "bestand": null,
+      "bestand_klaar": "08a-van-heek-kleiboer-1955b-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-09a-koningshuizen-2-ps",
+      "locaties": [9],
+      "bron": "SHSEL",
+      "documentnummer": "09a Koningshuizen 2 PS",
+      "bestand": null,
+      "bestand_klaar": "09a-koningshuizen-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-09a-koningshuizen-3-ps",
+      "locaties": [9],
+      "bron": "SHSEL",
+      "documentnummer": "09a Koningshuizen 3 PS",
+      "bestand": null,
+      "bestand_klaar": "09a-koningshuizen-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-09a-koningshuizen-1-ps",
+      "locaties": [9],
+      "bron": "SHSEL",
+      "documentnummer": "09a Koningshuizen 1 PS",
+      "bestand": null,
+      "bestand_klaar": "09a-koningshuizen-1-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-10a-twentsche-bank-jb",
+      "locaties": [10],
+      "bron": "SHSEL",
+      "documentnummer": "10a Twentsche Bank JB",
+      "bestand": null,
+      "bestand_klaar": "10a-twentsche-bank-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-10a-twentsche-bank-3-ps",
+      "locaties": [10],
+      "bron": "SHSEL",
+      "documentnummer": "10a Twentsche Bank 3 PS",
+      "bestand": null,
+      "bestand_klaar": "10a-twentsche-bank-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-10-twentsche-bank-2-ps",
+      "locaties": [10],
+      "bron": "SHSEL",
+      "documentnummer": "10 Twentsche Bank 2 PS",
+      "bestand": null,
+      "bestand_klaar": "10-twentsche-bank-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-11a-kalanderstraat-4-ps",
+      "locaties": [11],
+      "bron": "SHSEL",
+      "documentnummer": "11a Kalanderstraat 4 PS",
+      "bestand": null,
+      "bestand_klaar": "11a-kalanderstraat-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-11a-kalanderstraat-5-ps",
+      "locaties": [11],
+      "bron": "SHSEL",
+      "documentnummer": "11a Kalanderstraat 5 PS",
+      "bestand": null,
+      "bestand_klaar": "11a-kalanderstraat-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-12a-elderinkshuis-jb",
+      "locaties": [12],
+      "bron": "SHSEL",
+      "documentnummer": "12a Elderinkshuis JB",
+      "bestand": null,
+      "bestand_klaar": "12a-elderinkshuis-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-12a-elderinkshuis",
+      "locaties": [12],
+      "bron": "SHSEL",
+      "documentnummer": "12a Elderinkshuis",
+      "bestand": null,
+      "bestand_klaar": "12a-elderinkshuis.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-12a-elderinkshuis-2",
+      "locaties": [12],
+      "bron": "SHSEL",
+      "documentnummer": "12a Elderinkshuis 2",
+      "bestand": null,
+      "bestand_klaar": "12a-elderinkshuis-2.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-13a-v-en-d-2-jb",
+      "locaties": [13],
+      "bron": "SHSEL",
+      "documentnummer": "13a V&D 2 JB",
+      "bestand": null,
+      "bestand_klaar": "13a-v-en-d-2-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-13-v-en-d-34-ps",
+      "locaties": [13],
+      "bron": "SHSEL",
+      "documentnummer": "13 V&D 34 PS",
+      "bestand": null,
+      "bestand_klaar": "13-v-en-d-34-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-13a-v-en-d-2-ps",
+      "locaties": [13],
+      "bron": "SHSEL",
+      "documentnummer": "13a V&D 2 PS",
+      "bestand": null,
+      "bestand_klaar": "13a-v-en-d-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-14a-kruispunt-de-graaff-jb",
+      "locaties": [14],
+      "bron": "SHSEL",
+      "documentnummer": "14a Kruispunt De Graaff JB",
+      "bestand": null,
+      "bestand_klaar": "14a-kruispunt-de-graaff-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-14a-kruispunt-de-graaff-1905-jb",
+      "locaties": [14],
+      "bron": "SHSEL",
+      "documentnummer": "14a Kruispunt De Graaff 1905 JB",
+      "bestand": null,
+      "bestand_klaar": "14a-kruispunt-de-graaff-1905-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-14a-hotel-de-graaff-bw-jb",
+      "locaties": [14],
+      "bron": "SHSEL",
+      "documentnummer": "14a Hotel De Graaff bw JB",
+      "bestand": null,
+      "bestand_klaar": "14a-hotel-de-graaff-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-15a-langestraat-veldpoort-jb",
+      "locaties": [15],
+      "bron": "SHSEL",
+      "documentnummer": "15a Langestraat Veldpoort JB",
+      "bestand": null,
+      "bestand_klaar": "15a-langestraat-veldpoort-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-15a-langestraat-opgraving-jb",
+      "locaties": [15],
+      "bron": "SHSEL",
+      "documentnummer": "15a Langestraat opgraving JB",
+      "bestand": null,
+      "bestand_klaar": "15a-langestraat-opgraving-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-15a-langestraat-veldpoort",
+      "locaties": [15],
+      "bron": "SHSEL",
+      "documentnummer": "15a Langestraat Veldpoort",
+      "bestand": null,
+      "bestand_klaar": "15a-langestraat-veldpoort.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-16a-stadhuis-1910-bw-jb",
+      "locaties": [16],
+      "bron": "SHSEL",
+      "documentnummer": "16a Stadhuis 1910 bw JB",
+      "bestand": null,
+      "bestand_klaar": "16a-stadhuis-1910-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-16-stadhuis-oud-en-nieuw-5-1931-jb",
+      "locaties": [16],
+      "bron": "SHSEL",
+      "documentnummer": "16 Stadhuis oud en nieuw 5-1931 JB",
+      "bestand": null,
+      "bestand_klaar": "16-stadhuis-oud-en-nieuw-5-1931-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-16-stadhuis-3-ps",
+      "locaties": [16],
+      "bron": "SHSEL",
+      "documentnummer": "16 Stadhuis 3 PS",
+      "bestand": null,
+      "bestand_klaar": "16-stadhuis-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-17a-janninkshuis-2-ps",
+      "locaties": [17],
+      "bron": "SHSEL",
+      "documentnummer": "17a Janninkshuis 2 PS",
+      "bestand": null,
+      "bestand_klaar": "17a-janninkshuis-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-17a-janninkshuis-ps",
+      "locaties": [17],
+      "bron": "SHSEL",
+      "documentnummer": "17a janninkshuis PS",
+      "bestand": null,
+      "bestand_klaar": "17a-janninkshuis-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-17a-janninkshuis-3-ps",
+      "locaties": [17],
+      "bron": "SHSEL",
+      "documentnummer": "17a Janninkshuis 3 PS",
+      "bestand": null,
+      "bestand_klaar": "17a-janninkshuis-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-18a-twentsche-schouwburg-1-ps",
+      "locaties": [18],
+      "bron": "SHSEL",
+      "documentnummer": "18a Twentsche Schouwburg  1 PS",
+      "bestand": null,
+      "bestand_klaar": "18a-twentsche-schouwburg-1-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-18a-twentsche-schouwburg-2-ps",
+      "locaties": [18],
+      "bron": "SHSEL",
+      "documentnummer": "18a Twentsche Schouwburg  2 PS",
+      "bestand": null,
+      "bestand_klaar": "18a-twentsche-schouwburg-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-18a-twentsche-schouwburg-5-ps",
+      "locaties": [18],
+      "bron": "SHSEL",
+      "documentnummer": "18a Twentsche Schouwburg  5 PS",
+      "bestand": null,
+      "bestand_klaar": "18a-twentsche-schouwburg-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-19a-beltstraat-2",
+      "locaties": [19],
+      "bron": "SHSEL",
+      "documentnummer": "19a Beltstraat 2",
+      "bestand": null,
+      "bestand_klaar": "19a-beltstraat-2.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-19a-beltstraat-3",
+      "locaties": [19],
+      "bron": "SHSEL",
+      "documentnummer": "19a Beltstraat 3",
+      "bestand": null,
+      "bestand_klaar": "19a-beltstraat-3.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-19a-beltstraat-4",
+      "locaties": [19],
+      "bron": "SHSEL",
+      "documentnummer": "19a Beltstraat 4",
+      "bestand": null,
+      "bestand_klaar": "19a-beltstraat-4.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-20a-molenstraat-2-jb",
+      "locaties": [20],
+      "bron": "SHSEL",
+      "documentnummer": "20a Molenstraat 2 JB",
+      "bestand": null,
+      "bestand_klaar": "20a-molenstraat-2-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-20-gerechtsgebouw-5-ps",
+      "locaties": [20],
+      "bron": "SHSEL",
+      "documentnummer": "20 Gerechtsgebouw 5 PS",
+      "bestand": null,
+      "bestand_klaar": "20-gerechtsgebouw-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-20a-molenstraat-ps",
+      "locaties": [20],
+      "bron": "SHSEL",
+      "documentnummer": "20a Molenstraat PS",
+      "bestand": null,
+      "bestand_klaar": "20a-molenstraat-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-21a-joodse-begraafplaats-2-ps",
+      "locaties": [21],
+      "bron": "SHSEL",
+      "documentnummer": "21a Joodse begraafplaats  2 PS",
+      "bestand": null,
+      "bestand_klaar": "21a-joodse-begraafplaats-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-21a-joodse-begraafplaats-ps",
+      "locaties": [21],
+      "bron": "SHSEL",
+      "documentnummer": "21a Joodse begraafplaats PS",
+      "bestand": null,
+      "bestand_klaar": "21a-joodse-begraafplaats-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-21a-molenstraat-joodse-begraafplaats-bw",
+      "locaties": [21],
+      "bron": "SHSEL",
+      "documentnummer": "21a Molenstraat Joodse begraafplaats bw",
+      "bestand": null,
+      "bestand_klaar": "21a-molenstraat-joodse-begraafplaats-bw.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-22a-fabrieksschool-2",
+      "locaties": [22],
+      "bron": "SHSEL",
+      "documentnummer": "22a Fabrieksschool 2",
+      "bestand": null,
+      "bestand_klaar": "22a-fabrieksschool-2.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-22a-fabrieksschool-ps",
+      "locaties": [22],
+      "bron": "SHSEL",
+      "documentnummer": "22a Fabrieksschool PS",
+      "bestand": null,
+      "bestand_klaar": "22a-fabrieksschool-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-22a-fabrieksschool-3-ps",
+      "locaties": [22],
+      "bron": "SHSEL",
+      "documentnummer": "22a Fabrieksschool 3 PS",
+      "bestand": null,
+      "bestand_klaar": "22a-fabrieksschool-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-23a-larinksticht-jb",
+      "locaties": [23],
+      "bron": "SHSEL",
+      "documentnummer": "23a Larinksticht JB",
+      "bestand": null,
+      "bestand_klaar": "23a-larinksticht-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-23a-larinksticht-3-ps",
+      "locaties": [23],
+      "bron": "SHSEL",
+      "documentnummer": "23a Larinksticht 3 PS",
+      "bestand": null,
+      "bestand_klaar": "23a-larinksticht-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-23a-larinksticht-ps",
+      "locaties": [23],
+      "bron": "SHSEL",
+      "documentnummer": "23a Larinksticht PS",
+      "bestand": null,
+      "bestand_klaar": "23a-larinksticht-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-24a-irene-2-ps",
+      "locaties": [24],
+      "bron": "SHSEL",
+      "documentnummer": "24a Irene 2 PS",
+      "bestand": null,
+      "bestand_klaar": "24a-irene-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-24a-irene-4-ps",
+      "locaties": [24],
+      "bron": "SHSEL",
+      "documentnummer": "24a Irene 4 PS",
+      "bestand": null,
+      "bestand_klaar": "24a-irene-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-24-irene-3-ps",
+      "locaties": [24],
+      "bron": "SHSEL",
+      "documentnummer": "24 Irene 3 PS",
+      "bestand": null,
+      "bestand_klaar": "24-irene-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-25a-politiebureau-2-jb",
+      "locaties": [25],
+      "bron": "SHSEL",
+      "documentnummer": "25a Politiebureau 2 JB",
+      "bestand": null,
+      "bestand_klaar": "25a-politiebureau-2-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-25a-politiebureau-jb",
+      "locaties": [25],
+      "bron": "SHSEL",
+      "documentnummer": "25a Politiebureau JB",
+      "bestand": null,
+      "bestand_klaar": "25a-politiebureau-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-25a-politiebureau-2-ps",
+      "locaties": [25],
+      "bron": "SHSEL",
+      "documentnummer": "25a Politiebureau 2 PS",
+      "bestand": null,
+      "bestand_klaar": "25a-politiebureau-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-26a-nijverheid-fabriek-ps",
+      "locaties": [26],
+      "bron": "SHSEL",
+      "documentnummer": "26a Nijverheid fabriek PS",
+      "bestand": null,
+      "bestand_klaar": "26a-nijverheid-fabriek-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-26a-nijverheid-fabriek-4-ps",
+      "locaties": [26],
+      "bron": "SHSEL",
+      "documentnummer": "26a Nijverheid fabriek 4 PS",
+      "bestand": null,
+      "bestand_klaar": "26a-nijverheid-fabriek-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-26a-joodse-ster",
+      "locaties": [26],
+      "bron": "SHSEL",
+      "documentnummer": "26a Joodse ster",
+      "bestand": null,
+      "bestand_klaar": "26a-joodse-ster.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-27a-striekiezer-ps",
+      "locaties": [27],
+      "bron": "SHSEL",
+      "documentnummer": "27a Striekiezer PS",
+      "bestand": null,
+      "bestand_klaar": "27a-striekiezer-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-27a-striekiezer-2-ps",
+      "locaties": [27],
+      "bron": "SHSEL",
+      "documentnummer": "27a Striekiezer 2 PS",
+      "bestand": null,
+      "bestand_klaar": "27a-striekiezer-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-27a-striekiezer",
+      "locaties": [27],
+      "bron": "SHSEL",
+      "documentnummer": "27a Striekiezer",
+      "bestand": null,
+      "bestand_klaar": "27a-striekiezer.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-28a-st-josefkerk-3-ps",
+      "locaties": [28],
+      "bron": "SHSEL",
+      "documentnummer": "28a St Josefkerk 3 PS",
+      "bestand": null,
+      "bestand_klaar": "28a-st-josefkerk-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-28-st-josefkerk-4-jb",
+      "locaties": [28],
+      "bron": "SHSEL",
+      "documentnummer": "28 St Josefkerk 4 JB",
+      "bestand": null,
+      "bestand_klaar": "28-st-josefkerk-4-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-28a-st-josefkerk-ps",
+      "locaties": [28],
+      "bron": "SHSEL",
+      "documentnummer": "28a St Josefkerk PS",
+      "bestand": null,
+      "bestand_klaar": "28a-st-josefkerk-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-38a-van-heek-en-co-3-ps",
+      "locaties": [38],
+      "bron": "SHSEL",
+      "documentnummer": "38a Van Heek & Co 3 PS",
+      "bestand": null,
+      "bestand_klaar": "38a-van-heek-en-co-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-38a-van-heek-en-co-ps",
+      "locaties": [38],
+      "bron": "SHSEL",
+      "documentnummer": "38a Van Heek & Co PS",
+      "bestand": null,
+      "bestand_klaar": "38a-van-heek-en-co-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-38a-van-heek-en-co-2-ps",
+      "locaties": [38],
+      "bron": "SHSEL",
+      "documentnummer": "38a Van Heek & Co 2 PS",
+      "bestand": null,
+      "bestand_klaar": "38a-van-heek-en-co-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-39a-station-staatsspoor-4-jb",
+      "locaties": [39],
+      "bron": "SHSEL",
+      "documentnummer": "39a Station Staatsspoor 4 JB",
+      "bestand": null,
+      "bestand_klaar": "39a-station-staatsspoor-4-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-39a-station-staatsspoor-ca-1935-bw-jb",
+      "locaties": [39],
+      "bron": "SHSEL",
+      "documentnummer": "39a Station Staatsspoor ca 1935 bw JB",
+      "bestand": null,
+      "bestand_klaar": "39a-station-staatsspoor-ca-1935-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-39a-station-staatsspoor-jb",
+      "locaties": [39],
+      "bron": "SHSEL",
+      "documentnummer": "39a Station Staatsspoor JB",
+      "bestand": null,
+      "bestand_klaar": "39a-station-staatsspoor-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-40a-tram-ps",
+      "locaties": [40],
+      "bron": "SHSEL",
+      "documentnummer": "40a Tram PS",
+      "bestand": null,
+      "bestand_klaar": "40a-tram-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-40a-tram-ps-b",
+      "locaties": [40],
+      "bron": "SHSEL",
+      "documentnummer": "40a Tram  PS",
+      "bestand": null,
+      "bestand_klaar": "40a-tram-ps-b.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-40a-tram-2-ps",
+      "locaties": [40],
+      "bron": "SHSEL",
+      "documentnummer": "40a Tram 2 PS",
+      "bestand": null,
+      "bestand_klaar": "40a-tram-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-41a-ter-kuile-villa-esv-1-ps",
+      "locaties": [41],
+      "bron": "SHSEL",
+      "documentnummer": "41a Ter Kuile villa-ESV 1 PS",
+      "bestand": null,
+      "bestand_klaar": "41a-ter-kuile-villa-esv-1-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-41a-ter-kuile-villa-esv-2-ps",
+      "locaties": [41],
+      "bron": "SHSEL",
+      "documentnummer": "41a Ter Kuile villa-ESV 2 PS",
+      "bestand": null,
+      "bestand_klaar": "41a-ter-kuile-villa-esv-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-41-ter-kuile-villa-esv-3-ps",
+      "locaties": [41],
+      "bron": "SHSEL",
+      "documentnummer": "41 Ter Kuile villa-ESV 3 PS",
+      "bestand": null,
+      "bestand_klaar": "41-ter-kuile-villa-esv-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-42a-incassobank-4-ps",
+      "locaties": [42],
+      "bron": "SHSEL",
+      "documentnummer": "42a Incassobank 4 PS",
+      "bestand": null,
+      "bestand_klaar": "42a-incassobank-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-42a-incassobank-2-ps",
+      "locaties": [42],
+      "bron": "SHSEL",
+      "documentnummer": "42a Incassobank 2 PS",
+      "bestand": null,
+      "bestand_klaar": "42a-incassobank-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-42a-incassobank-5-ps",
+      "locaties": [42],
+      "bron": "SHSEL",
+      "documentnummer": "42a Incassobank 5 PS",
+      "bestand": null,
+      "bestand_klaar": "42a-incassobank-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-43a-piet-heinstraat-slo",
+      "locaties": [43],
+      "bron": "SHSEL",
+      "documentnummer": "43a Piet Heinstraat SLO",
+      "bestand": null,
+      "bestand_klaar": "43a-piet-heinstraat-slo.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-43a-slo-fn",
+      "locaties": [43],
+      "bron": "SHSEL",
+      "documentnummer": "43a SLO FN",
+      "bestand": null,
+      "bestand_klaar": "43a-slo-fn.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-43a-slo-2-ps",
+      "locaties": [43],
+      "bron": "SHSEL",
+      "documentnummer": "43a SLO 2 PS",
+      "bestand": null,
+      "bestand_klaar": "43a-slo-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-44a-synagoge-2-ps",
+      "locaties": [44],
+      "bron": "SHSEL",
+      "documentnummer": "44a Synagoge 2 PS",
+      "bestand": null,
+      "bestand_klaar": "44a-synagoge-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-44a-synagoge-4-ps",
+      "locaties": [44],
+      "bron": "SHSEL",
+      "documentnummer": "44a Synagoge 4 PS",
+      "bestand": null,
+      "bestand_klaar": "44a-synagoge-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-44a-synagoge-ps",
+      "locaties": [44],
+      "bron": "SHSEL",
+      "documentnummer": "44a Synagoge PS",
+      "bestand": null,
+      "bestand_klaar": "44a-synagoge-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-45-jannink-beltstraat-8-ps",
+      "locaties": [45],
+      "bron": "SHSEL",
+      "documentnummer": "45 Jannink Beltstraat 8 PS",
+      "bestand": null,
+      "bestand_klaar": "45-jannink-beltstraat-8-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-45a-jannink-beltstraat-3-ps",
+      "locaties": [45],
+      "bron": "SHSEL",
+      "documentnummer": "45a Jannink Beltstraat 3 PS",
+      "bestand": null,
+      "bestand_klaar": "45a-jannink-beltstraat-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-45a-jannink-beltstraat-5-ps",
+      "locaties": [45],
+      "bron": "SHSEL",
+      "documentnummer": "45a Jannink Beltstraat 5 PS",
+      "bestand": null,
+      "bestand_klaar": "45a-jannink-beltstraat-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-46a-ripperdastraat-1-jb",
+      "locaties": [46],
+      "bron": "SHSEL",
+      "documentnummer": "46a Ripperdastraat 1 JB",
+      "bestand": null,
+      "bestand_klaar": "46a-ripperdastraat-1-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-46a-ripperdastraat-2-ps",
+      "locaties": [46],
+      "bron": "SHSEL",
+      "documentnummer": "46a Ripperdastraat 2 PS",
+      "bestand": null,
+      "bestand_klaar": "46a-ripperdastraat-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-46a-ripperdastraat-3-ps",
+      "locaties": [46],
+      "bron": "SHSEL",
+      "documentnummer": "46a Ripperdastraat 3 PS",
+      "bestand": null,
+      "bestand_klaar": "46a-ripperdastraat-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-47a-ziekenzorg-1950-bw-jb",
+      "locaties": [47],
+      "bron": "SHSEL",
+      "documentnummer": "47a Ziekenzorg 1950 bw JB",
+      "bestand": null,
+      "bestand_klaar": "47a-ziekenzorg-1950-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-47-ziekenzorg-3-ps",
+      "locaties": [47],
+      "bron": "SHSEL",
+      "documentnummer": "47 Ziekenzorg 3 PS",
+      "bestand": null,
+      "bestand_klaar": "47-ziekenzorg-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-47a-ziekenzorg-2-ps",
+      "locaties": [47],
+      "bron": "SHSEL",
+      "documentnummer": "47a Ziekenzorg 2 PS",
+      "bestand": null,
+      "bestand_klaar": "47a-ziekenzorg-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-31a-kaart-1862-na-de-brand",
+      "locaties": [48],
+      "bron": "SHSEL",
+      "documentnummer": "31a Kaart 1862 na de brand",
+      "bestand": null,
+      "bestand_klaar": "31a-kaart-1862-na-de-brand.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-48a-stadsgravenstraat-2-ps",
+      "locaties": [48],
+      "bron": "SHSEL",
+      "documentnummer": "48a Stadsgravenstraat 2 PS",
+      "bestand": null,
+      "bestand_klaar": "48a-stadsgravenstraat-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-48a-stadsgravenstraat-ps",
+      "locaties": [48],
+      "bron": "SHSEL",
+      "documentnummer": "48a Stadsgravenstraat PS",
+      "bestand": null,
+      "bestand_klaar": "48a-stadsgravenstraat-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-49a-joodse-school-ps",
+      "locaties": [49],
+      "bron": "SHSEL",
+      "documentnummer": "49a Joodse school PS",
+      "bestand": null,
+      "bestand_klaar": "49a-joodse-school-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-49a-joodse-school-fn",
+      "locaties": [49],
+      "bron": "SHSEL",
+      "documentnummer": "49a Joodse school FN",
+      "bestand": null,
+      "bestand_klaar": "49a-joodse-school-fn.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-49a-joodse-school-2-ps",
+      "locaties": [49],
+      "bron": "SHSEL",
+      "documentnummer": "49a Joodse school 2 PS",
+      "bestand": null,
+      "bestand_klaar": "49a-joodse-school-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-50a-menistenkerk-jb",
+      "locaties": [50],
+      "bron": "SHSEL",
+      "documentnummer": "50a Menistenkerk JB",
+      "bestand": null,
+      "bestand_klaar": "50a-menistenkerk-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-50a-menistenkerk-2-ps",
+      "locaties": [50],
+      "bron": "SHSEL",
+      "documentnummer": "50a Menistenkerk 2 PS",
+      "bestand": null,
+      "bestand_klaar": "50a-menistenkerk-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-50a-menistenkerk-ps",
+      "locaties": [50],
+      "bron": "SHSEL",
+      "documentnummer": "50a Menistenkerk PS",
+      "bestand": null,
+      "bestand_klaar": "50a-menistenkerk-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-51-wilhelminaflat-ps",
+      "locaties": [51],
+      "bron": "SHSEL",
+      "documentnummer": "51 Wilhelminaflat PS",
+      "bestand": null,
+      "bestand_klaar": "51-wilhelminaflat-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-51a-wilhelminaflat-2-ps",
+      "locaties": [51],
+      "bron": "SHSEL",
+      "documentnummer": "51a Wilhelminaflat 2 PS",
+      "bestand": null,
+      "bestand_klaar": "51a-wilhelminaflat-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-51a-wilhelminaflat-3-ps",
+      "locaties": [51],
+      "bron": "SHSEL",
+      "documentnummer": "51a Wilhelminaflat 3 PS",
+      "bestand": null,
+      "bestand_klaar": "51a-wilhelminaflat-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-52a-atjehpark-bw-jb",
+      "locaties": [52],
+      "bron": "SHSEL",
+      "documentnummer": "52a Atjehpark bw JB",
+      "bestand": null,
+      "bestand_klaar": "52a-atjehpark-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-52-atjehpark-2-ps",
+      "locaties": [52],
+      "bron": "SHSEL",
+      "documentnummer": "52 Atjehpark 2 PS",
+      "bestand": null,
+      "bestand_klaar": "52-atjehpark-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-52a-atjehpark-3-ps",
+      "locaties": [52],
+      "bron": "SHSEL",
+      "documentnummer": "52a Atjehpark 3 PS",
+      "bestand": null,
+      "bestand_klaar": "52a-atjehpark-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-53-stationsplein-ps",
+      "locaties": [53],
+      "bron": "SHSEL",
+      "documentnummer": "53 stationsplein PS",
+      "bestand": null,
+      "bestand_klaar": "53-stationsplein-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-53-stationsplein-1965-bw-jb",
+      "locaties": [53],
+      "bron": "SHSEL",
+      "documentnummer": "53 Stationsplein 1965 bw JB",
+      "bestand": null,
+      "bestand_klaar": "53-stationsplein-1965-bw-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-53a-station-terras-1957-jb",
+      "locaties": [53],
+      "bron": "SHSEL",
+      "documentnummer": "53a Station terras 1957 JB",
+      "bestand": null,
+      "bestand_klaar": "53a-station-terras-1957-jb.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-54a-ter-kuile-4-ps",
+      "locaties": [54],
+      "bron": "SHSEL",
+      "documentnummer": "54a ter Kuile 4 PS",
+      "bestand": null,
+      "bestand_klaar": "54a-ter-kuile-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-54a-ter-kuile-ps",
+      "locaties": [54],
+      "bron": "SHSEL",
+      "documentnummer": "54a ter Kuile PS",
+      "bestand": null,
+      "bestand_klaar": "54a-ter-kuile-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-54a-ter-kuile-5-ps",
+      "locaties": [54],
+      "bron": "SHSEL",
+      "documentnummer": "54a ter Kuile 5 PS",
+      "bestand": null,
+      "bestand_klaar": "54a-ter-kuile-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-55a-cromhoff-3-ps",
+      "locaties": [55],
+      "bron": "SHSEL",
+      "documentnummer": "55a Cromhoff 3 PS",
+      "bestand": null,
+      "bestand_klaar": "55a-cromhoff-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-55a-cromhoff-ps",
+      "locaties": [55],
+      "bron": "SHSEL",
+      "documentnummer": "55a Cromhoff PS",
+      "bestand": null,
+      "bestand_klaar": "55a-cromhoff-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-55a-cromhoff-4-ps",
+      "locaties": [55],
+      "bron": "SHSEL",
+      "documentnummer": "55a Cromhoff 4 PS",
+      "bestand": null,
+      "bestand_klaar": "55a-cromhoff-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-56a-tromplaan-3-ps",
+      "locaties": [56],
+      "bron": "SHSEL",
+      "documentnummer": "56a Tromplaan 3 PS",
+      "bestand": null,
+      "bestand_klaar": "56a-tromplaan-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-56a-tromplaan-1-ps",
+      "locaties": [56],
+      "bron": "SHSEL",
+      "documentnummer": "56a Tromplaan 1 PS",
+      "bestand": null,
+      "bestand_klaar": "56a-tromplaan-1-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-56a-tromplaan-2-ps",
+      "locaties": [56],
+      "bron": "SHSEL",
+      "documentnummer": "56a Tromplaan 2 PS",
+      "bestand": null,
+      "bestand_klaar": "56a-tromplaan-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-57a-tromplaan-8-2-ps",
+      "locaties": [57],
+      "bron": "SHSEL",
+      "documentnummer": "57a Tromplaan 8 2 PS",
+      "bestand": null,
+      "bestand_klaar": "57a-tromplaan-8-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-57a-tromplaan-8-3-ps",
+      "locaties": [57],
+      "bron": "SHSEL",
+      "documentnummer": "57a Tromplaan 8 3 PS",
+      "bestand": null,
+      "bestand_klaar": "57a-tromplaan-8-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-57a-tromplaan-8-ps",
+      "locaties": [57],
+      "bron": "SHSEL",
+      "documentnummer": "57a Tromplaan 8 PS",
+      "bestand": null,
+      "bestand_klaar": "57a-tromplaan-8-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-58a-tromplaan-staalbankiers",
+      "locaties": [58],
+      "bron": "SHSEL",
+      "documentnummer": "58a Tromplaan Staalbankiers",
+      "bestand": null,
+      "bestand_klaar": "58a-tromplaan-staalbankiers.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-59a-serphos-2-ps",
+      "locaties": [59],
+      "bron": "SHSEL",
+      "documentnummer": "59a serphos 2 PS",
+      "bestand": null,
+      "bestand_klaar": "59a-serphos-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-59a-serphos-3-ps",
+      "locaties": [59],
+      "bron": "SHSEL",
+      "documentnummer": "59a serphos 3 PS",
+      "bestand": null,
+      "bestand_klaar": "59a-serphos-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-59a-serphos-ps",
+      "locaties": [59],
+      "bron": "SHSEL",
+      "documentnummer": "59a serphos PS",
+      "bestand": null,
+      "bestand_klaar": "59a-serphos-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-60a-de-grote-schuur-4-ps",
+      "locaties": [60],
+      "bron": "SHSEL",
+      "documentnummer": "60a De grote schuur 4 PS",
+      "bestand": null,
+      "bestand_klaar": "60a-de-grote-schuur-4-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-60a-de-grote-schuur-5-ps",
+      "locaties": [60],
+      "bron": "SHSEL",
+      "documentnummer": "60a De grote schuur 5 PS",
+      "bestand": null,
+      "bestand_klaar": "60a-de-grote-schuur-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-60a-de-grote-schuur-ps",
+      "locaties": [60],
+      "bron": "SHSEL",
+      "documentnummer": "60a De grote schuur PS",
+      "bestand": null,
+      "bestand_klaar": "60a-de-grote-schuur-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-61a-menko-van-damhuis-3-ps",
+      "locaties": [61],
+      "bron": "SHSEL",
+      "documentnummer": "61a menko van damhuis 3 PS",
+      "bestand": null,
+      "bestand_klaar": "61a-menko-van-damhuis-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-61a-menko-van-damhuis-ps",
+      "locaties": [61],
+      "bron": "SHSEL",
+      "documentnummer": "61a menko van damhuis PS",
+      "bestand": null,
+      "bestand_klaar": "61a-menko-van-damhuis-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-61a-menko-van-damhuis-2-ps",
+      "locaties": [61],
+      "bron": "SHSEL",
+      "documentnummer": "61a menko van damhuis 2 PS",
+      "bestand": null,
+      "bestand_klaar": "61a-menko-van-damhuis-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-62a-memphis-2-ps",
+      "locaties": [62],
+      "bron": "SHSEL",
+      "documentnummer": "62a memphis 2 PS",
+      "bestand": null,
+      "bestand_klaar": "62a-memphis-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-62a-memphis-3-ps",
+      "locaties": [62],
+      "bron": "SHSEL",
+      "documentnummer": "62a memphis 3 PS",
+      "bestand": null,
+      "bestand_klaar": "62a-memphis-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-62a-memphis-5-ps",
+      "locaties": [62],
+      "bron": "SHSEL",
+      "documentnummer": "62a Memphis 5 PS",
+      "bestand": null,
+      "bestand_klaar": "62a-memphis-5-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-63a-willem-wilminkplein-6-ps",
+      "locaties": [63],
+      "bron": "SHSEL",
+      "documentnummer": "63a Willem Wilminkplein 6 PS",
+      "bestand": null,
+      "bestand_klaar": "63a-willem-wilminkplein-6-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-63a-willem-wilminkplein-ps",
+      "locaties": [63],
+      "bron": "SHSEL",
+      "documentnummer": "63a Willem Wilminkplein PS",
+      "bestand": null,
+      "bestand_klaar": "63a-willem-wilminkplein-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-63a-willem-wilminkplein-3-ps",
+      "locaties": [63],
+      "bron": "SHSEL",
+      "documentnummer": "63a Willem Wilminkplein 3 PS",
+      "bestand": null,
+      "bestand_klaar": "63a-willem-wilminkplein-3-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-64-postkantoor-haaksbergerstr-2-ps",
+      "locaties": [64],
+      "bron": "SHSEL",
+      "documentnummer": "64 Postkantoor Haaksbergerstr 2 PS",
+      "bestand": null,
+      "bestand_klaar": "64-postkantoor-haaksbergerstr-2-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-64a-postkantoor-haaksbergerstr-ps",
+      "locaties": [64],
+      "bron": "SHSEL",
+      "documentnummer": "64a Postkantoor Haaksbergerstr PS",
+      "bestand": null,
+      "bestand_klaar": "64a-postkantoor-haaksbergerstr-ps.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
+    },
+    {
+      "id": "shsel-64a-postkantoor-haaksbergerstr",
+      "locaties": [64],
+      "bron": "SHSEL",
+      "documentnummer": "64a Postkantoor Haaksbergerstr",
+      "bestand": null,
+      "bestand_klaar": "64a-postkantoor-haaksbergerstr.webp",
+      "bijschrift": {
+        "nl": ""
+      },
+      "alt": {
+        "nl": ""
+      },
+      "rechten": "Collectie SHSEL; toestemming gevraagd aan SHSEL (okt 2026)",
+      "rechten_geregeld": false
     }
   ]
 }

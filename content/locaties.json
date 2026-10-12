@@ -523,7 +523,12 @@
         "lat": 52.219195,
         "lng": 6.888141,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-01a-alphons-ariens-jb",
+        "shsel-01a-alphons-ariens-ps",
+        "shsel-01a-alphons-ariens-3-jb"
+      ]
     },
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
@@ -554,7 +559,12 @@
         "lat": 52.218713,
         "lng": 6.88802,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-02a-st-josephziekenhuis-bw-jb",
+        "shsel-02a-rk-ziekenhuis-ca-1955-jb",
+        "shsel-02a-rk-ziekenhuis-ps"
+      ]
     },
     {
       "id": "huize-sonnevanck-burgemeesterswoning",
@@ -585,7 +595,12 @@
         "lat": 52.220314,
         "lng": 6.890618,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-03a-huize-sonnevanck-en-beeld-ariens-jb",
+        "shsel-03a-huize-sonnevanck-ps",
+        "shsel-03a-huize-sonnevanck-2-ps"
+      ]
     },
     {
       "id": "schoolgebouw-de-maere",
@@ -616,7 +631,12 @@
         "lat": 52.219364,
         "lng": 6.888652,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-04-hts-6-jb",
+        "shsel-04a-hts-jb",
+        "shsel-04a-hts-4-jb"
+      ]
     },
     {
       "id": "gemeentelijk-lyceum",
@@ -643,7 +663,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-05a-lyceum-4-ps",
+        "shsel-05a-lyceum-1958-jb",
+        "shsel-05-lyceum-ps"
+      ]
     },
     {
       "id": "postkantoor",
@@ -674,7 +699,12 @@
         "lat": 52.217389,
         "lng": 6.894902,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-06a-postkantoor-3-ps",
+        "shsel-06a-postkantoor-4-ps",
+        "shsel-06a-postkantoor-2-ps"
+      ]
     },
     {
       "id": "burgermeesterstraat",
@@ -705,7 +735,12 @@
         "lat": 52.220683,
         "lng": 6.897875,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-07a-burgermeesterstraat-3-ps",
+        "shsel-07-burgermeesterstraat-ps",
+        "shsel-07a-burgermeesterstraat-fn"
+      ]
     },
     {
       "id": "villa-ledeboer-pension-kleiboer",
@@ -736,7 +771,12 @@
         "lat": 52.223232,
         "lng": 6.892371,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-08a-overgang-kleiboer-jb",
+        "shsel-08a-villa-kleiboer-jb",
+        "shsel-08a-van-heek-kleiboer-1955b-jb"
+      ]
     },
     {
       "id": "koningshuizen",
@@ -767,7 +807,12 @@
         "lat": 52.217826,
         "lng": 6.890187,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-09a-koningshuizen-2-ps",
+        "shsel-09a-koningshuizen-3-ps",
+        "shsel-09a-koningshuizen-1-ps"
+      ]
     },
     {
       "id": "twentsche-bank",
@@ -798,7 +843,12 @@
         "lat": 52.220692,
         "lng": 6.891475,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-10a-twentsche-bank-jb",
+        "shsel-10a-twentsche-bank-3-ps",
+        "shsel-10-twentsche-bank-2-ps"
+      ]
     },
     {
       "id": "kalanderstraat",
@@ -829,7 +879,12 @@
         "lat": 52.219055,
         "lng": 6.898792,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-kaart-1862",
+        "shsel-11a-kalanderstraat-4-ps",
+        "shsel-11a-kalanderstraat-5-ps"
+      ]
     },
     {
       "id": "elderinkshuis",
@@ -860,7 +915,12 @@
         "lat": 52.219626,
         "lng": 6.900359,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-12a-elderinkshuis-jb",
+        "shsel-12a-elderinkshuis",
+        "shsel-12a-elderinkshuis-2"
+      ]
     },
     {
       "id": "voormalige-v-d-pand",
@@ -891,7 +951,12 @@
         "lat": 52.221015,
         "lng": 6.892467,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-13a-v-en-d-2-jb",
+        "shsel-13-v-en-d-34-ps",
+        "shsel-13a-v-en-d-2-ps"
+      ]
     },
     {
       "id": "kruispunt-de-graaff",
@@ -922,7 +987,12 @@
         "lat": 52.220997,
         "lng": 6.893245,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-14a-kruispunt-de-graaff-jb",
+        "shsel-14a-kruispunt-de-graaff-1905-jb",
+        "shsel-14a-hotel-de-graaff-bw-jb"
+      ]
     },
     {
       "id": "langestraat-en-stadspoorten",
@@ -950,7 +1020,12 @@
       },
       "juist": 3,
       "bevestigd": false,
-      "opmerking": "Locatie is niet mogelijk doordat het gaat over de Veldpoort, Langestraat en Espoort,"
+      "opmerking": "Locatie is niet mogelijk doordat het gaat over de Veldpoort, Langestraat en Espoort,",
+      "fotos": [
+        "shsel-15a-langestraat-veldpoort-jb",
+        "shsel-15a-langestraat-opgraving-jb",
+        "shsel-15a-langestraat-veldpoort"
+      ]
     },
     {
       "id": "stadhuis",
@@ -981,7 +1056,12 @@
         "lat": 52.219268,
         "lng": 6.896748,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-16a-stadhuis-1910-bw-jb",
+        "shsel-16-stadhuis-oud-en-nieuw-5-1931-jb",
+        "shsel-16-stadhuis-3-ps"
+      ]
     },
     {
       "id": "janninkshuis",
@@ -1012,7 +1092,12 @@
         "lat": 52.219469,
         "lng": 6.896045,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-17a-janninkshuis-2-ps",
+        "shsel-17a-janninkshuis-ps",
+        "shsel-17a-janninkshuis-3-ps"
+      ]
     },
     {
       "id": "societeit-en-twentsche-schouwburg",
@@ -1043,7 +1128,12 @@
         "lat": 52.219785,
         "lng": 6.89589,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-18a-twentsche-schouwburg-1-ps",
+        "shsel-18a-twentsche-schouwburg-2-ps",
+        "shsel-18a-twentsche-schouwburg-5-ps"
+      ]
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
@@ -1074,7 +1164,12 @@
         "lat": 52.219135,
         "lng": 6.892938,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-19a-beltstraat-2",
+        "shsel-19a-beltstraat-3",
+        "shsel-19a-beltstraat-4"
+      ]
     },
     {
       "id": "gerechtsgebouw",
@@ -1105,7 +1200,12 @@
         "lat": 52.223536,
         "lng": 6.894581,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-20a-molenstraat-2-jb",
+        "shsel-20-gerechtsgebouw-5-ps",
+        "shsel-20a-molenstraat-ps"
+      ]
     },
     {
       "id": "joodse-begraafplaats",
@@ -1138,7 +1238,12 @@
         "lng": 6.898325,
         "bevestigd": true
       },
-      "opmerking": "Bestaat het monument op de hoek Molenstraat/ Nieuwe Schoolweg nog?"
+      "opmerking": "Bestaat het monument op de hoek Molenstraat/ Nieuwe Schoolweg nog?",
+      "fotos": [
+        "shsel-21a-joodse-begraafplaats-2-ps",
+        "shsel-21a-joodse-begraafplaats-ps",
+        "shsel-21a-molenstraat-joodse-begraafplaats-bw"
+      ]
     },
     {
       "id": "fabrieksschool",
@@ -1169,7 +1274,12 @@
         "lat": 52.221757,
         "lng": 6.894216,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-22a-fabrieksschool-2",
+        "shsel-22a-fabrieksschool-ps",
+        "shsel-22a-fabrieksschool-3-ps"
+      ]
     },
     {
       "id": "klooster-larinksticht",
@@ -1200,7 +1310,12 @@
         "lat": 52.221829,
         "lng": 6.895047,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-23a-larinksticht-jb",
+        "shsel-23a-larinksticht-3-ps",
+        "shsel-23a-larinksticht-ps"
+      ]
     },
     {
       "id": "verenigingsgebouw-irene",
@@ -1231,7 +1346,12 @@
         "lat": 52.221484,
         "lng": 6.897507,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-24a-irene-2-ps",
+        "shsel-24a-irene-4-ps",
+        "shsel-24-irene-3-ps"
+      ]
     },
     {
       "id": "politiebureau",
@@ -1263,7 +1383,12 @@
         "lat": 52.218247,
         "lng": 6.891532,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-25a-politiebureau-2-jb",
+        "shsel-25a-politiebureau-jb",
+        "shsel-25a-politiebureau-2-ps"
+      ]
     },
     {
       "id": "stoomweverij-de-nijverheid",
@@ -1295,7 +1420,12 @@
         "lat": 52.219746,
         "lng": 6.891299,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-26a-nijverheid-fabriek-ps",
+        "shsel-26a-nijverheid-fabriek-4-ps",
+        "shsel-26a-joodse-ster"
+      ]
     },
     {
       "id": "striekiezer",
@@ -1327,7 +1457,12 @@
         "lat": 52.220526,
         "lng": 6.898625,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-27a-striekiezer-ps",
+        "shsel-27a-striekiezer-2-ps",
+        "shsel-27a-striekiezer"
+      ]
     },
     {
       "id": "r-k-sint-jozefkerk",
@@ -1358,7 +1493,12 @@
         "lat": 52.224326,
         "lng": 6.899382,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-28a-st-josefkerk-3-ps",
+        "shsel-28-st-josefkerk-4-jb",
+        "shsel-28a-st-josefkerk-ps"
+      ]
     },
     {
       "id": "jacobuskerk",
@@ -1708,7 +1848,12 @@
         "lng": 6.895911,
         "bevestigd": true
       },
-      "opmerking": "Keuze om de spoorlijn te volgen in de tekening, of moet het hele vlak rood gemaakt worden (is wel realistischer)"
+      "opmerking": "Keuze om de spoorlijn te volgen in de tekening, of moet het hele vlak rood gemaakt worden (is wel realistischer)",
+      "fotos": [
+        "shsel-38a-van-heek-en-co-3-ps",
+        "shsel-38a-van-heek-en-co-ps",
+        "shsel-38a-van-heek-en-co-2-ps"
+      ]
     },
     {
       "id": "station-staatsspoor",
@@ -1739,7 +1884,12 @@
         "lat": 52.221839,
         "lng": 6.886277,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-39a-station-staatsspoor-4-jb",
+        "shsel-39a-station-staatsspoor-ca-1935-bw-jb",
+        "shsel-39a-station-staatsspoor-jb"
+      ]
     },
     {
       "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
@@ -1766,7 +1916,12 @@
         }
       },
       "juist": 1,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-40a-tram-ps",
+        "shsel-40a-tram-ps-b",
+        "shsel-40a-tram-2-ps"
+      ]
     },
     {
       "id": "h-ter-kuile-huis",
@@ -1798,7 +1953,12 @@
         "lng": 6.890912,
         "bevestigd": true
       },
-      "opmerking": "Meerkeuzevraag controleren"
+      "opmerking": "Meerkeuzevraag controleren",
+      "fotos": [
+        "shsel-41a-ter-kuile-villa-esv-1-ps",
+        "shsel-41a-ter-kuile-villa-esv-2-ps",
+        "shsel-41-ter-kuile-villa-esv-3-ps"
+      ]
     },
     {
       "id": "incassobank",
@@ -1829,7 +1989,12 @@
         "lat": 52.22118,
         "lng": 6.891097,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-42a-incassobank-4-ps",
+        "shsel-42a-incassobank-2-ps",
+        "shsel-42a-incassobank-5-ps"
+      ]
     },
     {
       "id": "slo",
@@ -1862,7 +2027,12 @@
         "bevestigd": true
       },
       "concept": true,
-      "opmerking": "SLO zit hier niet meer, meerkeuzevraag controleren"
+      "opmerking": "SLO zit hier niet meer, meerkeuzevraag controleren",
+      "fotos": [
+        "shsel-43a-piet-heinstraat-slo",
+        "shsel-43a-slo-fn",
+        "shsel-43a-slo-2-ps"
+      ]
     },
     {
       "id": "synagoge",
@@ -1893,7 +2063,12 @@
         "lat": 52.217997,
         "lng": 6.886293,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-44a-synagoge-2-ps",
+        "shsel-44a-synagoge-4-ps",
+        "shsel-44a-synagoge-ps"
+      ]
     },
     {
       "id": "gerard-jannink-en-zonen",
@@ -1920,7 +2095,12 @@
         }
       },
       "juist": 2,
-      "bevestigd": false
+      "bevestigd": false,
+      "fotos": [
+        "shsel-45-jannink-beltstraat-8-ps",
+        "shsel-45a-jannink-beltstraat-3-ps",
+        "shsel-45a-jannink-beltstraat-5-ps"
+      ]
     },
     {
       "id": "de-gouden-bocht",
@@ -1951,7 +2131,12 @@
         "lat": 52.21846,
         "lng": 6.889511,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-46a-ripperdastraat-1-jb",
+        "shsel-46a-ripperdastraat-2-ps",
+        "shsel-46a-ripperdastraat-3-ps"
+      ]
     },
     {
       "id": "ziekenhuis-ziekenzorg",
@@ -1983,7 +2168,12 @@
         "lat": 52.220866,
         "lng": 6.887301,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-47a-ziekenzorg-1950-bw-jb",
+        "shsel-47-ziekenzorg-3-ps",
+        "shsel-47a-ziekenzorg-2-ps"
+      ]
     },
     {
       "id": "stadsgravenstraat",
@@ -2015,7 +2205,12 @@
         "lat": 52.221359,
         "lng": 6.895192,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-31a-kaart-1862-na-de-brand",
+        "shsel-48a-stadsgravenstraat-2-ps",
+        "shsel-48a-stadsgravenstraat-ps"
+      ]
     },
     {
       "id": "joodse-school-en-synagoge",
@@ -2046,7 +2241,12 @@
         "lat": 52.22091,
         "lng": 6.897268,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-49a-joodse-school-ps",
+        "shsel-49a-joodse-school-fn",
+        "shsel-49a-joodse-school-2-ps"
+      ]
     },
     {
       "id": "menistenkerk",
@@ -2077,7 +2277,12 @@
         "lat": 52.221181,
         "lng": 6.896705,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-50a-menistenkerk-jb",
+        "shsel-50a-menistenkerk-2-ps",
+        "shsel-50a-menistenkerk-ps"
+      ]
     },
     {
       "id": "wilhelminaflat",
@@ -2108,7 +2313,12 @@
         "lat": 52.220439,
         "lng": 6.881846,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-51-wilhelminaflat-ps",
+        "shsel-51a-wilhelminaflat-2-ps",
+        "shsel-51a-wilhelminaflat-3-ps"
+      ]
     },
     {
       "id": "stationsplein-atjehpark",
@@ -2139,7 +2349,12 @@
         "lat": 52.222456,
         "lng": 6.892065,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-52a-atjehpark-bw-jb",
+        "shsel-52-atjehpark-2-ps",
+        "shsel-52a-atjehpark-3-ps"
+      ]
     },
     {
       "id": "station-ns",
@@ -2171,7 +2386,12 @@
         "lng": 6.890617,
         "bevestigd": true
       },
-      "opmerking": "Meerkeuzevraag controleren"
+      "opmerking": "Meerkeuzevraag controleren",
+      "fotos": [
+        "shsel-53-stationsplein-ps",
+        "shsel-53-stationsplein-1965-bw-jb",
+        "shsel-53a-station-terras-1957-jb"
+      ]
     },
     {
       "id": "textielfabriek-nico-ter-kuile",
@@ -2199,7 +2419,12 @@
       },
       "juist": 0,
       "bevestigd": false,
-      "opmerking": "Locatie onduidelijk"
+      "opmerking": "Locatie onduidelijk",
+      "fotos": [
+        "shsel-54a-ter-kuile-4-ps",
+        "shsel-54a-ter-kuile-ps",
+        "shsel-54a-ter-kuile-5-ps"
+      ]
     },
     {
       "id": "textielfabriek-ter-kuile-cromhoff",
@@ -2227,7 +2452,12 @@
       },
       "juist": 2,
       "bevestigd": false,
-      "opmerking": "Locatie onduidelijk"
+      "opmerking": "Locatie onduidelijk",
+      "fotos": [
+        "shsel-55a-cromhoff-3-ps",
+        "shsel-55a-cromhoff-ps",
+        "shsel-55a-cromhoff-4-ps"
+      ]
     },
     {
       "id": "villa-scholten",
@@ -2258,7 +2488,12 @@
         "lat": 52.220741,
         "lng": 6.890515,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-56a-tromplaan-3-ps",
+        "shsel-56a-tromplaan-1-ps",
+        "shsel-56a-tromplaan-2-ps"
+      ]
     },
     {
       "id": "ter-kuile-huis",
@@ -2289,7 +2524,12 @@
         "lat": 52.22079,
         "lng": 6.890118,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-57a-tromplaan-8-2-ps",
+        "shsel-57a-tromplaan-8-3-ps",
+        "shsel-57a-tromplaan-8-ps"
+      ]
     },
     {
       "id": "villa-roozendaal",
@@ -2320,7 +2560,10 @@
         "lat": 52.220436,
         "lng": 6.88945,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-58a-tromplaan-staalbankiers"
+      ]
     },
     {
       "id": "villa-serphos",
@@ -2351,7 +2594,12 @@
         "lat": 52.220228,
         "lng": 6.888569,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-59a-serphos-2-ps",
+        "shsel-59a-serphos-3-ps",
+        "shsel-59a-serphos-ps"
+      ]
     },
     {
       "id": "groote-schuur",
@@ -2382,7 +2630,12 @@
         "lat": 52.219949,
         "lng": 6.887416,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-60a-de-grote-schuur-4-ps",
+        "shsel-60a-de-grote-schuur-5-ps",
+        "shsel-60a-de-grote-schuur-ps"
+      ]
     },
     {
       "id": "menko-van-dam-huis",
@@ -2413,7 +2666,12 @@
         "lat": 52.219876,
         "lng": 6.882823,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-61a-menko-van-damhuis-3-ps",
+        "shsel-61a-menko-van-damhuis-ps",
+        "shsel-61a-menko-van-damhuis-2-ps"
+      ]
     },
     {
       "id": "villa-menko-edersheim-memphis-hotel",
@@ -2444,7 +2702,12 @@
         "lat": 52.21935,
         "lng": 6.882829,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-62a-memphis-2-ps",
+        "shsel-62a-memphis-3-ps",
+        "shsel-62a-memphis-5-ps"
+      ]
     },
     {
       "id": "willem-wilminkplein-theater",
@@ -2476,7 +2739,12 @@
         "lat": 52.222397,
         "lng": 6.894671,
         "bevestigd": true
-      }
+      },
+      "fotos": [
+        "shsel-63a-willem-wilminkplein-6-ps",
+        "shsel-63a-willem-wilminkplein-ps",
+        "shsel-63a-willem-wilminkplein-3-ps"
+      ]
     },
     {
       "id": "voormalig-postkantoor",
@@ -2508,7 +2776,12 @@
         "lat": 52.217385,
         "lng": 6.894962,
         "bevestigd": false
-      }
+      },
+      "fotos": [
+        "shsel-64-postkantoor-haaksbergerstr-2-ps",
+        "shsel-64a-postkantoor-haaksbergerstr-ps",
+        "shsel-64a-postkantoor-haaksbergerstr"
+      ]
     }
   ]
 }
