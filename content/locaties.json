@@ -306,10 +306,11 @@
       "naam": "Fabrieken langs de spoorlijn naar Gronau",
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
-        [52.222876, 6.892914],
-        [52.223866, 6.902215],
-        [52.223761, 6.902215],
-        [52.22284, 6.892984]
+        [52.22279, 6.893322],
+        [52.223671, 6.902339],
+        [52.224645, 6.911656],
+        [52.224106, 6.911806],
+        [52.222605, 6.893301]
       ]
     },
     {
@@ -1476,8 +1477,8 @@
       "adres": "Oude Markt 32",
       "gebouw": "brandmonument",
       "positie": {
-        "lat": 52.220797,
-        "lng": 6.895391,
+        "lat": 52.220178,
+        "lng": 6.895554,
         "bevestigd": false
       },
       "tekst": {
@@ -1704,11 +1705,11 @@
       "juist": 3,
       "bevestigd": false,
       "positie": {
-        "lat": 52.223143,
-        "lng": 6.895911,
+        "lat": 52.222923,
+        "lng": 6.896002,
         "bevestigd": true
       },
-      "opmerking": "Keuze om de spoorlijn te volgen in de tekening, of moet het hele vlak rood gemaakt worden (is wel realistischer)"
+      "opmerking": "Keuze om het hele vlak rood te maken. Bij elkaar krijg je een indruk van de omvang van de textielindustrie"
     },
     {
       "id": "station-staatsspoor",
