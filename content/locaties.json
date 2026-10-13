@@ -2775,6 +2775,7 @@
     {
       "id": "voormalig-postkantoor",
       "nummer": 64,
+      "concept": true,
       "titel": {
         "nl": "voormalig postkantoor"
       },
@@ -2798,15 +2799,16 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.220636,
-        "lng": 6.893283,
+        "lat": 52.220386,
+        "lng": 6.89302,
         "bevestigd": true
       },
       "fotos": [
         "shsel-64-postkantoor-haaksbergerstr-2-ps",
         "shsel-64a-postkantoor-haaksbergerstr-ps",
         "shsel-64a-postkantoor-haaksbergerstr"
-      ]
+      ],
+      "opmerking": "De locatie is nog onzeker. Het oude adres was Haaksbergerstraat 2. Dat is nu Korte Haaksbergerstraat. Is dat nu zoals getekend of was het toch anders?"
     }
   ]
 }
