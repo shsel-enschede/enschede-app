@@ -260,7 +260,13 @@
     {
       "id": "joodse-begraafplaats",
       "naam": "Joodse begraafplaats",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.223647, 6.897677],
+        [52.223634, 6.898857],
+        [52.223443, 6.898943],
+        [52.22339, 6.897784]
+      ]
     },
     {
       "id": "fabrieksschool",
@@ -449,7 +455,13 @@
     {
       "id": "textielfabriek-ter-kuile-cromhoff",
       "naam": "textielfabriek Ter Kuile Cromhoff",
-      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek."
+      "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
+      "vorm": [
+        [52.221959, 6.890377],
+        [52.221801, 6.888863],
+        [52.221143, 6.889024],
+        [52.221275, 6.890634]
+      ]
     },
     {
       "id": "villa-scholten",
@@ -496,7 +508,14 @@
       "id": "voormalig-postkantoor",
       "naam": "voormalig postkantoor",
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
-      "adres": "Boulevard 1945 326"
+      "adres": "Boulevard 1945 326",
+      "vorm": [
+        [52.220616, 6.893106],
+        [52.220603, 6.893368],
+        [52.220462, 6.893374],
+        [52.22011, 6.893481],
+        [52.220143, 6.892789]
+      ]
     }
   ],
   "locaties": [
@@ -1216,7 +1235,6 @@
     {
       "id": "joodse-begraafplaats",
       "nummer": 21,
-      "concept": true,
       "titel": {
         "nl": "Joodse begraafplaats"
       },
@@ -1240,8 +1258,8 @@
       "juist": 2,
       "bevestigd": false,
       "positie": {
-        "lat": 52.223863,
-        "lng": 6.898325,
+        "lat": 52.223672,
+        "lng": 6.898416,
         "bevestigd": true
       },
       "opmerking": "Bestaat het monument op de hoek Molenstraat/ Nieuwe Schoolweg nog?",
@@ -1436,7 +1454,6 @@
     {
       "id": "striekiezer",
       "nummer": 27,
-      "concept": true,
       "titel": {
         "nl": "Striekiezer"
       },
@@ -2106,7 +2123,8 @@
         "shsel-45-jannink-beltstraat-8-ps",
         "shsel-45a-jannink-beltstraat-3-ps",
         "shsel-45a-jannink-beltstraat-5-ps"
-      ]
+      ],
+      "opmerking": "Deze plek zit al in de app bij een andere beschrijving, dubbel?"
     },
     {
       "id": "de-gouden-bocht",
@@ -2435,7 +2453,6 @@
     {
       "id": "textielfabriek-ter-kuile-cromhoff",
       "nummer": 55,
-      "concept": true,
       "titel": {
         "nl": "textielfabriek Ter Kuile Cromhoff"
       },
@@ -2458,12 +2475,17 @@
       },
       "juist": 2,
       "bevestigd": false,
-      "opmerking": "Locatie onduidelijk",
+      "opmerking": "Locatie onduidelijk, gecontroleerd met topotijdreis, contour moet extra nagekeken  worden",
       "fotos": [
         "shsel-55a-cromhoff-3-ps",
         "shsel-55a-cromhoff-ps",
         "shsel-55a-cromhoff-4-ps"
-      ]
+      ],
+      "positie": {
+        "lat": 52.221727,
+        "lng": 6.89067,
+        "bevestigd": true
+      }
     },
     {
       "id": "villa-scholten",
@@ -2718,7 +2740,6 @@
     {
       "id": "willem-wilminkplein-theater",
       "nummer": 63,
-      "concept": true,
       "titel": {
         "nl": "Willem Wilminkplein/theater"
       },
@@ -2742,8 +2763,8 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.222397,
-        "lng": 6.894671,
+        "lat": 52.22242,
+        "lng": 6.894618,
         "bevestigd": true
       },
       "fotos": [
@@ -2779,8 +2800,8 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.217385,
-        "lng": 6.894962,
+        "lat": 52.220649,
+        "lng": 6.893309,
         "bevestigd": false
       },
       "fotos": [
