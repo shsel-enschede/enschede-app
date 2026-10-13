@@ -508,7 +508,6 @@
       "id": "voormalig-postkantoor",
       "naam": "voormalig postkantoor",
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
-      "adres": "Boulevard 1945 326",
       "vorm": [
         [52.220616, 6.893106],
         [52.220603, 6.893368],
@@ -2776,7 +2775,6 @@
     {
       "id": "voormalig-postkantoor",
       "nummer": 64,
-      "concept": true,
       "titel": {
         "nl": "voormalig postkantoor"
       },
