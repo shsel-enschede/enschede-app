@@ -2800,9 +2800,9 @@
       "juist": 0,
       "bevestigd": false,
       "positie": {
-        "lat": 52.220649,
-        "lng": 6.893309,
-        "bevestigd": false
+        "lat": 52.220636,
+        "lng": 6.893283,
+        "bevestigd": true
       },
       "fotos": [
         "shsel-64-postkantoor-haaksbergerstr-2-ps",
