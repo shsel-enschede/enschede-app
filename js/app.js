@@ -13,8 +13,15 @@ import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegest
 import { maak, scrolGedrag } from './hulp.js';
 import { instellingen, zetInstelling } from './instellingen.js';
 import { toonFotos, zetFotovensterKlaar, sluitFotovenster } from './fotos.js';
+import { volgordeVan, nieuweVolgorde } from './volgorde.js';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
+
+// De antwoorden staan per toestel in een eigen volgorde (zie js/volgorde.js).
+// i is altijd het nummer uit de inhoud; de letter hoort bij de plek waar de optie op dit toestel staat.
+function letterVan(loc, i) {
+  return LETTERS[volgordeVan(loc).indexOf(i)];
+}
 const $ = (id) => document.getElementById(id);
 
 const el = {
@@ -532,13 +539,15 @@ function locatieScherm(loc, { netOpen = false } = {}) {
 
   const opties = $('vraag-opties');
   opties.replaceChildren();
-  const knoppen = loc.opties.map((tekst, i) => {
+  // knoppen[i] hoort bij optie i uit de inhoud; op het scherm staan ze in de volgorde van dit toestel.
+  const knoppen = [];
+  volgordeVan(loc).forEach((i, plek) => {
     const knop = maak('button', 'optie');
     knop.type = 'button';
-    knop.append(maak('span', 'optie__letter', LETTERS[i]), maak('span', '', tekst));
+    knop.append(maak('span', 'optie__letter', LETTERS[plek]), maak('span', '', loc.opties[i]));
     knop.addEventListener('click', () => beantwoord(loc, i, knoppen));
     opties.append(knop);
-    return knop;
+    knoppen[i] = knop;
   });
 
   $('feedback').hidden = true;
@@ -563,7 +572,7 @@ function beantwoord(loc, keuze, knoppen) {
 function markeerOptie(knop, loc, i, soort, icoon, toelichting) {
   knop.classList.add(`optie--${soort}`);
   knop.append(maak('span', 'optie__icoon', icoon));
-  knop.setAttribute('aria-label', `${LETTERS[i]}: ${loc.opties[i]}, ${toelichting}`);
+  knop.setAttribute('aria-label', `${letterVan(loc, i)}: ${loc.opties[i]}, ${toelichting}`);
 }
 
 // Ruimte tussen kop- en voetbalk, om te bepalen wat na een antwoord in beeld kan blijven.
@@ -590,7 +599,7 @@ function toonUitslag(loc, keuze, knoppen, net) {
   const delen = [maak('strong', 'feedback__kop', goed ? '✓ Goed!' : '✗ Helaas, dat is niet goed.')];
   if (!goed) {
     const juist = maak('span', 'feedback__juist', 'Het goede antwoord is ');
-    juist.append(maak('strong', '', `${LETTERS[loc.juist]}: ${loc.opties[loc.juist]}`));
+    juist.append(maak('strong', '', `${letterVan(loc, loc.juist)}: ${loc.opties[loc.juist]}`));
     delen.push(juist);
   }
   delen.push(maak('span', 'feedback__uitleg', loc.uitleg));
@@ -603,7 +612,8 @@ function toonUitslag(loc, keuze, knoppen, net) {
     // Past dat niet op het scherm, dan gaat de uitleg voor.
     // Is er nog een verhaal bij hetzelfde gebouw, dan moet ook die knop (in de mijlpaal) boven de voetbalk
     // staan, anders zie je hem over het hoofd. Volgorde: alles in beeld; anders uitleg + mijlpaal; anders de uitleg.
-    const bovenste = knoppen[Math.min(keuze, loc.juist)];
+    const volgorde = volgordeVan(loc);
+    const bovenste = knoppen[volgorde.indexOf(keuze) < volgorde.indexOf(loc.juist) ? keuze : loc.juist];
     const mijlpaal = $('mijlpaal');
     const vervolg = !mijlpaal.hidden && mijlpaal.querySelector('.mijlpaal__lijst');
     requestAnimationFrame(() => {
@@ -897,11 +907,11 @@ function antwoordenScherm() {
     const jouw = maak('p', 'antwoord__jouw');
     if (zichtbaar) jouw.append(maak('strong', 'antwoord__icoon', goed ? '✓ Goed: ' : '✗ Jouw antwoord: '));
     else jouw.append(maak('strong', '', 'Jouw antwoord: '));
-    jouw.append(`${LETTERS[keuze]}: ${loc.opties[keuze]}`);
+    jouw.append(`${letterVan(loc, keuze)}: ${loc.opties[keuze]}`);
     li.append(jouw);
     if (zichtbaar && !goed) {
       const juist = maak('p', 'antwoord__juist');
-      juist.append(maak('strong', '', 'Goed antwoord: '), `${LETTERS[loc.juist]}: ${loc.opties[loc.juist]}`);
+      juist.append(maak('strong', '', 'Goed antwoord: '), `${letterVan(loc, loc.juist)}: ${loc.opties[loc.juist]}`);
       li.append(juist);
     }
     if (zichtbaar && loc.uitleg) li.append(maak('p', 'antwoord__uitleg', loc.uitleg));
@@ -1055,6 +1065,7 @@ $('opnieuw-nee').addEventListener('click', () => {
 });
 $('opnieuw-ja').addEventListener('click', () => {
   wisAntwoorden(allePlekken.map((loc) => loc.id));
+  nieuweVolgorde(); // opnieuw beginnen = ook de antwoorden in een nieuwe volgorde
   ontgrendeld.clear();
   // Blijf in het menu (zoals bij de instellingen van een telefoon) en bevestig op dezelfde plek.
   $('opnieuw').hidden = true;
