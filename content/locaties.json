@@ -1968,14 +1968,14 @@
           "uitleg": "Kijk maar naar de overkant van de straat."
         }
       },
-      "juist": 1,
+      "juist": 0,
       "bevestigd": false,
       "positie": {
         "lat": 52.22103,
         "lng": 6.890912,
         "bevestigd": true
       },
-      "opmerking": "Meerkeuzevraag controleren",
+      "opmerking": "Meerkeuzevraag controleren. Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-41a-ter-kuile-villa-esv-1-ps",
         "shsel-41a-ter-kuile-villa-esv-2-ps",
@@ -2076,16 +2076,17 @@
             "Als opslagplaats van munitie",
             "Als onderduikadres voor Joden"
           ],
-          "uitleg": "De Duitse veiligheidsdienst (SD) sloot hier mensen op."
+          "uitleg": "In de oorlog namen de Duitsers het gebouw in gebruik als onderkomen."
         }
       },
-      "juist": 1,
+      "juist": 0,
       "bevestigd": false,
       "positie": {
         "lat": 52.217997,
         "lng": 6.886293,
         "bevestigd": true
       },
+      "opmerking": "Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-44a-synagoge-2-ps",
         "shsel-44a-synagoge-4-ps",
@@ -2145,16 +2146,17 @@
             "De Hogere Textielschool",
             "Ziekenhuis De Stadsmaten"
           ],
-          "uitleg": "Een deftig huis aan een mooie laan was een goed visitekaartje voor een notaris of advocaat."
+          "uitleg": "Ziekenhuis De Stadsmaten aan het Ariënsplein gebruikte ook huizen in deze straat."
         }
       },
-      "juist": 1,
+      "juist": 3,
       "bevestigd": false,
       "positie": {
         "lat": 52.21846,
         "lng": 6.889511,
         "bevestigd": false
       },
+      "opmerking": "Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-46a-ripperdastraat-1-jb",
         "shsel-46a-ripperdastraat-2-ps",
@@ -2291,16 +2293,17 @@
             "Er waren geen doopsgezinden meer",
             "Men had veel meer zin in bier"
           ],
-          "uitleg": "De doopsgezinde gemeente groeide en had een grotere kerk nodig."
+          "uitleg": "Zonder doopsgezinden was het kerkje niet meer nodig."
         }
       },
-      "juist": 1,
+      "juist": 2,
       "bevestigd": false,
       "positie": {
         "lat": 52.221181,
         "lng": 6.896705,
         "bevestigd": true
       },
+      "opmerking": "Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-50a-menistenkerk-jb",
         "shsel-50a-menistenkerk-2-ps",
@@ -2399,17 +2402,17 @@
             "Een wisselkantoor voor mensen die naar Duitsland gingen",
             "Een magazijn voor het onderhoud van de treinen"
           ],
-          "uitleg": "Antwoord moet gecheckt worden."
+          "uitleg": "Waar je nu naar binnen gaat, zaten reizigers vroeger te eten en te drinken."
         }
       },
-      "juist": 3,
+      "juist": 1,
       "bevestigd": false,
       "positie": {
         "lat": 52.22199,
         "lng": 6.890617,
         "bevestigd": true
       },
-      "opmerking": "Meerkeuzevraag controleren",
+      "opmerking": "Meerkeuzevraag controleren. Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-53-stationsplein-ps",
         "shsel-53-stationsplein-1965-bw-jb",
@@ -2437,12 +2440,12 @@
             "Kuiltjes",
             "Doekjes"
           ],
-          "uitleg": "De fabriek stond naast het station. 'Stazione' is Italiaans voor station."
+          "uitleg": "Nicolientje komt van Nico, de voornaam van de fabrikant."
         }
       },
-      "juist": 0,
+      "juist": 1,
       "bevestigd": false,
-      "opmerking": "Locatie onduidelijk",
+      "opmerking": "Locatie onduidelijk. Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-54a-ter-kuile-4-ps",
         "shsel-54a-ter-kuile-ps",
@@ -2506,16 +2509,17 @@
             "Aan de kleur van het gebouw",
             "Dat is niet meer te zien"
           ],
-          "uitleg": "Zuilen en een driehoek (timpaan) boven de deur: zo zag een Griekse tempel eruit."
+          "uitleg": "Neoclassicistisch betekent: gebouwd zoals de oude Grieken en Romeinen."
         }
       },
-      "juist": 1,
+      "juist": 0,
       "bevestigd": false,
       "positie": {
         "lat": 52.220741,
         "lng": 6.890515,
         "bevestigd": false
       },
+      "opmerking": "Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-56a-tromplaan-3-ps",
         "shsel-56a-tromplaan-1-ps",
@@ -2720,16 +2724,17 @@
             "Als wijkcentrum",
             "Als asielzoekerscentrum"
           ],
-          "uitleg": "Een leeg hotel heeft al veel kamers met bedden. Dat maakt het geschikt om mensen tijdelijk op te vangen."
+          "uitleg": "Het huis van de Joodse fabrikant Menko is ook een tehuis voor oudere Joodse inwoners geweest."
         }
       },
-      "juist": 3,
+      "juist": 1,
       "bevestigd": false,
       "positie": {
         "lat": 52.21935,
         "lng": 6.882829,
         "bevestigd": false
       },
+      "opmerking": "Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
         "shsel-62a-memphis-2-ps",
         "shsel-62a-memphis-3-ps",
