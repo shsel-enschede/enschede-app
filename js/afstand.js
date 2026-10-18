@@ -1,5 +1,5 @@
 // Afstand tot een plek en een bewust grove afstandsindicatie (geen schijnnauwkeurigheid zoals "73 m").
-// Pure functies zonder schermcode, zodat ze los te testen zijn.
+// Pure functies zonder schermcode, zodat ze los te testen zijn. Teksten: content/teksten.json (afstand.*).
 //
 //   tot de straal (35 m)   "Je bent er!"       -> de vraag gaat open
 //   tot 100 m              "Vlakbij"
@@ -8,6 +8,7 @@
 //   GPS-onzekerheid > 50 m "Locatie nog onzeker"         -> er gaat niets open
 
 import { puntInRing } from './hulp.js';
+import { t, getal } from './taal.js';
 
 const ONZEKER_BOVEN = 50;      // meter: grotere GPS-onzekerheid vertrouwen we niet
 const VLAKBIJ = 100;           // meter
@@ -54,12 +55,12 @@ export function afstandTot(positie, { vorm = null, punt = null } = {}) {
 function minutenTekst(meters) {
   const min = meters / LOOPSNELHEID;
   const stap = MINUTEN.reduce((beste, m) => (Math.abs(m - min) < Math.abs(beste - min) ? m : beste));
-  return `ca. ${stap} min lopen`;
+  return t('afstand.minuten', { n: stap });
 }
 
 function kmTekst(meters) {
   const km = Math.max(1, Math.round(meters / 500) / 2);
-  return `ca. ${String(km).replace('.', ',')} km`;
+  return t('afstand.km', { km: getal(km) });
 }
 
 /**
@@ -69,15 +70,15 @@ function kmTekst(meters) {
  * Geeft { soort: 'er' | 'vlakbij' | 'lopen' | 'ver' | 'onzeker', tekst, meters }.
  */
 export function indicatie(meters, nauwkeurigheid, straal, vorige = null) {
-  if (!Number.isFinite(meters)) return { soort: 'onbekend', tekst: 'Afstand onbekend', meters };
-  if (!(nauwkeurigheid <= ONZEKER_BOVEN)) return { soort: 'onzeker', tekst: 'Locatie nog onzeker…', meters };
+  if (!Number.isFinite(meters)) return { soort: 'onbekend', tekst: t('afstand.onbekend'), meters };
+  if (!(nauwkeurigheid <= ONZEKER_BOVEN)) return { soort: 'onzeker', tekst: t('afstand.onzeker'), meters };
 
   // Grens met marge: wie er al is, blijft "er" tot straal + MARGE; wie buiten is, moet binnen straal komen.
   const grensEr = vorige?.soort === 'er' ? straal + MARGE : straal;
-  if (meters <= grensEr) return { soort: 'er', tekst: 'Je bent er!', meters };
+  if (meters <= grensEr) return { soort: 'er', tekst: t('afstand.er'), meters };
 
   const grensVlakbij = vorige?.soort === 'vlakbij' || vorige?.soort === 'er' ? VLAKBIJ + MARGE : VLAKBIJ;
-  if (meters <= grensVlakbij) return { soort: 'vlakbij', tekst: 'Vlakbij', meters };
+  if (meters <= grensVlakbij) return { soort: 'vlakbij', tekst: t('afstand.vlakbij'), meters };
 
   // Verder weg: tekst pas wijzigen als de afstand meer dan de marge veranderd is.
   if (vorige && (vorige.soort === 'lopen' || vorige.soort === 'ver') && Math.abs(vorige.meters - meters) <= MARGE * 2) {

@@ -4,19 +4,17 @@
 //   openen:     null = volg de SHSEL (content/locaties.json), of 'overal' / 'ter-plekke'
 //   doel:       null = geen doel, of een aantal plekken (1 tot 999; de app begrenst op het aantal plekken)
 //   antwoorden: 'direct' (na elke vraag) of 'eind' (pas als het doel gehaald is, of alles ontdekt)
-//   taal:       'nl' (Engels en Duits volgen later, zie plan-taalkeuze in het claude.ai-project)
+//   taal:       null = de taal van het toestel (js/taal.js, toestelTaal), of zelf gekozen: 'nl', 'en' of 'de'
 //
 // Later kan een opdracht van een docent (link of QR-code) deze keuzes vastzetten. Dat is nog een
 // voorstel voor het bestuur (schoolmodus) en zit hier nog niet in.
 
 import { leesJson, schrijfJson } from './opslag.js';
+import { TALEN } from './taal.js';
 
 const SLEUTEL = 'enschede-app:instellingen:v1';
 
-export const TALEN = ['nl', 'en', 'de'];
-export const BESCHIKBARE_TALEN = ['nl'];
-
-const STANDAARD = Object.freeze({ openen: null, doel: null, antwoorden: 'direct', taal: 'nl' });
+const STANDAARD = Object.freeze({ openen: null, doel: null, antwoorden: 'direct', taal: null });
 
 /** Maak van willekeurige (opgeslagen) data geldige instellingen. Onbekend of ongeldig = standaard. */
 export function controleer(ruw) {
@@ -25,7 +23,7 @@ export function controleer(ruw) {
   if (ruw.openen === 'overal' || ruw.openen === 'ter-plekke') i.openen = ruw.openen;
   if (Number.isInteger(ruw.doel) && ruw.doel >= 1 && ruw.doel <= 999) i.doel = ruw.doel;
   if (ruw.antwoorden === 'eind') i.antwoorden = 'eind';
-  if (BESCHIKBARE_TALEN.includes(ruw.taal)) i.taal = ruw.taal;
+  if (TALEN.includes(ruw.taal)) i.taal = ruw.taal;
   return i;
 }
 

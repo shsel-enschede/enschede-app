@@ -100,7 +100,16 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
     - Het **aantal goede antwoorden** staat alleen hier ("Je wist 9 van de 12 antwoorden goed."), als resultaat om te laten zien (bijv. aan een docent). Alleen als de antwoorden zichtbaar mogen zijn: bij *Aan het eind* pas na het doel, zodat er onderweg niets over te nemen valt. Verder nergens een score.
     - Wanneer: na het antwoord waarmee je net je doel haalt (of alles ontdekt) wordt de hoofdknop *Naar je eindscherm*. Niet automatisch: eerst lees je de uitleg, en *Ook in de buurt* blijft staan voor wie verder wil. In het menu: *Klaar met wandelen?* met de knop *Toon eindscherm* (alleen als er iets ontdekt is), boven *Opnieuw beginnen*.
   - **Opnieuw beginnen** (René, okt 2026): onder de keuzes, vóór "Over de Enschede app", alleen als er iets ontdekt is. Knop *Alles opnieuw beginnen*, daarna een bevestiging in de pagina zelf (geen pop-up). Na wissen blijf je in het menu met "✓ Je antwoorden zijn gewist." Niet meer onder de lijst met plekken (daar stond hij verstopt).
-  - **Taal:** voorlopig **verborgen** (`hidden` op `#taalkeuze` in `index.html`; René, okt 2026): de app is alleen Nederlands tot er vertalingen zijn. Komt hij terug: Nederlands, English en Deutsch in hun eigen taal, zonder vlaggen (zie plan-taalkeuze).
+  - **Taal (besluit René, okt 2026):** Nederlands, English, Deutsch. Code: `js/taal.js`, teksten: `content/teksten.json` (uitleg: `teksten-LEESMIJ.md`), test: `tests/taal.test.mjs`.
+    - **Geen vlaggen**, ook niet naast de taalnaam: een vlag staat voor een land, niet voor een taal (W3C). Taalnamen in hun eigen taal.
+    - **Niet alleen in het tandwiel:** wie geen Nederlands leest, zoekt niet in een Nederlands menu (NN/g). Daarom drie plekken:
+      1. **Automatisch** bij het eerste bezoek: de taal van het toestel (`navigator.languages`). Staat Nederlands ergens in de lijst, dan Nederlands (veel Nederlanders hebben hun telefoon in het Engels). Geen van de drie talen: Nederlands (hoofddoelgroep zijn scholieren uit Enschede).
+      2. **Startscherm, bovenaan:** wereldbol met drie knoppen; de gekozen taal met ✓ (`aria-pressed`). Niet in de kop van elk scherm: die blijft rustig voor de hoofddoelgroep.
+      3. **Menu:** keuze *Taal*, met dezelfde opmaak als de andere vragen.
+    - Een zelfgekozen taal wordt op het toestel bewaard; anders volgt de app het toestel. Wisselen behoudt de voortgang en het scherm waar je was.
+    - `<html lang>` wisselt mee; tekst die nog Nederlands is in een andere taal krijgt `lang="nl"` (WCAG 3.1.2). `manifest.webmanifest` blijft Nederlands.
+    - **Terugval:** een verhaal of titel zonder vertaling toont de Nederlandse tekst met de melding "nog niet vertaald". Een **vraag** wordt alleen vertaald getoond als vraagtekst en alle opties vertaald zijn (zelfde aantal); anders de Nederlandse vraag met de melding "alleen in het Nederlands". Opties en uitleg komen altijd uit dezelfde taal als de vraag. De plek telt gewoon mee.
+    - De app-naam is in alle talen "Enschede app". Gebouwnamen (`gebouwen[].naam`) zijn eigennamen en worden niet vertaald.
   - **Over de Enschede app:** wat de app is, wie hem maakt (SHSEL, link naar https://www.shsel.nl/), privacy in gewone taal (ook dat kaartbeelden van PDOK komen).
   - Nog niet: een opdracht van een docent via link of QR-code die deze keuzes vastzet, vragen uit, terugblik. Dat is het voorstel schoolmodus; besluit door het bestuur.
 - **Afstanden altijd grof, nooit in meters** (geen schijnnauwkeurigheid): "Je bent er!", "Vlakbij" (tot 100 m), "ca. 2/3/5/10/15 min lopen" (tot 1 km, 4,5 km/u), "ca. 1,5 km" (halve km). Bij GPS-onzekerheid boven 50 m: "Locatie nog onzeker…" en er gaat niets open. Een marge van 10 m voorkomt heen-en-weer springen. Code: `js/afstand.js`.
@@ -166,7 +175,7 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
   - Statussen: *Ontbreekt*, *Verouderd*, *Controleren*, *Bijgewerkt* (naar XLIFF/Weblate).
   - *Verouderd* gaat automatisch: bij elke vertaling bewaart de editor een hash van de Nederlandse tekst waarop hij gebaseerd is. Vorige Nederlandse teksten staan in `content/vertaalbasis.json` (niet geladen door de app), zodat de vertaler het verschil ziet.
   - Inhoudelijke wijziging in EN of DE: de andere talen krijgen *Controleren*.
-  - De app toont een verouderde **vraag of uitleg niet** (kans op fout antwoord), wel een verouderd verhaal, titel of bijschrift. Terugvaltaal: nog te besluiten.
+  - De app toont een verouderde **vraag of uitleg niet** (kans op fout antwoord), wel een verouderd verhaal, titel of bijschrift. Terugvaltaal: Nederlands (zie **Menu → Taal**).
 - **Foto's:** elke foto krijgt een `rol` (bijv. herkenning, hoofd, detail, toen/nu). Welke rollen SHSEL wil, is nog open. De editor verkleint naar WebP (max. 1200 px, ca. 150 kB) en vraagt bron, aanleverder, periode en rechten.
 - **Gebouwd (okt 2026, fase 2 van het ontwerp):**
   - Code: `js/github.js` (alleen de GitHub-API, foutmeldingen in gewone taal) en `js/voorstel.js` (verschillen beschrijven, samenvoegen, toestand; zonder scherm, los te testen). `beheer.js` verbindt die met het scherm.
@@ -182,7 +191,7 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
   - Voegen twee mensen tegelijk een plek of gebouw toe met hetzelfde `id` of `nummer`, dan krijgt bij versturen de nieuwe van de verstuurder een vrij id of nummer (`maakNieuwUniek` in `js/voorstel.js`); de editor meldt dat.
   - Opmerkingen: `opmerking` bij een plek en `toelichting` bij een gebouw. Niet zichtbaar in de app, wel openbaar op GitHub: geen persoonsgegevens (AVG).
   - Een nieuwe plek heeft alleen Nederlands; in EN en DE verschijnt hij pas na vertaling (fase 3).
-- **Nog open:** inhoud splitsen in één bestand per locatie; terugvaltaal; fotogebruik; wie mag `bevestigd` aanzetten; zijn vertalers ook contentbeheerders.
+- **Nog open:** inhoud splitsen in één bestand per locatie; fotogebruik; wie mag `bevestigd` aanzetten; zijn vertalers ook contentbeheerders.
 
 ## Werkwijze
 

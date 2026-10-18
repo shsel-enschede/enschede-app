@@ -1,5 +1,6 @@
 // "Je loopt langs …": welke plekken staan in de melding, en wat staat er.
 // Zonder scherm, los te testen: tests/langs.test.mjs. app.js verbindt dit met het scherm, kaart.js met de kaart.
+// Teksten: content/teksten.json (langs.*).
 //
 // Afspraken (CLAUDE.md, "Vrij ontdekken"):
 // - Alle onontdekte plekken binnen de straal staan samen in één melding, per gebouw. De wandelaar kiest zelf.
@@ -7,6 +8,8 @@
 // - Valt er een plek af (je loopt verder), dan verdwijnt hij stil: niet voorlezen, niet laten oplichten.
 // - De volgorde verspringt nooit: plekken die er al stonden, houden hun plaats. Zo wisselt er niets
 //   als door GPS-ruis een andere plek een paar meter "dichterbij" lijkt.
+
+import { t, lijstTekst } from './taal.js';
 
 /**
  * Nieuwe toestand van de melding.
@@ -23,11 +26,10 @@ export function volgende(vorige, nu) {
   return { groepen: [...blijft, ...erbij], erbij, eraf };
 }
 
-/** "A", "A en B", "A, B en C", "A, B, C en nog 2". */
+/** "A", "A en B", "A, B en C", "A, B, C en nog 2" (in de taal van de app). */
 export function namen(lijst, max = 3) {
-  if (lijst.length <= 1) return lijst.join('');
-  if (lijst.length <= max) return `${lijst.slice(0, -1).join(', ')} en ${lijst.at(-1)}`;
-  return `${lijst.slice(0, max).join(', ')} en nog ${lijst.length - max}`;
+  if (lijst.length <= max) return lijstTekst(lijst);
+  return lijstTekst([...lijst.slice(0, max), t('langs.nogMeer', { n: lijst.length - max })]);
 }
 
 /**
@@ -38,18 +40,18 @@ export function meldingTekst(groepen) {
   if (groepen.length === 1) {
     const g = groepen[0];
     return {
-      label: 'Je loopt langs',
+      label: t('langs.loopt'),
       naam: g.naam,
       // Uitnodigen, niet opdragen: een vraag wekt nieuwsgierigheid en laat de keuze bij de wandelaar.
-      vraag: g.verhalen > 1 ? `Benieuwd naar de ${g.verhalen} verhalen?` : 'Benieuwd naar het verhaal?',
+      vraag: g.verhalen > 1 ? t('langs.verhalen', { n: g.verhalen }) : t('langs.verhaal'),
     };
   }
   return {
-    label: `Je bent bij ${groepen.length} plekken`,
+    label: t('langs.bijPlekken', { n: groepen.length }),
     // Hooguit twee namen, zodat de melding laag blijft en de kaart ruimte houdt; alle namen staan in de keuzelijst
     // (Bekijk) en rood op de kaart.
     naam: namen(groepen.map((g) => g.naam), 2),
-    vraag: 'Benieuwd? Kies zelf waar je begint.',
+    vraag: t('langs.kies'),
   };
 }
 
@@ -60,9 +62,9 @@ export function meldingTekst(groepen) {
 export function voorleestekst(vorigeAantal, groepen, erbij) {
   if (!erbij.length || !groepen.length) return '';
   if (vorigeAantal === 0 || erbij.length === groepen.length) {
-    const t = meldingTekst(groepen);
-    const alle = groepen.length > 1 ? namen(groepen.map((g) => g.naam)) : t.naam; // voorlezen: tot drie namen
-    return `${t.label}${groepen.length > 1 ? ':' : ''} ${alle}. ${t.vraag} Onderin staat de knop Bekijk.`;
+    const m = meldingTekst(groepen);
+    const alle = groepen.length > 1 ? namen(groepen.map((g) => g.naam)) : m.naam; // voorlezen: tot drie namen
+    return `${m.label}${groepen.length > 1 ? ':' : ''} ${alle}. ${m.vraag} ${t('langs.knopUitleg')}`;
   }
-  return `Ook vlakbij: ${namen(erbij.map((g) => g.naam))}.`;
+  return t('langs.ookVlakbij', { namen: namen(erbij.map((g) => g.naam)) });
 }

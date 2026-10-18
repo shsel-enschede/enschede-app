@@ -100,6 +100,19 @@ main:focus { outline: none; }
 .groot { font: 400 1.75rem/1.2 var(--kopletter); color: var(--tekst); margin: 0.5em 0; text-wrap: balance; }
 .klein { font-size: 0.9375rem; color: var(--grijs); }
 .testuitleg { display: inline-block; margin-top: 8px; padding: 8px 12px; font-size: 0.9375rem; color: var(--tekst); background: var(--vlak); border: 1px dashed var(--grijs); border-radius: var(--rond); }
+/* Taalkeuze op het startscherm: taalnamen in hun eigen taal, geen vlaggen (zie js/taal.js).
+   De wereldbol is het gangbare teken voor "taal"; tikdoelen minimaal 44 px. */
+.talen { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px; margin: 0; }
+.talen__bol { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--grijs); stroke-width: 1.6; margin-right: 2px; }
+.talen__knop {
+  min-height: 44px; padding: 6px 10px; border: 1px solid var(--lijn); border-radius: 999px;
+  background: var(--wit); color: var(--tekst); font: inherit; font-size: 1rem; cursor: pointer;
+}
+.talen__knop[aria-pressed="true"] { border-color: var(--rood); background: #FDF3F4; font-weight: 600; }
+.talen__knop[aria-pressed="true"]::before { content: "✓ " / ""; color: var(--rood); }
+.talen__knop:hover { border-color: var(--grijs); }
+/* Verhaal of vraag nog niet vertaald: korte melding, de Nederlandse tekst staat eronder. */
+.vertaalmelding { margin: 0 0 8px; padding: 6px 10px; font-size: 0.9375rem; color: var(--tekst); background: var(--vlak); border-left: 4px solid var(--grijs); border-radius: 4px; }
 .logo { display: block; margin: 8px auto 20px; width: 240px; max-width: 70%; height: auto; }
 
 /* Startscherm met het vestingmotief van het briefpapier linksonder */

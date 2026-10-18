@@ -1,0 +1,394 @@
+{
+  "_uitleg": "Vaste teksten van de app in drie talen. Zie teksten-LEESMIJ.md. {naam} is een invulplek; een tekst met 'one' en 'other' heeft een enkelvoud en een meervoud.",
+
+  "app.naam": { "nl": "Enschede app", "en": "Enschede app", "de": "Enschede app" },
+  "app.skip": { "nl": "Naar de inhoud", "en": "Skip to content", "de": "Zum Inhalt" },
+  "app.terug": { "nl": "Terug", "en": "Back", "de": "Zurück" },
+  "app.test": { "nl": "Test", "en": "Test", "de": "Test" },
+  "app.testTitel": { "nl": "Testversie van de Enschede app", "en": "Test version of the Enschede app", "de": "Testversion der Enschede app" },
+  "app.sluiten": { "nl": "Sluiten", "en": "Close", "de": "Schließen" },
+  "app.nieuwVenster": { "nl": " (opent in een nieuw venster)", "en": " (opens in a new window)", "de": " (öffnet in einem neuen Fenster)" },
+  "app.ladenMislukt": {
+    "nl": "De inhoud kon niet worden geladen. Controleer je internetverbinding en probeer het opnieuw.",
+    "en": "The content could not be loaded. Check your internet connection and try again.",
+    "de": "Der Inhalt konnte nicht geladen werden. Prüfe deine Internetverbindung und versuche es noch einmal."
+  },
+
+  "menu.knop": { "nl": "Menu: instellingen en informatie", "en": "Menu: settings and information", "de": "Menü: Einstellungen und Informationen" },
+  "menu.knopSluiten": { "nl": "Menu sluiten", "en": "Close menu", "de": "Menü schließen" },
+
+  "start.logoAlt": {
+    "nl": "Logo van de Stichting Historische Sociëteit Enschede-Lonneker",
+    "en": "Logo of the Historische Sociëteit Enschede-Lonneker foundation",
+    "de": "Logo der Stiftung Historische Sociëteit Enschede-Lonneker"
+  },
+  "start.kop": { "nl": "Ontdek de geschiedenis van Enschede", "en": "Discover the history of Enschede", "de": "Entdecke die Geschichte von Enschede" },
+  "start.intro": {
+    "nl": "Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.",
+    "en": "Walk wherever you like, in your own order. Passing a historic place? Read its story and answer a question. Or just keep walking.",
+    "de": "Geh, wohin du willst, in deiner eigenen Reihenfolge. Kommst du an einem historischen Ort vorbei? Lies die Geschichte und beantworte eine Frage. Oder geh einfach weiter."
+  },
+  "start.testVet": { "nl": "Alle vragen zijn open,", "en": "All questions are open,", "de": "Alle Fragen sind offen," },
+  "start.testRest": {
+    "nl": " ook als je niet ter plekke bent. Dit kun je wijzigen in het menu rechtsboven.",
+    "en": " even if you are not on the spot. You can change this in the menu at the top right.",
+    "de": " auch wenn du nicht vor Ort bist. Das kannst du im Menü oben rechts ändern."
+  },
+  "start.knop": { "nl": "Bekijk de kaart", "en": "View the map", "de": "Zur Karte" },
+
+  "kaart.titel": { "nl": "Kaart", "en": "Map", "de": "Karte" },
+  "kaart.regio": {
+    "nl": "Kaart: rood is nog niet ontdekt, groen met vinkje is ontdekt. Tik op een gebouw voor het verhaal. Onder de kaart staan dezelfde plekken als lijst.",
+    "en": "Map: red is not yet discovered, green with a tick is discovered. Tap a building for its story. The same places are listed below the map.",
+    "de": "Karte: Rot ist noch nicht entdeckt, Grün mit Häkchen ist entdeckt. Tippe auf ein Gebäude für die Geschichte. Unter der Karte stehen dieselben Orte als Liste."
+  },
+  "kaart.legendaOpen": { "nl": "nog te ontdekken", "en": "still to discover", "de": "noch zu entdecken" },
+  "kaart.legendaKlaar": { "nl": "ontdekt", "en": "discovered", "de": "entdeckt" },
+  "kaart.mijnLocatie": { "nl": "Mijn locatie", "en": "My location", "de": "Mein Standort" },
+  "kaart.mijnLocatieAan": { "nl": "Mijn locatie (staat aan)", "en": "My location (on)", "de": "Mein Standort (an)" },
+  "kaart.lijstgreep": { "nl": "Alle {n} plekken als lijst", "en": "All {n} places as a list", "de": "Alle {n} Orte als Liste" },
+  "kaart.ontdekteGebouwen": { "nl": "Ontdekte gebouwen", "en": "Discovered buildings", "de": "Entdeckte Gebäude" },
+  "kaart.balk": { "nl": "Ontdekte plekken", "en": "Places discovered", "de": "Entdeckte Orte" },
+  "kaart.balkDoel": { "nl": "Ontdekte plekken, op weg naar je doel", "en": "Places discovered, on the way to your goal", "de": "Entdeckte Orte, auf dem Weg zu deinem Ziel" },
+  "kaart.allesOntdekt": { "nl": "Alles ontdekt: alle {n} plekken!", "en": "Everything discovered: all {n} places!", "de": "Alles entdeckt: alle {n} Orte!" },
+  "kaart.doelGehaald": {
+    "nl": { "one": "Doel gehaald: {n} plek ontdekt!", "other": "Doel gehaald: {n} plekken ontdekt!" },
+    "en": { "one": "Goal reached: {n} place discovered!", "other": "Goal reached: {n} places discovered!" },
+    "de": { "one": "Ziel erreicht: {n} Ort entdeckt!", "other": "Ziel erreicht: {n} Orte entdeckt!" }
+  },
+  "kaart.vanDoel": { "nl": "{klaar} van {doel} plekken ontdekt", "en": "{klaar} of {doel} places discovered", "de": "{klaar} von {doel} Orten entdeckt" },
+  "kaart.nogNiets": { "nl": "Nog niets ontdekt. Begin waar je wilt.", "en": "Nothing discovered yet. Start wherever you like.", "de": "Noch nichts entdeckt. Fang an, wo du willst." },
+  "kaart.ontdekt": {
+    "nl": { "one": "{n} plek ontdekt", "other": "{n} plekken ontdekt" },
+    "en": { "one": "{n} place discovered", "other": "{n} places discovered" },
+    "de": { "one": "{n} Ort entdeckt", "other": "{n} Orte entdeckt" }
+  },
+  "kaart.knap": { "nl": "Knap gedaan!", "en": "Well done!", "de": "Gut gemacht!" },
+  "kaart.inDeStad": { "nl": "In de stad zijn {n} plekken met een verhaal.", "en": "There are {n} places with a story in the city.", "de": "In der Stadt gibt es {n} Orte mit einer Geschichte." },
+  "kaart.gebouwTelling": { "nl": "{naam}: {klaar} van {totaal} verhalen ontdekt", "en": "{naam}: {klaar} of {totaal} stories discovered", "de": "{naam}: {klaar} von {totaal} Geschichten entdeckt" },
+  "kaart.gebouwenMislukt": {
+    "nl": "Niet alle gebouwen konden worden opgezocht. Ze staan als stip op de kaart.",
+    "en": "Not all buildings could be looked up. They are shown as dots on the map.",
+    "de": "Nicht alle Gebäude konnten gefunden werden. Sie stehen als Punkte auf der Karte."
+  },
+
+  "lijst.ontdekt": { "nl": "Ontdekt", "en": "Discovered", "de": "Entdeckt" },
+  "lijst.ontdektLabel": { "nl": "{titel}, ontdekt", "en": "{titel}, discovered", "de": "{titel}, entdeckt" },
+  "lijst.dichtbij": { "nl": "Dichtbij", "en": "Nearby", "de": "In der Nähe" },
+  "lijst.verderWeg": { "nl": "Verder weg", "en": "Further away", "de": "Weiter weg" },
+  "lijst.alle": { "nl": "Alle plekken", "en": "All places", "de": "Alle Orte" },
+  "lijst.alOntdekt": { "nl": "Al ontdekt", "en": "Already discovered", "de": "Schon entdeckt" },
+  "lijst.verhalenBij": { "nl": "{naam}: {n} verhalen", "en": "{naam}: {n} stories", "de": "{naam}: {n} Geschichten" },
+  "lijst.hierPlekken": { "nl": "Hier zijn {n} plekken", "en": "There are {n} places here", "de": "Hier sind {n} Orte" },
+
+  "langs.loopt": { "nl": "Je loopt langs", "en": "You are passing", "de": "Du bist bei" },
+  "langs.verhaal": { "nl": "Benieuwd naar het verhaal?", "en": "Curious about its story?", "de": "Neugierig auf die Geschichte?" },
+  "langs.verhalen": { "nl": "Benieuwd naar de {n} verhalen?", "en": "Curious about the {n} stories?", "de": "Neugierig auf die {n} Geschichten?" },
+  "langs.bijPlekken": { "nl": "Je bent bij {n} plekken", "en": "You are at {n} places", "de": "Du bist bei {n} Orten" },
+  "langs.kies": { "nl": "Benieuwd? Kies zelf waar je begint.", "en": "Curious? Choose where to start.", "de": "Neugierig? Such dir aus, wo du anfängst." },
+  "langs.nogMeer": { "nl": "nog {n}", "en": "{n} more", "de": "{n} weitere" },
+  "langs.knopUitleg": { "nl": "Onderin staat de knop Bekijk.", "en": "The View button is at the bottom.", "de": "Unten ist der Knopf Ansehen." },
+  "langs.ookVlakbij": { "nl": "Ook vlakbij: {namen}.", "en": "Also nearby: {namen}.", "de": "Auch in der Nähe: {namen}." },
+  "langs.bekijk": { "nl": "Bekijk", "en": "View", "de": "Ansehen" },
+
+  "gps.geenToestel": {
+    "nl": "Dit toestel kan je locatie niet bepalen. Kies in het menu (rechtsboven) voor \"Overal\", dan zijn alle vragen open.",
+    "en": "This device can't determine your location. Choose \"Everywhere\" in the menu (top right) to open all questions.",
+    "de": "Dieses Gerät kann deinen Standort nicht bestimmen. Wähle im Menü (oben rechts) „Überall“, dann sind alle Fragen offen."
+  },
+  "gps.uitTerPlekke": {
+    "nl": "Zet je locatie aan om te zien hoe ver de plekken zijn en de vragen te openen. Je locatie blijft op je telefoon en wordt nergens bewaard.",
+    "en": "Turn on your location to see how far away the places are and to open the questions. Your location stays on your phone and is not stored anywhere.",
+    "de": "Schalte deinen Standort ein, um zu sehen, wie weit die Orte entfernt sind, und um die Fragen zu öffnen. Dein Standort bleibt auf deinem Handy und wird nirgends gespeichert."
+  },
+  "gps.uit": {
+    "nl": "Zet je locatie aan om te zien hoe ver de plekken zijn. Je locatie blijft op je telefoon en wordt nergens bewaard.",
+    "en": "Turn on your location to see how far away the places are. Your location stays on your phone and is not stored anywhere.",
+    "de": "Schalte deinen Standort ein, um zu sehen, wie weit die Orte entfernt sind. Dein Standort bleibt auf deinem Handy und wird nirgends gespeichert."
+  },
+  "gps.zoeken": {
+    "nl": "Je locatie wordt gezocht… Dit kan buiten een halve minuut duren.",
+    "en": "Finding your location… Outdoors this can take half a minute.",
+    "de": "Dein Standort wird gesucht… Draußen kann das eine halbe Minute dauern."
+  },
+  "gps.aan": { "nl": "Je locatie staat aan. Hij blijft op je telefoon.", "en": "Your location is on. It stays on your phone.", "de": "Dein Standort ist an. Er bleibt auf deinem Handy." },
+  "gps.geweigerd": {
+    "nl": "De app mag je locatie niet gebruiken. Je kunt dit toestaan in de instellingen van je browser, bij deze website.",
+    "en": "The app is not allowed to use your location. You can allow this in your browser settings, for this website.",
+    "de": "Die App darf deinen Standort nicht verwenden. Du kannst das in den Einstellungen deines Browsers für diese Website erlauben."
+  },
+  "gps.nietBeschikbaar": {
+    "nl": "Je locatie kon niet worden bepaald. Ga naar buiten of zet locatievoorzieningen aan op je telefoon.",
+    "en": "Your location could not be found. Go outside or turn on location services on your phone.",
+    "de": "Dein Standort konnte nicht bestimmt werden. Geh nach draußen oder schalte die Ortungsdienste auf deinem Handy ein."
+  },
+  "gps.fout": {
+    "nl": "Je locatie kon niet worden bepaald. Probeer het opnieuw.",
+    "en": "Your location could not be found. Please try again.",
+    "de": "Dein Standort konnte nicht bestimmt werden. Versuch es noch einmal."
+  },
+  "gps.knopUit": { "nl": "Zet locatie uit", "en": "Turn off location", "de": "Standort ausschalten" },
+  "gps.knopAan": { "nl": "Zet locatie aan", "en": "Turn on location", "de": "Standort einschalten" },
+  "gps.opnieuw": { "nl": "Opnieuw proberen", "en": "Try again", "de": "Noch einmal versuchen" },
+
+  "afstand.er": { "nl": "Je bent er!", "en": "You're there!", "de": "Du bist da!" },
+  "afstand.vlakbij": { "nl": "Vlakbij", "en": "Very close", "de": "Ganz nah" },
+  "afstand.minuten": { "nl": "ca. {n} min lopen", "en": "about {n} min walk", "de": "ca. {n} Min. zu Fuß" },
+  "afstand.km": { "nl": "ca. {km} km", "en": "about {km} km", "de": "ca. {km} km" },
+  "afstand.onzeker": { "nl": "Locatie nog onzeker…", "en": "Location still uncertain…", "de": "Standort noch ungenau…" },
+  "afstand.onbekend": { "nl": "Afstand onbekend", "en": "Distance unknown", "de": "Entfernung unbekannt" },
+  "afstand.vanafHier": { "nl": "{afstand} vanaf hier", "en": "{afstand} from here", "de": "{afstand} von hier" },
+
+  "plek.netOpen": {
+    "nl": "✓ Je bent er! Het verhaal en de vraag zijn nu open.",
+    "en": "✓ You're there! The story and the question are now open.",
+    "de": "✓ Du bist da! Die Geschichte und die Frage sind jetzt offen."
+  },
+  "plek.slotUitleg": {
+    "nl": "Kom je hier langs? Dan gaan het verhaal en de vraag open.",
+    "en": "Come by here and the story and the question will open.",
+    "de": "Kommst du hier vorbei? Dann öffnen sich die Geschichte und die Frage."
+  },
+  "plek.vraag": { "nl": "Vraag", "en": "Question", "de": "Frage" },
+  "plek.nietVertaald": {
+    "nl": "Dit verhaal is nog niet vertaald.",
+    "en": "This story has not been translated yet. Here is the Dutch text.",
+    "de": "Diese Geschichte ist noch nicht übersetzt. Hier ist der niederländische Text."
+  },
+  "plek.vraagNietVertaald": {
+    "nl": "Deze vraag is er alleen in het Nederlands.",
+    "en": "This question is only available in Dutch.",
+    "de": "Diese Frage gibt es nur auf Niederländisch."
+  },
+  "plek.terugKaart": { "nl": "Terug naar de kaart", "en": "Back to the map", "de": "Zurück zur Karte" },
+  "plek.ookGebouw": { "nl": "Ook bij dit gebouw", "en": "Also at this building", "de": "Auch bei diesem Gebäude" },
+  "plek.naarEind": { "nl": "Naar je eindscherm", "en": "To your summary", "de": "Zu deiner Zusammenfassung" },
+
+  "antwoord.goed": { "nl": "✓ Goed!", "en": "✓ Correct!", "de": "✓ Richtig!" },
+  "antwoord.fout": { "nl": "✗ Helaas, dat is niet goed.", "en": "✗ Sorry, that's not right.", "de": "✗ Leider nicht richtig." },
+  "antwoord.juistIs": { "nl": "Het goede antwoord is ", "en": "The correct answer is ", "de": "Die richtige Antwort ist " },
+  "antwoord.labelJuist": { "nl": "juiste antwoord", "en": "correct answer", "de": "richtige Antwort" },
+  "antwoord.labelFout": { "nl": "jouw antwoord, niet juist", "en": "your answer, not correct", "de": "deine Antwort, nicht richtig" },
+  "antwoord.labelGekozen": { "nl": "jouw antwoord", "en": "your answer", "de": "deine Antwort" },
+  "antwoord.bewaard": { "nl": "✓ Antwoord bewaard", "en": "✓ Answer saved", "de": "✓ Antwort gespeichert" },
+  "antwoord.bewaardDoel": {
+    "nl": { "one": "Of het goed is, zie je in \"Mijn antwoorden\" als je {n} plek hebt ontdekt.", "other": "Of het goed is, zie je in \"Mijn antwoorden\" als je {n} plekken hebt ontdekt." },
+    "en": { "one": "You'll see whether it's correct in “My answers” once you have discovered {n} place.", "other": "You'll see whether it's correct in “My answers” once you have discovered {n} places." },
+    "de": { "one": "Ob sie richtig ist, siehst du unter „Meine Antworten“, wenn du {n} Ort entdeckt hast.", "other": "Ob sie richtig ist, siehst du unter „Meine Antworten“, wenn du {n} Orte entdeckt hast." }
+  },
+  "antwoord.bewaardAlles": {
+    "nl": "Of het goed is, zie je in \"Mijn antwoorden\" als je alle {n} plekken hebt ontdekt.",
+    "en": "You'll see whether it's correct in “My answers” once you have discovered all {n} places.",
+    "de": "Ob sie richtig ist, siehst du unter „Meine Antworten“, wenn du alle {n} Orte entdeckt hast."
+  },
+
+  "mijlpaal.alles": { "nl": "✓ Je hebt alle {n} plekken ontdekt!", "en": "✓ You've discovered all {n} places!", "de": "✓ Du hast alle {n} Orte entdeckt!" },
+  "mijlpaal.doel": {
+    "nl": { "one": "✓ Doel gehaald! Je hebt {n} plek ontdekt.", "other": "✓ Doel gehaald! Je hebt {n} plekken ontdekt." },
+    "en": { "one": "✓ Goal reached! You've discovered {n} place.", "other": "✓ Goal reached! You've discovered {n} places." },
+    "de": { "one": "✓ Ziel erreicht! Du hast {n} Ort entdeckt.", "other": "✓ Ziel erreicht! Du hast {n} Orte entdeckt." }
+  },
+  "mijlpaal.gebouwAf": { "nl": "✓ Alle {n} verhalen bij {naam} ontdekt!", "en": "✓ All {n} stories at {naam} discovered!", "de": "✓ Alle {n} Geschichten bei {naam} entdeckt!" },
+  "mijlpaal.gebouw": { "nl": "✓ {naam}: {klaar} van {totaal} verhalen ontdekt.", "en": "✓ {naam}: {klaar} of {totaal} stories discovered.", "de": "✓ {naam}: {klaar} von {totaal} Geschichten entdeckt." },
+  "mijlpaal.vanDoel": { "nl": "✓ Plek ontdekt! {klaar} van {doel}.", "en": "✓ Place discovered! {klaar} of {doel}.", "de": "✓ Ort entdeckt! {klaar} von {doel}." },
+  "mijlpaal.ontdekt": { "nl": "✓ Plek ontdekt! Je hebt er nu {n}.", "en": "✓ Place discovered! You now have {n}.", "de": "✓ Ort entdeckt! Du hast jetzt {n}." },
+  "mijlpaal.eind": {
+    "nl": "Op je eindscherm zie je alles wat je hebt ontdekt.",
+    "en": "Your summary shows everything you have discovered.",
+    "de": "In deiner Zusammenfassung siehst du alles, was du entdeckt hast."
+  },
+  "mijlpaal.nogVerhalen": {
+    "nl": { "one": "Nog 1 verhaal bij {naam}:", "other": "Nog {n} verhalen bij {naam}:" },
+    "en": { "one": "1 more story at {naam}:", "other": "{n} more stories at {naam}:" },
+    "de": { "one": "Noch 1 Geschichte bei {naam}:", "other": "Noch {n} Geschichten bei {naam}:" }
+  },
+  "dichtbij.kop": { "nl": "Ook in de buurt", "en": "Also nearby", "de": "Auch in der Nähe" },
+  "dichtbij.alles": { "nl": "Je hebt alle plekken ontdekt. Knap gedaan!", "en": "You've discovered all the places. Well done!", "de": "Du hast alle Orte entdeckt. Gut gemacht!" },
+
+  "menu.titel": { "nl": "Menu", "en": "Menu", "de": "Menü" },
+  "menu.wandeling": { "nl": "Je wandeling", "en": "Your walk", "de": "Dein Spaziergang" },
+  "menu.openenVraag": { "nl": "Wanneer gaan de plekken open?", "en": "When do the places open?", "de": "Wann öffnen sich die Orte?" },
+  "menu.overal": { "nl": "Overal", "en": "Everywhere", "de": "Überall" },
+  "menu.standaard": { "nl": "(standaard)", "en": "(default)", "de": "(Standard)" },
+  "menu.overalUitleg": {
+    "nl": "Alle verhalen en vragen zijn open, ook thuis of in de klas. Handig om te testen of voor te bereiden.",
+    "en": "All stories and questions are open, even at home or in class. Handy for testing or preparing.",
+    "de": "Alle Geschichten und Fragen sind offen, auch zu Hause oder in der Klasse. Praktisch zum Testen oder Vorbereiten."
+  },
+  "menu.terPlekke": { "nl": "Alleen ter plekke", "en": "Only on the spot", "de": "Nur vor Ort" },
+  "menu.terPlekkeUitleg": {
+    "nl": "Een verhaal en vraag gaan pas open als je bij de plek bent. Hiervoor zet je je locatie aan.",
+    "en": "A story and question only open when you are at the place. For this, you turn on your location.",
+    "de": "Eine Geschichte und Frage öffnen sich erst, wenn du am Ort bist. Dafür schaltest du deinen Standort ein."
+  },
+  "menu.doelVraag": { "nl": "Heb je een doel?", "en": "Do you have a goal?", "de": "Hast du ein Ziel?" },
+  "menu.geenDoel": { "nl": "Geen doel", "en": "No goal", "de": "Kein Ziel" },
+  "menu.geenDoelUitleg": { "nl": "Ontdek zoveel plekken als je wilt.", "en": "Discover as many places as you like.", "de": "Entdecke so viele Orte, wie du willst." },
+  "menu.aantal": { "nl": "Een aantal plekken", "en": "A number of places", "de": "Eine Anzahl Orte" },
+  "menu.aantalUitleg": { "nl": "Bijvoorbeeld een opdracht van school.", "en": "For example, a school assignment.", "de": "Zum Beispiel eine Aufgabe von der Schule." },
+  "menu.aantalLabel": { "nl": "Aantal plekken", "en": "Number of places", "de": "Anzahl der Orte" },
+  "menu.bereik": { "nl": "(1 tot {n})", "en": "(1 to {n})", "de": "(1 bis {n})" },
+  "menu.antwoordenVraag": { "nl": "Wanneer zie je of je antwoord goed is?", "en": "When do you see whether your answer is correct?", "de": "Wann siehst du, ob deine Antwort richtig ist?" },
+  "menu.direct": { "nl": "Direct na elke vraag", "en": "Right after each question", "de": "Direkt nach jeder Frage" },
+  "menu.directUitleg": { "nl": "Met een korte uitleg.", "en": "With a short explanation.", "de": "Mit einer kurzen Erklärung." },
+  "menu.eind": { "nl": "Aan het eind", "en": "At the end", "de": "Am Ende" },
+  "menu.eindUitleg": {
+    "nl": "Je ziet de goede antwoorden en de uitleg in \"Mijn antwoorden\".",
+    "en": "You'll see the correct answers and explanations in “My answers”.",
+    "de": "Du siehst die richtigen Antworten und die Erklärungen unter „Meine Antworten“."
+  },
+  "menu.taal": { "nl": "Taal", "en": "Language", "de": "Sprache" },
+  "menu.klaarVraag": { "nl": "Klaar met wandelen?", "en": "Finished walking?", "de": "Fertig mit dem Spaziergang?" },
+  "menu.klaarUitleg": {
+    "nl": "Bekijk welke plekken je hebt ontdekt. Handig om te laten zien, bijvoorbeeld op school.",
+    "en": "See which places you have discovered. Handy to show, for example at school.",
+    "de": "Sieh dir an, welche Orte du entdeckt hast. Praktisch zum Zeigen, zum Beispiel in der Schule."
+  },
+  "menu.toonEind": { "nl": "Toon eindscherm", "en": "Show summary", "de": "Zusammenfassung zeigen" },
+  "menu.opnieuw": { "nl": "Opnieuw beginnen", "en": "Start again", "de": "Neu beginnen" },
+  "menu.opnieuwUitleg": {
+    "nl": { "one": "Je hebt 1 plek ontdekt. Wil je de wandeling opnieuw doen? Dan kun je je antwoord wissen.", "other": "Je hebt {n} plekken ontdekt. Wil je de wandeling opnieuw doen? Dan kun je je antwoorden wissen." },
+    "en": { "one": "You have discovered 1 place. Want to do the walk again? Then you can delete your answer.", "other": "You have discovered {n} places. Want to do the walk again? Then you can delete your answers." },
+    "de": { "one": "Du hast 1 Ort entdeckt. Willst du den Spaziergang noch einmal machen? Dann kannst du deine Antwort löschen.", "other": "Du hast {n} Orte entdeckt. Willst du den Spaziergang noch einmal machen? Dann kannst du deine Antworten löschen." }
+  },
+  "menu.opnieuwKnop": { "nl": "Alles opnieuw beginnen", "en": "Start everything again", "de": "Alles neu beginnen" },
+  "menu.zeker": { "nl": "Weet je het zeker?", "en": "Are you sure?", "de": "Bist du sicher?" },
+  "menu.zekerUitleg": {
+    "nl": " Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.",
+    "en": " All your answers will be deleted. This cannot be undone.",
+    "de": " Alle deine Antworten werden gelöscht. Das kannst du nicht rückgängig machen."
+  },
+  "menu.ja": { "nl": "Ja, wis mijn antwoorden", "en": "Yes, delete my answers", "de": "Ja, Antworten löschen" },
+  "menu.nee": { "nl": "Annuleren", "en": "Cancel", "de": "Abbrechen" },
+  "menu.gewist": {
+    "nl": "✓ Je antwoorden zijn gewist. Veel plezier met ontdekken!",
+    "en": "✓ Your answers have been deleted. Enjoy discovering!",
+    "de": "✓ Deine Antworten wurden gelöscht. Viel Spaß beim Entdecken!"
+  },
+  "menu.over": { "nl": "Over de Enschede app", "en": "About the Enschede app", "de": "Über die Enschede app" },
+  "menu.over1": {
+    "nl": "Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal en beantwoord je een vraag. Zo ontdek je de geschiedenis van de stad.",
+    "en": "Walk past historic places in Enschede, in your own order. At each place you read a short story and answer a question. That's how you discover the history of the city.",
+    "de": "Geh an historischen Orten in Enschede vorbei, in deiner eigenen Reihenfolge. An jedem Ort liest du eine kurze Geschichte und beantwortest eine Frage. So entdeckst du die Geschichte der Stadt."
+  },
+  "menu.aantalNu": { "nl": "Er zijn nu {n} plekken met een verhaal.", "en": "There are now {n} places with a story.", "de": "Es gibt jetzt {n} Orte mit einer Geschichte." },
+  "menu.over2": {
+    "nl": "De app is gemaakt door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL). De SHSEL controleert de verhalen en de antwoorden.",
+    "en": "The app was made by volunteers of the Historische Sociëteit Enschede-Lonneker (SHSEL), a local history foundation. SHSEL checks the stories and the answers.",
+    "de": "Die App wurde von Freiwilligen der Stiftung Historische Sociëteit Enschede-Lonneker (SHSEL) gemacht, einem Geschichtsverein. Die SHSEL prüft die Geschichten und die Antworten."
+  },
+  "menu.vertaling": {
+    "nl": "",
+    "en": "The English translations are new and are still being checked.",
+    "de": "Die deutschen Übersetzungen sind neu und werden noch geprüft."
+  },
+  "menu.website": { "nl": "Website van de SHSEL", "en": "SHSEL website (in Dutch)", "de": "Website der SHSEL (auf Niederländisch)" },
+  "menu.privacy": { "nl": "Privacy", "en": "Privacy", "de": "Datenschutz" },
+  "menu.privacy1": {
+    "nl": "Je antwoorden en keuzes blijven op je eigen telefoon. Je locatie gebruikt de app alleen als je die zelf aanzet. Je locatie wordt niet bewaard of verstuurd. Er is geen account, geen reclame en geen tracking.",
+    "en": "Your answers and choices stay on your own phone. The app only uses your location if you turn it on yourself. Your location is not stored or sent. There is no account, no advertising and no tracking.",
+    "de": "Deine Antworten und Einstellungen bleiben auf deinem eigenen Handy. Deinen Standort verwendet die App nur, wenn du ihn selbst einschaltest. Dein Standort wird nicht gespeichert oder gesendet. Es gibt kein Konto, keine Werbung und kein Tracking."
+  },
+  "menu.privacy2": {
+    "nl": "Voor de kaart haalt de app kaartbeelden en gebouwgegevens op bij PDOK, de kaartdienst van de overheid.",
+    "en": "For the map, the app loads map images and building data from PDOK, the Dutch government's map service.",
+    "de": "Für die Karte lädt die App Kartenbilder und Gebäudedaten von PDOK, dem Kartendienst der niederländischen Regierung."
+  },
+  "menu.klaar": { "nl": "Klaar", "en": "Done", "de": "Fertig" },
+
+  "antwoorden.titel": { "nl": "Mijn antwoorden", "en": "My answers", "de": "Meine Antworten" },
+  "antwoorden.geen": {
+    "nl": "Je hebt nog geen vragen beantwoord. Kies een plek op de kaart.",
+    "en": "You haven't answered any questions yet. Choose a place on the map.",
+    "de": "Du hast noch keine Fragen beantwortet. Wähle einen Ort auf der Karte."
+  },
+  "antwoorden.wachtDoel": {
+    "nl": "Je hebt {klaar} van de {doel} plekken ontdekt. De goede antwoorden en de uitleg zie je hier als je je doel hebt gehaald.",
+    "en": "You have discovered {klaar} of the {doel} places. You'll see the correct answers and explanations here once you have reached your goal.",
+    "de": "Du hast {klaar} von {doel} Orten entdeckt. Die richtigen Antworten und die Erklärungen siehst du hier, wenn du dein Ziel erreicht hast."
+  },
+  "antwoorden.wachtAlles": {
+    "nl": "Je hebt {klaar} van de {doel} plekken ontdekt. De goede antwoorden en de uitleg zie je hier als je alle plekken hebt ontdekt.",
+    "en": "You have discovered {klaar} of the {doel} places. You'll see the correct answers and explanations here once you have discovered all the places.",
+    "de": "Du hast {klaar} von {doel} Orten entdeckt. Die richtigen Antworten und die Erklärungen siehst du hier, wenn du alle Orte entdeckt hast."
+  },
+  "antwoorden.intro": {
+    "nl": { "one": "Je hebt {n} plek ontdekt. Hieronder staan je antwoorden met uitleg.", "other": "Je hebt {n} plekken ontdekt. Hieronder staan je antwoorden met uitleg." },
+    "en": { "one": "You have discovered {n} place. Below are your answers with explanations.", "other": "You have discovered {n} places. Below are your answers with explanations." },
+    "de": { "one": "Du hast {n} Ort entdeckt. Unten stehen deine Antworten mit Erklärungen.", "other": "Du hast {n} Orte entdeckt. Unten stehen deine Antworten mit Erklärungen." }
+  },
+  "antwoorden.goed": { "nl": "✓ Goed: ", "en": "✓ Correct: ", "de": "✓ Richtig: " },
+  "antwoorden.jouwFout": { "nl": "✗ Jouw antwoord: ", "en": "✗ Your answer: ", "de": "✗ Deine Antwort: " },
+  "antwoorden.jouw": { "nl": "Jouw antwoord: ", "en": "Your answer: ", "de": "Deine Antwort: " },
+  "antwoorden.juist": { "nl": "Goed antwoord: ", "en": "Correct answer: ", "de": "Richtige Antwort: " },
+
+  "eind.titel": { "nl": "Eindscherm", "en": "Summary", "de": "Zusammenfassung" },
+  "eind.allesKop": { "nl": "Alles ontdekt!", "en": "Everything discovered!", "de": "Alles entdeckt!" },
+  "eind.alles": { "nl": "Je hebt alle {n} plekken ontdekt.", "en": "You have discovered all {n} places.", "de": "Du hast alle {n} Orte entdeckt." },
+  "eind.doelKop": { "nl": "Doel gehaald!", "en": "Goal reached!", "de": "Ziel erreicht!" },
+  "eind.meerDanDoel": {
+    "nl": "Je hebt {n} plekken ontdekt. Dat is meer dan je doel van {doel}!",
+    "en": "You have discovered {n} places. That's more than your goal of {doel}!",
+    "de": "Du hast {n} Orte entdeckt. Das ist mehr als dein Ziel von {doel}!"
+  },
+  "eind.ontdekt": {
+    "nl": { "one": "Je hebt {n} plek ontdekt.", "other": "Je hebt {n} plekken ontdekt." },
+    "en": { "one": "You have discovered {n} place.", "other": "You have discovered {n} places." },
+    "de": { "one": "Du hast {n} Ort entdeckt.", "other": "Du hast {n} Orte entdeckt." }
+  },
+  "eind.wandelingKop": { "nl": "Je wandeling", "en": "Your walk", "de": "Dein Spaziergang" },
+  "eind.niets": {
+    "nl": "Je hebt nog geen plekken ontdekt. Kies een plek op de kaart.",
+    "en": "You haven't discovered any places yet. Choose a place on the map.",
+    "de": "Du hast noch keine Orte entdeckt. Wähle einen Ort auf der Karte."
+  },
+  "eind.totNuKop": { "nl": "Je wandeling tot nu toe", "en": "Your walk so far", "de": "Dein Spaziergang bis jetzt" },
+  "eind.vanDoel": { "nl": "Je hebt {klaar} van {doel} plekken ontdekt.", "en": "You have discovered {klaar} of {doel} places.", "de": "Du hast {klaar} von {doel} Orten entdeckt." },
+  "eind.vanTotaal": {
+    "nl": { "one": "Je hebt {n} plek ontdekt. In de stad zijn er {totaal}.", "other": "Je hebt {n} plekken ontdekt. In de stad zijn er {totaal}." },
+    "en": { "one": "You have discovered {n} place. There are {totaal} in the city.", "other": "You have discovered {n} places. There are {totaal} in the city." },
+    "de": { "one": "Du hast {n} Ort entdeckt. In der Stadt gibt es {totaal}.", "other": "Du hast {n} Orte entdeckt. In der Stadt gibt es {totaal}." }
+  },
+  "eind.allesGoed": {
+    "nl": { "one": "✓ Je wist het antwoord goed!", "other": "✓ Je wist alle {n} antwoorden goed!" },
+    "en": { "one": "✓ You got the answer right!", "other": "✓ You got all {n} answers right!" },
+    "de": { "one": "✓ Du hattest die Antwort richtig!", "other": "✓ Du hattest alle {n} Antworten richtig!" }
+  },
+  "eind.score": { "nl": "Je wist {goed} van de {n} antwoorden goed.", "en": "You got {goed} of the {n} answers right.", "de": "Du hattest {goed} von {n} Antworten richtig." },
+  "eind.lijstKop": { "nl": "Ontdekte plekken ({n})", "en": "Places discovered ({n})", "de": "Entdeckte Orte ({n})" },
+  "eind.bekijkUitleg": { "nl": "Bekijk je antwoorden met uitleg", "en": "View your answers with explanations", "de": "Deine Antworten mit Erklärungen" },
+  "eind.bekijk": { "nl": "Bekijk je antwoorden", "en": "View your answers", "de": "Deine Antworten ansehen" },
+  "eind.dankKop": { "nl": "Bedankt!", "en": "Thank you!", "de": "Danke!" },
+  "eind.dank": {
+    "nl": "Bedankt dat je de Enschede app hebt gebruikt. De verhalen zijn verzameld door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL).",
+    "en": "Thank you for using the Enschede app. The stories were collected by volunteers of the Historische Sociëteit Enschede-Lonneker (SHSEL).",
+    "de": "Danke, dass du die Enschede app benutzt hast. Die Geschichten wurden von Freiwilligen der Stiftung Historische Sociëteit Enschede-Lonneker (SHSEL) gesammelt."
+  },
+  "eind.meerWeten": {
+    "nl": "Wil je meer weten over de geschiedenis van Enschede? Kijk dan op de ",
+    "en": "Want to know more about the history of Enschede? Visit the ",
+    "de": "Möchtest du mehr über die Geschichte von Enschede wissen? Schau auf die "
+  },
+  "eind.meerWetenLink": { "nl": "website van de SHSEL", "en": "SHSEL website (in Dutch)", "de": "Website der SHSEL (auf Niederländisch)" },
+  "eind.verder": { "nl": "Verder ontdekken", "en": "Keep discovering", "de": "Weiter entdecken" },
+
+  "foto.vergroot": { "nl": "Foto {i} van {n} vergroten", "en": "Enlarge photo {i} of {n}", "de": "Foto {i} von {n} vergrößern" },
+  "foto.nogMeer": {
+    "nl": { "one": "Nog {n} foto.", "other": "Nog {n} foto's." },
+    "en": { "one": "{n} more photo.", "other": "{n} more photos." },
+    "de": { "one": "Noch {n} Foto.", "other": "Noch {n} Fotos." }
+  },
+  "foto.aantal": {
+    "nl": { "one": "{n} foto", "other": "{n} foto's" },
+    "en": { "one": "{n} photo", "other": "{n} photos" },
+    "de": { "one": "{n} Foto", "other": "{n} Fotos" }
+  },
+  "foto.bron": { "nl": "bron: {bron}", "en": "source: {bron}", "de": "Quelle: {bron}" },
+  "foto.bronVol": { "nl": "Bron: {bron}", "en": "Source: {bron}", "de": "Quelle: {bron}" },
+  "foto.tik": { "nl": "tik om te vergroten", "en": "tap to enlarge", "de": "zum Vergrößern tippen" },
+  "foto.proef": { "nl": "Proef: rechten nog niet bevestigd", "en": "Trial: rights not yet confirmed", "de": "Probe: Rechte noch nicht bestätigt" },
+  "foto.venster": { "nl": "Foto's", "en": "Photos", "de": "Fotos" },
+  "foto.sluiten": { "nl": "Foto's sluiten", "en": "Close photos", "de": "Fotos schließen" },
+  "foto.vorige": { "nl": "Vorige foto", "en": "Previous photo", "de": "Vorheriges Foto" },
+  "foto.volgende": { "nl": "Volgende foto", "en": "Next photo", "de": "Nächstes Foto" }
+}

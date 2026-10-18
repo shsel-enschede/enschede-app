@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 // Test van js/langs.js ("Je loopt langs …"). Draaien: node tests/langs.test.mjs (Node 18 of nieuwer, geen npm nodig).
+import { readFileSync } from 'node:fs';
 const l = await import(new URL('../js/langs.js', import.meta.url));
+const taal = await import(new URL('../js/taal.js', import.meta.url));
+taal.zetTeksten(JSON.parse(readFileSync(new URL('../content/teksten.json', import.meta.url), 'utf8')));
+taal.zetTaal('nl');
 
 const kerk = { sleutel: 'g:grote-kerk', naam: 'Grote Kerk', verhalen: 2, meters: 5 };
 const zon = { sleutel: 'g:zonnewijzer', naam: 'Zonnewijzer', verhalen: 1, meters: 12 };
@@ -59,5 +63,15 @@ assert.equal(l.voorleestekst(0, [kerk, zon], [kerk, zon]),
 assert.equal(l.meldingTekst([kerk, zon]).naam, 'Grote Kerk en Zonnewijzer');
 assert.equal(l.voorleestekst(0, [kerk, brand, zon], [kerk, brand, zon]),
   'Je bent bij 3 plekken: Grote Kerk, Brandmonument en Zonnewijzer. Benieuwd? Kies zelf waar je begint. Onderin staat de knop Bekijk.');
+
+// Engels en Duits: zelfde opbouw, eigen lijstregels (Engels met komma voor "and")
+taal.zetTaal('en');
+assert.equal(l.namen(['A', 'B', 'C', 'D', 'E']), 'A, B, C, and 2 more');
+assert.equal(l.meldingTekst([kerk]).vraag, 'Curious about the 2 stories?');
+assert.equal(l.voorleestekst(3, [kerk, zon, jacobus], [jacobus]), 'Also nearby: Jacobuskerk.');
+taal.zetTaal('de');
+assert.equal(l.namen(['A', 'B', 'C']), 'A, B und C');
+assert.equal(l.meldingTekst([kerk, zon]).label, 'Du bist bei 2 Orten');
+taal.zetTaal('nl');
 
 console.log('langs.js: alle tests geslaagd');

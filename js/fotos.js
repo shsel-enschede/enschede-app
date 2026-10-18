@@ -7,6 +7,7 @@
 // terugknop van de telefoon sluit het ook (via een eigen stap in de geschiedenis).
 
 import { maak, scrolGedrag } from './hulp.js';
+import { t } from './taal.js';
 
 const MAX_TEGELS = 3; // hoofdfoto + 2 klein; bij meer staat "+N" op de laatste
 
@@ -46,10 +47,10 @@ export function toonFotos(houder, fotos, { toegankelijk }) {
     knop.type = 'button';
     knop.append(img);
     const rest = zichtbaar.length - MAX_TEGELS;
-    const label = `Foto ${i + 1} van ${zichtbaar.length} vergroten${foto.alt ? `: ${foto.alt}` : ''}`;
+    const label = `${t('foto.vergroot', { i: i + 1, n: zichtbaar.length })}${foto.alt ? `: ${foto.alt}` : ''}`;
     if (i === tegels.length - 1 && rest > 0) {
       knop.append(maak('span', 'mozaiek__meer', `+${rest}`));
-      knop.setAttribute('aria-label', `${label}. Nog ${rest} foto's.`);
+      knop.setAttribute('aria-label', `${label}. ${t('foto.nogMeer', { n: rest })}`);
     } else {
       knop.setAttribute('aria-label', label);
     }
@@ -58,14 +59,14 @@ export function toonFotos(houder, fotos, { toegankelijk }) {
   });
   houder.append(mozaiek);
 
-  if (zichtbaar.some((f) => f.proef)) houder.append(maak('span', 'foto__proef', 'Proef: rechten nog niet bevestigd'));
+  if (zichtbaar.some((f) => f.proef)) houder.append(maak('span', 'foto__proef', t('foto.proef')));
 
   // Eén regel onder het mozaïek: hoeveel foto's, van wie, en dat je kunt vergroten (wegwijzer).
   if (toegankelijk) {
     const bronnen = [...new Set(zichtbaar.map((f) => f.maker).filter(Boolean))];
-    const delen = [zichtbaar.length === 1 ? '1 foto' : `${zichtbaar.length} foto's`];
-    if (bronnen.length) delen.push(`bron: ${bronnen.join(', ')}`);
-    delen.push('tik om te vergroten');
+    const delen = [t('foto.aantal', { n: zichtbaar.length })];
+    if (bronnen.length) delen.push(t('foto.bron', { bron: bronnen.join(', ') }));
+    delen.push(t('foto.tik'));
     houder.append(maak('p', 'fotos__onder', delen.join(' · ')));
   }
 }
@@ -83,9 +84,9 @@ function openVenster(start) {
     img.decoding = 'async';
     if (Math.abs(i - start) > 1) img.loading = 'lazy';
     figuur.append(img);
-    if (foto.proef) figuur.append(maak('span', 'foto__proef', 'Proef: rechten nog niet bevestigd'));
+    if (foto.proef) figuur.append(maak('span', 'foto__proef', t('foto.proef')));
     const onder = maak('figcaption', '', foto.bijschrift ?? '');
-    if (foto.bron) onder.append(maak('span', 'foto__bron', `Bron: ${foto.bron}`));
+    if (foto.bron) onder.append(maak('span', 'foto__bron', t('foto.bronVol', { bron: foto.bron })));
     figuur.append(onder);
     return figuur;
   }));
