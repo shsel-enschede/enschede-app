@@ -34,3 +34,29 @@ export function puntInRing(x, y, ring) {
   }
   return binnen;
 }
+
+/**
+ * Korte vingerafdruk (8 tekens) van een waarde, om te zien of een tekst veranderd is.
+ * Gebruikt voor vertalingen: bij elke vertaling staat de vingerafdruk van de Nederlandse tekst waarop hij
+ * gebaseerd is. Verandert het Nederlands daarna, dan klopt de vingerafdruk niet meer en is de vertaling verouderd.
+ * FNV-1a (32 bit): snel en zonder browser-API. Geen beveiliging, alleen veranderingen opmerken.
+ */
+export function vingerafdruk(waarde) {
+  const tekst = JSON.stringify(waarde) ?? '';
+  let h = 0x811c9dc5;
+  for (let i = 0; i < tekst.length; i += 1) {
+    h ^= tekst.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
+
+/** De Nederlandse delen van een plek die samen vertaald worden: het verhaal (titel en tekst) en de vraag. */
+export function vertaalbron(loc) {
+  const v = loc?.vraag?.nl ?? {};
+  return {
+    verhaal: vingerafdruk([loc?.titel?.nl ?? '', loc?.tekst?.nl ?? '']),
+    // 'juist' hoort bij de vraag: wijzigt het goede antwoord, dan moet de vertaling opnieuw bekeken worden.
+    vraag: vingerafdruk([v.tekst ?? '', v.opties ?? [], v.uitleg ?? '', loc?.juist ?? null]),
+  };
+}
