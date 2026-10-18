@@ -21,15 +21,15 @@
   <script type="module" src="js/app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#hoofd">Naar de inhoud</a>
+  <a class="skip" href="#hoofd" data-t="app.skip">Naar de inhoud</a>
 
   <header class="kop">
-    <button class="kop__terug" id="terug" type="button" hidden aria-label="Terug">
+    <button class="kop__terug" id="terug" type="button" hidden aria-label="Terug" data-t-label="app.terug">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
     <h1 class="kop__titel" id="kop-titel">Enschede app</h1>
     <!-- Testfase: klein label in de kop in plaats van een regel in de voetbalk (die ruimte is voor knoppen) -->
-    <span class="kop__test" id="kop-test" hidden>Test</span>
+    <span class="kop__test" id="kop-test" hidden data-t="app.test">Test</span>
     <!-- Menu: instellingen, taal en informatie. Op elk scherm op dezelfde plek (rechtsboven). -->
     <a class="kop__menu" id="menuknop" href="#/menu" aria-label="Menu: instellingen en informatie">
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -44,9 +44,18 @@
   <main id="hoofd" tabindex="-1">
     <!-- Startscherm -->
     <section class="scherm" id="scherm-start">
-      <img class="logo" src="icons/shsel-logo.svg" alt="Logo van de Stichting Historische Sociëteit Enschede-Lonneker" width="240" height="150">
-      <h2 class="groot">Ontdek de geschiedenis van Enschede</h2>
-      <p>Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.</p>
+      <!-- Taalkeuze (besluit René, okt 2026): bovenaan het startscherm, zodat ook wie geen Nederlands leest
+           hem vindt. Taalnamen in hun eigen taal, geen vlaggen (een vlag staat voor een land, niet voor een taal).
+           De app begint in de taal van het toestel; hier en in het menu kies je zelf. Zie js/taal.js. -->
+      <div class="talen" id="talen-start" role="group" aria-label="Taal · Language · Sprache">
+        <svg class="talen__bol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <button type="button" class="talen__knop" lang="nl" data-taal="nl">Nederlands</button>
+        <button type="button" class="talen__knop" lang="en" data-taal="en">English</button>
+        <button type="button" class="talen__knop" lang="de" data-taal="de">Deutsch</button>
+      </div>
+      <img class="logo" src="icons/shsel-logo.svg" alt="Logo van de Stichting Historische Sociëteit Enschede-Lonneker" data-t-alt="start.logoAlt" width="240" height="150">
+      <h2 class="groot" data-t="start.kop">Ontdek de geschiedenis van Enschede</h2>
+      <p data-t="start.intro">Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.</p>
       <p class="testuitleg" id="test-uitleg" hidden><strong>Alle vragen zijn open,</strong> ook als je niet ter plekke bent. Dit kun je wijzigen in het menu rechtsboven.</p>
     </section>
 
@@ -55,11 +64,11 @@
          Teller, locatieknop en keuzepanelen liggen óp de kaart. Zonder kaart (bijv. laden mislukt) staan ze gewoon onder elkaar. -->
     <section class="scherm" id="scherm-kaart" hidden>
       <div class="kaartvak" id="kaartvak">
-        <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet ontdekt, groen met vinkje is ontdekt. Tik op een gebouw voor het verhaal. Onder de kaart staan dezelfde plekken als lijst."></div>
+        <div class="wijkkaart" id="wijkkaart" role="region" aria-label="Kaart: rood is nog niet ontdekt, groen met vinkje is ontdekt. Tik op een gebouw voor het verhaal. Onder de kaart staan dezelfde plekken als lijst." data-t-label="kaart.regio"></div>
         <!-- Voortgang als verzameling: wat je al ontdekt hebt, niet wat je nog "moet" -->
         <div class="teller" id="teller">
           <p class="teller__tal" id="voortgang-tekst" role="status"></p>
-          <p class="teller__legenda" aria-hidden="true"><span class="legenda legenda--open"></span>nog te ontdekken <span class="legenda legenda--klaar">✓</span>ontdekt</p>
+          <p class="teller__legenda" aria-hidden="true"><span class="legenda legenda--open"></span><span data-t="kaart.legendaOpen">nog te ontdekken</span> <span class="legenda legenda--klaar">✓</span><span data-t="kaart.legendaKlaar">ontdekt</span></p>
         </div>
         <button class="locatieknop" id="locatieknop" type="button" aria-label="Mijn locatie" aria-expanded="false" aria-controls="gps-kaart">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg>
@@ -68,7 +77,7 @@
         <div class="gebouwkeuze kaartpaneel" id="gebouwkeuze" role="region" aria-labelledby="gebouwkeuze-titel" hidden>
           <div class="kaartpaneel__kop">
             <p class="gebouwkeuze__titel" id="gebouwkeuze-titel" tabindex="-1"></p>
-            <button class="kaartpaneel__sluit" id="gebouwkeuze-sluit" type="button" aria-label="Sluiten">×</button>
+            <button class="kaartpaneel__sluit" id="gebouwkeuze-sluit" type="button" aria-label="Sluiten" data-t-label="app.sluiten">×</button>
           </div>
           <ul class="lijst" id="gebouwkeuze-lijst"></ul>
         </div>
@@ -81,8 +90,8 @@
         <div class="ontdekt">
           <div class="voortgang" id="voortgang" role="progressbar" aria-valuemin="0"></div>
           <p class="klein ontdekt__totaal" id="voortgang-totaal"></p>
-          <ul class="ontdekt__gebouwen" id="ontdekt-gebouwen" aria-label="Ontdekte gebouwen" hidden></ul>
-          <p class="ontdekt__antwoorden" id="antwoorden-link" hidden><a href="#/antwoorden">Mijn antwoorden</a></p>
+          <ul class="ontdekt__gebouwen" id="ontdekt-gebouwen" aria-label="Ontdekte gebouwen" data-t-label="kaart.ontdekteGebouwen" hidden></ul>
+          <p class="ontdekt__antwoorden" id="antwoorden-link" hidden><a href="#/antwoorden" data-t="antwoorden.titel">Mijn antwoorden</a></p>
         </div>
         <div id="plekken"></div>
       </div>
@@ -92,16 +101,18 @@
     <section class="scherm" id="scherm-locatie" hidden>
       <p class="klein" id="locatie-adres"></p>
       <div class="fotos" id="locatie-fotos" hidden></div>
-      <p class="net-open" id="net-open" role="status" hidden>✓ Je bent er! Het verhaal en de vraag zijn nu open.</p>
+      <p class="net-open" id="net-open" role="status" hidden data-t="plek.netOpen">✓ Je bent er! Het verhaal en de vraag zijn nu open.</p>
       <div class="slot" id="slot" hidden>
         <p class="slot__teaser" id="slot-teaser"></p>
-        <p class="slot__uitleg">Kom je hier langs? Dan gaan het verhaal en de vraag open.</p>
+        <p class="slot__uitleg" data-t="plek.slotUitleg">Kom je hier langs? Dan gaan het verhaal en de vraag open.</p>
         <p class="slot__afstand" id="slot-afstand" aria-live="polite"></p>
         <div class="gps" id="gps-locatie" hidden></div>
       </div>
+      <p class="vertaalmelding" id="tekst-vertaling" hidden></p>
       <p id="locatie-tekst"></p>
       <form class="vraag" id="vraag">
-        <p class="vraag__label" aria-hidden="true">Vraag</p>
+        <p class="vraag__label" aria-hidden="true" data-t="plek.vraag">Vraag</p>
+        <p class="vertaalmelding" id="vraag-vertaling" hidden></p>
         <fieldset>
           <legend id="vraag-tekst"></legend>
           <div id="vraag-opties"></div>
@@ -116,105 +127,106 @@
     <!-- Menu: keuzes gelden direct en blijven alleen op dit toestel bewaard (js/instellingen.js) -->
     <section class="scherm menu" id="scherm-menu" hidden>
       <form class="menu__form" id="menu-form">
-        <h2 class="menu__kop">Je wandeling</h2>
+        <h2 class="menu__kop" data-t="menu.wandeling">Je wandeling</h2>
 
         <fieldset class="keuze">
-          <legend>Wanneer gaan de plekken open?</legend>
+          <legend data-t="menu.openenVraag">Wanneer gaan de plekken open?</legend>
           <label class="keuze__optie">
             <input type="radio" name="openen" value="overal">
-            <span><strong>Overal</strong> <span class="keuze__standaard" data-standaard="overal" hidden>(standaard)</span>
-              <span class="keuze__uitleg">Alle verhalen en vragen zijn open, ook thuis of in de klas. Handig om te testen of voor te bereiden.</span></span>
+            <span><strong data-t="menu.overal">Overal</strong> <span class="keuze__standaard" data-standaard="overal" hidden data-t="menu.standaard">(standaard)</span>
+              <span class="keuze__uitleg" data-t="menu.overalUitleg">Alle verhalen en vragen zijn open, ook thuis of in de klas. Handig om te testen of voor te bereiden.</span></span>
           </label>
           <label class="keuze__optie">
             <input type="radio" name="openen" value="ter-plekke">
-            <span><strong>Alleen ter plekke</strong> <span class="keuze__standaard" data-standaard="ter-plekke" hidden>(standaard)</span>
-              <span class="keuze__uitleg">Een verhaal en vraag gaan pas open als je bij de plek bent. Hiervoor zet je je locatie aan.</span></span>
+            <span><strong data-t="menu.terPlekke">Alleen ter plekke</strong> <span class="keuze__standaard" data-standaard="ter-plekke" hidden data-t="menu.standaard">(standaard)</span>
+              <span class="keuze__uitleg" data-t="menu.terPlekkeUitleg">Een verhaal en vraag gaan pas open als je bij de plek bent. Hiervoor zet je je locatie aan.</span></span>
           </label>
         </fieldset>
 
         <fieldset class="keuze">
-          <legend>Heb je een doel?</legend>
+          <legend data-t="menu.doelVraag">Heb je een doel?</legend>
           <label class="keuze__optie">
             <input type="radio" name="doel" value="geen">
-            <span><strong>Geen doel</strong>
-              <span class="keuze__uitleg">Ontdek zoveel plekken als je wilt.</span></span>
+            <span><strong data-t="menu.geenDoel">Geen doel</strong>
+              <span class="keuze__uitleg" data-t="menu.geenDoelUitleg">Ontdek zoveel plekken als je wilt.</span></span>
           </label>
           <label class="keuze__optie">
             <input type="radio" name="doel" value="eigen">
-            <span><strong>Een aantal plekken</strong>
-              <span class="keuze__uitleg">Bijvoorbeeld een opdracht van school.</span></span>
+            <span><strong data-t="menu.aantal">Een aantal plekken</strong>
+              <span class="keuze__uitleg" data-t="menu.aantalUitleg">Bijvoorbeeld een opdracht van school.</span></span>
           </label>
           <div class="keuze__aantal" id="doel-aantal-vak" hidden>
-            <label for="doel-aantal">Aantal plekken</label>
+            <label for="doel-aantal" data-t="menu.aantalLabel">Aantal plekken</label>
             <input type="number" id="doel-aantal" inputmode="numeric" min="1" step="1" aria-describedby="doel-bereik">
             <span class="klein" id="doel-bereik"></span>
           </div>
         </fieldset>
 
         <fieldset class="keuze">
-          <legend>Wanneer zie je of je antwoord goed is?</legend>
+          <legend data-t="menu.antwoordenVraag">Wanneer zie je of je antwoord goed is?</legend>
           <label class="keuze__optie">
             <input type="radio" name="antwoorden" value="direct">
-            <span><strong>Direct na elke vraag</strong>
-              <span class="keuze__uitleg">Met een korte uitleg.</span></span>
+            <span><strong data-t="menu.direct">Direct na elke vraag</strong>
+              <span class="keuze__uitleg" data-t="menu.directUitleg">Met een korte uitleg.</span></span>
           </label>
           <label class="keuze__optie">
             <input type="radio" name="antwoorden" value="eind">
-            <span><strong>Aan het eind</strong>
-              <span class="keuze__uitleg" id="eind-uitleg">Je ziet de goede antwoorden en de uitleg in "Mijn antwoorden".</span></span>
+            <span><strong data-t="menu.eind">Aan het eind</strong>
+              <span class="keuze__uitleg" id="eind-uitleg" data-t="menu.eindUitleg">Je ziet de goede antwoorden en de uitleg in "Mijn antwoorden".</span></span>
           </label>
         </fieldset>
 
-        <!-- Taalkeuze: nog verborgen tot er vertalingen zijn (René, okt 2026). Weer tonen: haal "hidden" weg. -->
-        <fieldset class="keuze" id="taalkeuze" hidden>
-          <legend>Taal</legend>
+        <!-- Taalkeuze: ook op het startscherm. Taalnamen in hun eigen taal, zonder vlaggen (zie js/taal.js). -->
+        <fieldset class="keuze" id="taalkeuze">
+          <legend data-t="menu.taal">Taal</legend>
           <label class="keuze__optie" lang="nl">
             <input type="radio" name="taal" value="nl">
             <span><strong>Nederlands</strong></span>
           </label>
-          <label class="keuze__optie keuze__optie--uit" lang="en">
-            <input type="radio" name="taal" value="en" disabled>
-            <span><strong>English</strong> <span class="keuze__uitleg">Coming later</span></span>
+          <label class="keuze__optie" lang="en">
+            <input type="radio" name="taal" value="en">
+            <span><strong>English</strong></span>
           </label>
-          <label class="keuze__optie keuze__optie--uit" lang="de">
-            <input type="radio" name="taal" value="de" disabled>
-            <span><strong>Deutsch</strong> <span class="keuze__uitleg">Folgt später</span></span>
+          <label class="keuze__optie" lang="de">
+            <input type="radio" name="taal" value="de">
+            <span><strong>Deutsch</strong></span>
           </label>
         </fieldset>
       </form>
 
       <!-- Eindscherm: alleen als er iets ontdekt is. -->
       <div class="menu__eind" id="menu-eind" hidden>
-        <h3 class="menu__vraag">Klaar met wandelen?</h3>
-        <p class="menu__eind-uitleg">Bekijk welke plekken je hebt ontdekt. Handig om te laten zien, bijvoorbeeld op school.</p>
-        <a class="menu__eind-knop" href="#/eind">Toon eindscherm</a>
+        <h3 class="menu__vraag" data-t="menu.klaarVraag">Klaar met wandelen?</h3>
+        <p class="menu__eind-uitleg" data-t="menu.klaarUitleg">Bekijk welke plekken je hebt ontdekt. Handig om te laten zien, bijvoorbeeld op school.</p>
+        <a class="menu__eind-knop" href="#/eind" data-t="menu.toonEind">Toon eindscherm</a>
       </div>
 
       <!-- Opnieuw beginnen: in het menu (bij de andere keuzes), apart en onder de keuzes, met bevestiging
            in de pagina zelf. Alleen zichtbaar als er iets te wissen is. -->
       <div class="opnieuw" id="opnieuw" hidden>
-        <h3 class="menu__vraag">Opnieuw beginnen</h3>
+        <h3 class="menu__vraag" data-t="menu.opnieuw">Opnieuw beginnen</h3>
         <p class="opnieuw__uitleg" id="opnieuw-uitleg"></p>
-        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag">Alles opnieuw beginnen</button>
+        <button type="button" class="opnieuw__knop" id="opnieuw-knop" aria-expanded="false" aria-controls="opnieuw-vraag" data-t="menu.opnieuwKnop">Alles opnieuw beginnen</button>
         <div class="opnieuw__vraag" id="opnieuw-vraag" hidden>
-          <p><strong>Weet je het zeker?</strong> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</p>
+          <p><strong data-t="menu.zeker">Weet je het zeker?</strong><span data-t="menu.zekerUitleg"> Al je antwoorden worden gewist. Dit kun je niet ongedaan maken.</span></p>
           <div class="opnieuw__knoppen">
-            <button type="button" class="opnieuw__ja" id="opnieuw-ja">Ja, wis mijn antwoorden</button>
-            <button type="button" class="opnieuw__nee" id="opnieuw-nee">Annuleren</button>
+            <button type="button" class="opnieuw__ja" id="opnieuw-ja" data-t="menu.ja">Ja, wis mijn antwoorden</button>
+            <button type="button" class="opnieuw__nee" id="opnieuw-nee" data-t="menu.nee">Annuleren</button>
           </div>
         </div>
       </div>
-      <p class="opnieuw__klaar" id="opnieuw-klaar" role="status" tabindex="-1" hidden>✓ Je antwoorden zijn gewist. Veel plezier met ontdekken!</p>
+      <p class="opnieuw__klaar" id="opnieuw-klaar" role="status" tabindex="-1" hidden data-t="menu.gewist">✓ Je antwoorden zijn gewist. Veel plezier met ontdekken!</p>
 
-      <h2 class="menu__kop">Over de Enschede app</h2>
+      <h2 class="menu__kop" data-t="menu.over">Over de Enschede app</h2>
       <div class="menu__info">
-        <p>Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal en beantwoord je een vraag. Zo ontdek je de geschiedenis van de stad.</p>
+        <p data-t="menu.over1">Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal en beantwoord je een vraag. Zo ontdek je de geschiedenis van de stad.</p>
         <p id="info-aantal"></p>
-        <p>De app is gemaakt door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL). De SHSEL controleert de verhalen en de antwoorden.</p>
-        <p><a href="https://www.shsel.nl/" target="_blank" rel="noopener noreferrer">Website van de SHSEL<span class="visueel-verborgen"> (opent in een nieuw venster)</span></a></p>
-        <h3 class="menu__subkop">Privacy</h3>
-        <p>Je antwoorden en keuzes blijven op je eigen telefoon. Je locatie gebruikt de app alleen als je die zelf aanzet. Je locatie wordt niet bewaard of verstuurd. Er is geen account, geen reclame en geen tracking.</p>
-        <p>Voor de kaart haalt de app kaartbeelden en gebouwgegevens op bij PDOK, de kaartdienst van de overheid.</p>
+        <p data-t="menu.over2">De app is gemaakt door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL). De SHSEL controleert de verhalen en de antwoorden.</p>
+        <p id="info-vertaling" data-t="menu.vertaling" hidden></p>
+        <p><a href="https://www.shsel.nl/" target="_blank" rel="noopener noreferrer" hreflang="nl"><span data-t="menu.website">Website van de SHSEL</span><span class="visueel-verborgen" data-t="app.nieuwVenster"> (opent in een nieuw venster)</span></a></p>
+        <h3 class="menu__subkop" data-t="menu.privacy">Privacy</h3>
+        <p data-t="menu.privacy1">Je antwoorden en keuzes blijven op je eigen telefoon. Je locatie gebruikt de app alleen als je die zelf aanzet. Je locatie wordt niet bewaard of verstuurd. Er is geen account, geen reclame en geen tracking.</p>
+        <p data-t="menu.privacy2">Voor de kaart haalt de app kaartbeelden en gebouwgegevens op bij PDOK, de kaartdienst van de overheid.</p>
       </div>
     </section>
 
@@ -237,9 +249,9 @@
       <ul class="eind__lijst" id="eind-lijst"></ul>
       <p class="eind__antwoorden"><a href="#/antwoorden" id="eind-antwoorden-link">Bekijk je antwoorden</a></p>
       <div class="eind__dank">
-        <h3 class="eind__subkop">Bedankt!</h3>
-        <p>Bedankt dat je de Enschede app hebt gebruikt. De verhalen zijn verzameld door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL).</p>
-        <p>Wil je meer weten over de geschiedenis van Enschede? Kijk dan op de <a href="https://www.shsel.nl/" target="_blank" rel="noopener noreferrer">website van de SHSEL<span class="visueel-verborgen"> (opent in een nieuw venster)</span></a>.</p>
+        <h3 class="eind__subkop" data-t="eind.dankKop">Bedankt!</h3>
+        <p data-t="eind.dank">Bedankt dat je de Enschede app hebt gebruikt. De verhalen zijn verzameld door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL).</p>
+        <p><span data-t="eind.meerWeten">Wil je meer weten over de geschiedenis van Enschede? Kijk dan op de </span><a href="https://www.shsel.nl/" target="_blank" rel="noopener noreferrer" hreflang="nl"><span data-t="eind.meerWetenLink">website van de SHSEL</span><span class="visueel-verborgen" data-t="app.nieuwVenster"> (opent in een nieuw venster)</span></a>.</p>
       </div>
     </section>
 
@@ -254,20 +266,20 @@
     <!-- "Je loopt langs …": rustige melding als je toevallig bij een plek bent. Geen pop-up, geen trilling. -->
     <div class="langs" id="langs" hidden>
       <p class="langs__tekst"><span class="langs__label" id="langs-label">Je loopt langs</span> <strong id="langs-naam"></strong> <span class="langs__vraag" id="langs-vraag"></span></p>
-      <button type="button" class="langs__bekijk" id="langs-bekijk">Bekijk</button>
+      <button type="button" class="langs__bekijk" id="langs-bekijk" data-t="langs.bekijk">Bekijk</button>
     </div>
     <button class="knop" id="hoofdknop" type="button">Begin</button>
   </footer>
   <!-- Fotovenster: foto's groot, met bijschrift en bron. Vegen of de pijlen voor de volgende foto.
        Sluiten met ✕, Escape of de terugknop van de telefoon (js/fotos.js). -->
-  <dialog class="fotovenster" id="fotovenster" aria-label="Foto's">
+  <dialog class="fotovenster" id="fotovenster" aria-label="Foto's" data-t-label="foto.venster">
     <div class="fotovenster__balk">
       <span class="fotovenster__teller" id="fotovenster-teller" aria-live="polite"></span>
-      <button type="button" class="fotovenster__sluit" id="fotovenster-sluit" aria-label="Foto's sluiten">✕</button>
+      <button type="button" class="fotovenster__sluit" id="fotovenster-sluit" aria-label="Foto's sluiten" data-t-label="foto.sluiten">✕</button>
     </div>
     <div class="fotovenster__rij" id="fotovenster-rij"></div>
-    <button type="button" class="fotovenster__pijl fotovenster__pijl--vorige" id="fotovenster-vorige" aria-label="Vorige foto">‹</button>
-    <button type="button" class="fotovenster__pijl fotovenster__pijl--volgende" id="fotovenster-volgende" aria-label="Volgende foto">›</button>
+    <button type="button" class="fotovenster__pijl fotovenster__pijl--vorige" id="fotovenster-vorige" aria-label="Vorige foto" data-t-label="foto.vorige">‹</button>
+    <button type="button" class="fotovenster__pijl fotovenster__pijl--volgende" id="fotovenster-volgende" aria-label="Volgende foto" data-t-label="foto.volgende">›</button>
   </dialog>
 </body>
 </html>

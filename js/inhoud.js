@@ -105,8 +105,9 @@ async function laadFotos(taal) {
         id: f.id,
         src,
         proef,
-        alt: isTekst(f.alt?.[taal], 300) ? f.alt[taal] : '',
-        bijschrift: isTekst(f.bijschrift?.[taal], 300) ? f.bijschrift[taal] : '',
+        // Nog niet vertaald: de Nederlandse tekst (beter dan geen beschrijving).
+        alt: [taal, 'nl'].map((t) => f.alt?.[t]).find((x) => isTekst(x, 300)) ?? '',
+        bijschrift: [taal, 'nl'].map((t) => f.bijschrift?.[t]).find((x) => isTekst(x, 300)) ?? '',
         bron: [f.bron, f.documentnummer].filter((x) => isTekst(x, 100)).join(', '),
         maker: isTekst(f.bron, 100) ? f.bron : '', // alleen de bron zelf (bijv. SHSEL), voor de regel onder het mozaïek
       });
@@ -115,6 +116,23 @@ async function laadFotos(taal) {
     console.warn('Foto-lijst niet geladen:', fout); // de app werkt ook zonder foto's
   }
   return fotos;
+}
+
+// Vertaalde tekst, of de Nederlandse als die in deze taal ontbreekt. Geeft { tekst, taal }.
+// 'taal' in het antwoord zegt in welke taal de tekst echt is (voor lang="nl" en de melding "nog niet vertaald").
+function vertaald(veld, taal, max) {
+  if (taal !== 'nl' && isTekst(veld?.[taal], max)) return { tekst: veld[taal], taal };
+  return { tekst: veld.nl, taal: 'nl' };
+}
+
+// De vraag in deze taal: alleen als vraagtekst én alle opties vertaald zijn, en het aantal opties gelijk is
+// aan het Nederlands ('juist' geldt voor alle talen). Anders de Nederlandse vraag: een half vertaalde
+// vraag kan een fout antwoord opleveren (CLAUDE.md, Meertaligheid).
+function vertaaldeVraag(vraag, taal) {
+  const v = vraag?.[taal];
+  const ok = taal !== 'nl' && isTekst(v?.tekst, 500) && Array.isArray(v?.opties)
+    && v.opties.length === vraag.nl.opties.length && v.opties.every((o) => isTekst(o, 200));
+  return ok ? { ...v, taal } : { ...vraag.nl, taal: 'nl' };
 }
 
 export async function laadInhoud(taal = 'nl') {
@@ -128,21 +146,28 @@ export async function laadInhoud(taal = 'nl') {
   for (const loc of Array.isArray(data.locaties) ? data.locaties : []) {
     // Een concept (nog zonder verhaal of vraag) staat alleen in de beheerpagina, niet in de app.
     if (loc?.concept === true) { concepten += 1; continue; }
-    const fouten = controleerLocatie(loc, taal);
+    // Nederlands is de brontaal en altijd nodig; Engels en Duits vallen terug op Nederlands.
+    const fouten = controleerLocatie(loc, 'nl');
     if (fouten.length) {
       console.warn(`Locatie "${loc?.id}" overgeslagen:`, fouten.join(', '));
       continue;
     }
+    const titel = vertaald(loc.titel, taal, 120);
+    const tekst = vertaald(loc.tekst, taal, 5000);
+    const vraag = vertaaldeVraag(loc.vraag, taal);
     locaties.set(loc.id, {
       id: loc.id,
       nummer: loc.nummer,
-      titel: loc.titel[taal],
+      titel: titel.tekst,
+      titelTaal: titel.taal,
       adres: typeof loc.adres === 'string' ? loc.adres.slice(0, 120) : '',
       positie: { lat: loc.positie.lat, lng: loc.positie.lng },
-      tekst: loc.tekst[taal],
-      vraag: loc.vraag[taal].tekst,
-      opties: loc.vraag[taal].opties.slice(),
-      uitleg: isTekst(loc.vraag[taal].uitleg, 500) ? loc.vraag[taal].uitleg : '',
+      tekst: tekst.tekst,
+      tekstTaal: tekst.taal,
+      vraag: vraag.tekst,
+      opties: vraag.opties.slice(),
+      uitleg: isTekst(vraag.uitleg, 500) ? vraag.uitleg : '',
+      vraagTaal: vraag.taal,
       juist: loc.juist,
       gebouw: typeof loc.gebouw === 'string' && ID_PATROON.test(loc.gebouw) ? loc.gebouw : null,
       fotos: (Array.isArray(loc.fotos) ? loc.fotos : []).map((id) => fotos.get(id)).filter(Boolean),

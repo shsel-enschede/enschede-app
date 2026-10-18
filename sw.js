@@ -2,7 +2,7 @@
 // BELANGRIJK: verhoog VERSIE bij elke wijziging aan de bestanden hieronder,
 // anders blijven gebruikers de oude versie zien.
 
-const VERSIE = 'v40';
+const VERSIE = 'v41';
 const CACHE = `enschede-app-${VERSIE}`;
 const FOTO_CACHE = 'enschede-fotos-v1'; // los van VERSIE: foto's blijven bewaard na een update
 
@@ -24,10 +24,12 @@ const APP_SCHIL = [
   'js/kaartgegevens.js',
   'js/opslag.js',
   'js/volgorde.js',
+  'js/taal.js',
   'vendor/leaflet/leaflet.js',
   'vendor/leaflet/leaflet.css',
   'content/locaties.json',
   'content/fotos.json',
+  'content/teksten.json',
   'manifest.webmanifest',
   'icons/icon.svg',
   'icons/icon-192.png',
@@ -81,7 +83,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (url.pathname.endsWith('/content/locaties.json') || url.pathname.endsWith('/content/fotos.json')) {
+  // Ook de vaste teksten (content/teksten.json): een verbeterde tekst is zonder nieuwe VERSIE te zien.
+  if (['/content/locaties.json', '/content/fotos.json', '/content/teksten.json'].some((pad) => url.pathname.endsWith(pad))) {
     event.respondWith(
       caches.open(CACHE).then(async (cache) => {
         const bewaard = await cache.match(verzoek, { ignoreSearch: true });

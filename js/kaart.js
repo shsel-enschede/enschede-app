@@ -9,6 +9,7 @@
 
 import { vormVan } from './gebouwen.js';
 import { scrolGedrag } from './hulp.js';
+import { t, vergelijk } from './taal.js';
 import { PDOK_KAART, GRENZEN, MIDDEN, binnenKaart } from './kaartgegevens.js';
 
 const KLEIN_OBJECT = 10; // meter: een vorm kleiner dan dit krijgt een groter tikvlak
@@ -234,7 +235,7 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
     paddingBottomRight: [72, 40], // ruimte voor de locatieknop
     maxZoom: 18,
   });
-  if (mislukt) opties.meld?.('Niet alle gebouwen konden worden opgezocht. Ze staan als stip op de kaart.');
+  if (mislukt) opties.meld?.(t('kaart.gebouwenMislukt'));
 }
 
 // Zet een naam op een plaats rond het object en geef de rechthoek die hij dan inneemt.
@@ -281,7 +282,7 @@ function ontwar() {
     || open(x) - open(y)
     || Number(Boolean(y.klein)) - Number(Boolean(x.klein))
     || y.locaties.length - x.locaties.length
-    || x.gebouw.naam.localeCompare(y.gebouw.naam, 'nl'));
+    || vergelijk(x.gebouw.naam, y.gebouw.naam));
 
   const geplaatst = [];
   const geplaatstLangs = []; // rode namen: die mogen elkaar niet bedekken

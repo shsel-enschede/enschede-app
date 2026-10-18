@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 // Zonder browser is er geen localStorage: de module valt dan terug op het geheugen.
 const s = await import(new URL('../js/instellingen.js', import.meta.url));
 
-const standaard = { openen: null, doel: null, antwoorden: 'direct', taal: 'nl' };
+const standaard = { openen: null, doel: null, antwoorden: 'direct', taal: null };
 
 // Leeg, kapot of vreemd: altijd de standaard
 assert.deepEqual(s.controleer(undefined), standaard);
@@ -18,8 +18,11 @@ assert.equal(s.controleer({ doel: 2.5 }).doel, null);
 assert.equal(s.controleer({ doel: '24' }).doel, null);
 assert.equal(s.controleer({ doel: 1000 }).doel, null);
 assert.equal(s.controleer({ antwoorden: 'nooit' }).antwoorden, 'direct');
-// Talen die er nog niet zijn: Nederlands
-assert.equal(s.controleer({ taal: 'en' }).taal, 'nl');
+// Taal: zelf gekozen (nl, en, de), anders null = de taal van het toestel
+assert.equal(s.controleer({ taal: 'en' }).taal, 'en');
+assert.equal(s.controleer({ taal: 'de' }).taal, 'de');
+assert.equal(s.controleer({ taal: 'fr' }).taal, null);
+assert.equal(s.controleer({ taal: '__proto__' }).taal, null);
 // Geen extra velden overnemen (bijv. iets wat iemand zelf in de opslag zet)
 assert.deepEqual(Object.keys(s.controleer({ ...standaard, extra: '<script>' })).sort(), Object.keys(standaard).sort());
 
