@@ -1,7 +1,7 @@
 // Laadt en controleert de inhoud uit content/locaties.json.
 // De inhoud wordt behandeld als onbetrouwbare data: alleen geldige locaties komen in de app.
 
-import { ID_PATROON, heeftHuisnummer } from './hulp.js';
+import { ID_PATROON, heeftHuisnummer, vertaalbron } from './hulp.js';
 
 function isTekst(waarde, max = 5000) {
   return typeof waarde === 'string' && waarde.trim().length > 0 && waarde.length <= max;
@@ -125,13 +125,17 @@ function vertaald(veld, taal, max) {
   return { tekst: veld.nl, taal: 'nl' };
 }
 
-// De vraag in deze taal: alleen als vraagtekst én alle opties vertaald zijn, en het aantal opties gelijk is
-// aan het Nederlands ('juist' geldt voor alle talen). Anders de Nederlandse vraag: een half vertaalde
-// vraag kan een fout antwoord opleveren (CLAUDE.md, Meertaligheid).
-function vertaaldeVraag(vraag, taal) {
+// De vraag in deze taal: alleen als vraagtekst én alle opties vertaald zijn, het aantal opties gelijk is
+// aan het Nederlands ('juist' geldt voor alle talen), en de vertaling bij de huidige Nederlandse vraag hoort.
+// Anders de Nederlandse vraag: een half vertaalde of verouderde vraag kan een fout antwoord opleveren
+// (CLAUDE.md, Meertaligheid). Verouderd = de vingerafdruk in 'vertaling' klopt niet meer met het Nederlands.
+function vertaaldeVraag(loc, taal, bron) {
+  const vraag = loc.vraag;
   const v = vraag?.[taal];
-  const ok = taal !== 'nl' && isTekst(v?.tekst, 500) && Array.isArray(v?.opties)
+  const actueel = loc.vertaling?.[taal]?.vraag === bron.vraag;
+  const ok = taal !== 'nl' && actueel && isTekst(v?.tekst, 500) && Array.isArray(v?.opties)
     && v.opties.length === vraag.nl.opties.length && v.opties.every((o) => isTekst(o, 200));
+  if (taal !== 'nl' && v && !ok) console.info(`Vraag van "${loc.id}" (${taal}) niet vertaald of verouderd: Nederlands getoond`);
   return ok ? { ...v, taal } : { ...vraag.nl, taal: 'nl' };
 }
 
@@ -154,7 +158,7 @@ export async function laadInhoud(taal = 'nl') {
     }
     const titel = vertaald(loc.titel, taal, 120);
     const tekst = vertaald(loc.tekst, taal, 5000);
-    const vraag = vertaaldeVraag(loc.vraag, taal);
+    const vraag = vertaaldeVraag(loc, taal, vertaalbron(loc));
     locaties.set(loc.id, {
       id: loc.id,
       nummer: loc.nummer,
