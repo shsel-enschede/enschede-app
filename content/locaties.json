@@ -374,7 +374,7 @@
       "naam": "Politiebureau",
       "naamVertaald": {
         "en": "Police station",
-        "de": "Polizeiwache",
+        "de": "Polizeiamt",
         "bron": "e065b0b9"
       },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
@@ -2349,14 +2349,14 @@
       "titel": {
         "nl": "Politiebureau",
         "en": "Police station",
-        "de": "Polizeiwache"
+        "de": "Polizeiamt"
       },
       "adres": "Nijverheidstraat",
       "gebouw": "politiebureau",
       "tekst": {
         "nl": "Dit oude politiebureau werd in 1912 gebouwd aan de Haaksbergerstraat. Dit stukje straat bij de rotonde heet nu Nijverheidstraat. In 2018 stond hier nog het bankgebouw van de ING. De stijl van het politiebureau was heel ongewoon voor Enschede: met trapgeveltjes (= het dak lijkt net een trapje), een torentje en een driehoek (timpaan) boven de ingang. De inwoners vonden het heel mooi. Toen de Boulevard werd aangelegd, werd het gesloopt (1968).",
         "en": "This old police station was built in 1912 on the Haaksbergerstraat. This bit of street by the roundabout is now called the Nijverheidstraat. In 2018 there was still an ING bank building here. The style of the police station was very unusual for Enschede: with stepped gables (= the roof looks like a little staircase), a small tower and a triangle (pediment) above the entrance. The people of Enschede thought it was very beautiful. When the Boulevard was built, it was demolished (1968).",
-        "de": "Diese alte Polizeiwache wurde 1912 an der Haaksbergerstraat gebaut. Dieses Stück Straße am Kreisverkehr heißt heute Nijverheidstraat. 2018 stand hier noch das Gebäude der ING-Bank. Der Stil der Polizeiwache war für Enschede sehr ungewöhnlich: mit Treppengiebeln (= das Dach sieht aus wie eine kleine Treppe), einem kleinen Turm und einem Dreieck (Tympanon) über dem Eingang. Die Einwohner fanden es sehr schön. Als der Boulevard gebaut wurde, wurde es abgerissen (1968)."
+        "de": "Dieses alte Polizeiamt wurde 1912 an der Haaksbergerstraat gebaut. Dieses Stück Straße am Kreisverkehr heißt heute Nijverheidstraat. 2018 stand hier noch das Gebäude der ING-Bank. Der Stil des Polizeiamts war für Enschede sehr ungewöhnlich: mit Treppengiebeln (= das Dach sieht aus wie eine kleine Treppe), einem kleinen Turm und einem Dreieck (Tympanon) über dem Eingang. Die Einwohner fanden es sehr schön. Als der Boulevard gebaut wurde, wurde es abgerissen (1968)."
       },
       "vraag": {
         "nl": {
