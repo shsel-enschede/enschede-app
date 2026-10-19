@@ -34,6 +34,16 @@ for (const loc of data.locaties.filter((l) => !l.concept)) {
     if (st.verhaal !== bron.verhaal) verouderd.push(`${waar}: verhaal`);
   }
 }
+// Vertaalde gebouwnamen (kaart): beide talen, kort genoeg, en bij de huidige Nederlandse naam
+for (const g of data.gebouwen ?? []) {
+  const v = g.naamVertaald;
+  if (!v) continue; // eigennaam: overal Nederlands
+  for (const t of ['en', 'de']) {
+    assert.ok(typeof v[t] === 'string' && v[t].trim() && v[t].length <= 80, `gebouw ${g.id}: naam (${t}) ontbreekt of is langer dan 80 tekens`);
+  }
+  if (v.bron !== vingerafdruk(g.naam)) verouderd.push(`gebouw ${g.id}: naam op de kaart`);
+}
+
 // Verouderd is geen fout (de app toont dan de Nederlandse vraag), maar wel goed om te weten.
 if (verouderd.length) console.info(`Verouderde vertalingen (Nederlands gewijzigd na het vertalen):\n  ${verouderd.join('\n  ')}`);
 console.log('vertaling.test: alles goed');

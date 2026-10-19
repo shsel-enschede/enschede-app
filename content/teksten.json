@@ -44,6 +44,7 @@
   },
   "kaart.legendaOpen": { "nl": "nog te ontdekken", "en": "still to discover", "de": "noch zu entdecken" },
   "kaart.legendaKlaar": { "nl": "ontdekt", "en": "discovered", "de": "entdeckt" },
+  "kaart.bron": { "nl": "Kaart: PDOK / Kadaster", "en": "Map: PDOK / Kadaster", "de": "Karte: PDOK / Kadaster" },
   "kaart.mijnLocatie": { "nl": "Mijn locatie", "en": "My location", "de": "Mein Standort" },
   "kaart.mijnLocatieAan": { "nl": "Mijn locatie (staat aan)", "en": "My location (on)", "de": "Mein Standort (an)" },
   "kaart.lijstgreep": { "nl": "Alle {n} plekken als lijst", "en": "All {n} places as a list", "de": "Alle {n} Orte als Liste" },

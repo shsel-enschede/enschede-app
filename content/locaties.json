@@ -41,6 +41,11 @@
     {
       "id": "brandmonument",
       "naam": "Brandmonument",
+      "naamVertaald": {
+        "en": "Fire monument",
+        "de": "Branddenkmal",
+        "bron": "5b14fe47"
+      },
       "naamPlek": "boven",
       "toelichting": "Geen gebouw met een adres maar een beeld op de Oude Markt. Eigen vorm: een cirkel van 2,5 m doorsnede, ca. 12 m voor de torengevel van de Grote Kerk, richting Marktstraat. Positie nog te controleren door SHSEL.",
       "vorm": [
@@ -73,6 +78,11 @@
     {
       "id": "zonnewijzer",
       "naam": "Zonnewijzer",
+      "naamVertaald": {
+        "en": "Sundial",
+        "de": "Sonnenuhr",
+        "bron": "86791234"
+      },
       "naamPlek": "onder",
       "toelichting": "De zonnewijzer hangt op ca. 2,5 m hoogte aan de zuidmuur van de Grote Kerk, ca. 2 m van de straat aan de voorkant (ingang). Op de kaart een halve cirkel van 2,5 m tegen de muur. Positie nog te controleren door SHSEL.",
       "vorm": [
@@ -99,6 +109,11 @@
     {
       "id": "pakhuis",
       "naam": "Pakhuis Van Heek",
+      "naamVertaald": {
+        "en": "Van Heek warehouse",
+        "de": "Lagerhaus Van Heek",
+        "bron": "8b54569e"
+      },
       "adres": "Oude Markt 24"
     },
     {
@@ -122,17 +137,32 @@
     {
       "id": "ziekenhuis-st-joseph-stadsmaten",
       "naam": "Ziekenhuis st Joseph/Stadsmaten",
+      "naamVertaald": {
+        "en": "St Joseph Hospital/Stadsmaten",
+        "de": "Krankenhaus St. Joseph/Stadsmaten",
+        "bron": "fad5fd4b"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Ariënsplein 1"
     },
     {
       "id": "huize-sonnevanck-burgemeesterswoning",
       "naam": "Huize Sonnevanck – Burgemeesterswoning",
+      "naamVertaald": {
+        "en": "Huize Sonnevanck – Mayor's residence",
+        "de": "Huize Sonnevanck – Bürgermeistervilla",
+        "bron": "79c2225c"
+      },
       "adres": "Ariënsplein 2"
     },
     {
       "id": "schoolgebouw-de-maere",
       "naam": "Schoolgebouw De Maere",
+      "naamVertaald": {
+        "en": "De Maere school building",
+        "de": "Schulgebäude De Maere",
+        "bron": "957e877d"
+      },
       "adres": "Ariënsplein 3"
     },
     {
@@ -143,6 +173,11 @@
     {
       "id": "postkantoor",
       "naam": "Postkantoor",
+      "naamVertaald": {
+        "en": "Post office",
+        "de": "Postamt",
+        "bron": "b18061e3"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Boulevard 1945 326"
     },
@@ -207,11 +242,21 @@
     {
       "id": "voormalige-v-d-pand",
       "naam": "Voormalige V&D pand",
+      "naamVertaald": {
+        "en": "Former V&D building",
+        "de": "Ehemaliges V&D-Kaufhaus",
+        "bron": "ae58ce63"
+      },
       "adres": "Korte Hengelosestraat 1"
     },
     {
       "id": "kruispunt-de-graaff",
       "naam": "Kruispunt De Graaff",
+      "naamVertaald": {
+        "en": "De Graaff crossroads",
+        "de": "Kreuzung De Graaff",
+        "bron": "accb0426"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.220935, 6.893491],
@@ -228,6 +273,11 @@
     {
       "id": "stadhuis",
       "naam": "Stadhuis",
+      "naamVertaald": {
+        "en": "Town hall",
+        "de": "Rathaus",
+        "bron": "85de8796"
+      },
       "adres": "Langestraat 24"
     },
     {
@@ -238,11 +288,21 @@
     {
       "id": "societeit-en-twentsche-schouwburg",
       "naam": "Sociëteit en Twentsche schouwburg",
+      "naamVertaald": {
+        "en": "Sociëteit and Twentsche Schouwburg",
+        "de": "Sociëteit und Twentsche Schouwburg",
+        "bron": "a0d8b77b"
+      },
       "adres": "Langestraat 45"
     },
     {
       "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
       "naam": "Koningsplein & Textielfabriek Gerhard Jannink en zonen",
+      "naamVertaald": {
+        "en": "Koningsplein & Jannink textile factory",
+        "de": "Koningsplein & Textilfabrik Jannink",
+        "bron": "f9ff2a82"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Beltstraat 44",
       "vorm": [
@@ -255,11 +315,21 @@
     {
       "id": "gerechtsgebouw",
       "naam": "Gerechtsgebouw",
+      "naamVertaald": {
+        "en": "Courthouse",
+        "de": "Gerichtsgebäude",
+        "bron": "f20bcecd"
+      },
       "adres": "Molenstraat 23"
     },
     {
       "id": "joodse-begraafplaats",
       "naam": "Joodse begraafplaats",
+      "naamVertaald": {
+        "en": "Jewish cemetery",
+        "de": "Jüdischer Friedhof",
+        "bron": "73ca324c"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.223647, 6.897677],
@@ -271,28 +341,53 @@
     {
       "id": "fabrieksschool",
       "naam": "Fabrieksschool",
+      "naamVertaald": {
+        "en": "Factory school",
+        "de": "Fabrikschule",
+        "bron": "701f5116"
+      },
       "adres": "Noorderhagen 13"
     },
     {
       "id": "klooster-larinksticht",
       "naam": "Klooster Larinksticht",
+      "naamVertaald": {
+        "en": "Larinksticht convent",
+        "de": "Kloster Larinksticht",
+        "bron": "0042a86c"
+      },
       "adres": "Noorderhagen 25"
     },
     {
       "id": "verenigingsgebouw-irene",
       "naam": "Verenigingsgebouw Irene",
+      "naamVertaald": {
+        "en": "Irene club building",
+        "de": "Vereinshaus Irene",
+        "bron": "bb6e933a"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Noorderhagen 67"
     },
     {
       "id": "politiebureau",
       "naam": "Politiebureau",
+      "naamVertaald": {
+        "en": "Police station",
+        "de": "Polizeiwache",
+        "bron": "e065b0b9"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Boulevard 1945 1"
     },
     {
       "id": "stoomweverij-de-nijverheid",
       "naam": "Stoomweverij De Nijverheid",
+      "naamVertaald": {
+        "en": "De Nijverheid weaving mill",
+        "de": "Dampfweberei De Nijverheid",
+        "bron": "9bc54e38"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Hermandad 2"
     },
@@ -305,11 +400,21 @@
     {
       "id": "r-k-sint-jozefkerk",
       "naam": "R.K. Sint-Jozefkerk",
+      "naamVertaald": {
+        "en": "St Joseph's Church",
+        "de": "St.-Josef-Kirche",
+        "bron": "4d0c65b6"
+      },
       "adres": "Oldenzaalsestraat 115"
     },
     {
       "id": "fabrieken-langs-de-spoorlijn-naar-gronau",
       "naam": "Fabrieken langs de spoorlijn naar Gronau",
+      "naamVertaald": {
+        "en": "Factories along the railway to Gronau",
+        "de": "Fabriken an der Bahn nach Gronau",
+        "bron": "588d6618"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.222827, 6.893685],
@@ -327,6 +432,11 @@
     {
       "id": "station-staatsspoor",
       "naam": "Station Staatsspoor",
+      "naamVertaald": {
+        "en": "Staatsspoor station",
+        "de": "Bahnhof Staatsspoor",
+        "bron": "139f99bc"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.222, 6.886481],
@@ -343,6 +453,11 @@
     {
       "id": "h-ter-kuile-huis",
       "naam": "H. Ter Kuile huis",
+      "naamVertaald": {
+        "en": "H. ter Kuile house",
+        "de": "Haus H. ter Kuile",
+        "bron": "2d6fb01b"
+      },
       "adres": "Piet Heinstraat 1"
     },
     {
@@ -358,6 +473,11 @@
     {
       "id": "synagoge",
       "naam": "Synagoge",
+      "naamVertaald": {
+        "en": "Synagogue",
+        "de": "Synagoge",
+        "bron": "b9b17974"
+      },
       "adres": "Prinsestraat 14"
     },
     {
@@ -374,6 +494,11 @@
     {
       "id": "ziekenhuis-ziekenzorg",
       "naam": "Ziekenhuis Ziekenzorg",
+      "naamVertaald": {
+        "en": "Ziekenzorg hospital",
+        "de": "Krankenhaus Ziekenzorg",
+        "bron": "8e6dbe84"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.221284, 6.886008],
@@ -416,17 +541,32 @@
     {
       "id": "joodse-school-en-synagoge",
       "naam": "Joodse school en synagoge",
+      "naamVertaald": {
+        "en": "Jewish school and synagogue",
+        "de": "Jüdische Schule und Synagoge",
+        "bron": "cb7ea815"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Stadsgravenstraat 69"
     },
     {
       "id": "menistenkerk",
       "naam": "Menistenkerk",
+      "naamVertaald": {
+        "en": "Mennonite church",
+        "de": "Mennonitenkirche",
+        "bron": "53d61205"
+      },
       "adres": "Stadsgravenstraat 59"
     },
     {
       "id": "wilhelminaflat",
       "naam": "Wilhelminaflat",
+      "naamVertaald": {
+        "en": "Wilhelmina flats",
+        "de": "Wilhelmina-Hochhaus",
+        "bron": "951b0176"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Stadsmatenstraat 1"
     },
@@ -444,6 +584,11 @@
     {
       "id": "station-ns",
       "naam": "Station NS",
+      "naamVertaald": {
+        "en": "NS railway station",
+        "de": "Bahnhof NS",
+        "bron": "15465080"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Stationsplein 33"
     },
@@ -455,6 +600,11 @@
     {
       "id": "textielfabriek-ter-kuile-cromhoff",
       "naam": "textielfabriek Ter Kuile Cromhoff",
+      "naamVertaald": {
+        "en": "Ter Kuile Cromhoff textile factory",
+        "de": "Textilfabrik Ter Kuile Cromhoff",
+        "bron": "e05af5a1"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.221959, 6.890377],
@@ -471,6 +621,11 @@
     {
       "id": "ter-kuile-huis",
       "naam": "Ter Kuile huis",
+      "naamVertaald": {
+        "en": "Ter Kuile house",
+        "de": "Haus Ter Kuile",
+        "bron": "5bee4f07"
+      },
       "adres": "M.H. Tromplaan 8"
     },
     {
@@ -491,22 +646,42 @@
     {
       "id": "menko-van-dam-huis",
       "naam": "Menko van Dam huis",
+      "naamVertaald": {
+        "en": "Menko-Van Dam house",
+        "de": "Haus Menko-Van Dam",
+        "bron": "931541d9"
+      },
       "adres": "M.H. Tromplaan 52"
     },
     {
       "id": "villa-menko-edersheim-memphis-hotel",
       "naam": "Villa Menko-Edersheim/Memphis hotel",
+      "naamVertaald": {
+        "en": "Villa Menko-Edersheim/Memphis hotel",
+        "de": "Villa Menko-Edersheim/Hotel Memphis",
+        "bron": "705ea104"
+      },
       "adres": "M.H. Tromplaan 55"
     },
     {
       "id": "willem-wilminkplein-theater",
       "naam": "Willem Wilminkplein/theater",
+      "naamVertaald": {
+        "en": "Willem Wilminkplein/theatre",
+        "de": "Willem Wilminkplein/Theater",
+        "bron": "255d621a"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "adres": "Wenninkgaarde 40-42"
     },
     {
       "id": "voormalig-postkantoor",
       "naam": "voormalig postkantoor",
+      "naamVertaald": {
+        "en": "Former post office",
+        "de": "Ehemaliges Postamt",
+        "bron": "87ede137"
+      },
       "toelichting": "Geen huisnummer in de beschrijving. Zoek het adres op, of zet de positie op de luchtfoto. Bij een straat, plein of park: teken een omtrek.",
       "vorm": [
         [52.220616, 6.893106],

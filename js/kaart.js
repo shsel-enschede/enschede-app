@@ -39,6 +39,7 @@ let huidigeVerzameling = null; // id van de getekende verzameling (nu altijd 'al
 let mijnStip = null;
 let mijnCirkel = null;
 let laatsteOpties = null;
+let bronTekst = null; // bronvermelding rechtsonder, in de taal van de app
 const getekend = new Map(); // gebouw-id -> { vlak, label, gebouw, locaties }
 let gemarkeerd = []; // gebouw-id's van de plekken in de melding "Je loopt langs …", in die volgorde (zie markeerPlekken)
 
@@ -194,7 +195,6 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
     L.tileLayer(PDOK_KAART, {
       maxNativeZoom: 19,
       maxZoom: 20,
-      attribution: 'Kaart: PDOK / Kadaster',
     }).addTo(kaart);
     laag = L.layerGroup().addTo(kaart);
     if (!aanraak) L.control.zoom({ position: 'topright' }).addTo(kaart); // linksboven staat de teller
@@ -202,6 +202,12 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
     kaart.on('zoomend', ontwar);
     // De kaart vult het scherm; verandert de ruimte (voetbalk, draaien), dan de kaart opnieuw laten passen.
     new ResizeObserver(() => kaart.invalidateSize()).observe(houder);
+  }
+  // Bronvermelding in de taal van de app (na een taalwissel opnieuw).
+  if (bronTekst !== t('kaart.bron')) {
+    if (bronTekst) kaart.attributionControl.removeAttribution(bronTekst);
+    bronTekst = t('kaart.bron');
+    kaart.attributionControl.addAttribution(bronTekst);
   }
   // De kaart stond mogelijk in een verborgen scherm: grootte opnieuw bepalen.
   kaart.invalidateSize();
