@@ -90,4 +90,13 @@ const wO = v.beschrijf(basis, mijnO).flatMap((x) => x.regels).join(' | ');
 assert.match(wO, /opmerking toegevoegd: "Jaartal nakijken"/);
 assert.match(wO, /opmerking bij het gebouw (gewijzigd|toegevoegd)/);
 assert.match(v.beschrijf(basis, mijnN)[0].regels[0], /nieuwe plek \(concept/);
+// Vertaalde gebouwnaam: naam wijzigen meldt dat de vertaling verouderd is
+{
+  const g = { id: 'stadhuis', naam: 'Stadhuis', naamVertaald: { en: 'Town hall', de: 'Rathaus', bron: 'x' } };
+  const r = v.beschrijf({ locaties: [], gebouwen: [g] }, { locaties: [], gebouwen: [{ ...g, naam: 'Raadhuis' }] });
+  assert.ok(JSON.stringify(r).includes('verouderd'), 'naam gewijzigd: vertaling verouderd gemeld');
+  const r2 = v.beschrijf({ locaties: [], gebouwen: [g] }, { locaties: [], gebouwen: [{ ...g, naamVertaald: { ...g.naamVertaald, en: 'City hall' } }] });
+  assert.ok(JSON.stringify(r2).includes('Engelse of Duitse naam'), 'vertaalde naam gewijzigd gemeld');
+}
+
 console.log('ALLE TESTS GESLAAGD');

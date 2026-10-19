@@ -1,7 +1,7 @@
 // Laadt en controleert de inhoud uit content/locaties.json.
 // De inhoud wordt behandeld als onbetrouwbare data: alleen geldige locaties komen in de app.
 
-import { ID_PATROON, heeftHuisnummer, vertaalbron } from './hulp.js';
+import { ID_PATROON, heeftHuisnummer, vertaalbron, vingerafdruk } from './hulp.js';
 
 function isTekst(waarde, max = 5000) {
   return typeof waarde === 'string' && waarde.trim().length > 0 && waarde.length <= max;
@@ -40,7 +40,16 @@ function leesVorm(vorm) {
 // Waar de naam van een gebouw op de kaart mag staan (zie ontwar() in kaart.js).
 const NAAMPLEKKEN = ['midden', 'boven', 'onder', 'rechts', 'links'];
 
-function leesGebouwen(lijst) {
+// Vertaalde naam van een gebouw voor de kaart (optioneel): naamVertaald = { en, de, bron }.
+// 'bron' is de vingerafdruk van de Nederlandse naam. Verandert die naam (bijv. in de editor), dan klopt 'bron'
+// niet meer en toont de app de Nederlandse naam tot de vertaling is bijgewerkt. Eigennamen hebben geen vertaling.
+function vertaaldeNaam(g, taal) {
+  const v = g.naamVertaald;
+  if (taal === 'nl' || !v || v.bron !== vingerafdruk(g.naam) || !isTekst(v[taal], 80)) return g.naam;
+  return v[taal];
+}
+
+function leesGebouwen(lijst, taal) {
   const gebouwen = new Map();
   for (const g of Array.isArray(lijst) ? lijst : []) {
     if (!ID_PATROON.test(g?.id ?? '') || !isTekst(g?.naam, 80)) {
@@ -52,7 +61,7 @@ function leesGebouwen(lijst) {
     if (g.vorm !== undefined && !vorm) console.warn(`Gebouw "${g.id}": vorm ongeldig, wordt genegeerd`);
     const naamPlek = NAAMPLEKKEN.includes(g.naamPlek) ? g.naamPlek : null;
     if (g.naamPlek !== undefined && !naamPlek) console.warn(`Gebouw "${g.id}": naamPlek ongeldig, wordt genegeerd`);
-    gebouwen.set(g.id, { id: g.id, naam: g.naam, adres, vorm, naamPlek });
+    gebouwen.set(g.id, { id: g.id, naam: vertaaldeNaam(g, taal), adres, vorm, naamPlek });
   }
   return gebouwen;
 }
@@ -183,7 +192,7 @@ export async function laadInhoud(taal = 'nl') {
   // Alleen gebouwen van plekken die in de app staan. Zo zoekt de app geen omtrekken op in het Kadaster
   // voor gebouwen die niemand ziet (scheelt verzoeken aan PDOK bij veel gelijktijdige gebruikers).
   const inGebruik = new Set([...locaties.values()].map((l) => l.gebouw).filter(Boolean));
-  const gebouwen = leesGebouwen((Array.isArray(data.gebouwen) ? data.gebouwen : []).filter((g) => inGebruik.has(g?.id)));
+  const gebouwen = leesGebouwen((Array.isArray(data.gebouwen) ? data.gebouwen : []).filter((g) => inGebruik.has(g?.id)), taal);
 
   // 'routes' in de inhoud wordt nu niet gebruikt (vrij ontdekken, zie CLAUDE.md). Komen thema- of buurtroutes
   // terug, lees ze dan hier in; de oude code staat in de geschiedenis van dit bestand op GitHub.
