@@ -1,0 +1,2882 @@
+{
+  "versie": 1,
+  "toelichting": "Voorstel voor verbeterde teksten en vragen (oktober 2026), in eenvoudiger taal voor scholieren van 9-14 jaar. In de app staan sinds 25 oktober 2026 weer de teksten en vragen van de app uit 2019, zodat het bestuur van SHSEL in eigen tempo kan vergelijken en kiezen. Dit bestand laadt de app niet. Per plek: titel, tekst en vraag in nl, en en de zoals ze tot 25 oktober 2026 in de app stonden. Het goede antwoord (juist) is gelijk aan dat van 2019.",
+  "locaties": [
+    {
+      "nummer": 1,
+      "id": "alphons-ariens",
+      "titel": {
+        "nl": "Alphons Ariëns",
+        "en": "Alphons Ariëns",
+        "de": "Alphons Ariëns"
+      },
+      "tekst": {
+        "nl": "Dr. Alphons Ariëns (1860-1928) was van 1886 tot 1901 kapelaan (priester) in Enschede. Hij heeft veel gedaan voor de rooms-katholieke arbeiders en gaf de aanzet tot de oprichting van een RK werkliedenvereniging. Verder bestreed hij het drankmisbruik onder de textielarbeiders. Zes jaar na zijn dood werd het standbeeld geplaatst op het plein dat ook naar hem vernoemd is.",
+        "en": "Dr. Alphons Ariëns (1860-1928) was a chaplain in Enschede from 1886 until 1901. He meant a lot for the Roman Catholic workers and he initiated the creation of a catholic workman’s association. Moreover, he fought against  alcohol abuse amongst textile workers. Six years after his death a statue was erected on the square that was named after him.",
+        "de": "Dr. Alphons Ariëns (1860-1928) war von 1886 bis 1901 Kaplan (Priester) in Enschede. Er hat viel für die römisch-katholischen Arbeiter gemacht, und hat die Gründung eines römisch-katholischen Arbeitervereins in Gang gesetzt. Weiter war Dr. Ariëns ein Bekämpfer des Alkoholmissbrauchs unter den Textilarbeitern. Sechs Jahre nach seinem Tode wurde die Statue auf den Platz, der auch seinen Namen trägt, aufgestellt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het standbeeld van Alphons Ariëns werd geplaatst in:",
+          "opties": [
+            "1932",
+            "1933",
+            "1934",
+            "1935"
+          ],
+          "uitleg": "Ariëns stierf in 1928. Zes jaar later, in 1934, kwam zijn beeld op dit plein."
+        },
+        "en": {
+          "tekst": "In which year was the statue of Alphons Ariëns put up?",
+          "opties": [
+            "1932",
+            "1933",
+            "1934",
+            "1935"
+          ],
+          "uitleg": "Ariëns died in 1928. Six years later, in 1934, his statue came to this square."
+        },
+        "de": {
+          "tekst": "In welchem Jahr wurde die Statue von Alphons Ariëns aufgestellt?",
+          "opties": [
+            "1932",
+            "1933",
+            "1934",
+            "1935"
+          ],
+          "uitleg": "Ariëns starb 1928. Sechs Jahre später, 1934, kam seine Statue auf diesen Platz."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 2,
+      "id": "ziekenhuis-st-joseph-stadsmaten",
+      "titel": {
+        "nl": "Ziekenhuis st Joseph/Stadsmaten",
+        "en": "St Joseph Hospital/Stadsmaten",
+        "de": "Krankenhaus St. Joseph/Stadsmaten"
+      },
+      "tekst": {
+        "nl": "Het R.K. ziekenhuis is in gebruik genomen op 2 april 1914 met 54 bedden ter vervanging van het oude ziekenhuis uit 1889 in de oude pastorie op de Markt . In 1970 is de naam St. Joseph gewijzigd in de naam van de wijk waarin het staat: “De Stadsmaten”. In het begin werden de zieken verzorgd door nonnen ook wel zusters genoemd. Heel officieel de Zusters Franciscanessen van Thüne. Toen in 2016 het geheel nieuwe ziekenhuis gereed was, werden de gebouwen aan het Ariënsplein afgestoten.",
+        "en": "The catholic hospital was taken into use at April 2nd, 1914. It had 54 beds replacing the old hospital, established in the old presbytery on the market square in 1889. In the year 1970 the name St. Joseph was changed into “De Stadsmaten”, named after the neighborhood in which it was situated. At first, the patients where nursed by nuns, also named nurses. More specifically the Nurses Franciscanessen of Thüne. The buildings on the Ariëns square were closed when in 2016 a whole new hospital was built.",
+        "de": "Das römisch-katholische Krankenhaus, mit 54 Bettern, wurde am 2. April 1914 in Betrieb genommen als Ersatz des alten Krankenhauses im alten Pfarrhaus am Markt von 1889. Im Jahre 1970 bekam das Krankenhaus einen anderen Namen: ‘De Stadsmaten’, den Namen des Stadtviertels, wo es sich befindet. Anfangs wurden die Kranken von Nonnen, die man wohl auch ‘Schwestern’ nannte, versorgt. Ganz offiziell die ‘Zusters Franciscanessen van Thüne’. Als 2016 das völlig neue Krankenhaus fertig war, wurden die Gebäude am Ariënsplein geschlossen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Toen het ziekenhuis nog uit 2 gebouwen bestond, werd het contact tussen beide gebouwen verzorgt door:",
+          "opties": [
+            "Een lange brug over de Haaksbergerstraat",
+            "Een lange tunnel onder de Haaksbergerstraat",
+            "Taxibusjes",
+            "Ambulances"
+          ],
+          "uitleg": "Patiënten en personeel gingen over de brug zonder door het verkeer te hoeven."
+        },
+        "en": {
+          "tekst": "When the hospital still had 2 buildings, how did you get from one building to the other?",
+          "opties": [
+            "Over a long bridge across the Haaksbergerstraat",
+            "Through a long tunnel under the Haaksbergerstraat",
+            "By minibus taxi from Stadsmaten to Ziekenzorg",
+            "By ambulance from Stadsmaten to Ziekenzorg"
+          ],
+          "uitleg": "Patients and staff crossed the bridge without having to go through the traffic."
+        },
+        "de": {
+          "tekst": "Als das Krankenhaus noch aus 2 Gebäuden bestand: Wie kam man von einem Gebäude zum anderen?",
+          "opties": [
+            "Über eine lange Brücke über die Haaksbergerstraat",
+            "Durch einen langen Tunnel unter der Haaksbergerstraat",
+            "Mit Kleinbus-Taxis von Stadsmaten nach Ziekenzorg",
+            "Mit Krankenwagen von Stadsmaten nach Ziekenzorg"
+          ],
+          "uitleg": "Patienten und Personal gingen über die Brücke, ohne durch den Verkehr zu müssen."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 3,
+      "id": "huize-sonnevanck-burgemeesterswoning",
+      "titel": {
+        "nl": "Huize Sonnevanck – Burgemeesterswoning",
+        "en": "Huize Sonnevanck – Mayor's residence",
+        "de": "Huize Sonnevanck – Bürgermeistervilla"
+      },
+      "tekst": {
+        "nl": "In 1911 is deze ambtswoning gebouwd voor burgemeester Edo Bergsma. Tot 1972 hebben hier verschillende burgemeesters gewoond. Het gebouw is speels van opzet door de toepassing van verschillende uitbouwen, erkers (=een uitbouw aan een huis), dakkapellen en inpandige balkons. De entree is in de uitbouw. Het ingangsportaal bestaat uit houten stutten en dragers met daarop de tekst ‘Sonnevanck’.",
+        "en": "In 1911 this official residence was built for Mayor Edo Bergsma. Until 1972 several Mayors lived here. The building is a playful design because of the application of several expansions, bay windows, dormer windows and indoor balconies. The entrance is in the expansion. The entrance portal was made from wooden struts and carriers with the text ‘Sonnevanck’ on it.",
+        "de": "Diese Dienstwohnung wurde 1911 für Bürgermeister Edo Bergsma erbaut. Bis 1972 haben hier mehrere Bürgermeister gewohnt. Das Gebäude hat eine verspielte Ausstaltung mit mehreren Anbauten, Erkerfenstern, Dachlauben und Balkonen. Der Eingang befindet sich im Anbau. Das Eingangsportal besteht aus Holzpfosten und –Trägern mit dem Text ‘Sonnevanck’."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Voor de oudere Enschedeërs is de burgemeesterswoning vooral bekend door:",
+          "opties": [
+            "Start- en eindpunt van de carnavalsoptocht",
+            "Sinterklaasintocht",
+            "Officiële opening van de kermis",
+            "Viering Bevrijdingsdag"
+          ],
+          "uitleg": "Sinterklaas woonde elke jaar tijdelijk in de burgemeesterswoning."
+        },
+        "en": {
+          "tekst": "What do older people from Enschede mainly know the mayor's residence for?",
+          "opties": [
+            "The start and finish of the carnival parade",
+            "The arrival of Sinterklaas",
+            "The official opening of the funfair",
+            "The Liberation Day celebration"
+          ],
+          "uitleg": "Every year, Sinterklaas stayed in the mayor's residence for a while."
+        },
+        "de": {
+          "tekst": "Wofür kennen ältere Enschedeer die Bürgermeistervilla vor allem?",
+          "opties": [
+            "Start und Ziel des Karnevalsumzugs",
+            "Die Ankunft von Sinterklaas (dem Nikolaus)",
+            "Die offizielle Eröffnung der Kirmes",
+            "Die Feier zum Befreiungstag"
+          ],
+          "uitleg": "Sinterklaas wohnte jedes Jahr eine Zeit lang in der Bürgermeistervilla."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 4,
+      "id": "schoolgebouw-de-maere",
+      "titel": {
+        "nl": "Schoolgebouw De Maere",
+        "en": "School building De Maere",
+        "de": "Schulgebäude De Maere"
+      },
+      "tekst": {
+        "nl": "Het gebouw, officieel in gebruik genomen op 12 september 1922, is een overblijfsel van de Twentse textielindustrie. In de gevel zitten groene tegels met voorstellingen uit de textielindustrie: zaadbollen (katoen), ramskoppen (wol) en spinnen (het bewerken). Nu is het een rijksmonument en een onderdeel van Saxion Hoge School.",
+        "en": "The building, officially taken into use at the 12th of September 1922, is a remnant of the textile industry in Twente. There are green tiles in the facade with representations of the textile industry: seed bulbs (cotton), ram heads (wool) and spinning (working). Nowadays it is a national monument and a part of The Saxion University of Applied Sciences.",
+        "de": "Dieses Gebäude wurde am 12. September 1922 offiziell in Betrieb genommen und ist ein Relikt aus der Textilindustrie. In der Fassade befinden sich grüne Fliesen mit Darstellungen aus der Textilindustrie: Baumwollkugeln, Widderköpfen aus Wolle und Spinnen (die Bearbeitung). Jetzt ist es ein Reichsmonument und ein Teil der Saxion Hochschule."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De oorspronkelijke bestemming voor deze school was:",
+          "opties": [
+            "Middelbare school (HBS)",
+            "Hogere Textiel School",
+            "Basisschool voor slecht lerende kinderen",
+            "School voor volwassenenonderwijs"
+          ],
+          "uitleg": "Hier leerden jongeren het vak voor de textielfabrieken. Daarom zie je katoen, wol en spinnen op de tegels."
+        },
+        "en": {
+          "tekst": "What was this school originally meant for?",
+          "opties": [
+            "Secondary school (HBS)",
+            "Higher Textile School",
+            "Primary school for children with learning difficulties",
+            "School for adult education"
+          ],
+          "uitleg": "Young people learned the trade for the textile factories here. That is why you see cotton, wool and spinning on the tiles."
+        },
+        "de": {
+          "tekst": "Wofür war diese Schule ursprünglich gedacht?",
+          "opties": [
+            "Weiterführende Schule (HBS)",
+            "Höhere Textilschule",
+            "Grundschule für Kinder mit Lernschwierigkeiten",
+            "Schule für Erwachsenenbildung"
+          ],
+          "uitleg": "Hier lernten junge Leute den Beruf für die Textilfabriken. Darum siehst du Baumwolle, Wolle und Spinnen auf den Fliesen."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 5,
+      "id": "gemeentelijk-lyceum",
+      "titel": {
+        "nl": "Gemeentelijk Lyceum"
+      },
+      "tekst": {
+        "nl": "Deze school werd in 1916 gebouwd als school voor Nijverheid en Handel en was de eerste HBS in Enschede en had speciale lokalen voor natuurkunde, scheikunde, biologie, aardrijkskunde en laboratoria. Het stond op de plek naast de zijkant van het oude politiebureau. Hier staat nu (2018) een leeg gebouw van de SLO. Dit wordt binnenkort afgebroken. De oude school is net als het oude politiebureau afgebroken om plaats te maken voor de Boulevard.",
+        "en": "This school was established in 1916 and was meant for industry and trade. This school was the first higher citizens’ school in Enschede. There where special classrooms for physics, chemistry and biology. There was also a laboratory. It was located next to the old police office. Nowadays (2018), only an abandoned building remains, which will be torn down imminently. The old school and police station were demolished earlier in order to provide more space for the Boulevard.",
+        "de": "Diese Schule wurde 1916 gebaut als Schule für Industrie und Handel, und sie war das erste Gymnasium in Enschede. Das Gebäude hatte spezielle Räume für  Physik, Chemie, Biologie und Erdkunde und Labors. Die Schule befand sich neben dem alten Polizeiamt. Hier steht jetzt (2018) ein leeres Gebäude des ehemaligen Fachzentrums für Lehrplanentwicklung (SLO). Es wird demnächst abgerissen. Man hat das alte Gymnasium sowie das alte Polizeiamt abgerissen, um Platz für den ‘Boulevard 1945’ zu machen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat betekent SLO:",
+          "opties": [
+            "Staat Later Op",
+            "Stichting Lager Onderwijs",
+            "Stichting Leerplan Ontwikkeling",
+            "Steeds Langer Onderweg"
+          ],
+          "uitleg": "De SLO bedenkt wat je op school leert, en in welke klas."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 6,
+      "id": "postkantoor",
+      "titel": {
+        "nl": "Postkantoor",
+        "en": "Post office",
+        "de": "Postamt"
+      },
+      "tekst": {
+        "nl": "Het postkantoor aan de Boulevard 1945 werd in 1960 gebouwd en tot mei 2009 in gebruik als postkantoor. Het is een opvallend gebouw dat bestaat uit verschillende staande en liggende dozen. Opvallend aan het gebouw is de liggende doos met glazen gevel en betonnen lijst die op de derde verdieping door het gebouw steekt.",
+        "en": "The post office, located at the Boulevard 1945, was built in 1960. Until May 2009 it was in use as a post office. It is  a characteristic building consisting of several standing and lying boxes. A unique feature of the building is the reclining box with glass facade and concrete frame that crosses the building on the third floor.",
+        "de": "Das Postamt am ‘Boulevard 1945’ wurde 1960 erbaut und bis Mai 2009 als Postamt genutzt. Es ist ein auffälliges Gebäude. Vor allem bemerkenswert ist der liegende Teil mit Glasfassade und dem Gesims aus Beton, das im dritten Stock durch das Gebäude hindurchsteckt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Je kunt nog goed zien dat het een Postkantoor is geweest:",
+          "opties": [
+            "Postbodes lopen nog in en uit",
+            "Er staan veel auto’s van PostNL bij het gebouw",
+            "Er staan veel brievenbussen bij het gebouw",
+            "Naast de ingang is een stenen versiering met ruiter en posthoorn"
+          ],
+          "uitleg": "Vroeger bracht een postrijder te paard de post. Met de posthoorn liet hij horen dat hij eraan kwam."
+        },
+        "en": {
+          "tekst": "How can you still tell that this used to be a post office?",
+          "opties": [
+            "Postmen still walk in and out",
+            "Lots of PostNL vans are parked by the building",
+            "There are lots of postboxes by the building",
+            "Next to the entrance there is a stone decoration with a rider and a post horn"
+          ],
+          "uitleg": "Long ago, a postman on horseback brought the post. He blew the post horn to let people know he was coming."
+        },
+        "de": {
+          "tekst": "Woran erkennst du noch gut, dass dies ein Postamt war?",
+          "opties": [
+            "Briefträger gehen noch ein und aus",
+            "Viele Autos von PostNL stehen beim Gebäude",
+            "Viele Briefkästen stehen beim Gebäude",
+            "Neben dem Eingang ist ein Steinschmuck mit einem Reiter und einem Posthorn"
+          ],
+          "uitleg": "Früher brachte ein Postreiter zu Pferd die Post. Mit dem Posthorn zeigte er, dass er kam."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 7,
+      "id": "burgermeesterstraat",
+      "titel": {
+        "nl": "Burgemeesterstraat",
+        "en": "Burgemeesterstraat (Mayors' Street)",
+        "de": "Burgemeesterstraat (Bürgermeisterstraße)"
+      },
+      "tekst": {
+        "nl": "Het gedeelte van de Haverstraatpassage tussen Noorderhagen en de Stadsgravenstraat heette vroeger de Burgermeesterstraat. De straat werd zo genoemd omdat in de 18e eeuw hier de burgemeesters woonden. De straat loopt een beetje rond en de rij huizen tegenover juwelier Koelink laat zien hoe Enschede er na de brand van 1862 heeft uitgezien. Vanaf de jaren 50 van de 20e eeuw werd de Haverstraat de duurste winkelstraat van Enschede. De straat werd voetgangersgebied en grotendeels met luifels overkapt. Gelukkig kun je nu de mooie gevels van de winkels weer goed zien, omdat de luifels weer zijn verdwenen.",
+        "en": "The part of the Haverstraatpassage between the Noorderhagen and the Stadsgravenstraat used to be called the Mayor Street. The street was named like this because of the mayor living here in the 18th century. The street has a gentle curve and the row of houses opposite jewelry store Koelink shows what Enschede looked like after the fire of 1862. From the 50s of the 20th century the Haverstraat was the most expensive shopping district of Enschede. The street became a pedestrian area and it was mostly covered with awnings. Nowadays you can see the beautiful facades of the shops, because the awnings are removed.",
+        "de": "Der Teil der Haverstraatpassage zwischen Noorderhagen und Stadsgravenstraat hieß früher die Burgemeesterstraat. Man nannte diese Straße so, weil im 18. Jahrhundert hier die Bürgermeister wohnten. Die Straße macht einen Bogen und die Häuserreihe gegenüber dem Juweliergeschäft Koelink zeigt, wie Enschede nach dem Stadtbrand im Jahre 1862 ausgesehen hat. Seit den fünfziger Jahren des vorigen Jahrhunderts wurde die Haverstraat die teuerste Einkaufsstraße Enschedes. Die Straße wurde in eine Fußgängerzone umgewandelt und größtenteils überdacht. Zum Glück sind jetzt die schönen Fassaden der Geschäfte wieder gut sichtbar, weil die Überdachungen wieder verschwunden sind."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Haverstraat dankt zijn naam aan:",
+          "opties": [
+            "Hier werd vroeger haver verhandeld",
+            "Je kon hier haverkoeken kopen",
+            "Er werd hier haver verbouwd",
+            "De straat moest een naam krijgen"
+          ],
+          "uitleg": "Haver was voer voor paarden. Boeren brachten het naar de stad om het te verkopen."
+        },
+        "en": {
+          "tekst": "How did the Haverstraat (Oat Street) get its name?",
+          "opties": [
+            "Oats were traded here in the past",
+            "You could buy oatcakes here",
+            "Oats were grown here",
+            "The street needed a name"
+          ],
+          "uitleg": "Oats were food for horses. Farmers brought them to town to sell them."
+        },
+        "de": {
+          "tekst": "Woher hat die Haverstraat (Haferstraße) ihren Namen?",
+          "opties": [
+            "Hier wurde früher Hafer gehandelt",
+            "Hier konnte man Haferkekse kaufen",
+            "Hier wurde Hafer angebaut",
+            "Die Straße brauchte einen Namen"
+          ],
+          "uitleg": "Hafer war Futter für Pferde. Die Bauern brachten ihn in die Stadt, um ihn zu verkaufen."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 8,
+      "id": "villa-ledeboer-pension-kleiboer",
+      "titel": {
+        "nl": "Villa Ledeboer/Pension Kleiboer",
+        "en": "Villa Ledeboer/Pension Kleiboer",
+        "de": "Villa Ledeboer/Pension Kleiboer"
+      },
+      "tekst": {
+        "nl": "Villa Ledeboer werd vooral bekend door de latere huurder Jacques Kleiboer. Deze Kleiboer organiseerde in de periode 1920-1950 vele tentoonstellingen in Enschede die door duizenden bezoekers uit binnen- en buitenland werden bezocht. Het pand is in 1972 gesloopt. Aan de overkant – waar nu een winkelflat staat – stond een van de villa’s van Van Heek. Het hek om de villa is bewaard gebleven en herplaatst bij een van de vele parken die Enschede kent.",
+        "en": "Villa Ledeboer was best known for the tenant Jaques Kleiboer. In the period 1920-1950 Kleiboer organized many exhibitions in Enschede, visited by thousands of people from home and abroad. The building was demolished in 1972. Across – where there is now a shopping flat – stood one of the Van Heek mansions. The fence around the villa has been preserved and was relocated at one of the many parks in Enschede.",
+        "de": "Die Villa Ledeboer wurde vor allem durch ihren späteren Mieter Jacques Kleiboer bekannt. Dieser Herr Kleiboer veranstaltete in der Periode 1920-1950 viele Ausstellungen in Enschede, die von Tausenden Besuchern aus In- und Ausland besucht wurden. Die Villa wurde 1972 abgerissen. Auf der anderen Seite – wo sich jetzt ein Einkaufszentrum befindet – stand eine der Villen der Familie Van Heek. Das Gitter um die Villa ist erhalten geblieben und wurde bei einem der vielen Parks in Enschede wieder aufgestellt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het mooie hek van de villa is bewaard gebleven en staat nu bij de ingang van:",
+          "opties": [
+            "Het Wooldrikspark",
+            "Het Volkspark",
+            "Het G.J. van Heekpark",
+            "Het Ledeboerpark"
+          ],
+          "uitleg": "Zo leeft een stukje van de verdwenen villa voort in een park dat iedereen kan bezoeken."
+        },
+        "en": {
+          "tekst": "At the entrance of which park does the beautiful fence of the villa stand today?",
+          "opties": [
+            "The Wooldrikspark",
+            "The Volkspark",
+            "The G.J. van Heekpark",
+            "The Ledeboerpark"
+          ],
+          "uitleg": "So a piece of the lost villa lives on in a park that everyone can visit."
+        },
+        "de": {
+          "tekst": "Am Eingang welches Parks steht heute das schöne Gitter der Villa?",
+          "opties": [
+            "Wooldrikspark",
+            "Volkspark",
+            "G.J. van Heekpark",
+            "Ledeboerpark"
+          ],
+          "uitleg": "So lebt ein Stück der verschwundenen Villa in einem Park weiter, den alle besuchen können."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 9,
+      "id": "koningshuizen",
+      "titel": {
+        "nl": "Koningshuizen",
+        "en": "Koningshuizen (King's Houses)",
+        "de": "Koningshuizen (Königshäuser)"
+      },
+      "tekst": {
+        "nl": "Koning Lodewijk Napoleon schonk in 1809 enkele huizen op de hoek van de Haaksbergerstraat en de Emmastraat, onder voorwaarde dat die als ziekenhuis gebruikt zouden worden. Ze kregen de toepasselijke naam 'Koningshuizen'. De vier karakteristieke panden die er nu nog staan, zijn gebouwd in 1864. De huizen zijn echter nooit als ziekenhuis in gebruik geweest.",
+        "en": "In 1809 King Lodewijk Napoleon donated a couple of houses at the corner of the Haaksbergerstraat and the Emmastraat, provided they would be used as a hospital. They were named ‘Royal Houses’. The four characteristic buildings, that are still there, were built in 1864. These houses were never used as a hospital, however.",
+        "de": "König Ludwig Napoleon spendete 1809 einige Häuser an der Ecke der Haaksbergerstraat/ Emmastraat, unter der Bedingung, dass man sie als Krankenhaus verwenden würde. Sie bekamen den passenden Namen ‘Koningshuizen‘ (Königshäuser). Die vier charakteristischen Häuser die hier jetzt noch stehen, wurden 1864 erbaut. Sie wurden aber niemals als Krankenhaus benutzt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Tegenover deze huizen ligt een straat die naar Lodewijk Napoleon is genoemd:",
+          "opties": [
+            "Lodewijk Napoleonstraat",
+            "Ziekenhuisstraat",
+            "Koningstraat",
+            "Er is helemaal geen straat die naar de koning is vernoemd"
+          ],
+          "uitleg": "Lodewijk Napoleon was koning van Holland. De straat heet daarom gewoon de Koningstraat."
+        },
+        "en": {
+          "tekst": "A little further on there is a street named after Louis Napoleon. Which one?",
+          "opties": [
+            "Lodewijk Napoleonstraat (Louis Napoleon Street)",
+            "Ziekenhuisstraat (Hospital Street)",
+            "Koningstraat (King Street)",
+            "There is no street named after the king at all"
+          ],
+          "uitleg": "Louis Napoleon was King of Holland. That is why the street is simply called the Koningstraat (King Street)."
+        },
+        "de": {
+          "tekst": "Etwas weiter liegt eine Straße, die nach Ludwig Napoleon benannt ist. Welche?",
+          "opties": [
+            "Lodewijk Napoleonstraat (Ludwig-Napoleon-Straße)",
+            "Ziekenhuisstraat (Krankenhausstraße)",
+            "Koningstraat (Königstraße)",
+            "Es gibt gar keine Straße, die nach dem König benannt ist"
+          ],
+          "uitleg": "Ludwig Napoleon war König von Holland. Darum heißt die Straße einfach Koningstraat (Königstraße)."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 10,
+      "id": "twentsche-bank",
+      "titel": {
+        "nl": "Twentsche Bank",
+        "en": "Twentsche Bank",
+        "de": "Twentsche Bank"
+      },
+      "tekst": {
+        "nl": "De bank is gebouwd in 1909 door architect G. Beltman. Het heeft vijfsteens dikke muren voor kelders en kluizen. Het was een belangrijke bank voor vooral de textielfabrikanten. Door fusies is de bank verschillende keren van naam veranderd en heet nu ABN/AMRO. Boven de deur staat de naam van de stichter en de wapens van de familie en van de gemeente Enschede.",
+        "en": "The bank was built in 1909 by architect G. Beltman. It has walls of five stones thick in its basements and vaults. It was a very important banking house, especially for textile manufacturers. Due to mergers, the bank has changed its name several times, nowadays it is named ABN/AMRO. Above the door the name of the founder and the weapons of the family are stated together with the shield of the city of Enschede.",
+        "de": "Die Bank wurde 1909 vom Architekten G. Beltman erbaut. Sie hat sehr dicke Mauern für Keller und Tresore. Diese Bank war vor allem für die Textilfabrikanten sehr wichtig. Durch Fusionen hat die Bank mehrere Male einen anderen Namen bekommen, und sie heißt jetzt ABN/AMRO. Über der Tür stehen der Name des Gründers, die Wappen der Familie und der Stadt Enschede."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Boven de hoofdingang staat nog de naam te lezen van de eerste bankiers en die zijn:",
+          "opties": [
+            "B.W. Blijdenstein",
+            "H.J. van Heek en Zn",
+            "Snelder-Zijlstra",
+            "Stichting Historische Sociëteit Enschede-Lonneker"
+          ],
+          "uitleg": "De familie Blijdenstein richtte in 1861 de Twentsche Bank op, als bank voor de textielindustrie."
+        },
+        "en": {
+          "tekst": "The name of the first bankers is still above the main entrance. What name is it?",
+          "opties": [
+            "B.W. Blijdenstein",
+            "H.J. van Heek en Zn",
+            "Snelder-Zijlstra",
+            "Stichting Historische Sociëteit Enschede-Lonneker"
+          ],
+          "uitleg": "The Blijdenstein family founded the Twentsche Bank in 1861, as a bank for the textile industry."
+        },
+        "de": {
+          "tekst": "Über dem Haupteingang steht noch der Name der ersten Bankiers. Welcher Name ist das?",
+          "opties": [
+            "B.W. Blijdenstein",
+            "H.J. van Heek en Zn",
+            "Snelder-Zijlstra",
+            "Stichting Historische Sociëteit Enschede-Lonneker"
+          ],
+          "uitleg": "Die Familie Blijdenstein gründete 1861 die Twentsche Bank, als Bank für die Textilindustrie."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 11,
+      "id": "kalanderstraat",
+      "titel": {
+        "nl": "Kalanderstraat",
+        "en": "Kalanderstraat",
+        "de": "Kalanderstraat"
+      },
+      "tekst": {
+        "nl": "In deze straat stonden in 1862 bijna allemaal houten huizen. Begin mei was koning Willem lll in Enschede op bezoek geweest. De mensen waren heel blij dat de koning kwam en versierden hun huizen met o.a. dennentakken. Het was een erg droge meimaand en op 7 mei waaide het hard. In een van de houten huizen was iemand zeer onvoorzichtig met vuur. Daardoor ontstond er brand in huis. Door de droogte en de harde wind stond binnen een half uur de hele straat in brand en niet veel later de hele stad. Alle huizen, fabrieken en kantoren gingen in vlammen op omdat de brandweer – ondanks hulp van de brandweer uit andere plaatsen – de brand niet kon blussen.",
+        "en": "In 1862 only wooden houses lined this street. King William the 3rd visited Enschede in early May. The residents were very happy that the king came and decorated their houses with fir branches. It was a very dry month and there was a lot of wind at this 7th of May. In one of the decorated houses somebody was very careless with fire, resulting in a blaze in the firs. Due to the drought and the strong wind the whole street was on fire within half an hour and not much later the whole town. All the houses, factories and offices were burnt down because the fire brigade was unable to extinguish the fire in time.",
+        "de": "In dieser Straße standen 1862 fast nur Holzhäuser. Anfang Mai hatte der König Willem lll Enschede besucht. Die Einwohner freuten sich sehr über seinen Besuch und schmückten ihre Häuser mit u.a. Tannenzweigen. Es war ein sehr trockener Monat und am 7. Mai ging es sehr starker Wind. In einem der Holzhäusern war jemand unvorsichtig mit Feuer. Dadurch entstand Brand im Haus. Wegen der Dürre und dem starken Wind stand innerhalb einer halben Stunde die ganze Straße in Flammen, und nicht viel später die ganze Stadt. Alle Häuser, Fabriken und Büros gingen in Flammen auf, weil die Feuerwehr – trotz der Hilfe der Feuerwehr aus anderen Orten – das Feuer nicht löschen konnte."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom kon de brandweer de brand niet blussen:",
+          "opties": [
+            "De elektrische pompen werkten niet goed",
+            "Doordat veel huizen van hout waren",
+            "De brandweerlieden eerst moesten eten",
+            "Het was veel te warm"
+          ],
+          "uitleg": "Droog hout en harde wind: het vuur sprong sneller van huis naar huis dan de brandweer kon blussen."
+        },
+        "en": {
+          "tekst": "Why could the fire brigade not put out the fire?",
+          "opties": [
+            "The electric pumps did not work properly",
+            "Because many houses were made of wood",
+            "The firefighters had to eat first",
+            "It was far too hot"
+          ],
+          "uitleg": "Dry wood and a strong wind: the fire jumped from house to house faster than the firefighters could put it out."
+        },
+        "de": {
+          "tekst": "Warum konnte die Feuerwehr das Feuer nicht löschen?",
+          "opties": [
+            "Die elektrischen Pumpen funktionierten nicht richtig",
+            "Weil viele Häuser aus Holz waren",
+            "Die Feuerwehrleute mussten erst essen",
+            "Es war viel zu warm"
+          ],
+          "uitleg": "Trockenes Holz und starker Wind: Das Feuer sprang schneller von Haus zu Haus, als die Feuerwehr löschen konnte."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 12,
+      "id": "elderinkshuis",
+      "titel": {
+        "nl": "Elderinkshuis",
+        "en": "Elderinkshuis",
+        "de": "Elderinkshuis"
+      },
+      "tekst": {
+        "nl": "Het Elderinkshuis werd gebouwd als herberg voor onder andere mensen die na het sluiten van de Espoort 's avonds de stad niet meer binnen konden. Het bleef gespaard tijdens de grote stadsbrand van 1862. Het pand kreeg pas de naam toen de fam. Elderink het gebouw kocht en er op de benedenverdieping een bankierskantoor hadden geopend. Ze verhuurden de bovenverdieping als woning en gingen zelf in het naastgelegen huis wonen.",
+        "en": "The Elderinkshouse was initially meant as an inn for people who were unable to enter the city after the Espoort had closed in the evening. It was saved from the big city fire of 1862. The building was named  Elderinkshouse after the Elderink family bought it and opened a bank office at the ground floor. They rented the upper floor as a house and lived in the house next door themselves.",
+        "de": "Das Elderinkshuis wurde als Gasthaus gebaut für u.a. Leute, die nach dem Schließen des Tors ‘Espoort’ abends nicht mehr in die Stadt kommen konnten. Beim großen Stadtbrand im Jahre 1862 blieb das Haus verschont. Es bekam erst seinen Namen, als die Familie Elderink das Gebäude kaufte und im Erdgeschoss eine Bank eröffnet hatte. Sie vermieteten den Obergeschoss als Wohnung, und bezogen selbst das benachbarte Haus."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Als herberg had het gebouw de naam:",
+          "opties": [
+            "Herberg In de Lindeboom",
+            "Herberg Voor de gesloten poort",
+            "Herberg Slaap zacht",
+            "Herberg De Dronken Drinkaard"
+          ],
+          "uitleg": "Herbergen kregen vaak de naam van een boom of dier, zodat iedereen ze herkende aan het uithangbord."
+        },
+        "en": {
+          "tekst": "What was the building called when it was an inn?",
+          "opties": [
+            "Inn 'In de Lindeboom' (In the Lime Tree)",
+            "Inn 'Voor de gesloten poort' (Outside the Closed Gate)",
+            "Inn 'Slaap zacht' (Sleep Tight)",
+            "Inn 'De Dronken Drinkaard' (The Drunken Drinker)"
+          ],
+          "uitleg": "Inns were often named after a tree or an animal, so everyone recognised them by their hanging sign."
+        },
+        "de": {
+          "tekst": "Wie hieß das Gebäude, als es ein Gasthaus war?",
+          "opties": [
+            "Gasthaus 'In de Lindeboom' (Zur Linde)",
+            "Gasthaus 'Voor de gesloten poort' (Vor dem geschlossenen Tor)",
+            "Gasthaus 'Slaap zacht' (Schlaf gut)",
+            "Gasthaus 'De Dronken Drinkaard' (Zum betrunkenen Trinker)"
+          ],
+          "uitleg": "Gasthäuser wurden oft nach einem Baum oder Tier benannt. So erkannte sie jeder am Wirtshausschild."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 13,
+      "id": "voormalige-v-d-pand",
+      "titel": {
+        "nl": "Voormalige V&D pand",
+        "en": "Former V&D building",
+        "de": "Ehemaliges V&D-Kaufhaus"
+      },
+      "tekst": {
+        "nl": "Waar nu Intersport zit, zat ooit eens het eerste grote winkelwarenhuis in Twente. Het gebouw ontworpen door architect J. Kuit Wzn werd op 1 april 1939 feestelijk geopend en tot 1969, toen V&D naar de Boulevard verhuisde, was dit deel van de stad het hart van het winkelcentrum. Het pand heeft fraaie glas-in-loodramen en verschillende stijlvolle, ronde vensters.",
+        "en": "At the site where currently an Intersport shop is located the first department store in Twente was established. The building, designed by architect J. Kuit Wzn, was festively opened on April the 1st, 1939. This part of the city used to be the heart of the shopping area, until 1969 when the V&D department store moved to the Boulevard. The building has beautiful stained glass windows and various stylish round windows.",
+        "de": "Wo sich jetzt Intersport befindet, gab es jemals das erste große Kaufhaus in Twente. Das Gebäude, vom Architekten J. Kuit Wzn entworfen, wurde am 1. April 1939 feierlich eröffnet.  Bis 1969, als V&D zum Boulevard 1945 umzog, bildete dieser Stadtteil das Herz des Einkaufszentrums. Das Gebäude hat schöne Kunstverglasungen und verschiedene stilvolle, runde Fenster."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De afkorting V&D staat voor:",
+          "opties": [
+            "Vroom & Dreesmann",
+            "Vroom & Droom",
+            "Veel & Duur",
+            "Veel & Doordacht"
+          ],
+          "uitleg": "Willem Vroom en Anton Dreesmann begonnen samen een winkel in Amsterdam. Hun namen werden V&D."
+        },
+        "en": {
+          "tekst": "What does V&D stand for?",
+          "opties": [
+            "Vroom & Dreesmann",
+            "Vroom & Droom (Vroom & Dream)",
+            "Veel & Duur (Lots & Pricey)",
+            "Veel & Doordacht (Lots & Well-planned)"
+          ],
+          "uitleg": "Willem Vroom and Anton Dreesmann started a shop together in Amsterdam. Their names became V&D."
+        },
+        "de": {
+          "tekst": "Wofür steht die Abkürzung V&D?",
+          "opties": [
+            "Vroom & Dreesmann",
+            "Vroom & Droom (Vroom & Traum)",
+            "Veel & Duur (Viel & Teuer)",
+            "Veel & Doordacht (Viel & Durchdacht)"
+          ],
+          "uitleg": "Willem Vroom und Anton Dreesmann eröffneten zusammen ein Geschäft in Amsterdam. Aus ihren Namen wurde V&D."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 14,
+      "id": "kruispunt-de-graaff",
+      "titel": {
+        "nl": "Kruispunt De Graaff",
+        "en": "De Graaff crossroads",
+        "de": "Kreuzung De Graaff"
+      },
+      "tekst": {
+        "nl": "Hier stond Hotel de Graaff genoemd naar de 1e eigenaar Johan de Graaff. Het was een hotel waar veel belangrijke mensen uit de textielwereld logeerden. Ook veel mensen vanuit het buitenland. Het was een chique hotel, waar de arbeiders niet binnenkwamen. Toen de textielindustrie steeds verder achteruitging, kwamen er ook steeds minder gasten naar het hotel. In 1972 werd het hotel dat in slechte staat verkeerde afgebroken.",
+        "en": "Here, Hotel de Graaff was situated, named after its first owner Johan de Graaff. Many important people from the industry, as well as people from abroad, where staying at this hotel. It was a fancy hotel, where workers were not allowed. When the textile industry became less and less successful , fewer and fewer guests came to the hotel. In 1972 the hotel, which was in bad condition by then, was demolished.",
+        "de": "Hier befand sich das Hotel De Graaff, nach dem ersten Eigentümer, Johan de Graaff, benannt. Es war ein Hotel, wo viele wichtige Leute aus der Textilbranche wohnten, auch viele ausländische Leute. Es war ein vornehmes Hotel, wo die Arbeiter nicht reinkamen. Als die Textilindustrie immer weiter zurückging, kamen auch immer weniger Gäste zum Hotel. Im Jahre 1972 hat man das in schlechtem Zustand befindliche Hotel abgerissen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom verkeerde het hotel in slechte staat:",
+          "opties": [
+            "Het onderhoud was veel te duur",
+            "Er was een hevige storm geweest",
+            "De eigenaar was niet handig",
+            "Er was nog geen ‘doe-het-zelf’- zaak"
+          ],
+          "uitleg": "Met minder gasten kwam er minder geld binnen. Dan blijft onderhoud aan een groot gebouw liggen."
+        },
+        "en": {
+          "tekst": "Why was the hotel in bad condition?",
+          "opties": [
+            "Maintenance was far too expensive",
+            "There had been a heavy storm",
+            "The owner was not handy",
+            "There was no DIY shop yet"
+          ],
+          "uitleg": "With fewer guests, less money came in. Then repairs to a big building are left undone."
+        },
+        "de": {
+          "tekst": "Warum war das Hotel in schlechtem Zustand?",
+          "opties": [
+            "Die Instandhaltung war viel zu teuer",
+            "Es hatte einen schweren Sturm gegeben",
+            "Der Besitzer war nicht geschickt",
+            "Es gab noch keinen Baumarkt"
+          ],
+          "uitleg": "Mit weniger Gästen kam weniger Geld herein. Dann bleiben Reparaturen an einem großen Gebäude liegen."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 15,
+      "id": "langestraat-en-stadspoorten",
+      "titel": {
+        "nl": "Langestraat en stadspoorten"
+      },
+      "tekst": {
+        "nl": "In de middeleeuwen (500-1500) kon je slechts op 2 manieren de stad binnenkomen; in het westen had je de Veldpoort en in het oosten de Eschpoort. Door een hele lange straat werden deze twee toegangspoorten met elkaar verbonden. Dit heette en heet nog steeds de Langestraat. Alleen het stukje van de Oude Markt tot kruispunt de Graaff heet nu Marktstraat. Net buiten de Eschpoort stond een herberg waar je kon overnachten als de stadspoort al dicht was. Dit gebouw heet het Elderinkshuis en is het oudste gebouw van Enschede buiten de gracht en heeft de brand van 1862 overleefd.",
+        "en": "During the Middle Ages (500-1500) there were only two ways to enter the city; in the west there was the Veldpoort gate and in the east there was the Eschpoort gate. These two entrances were connected through a very long street. This street is still called the Langestraat (Long Street). Only a little part, from the Old Market to the de Graaff junction is now called Marktstraat (Market Street). Just outside the Eschpoort there was an inn where you could stay overnight if the city gate was already closed. This building is called the Elderinkshuis (Elderinkshouse). It is the oldest building outside the former canal and it survived the fire of 1862.",
+        "de": "Im Mittelalter (500-1500) konnte man nur auf zwei Weisen in die Stadt hineinkommen. Im Westen gab es den ‘Veldpoort’ und im  Osten den  ‘Eschpoort’. Diese beiden Tore wurden von einer ganz langen Straße miteinander verbunden. Diese Straße hieß (jetzt immer noch) die Langestraat. Nur der kleine Teil vom Oude (Alten) Markt bis zur Kreuzung De Graaff heißt jetzt Marktstraat. Gerade außerhalb des ‘Eschpoort’ stand ein Gasthaus, wo man übernachten konnte, als abends das Stadttor schon abgeschlossen war. Dieses Gebäude hatte den Namen ‘Elderinkshuis’. Es ist das älteste Haus in Enschede außerhalb der Gräben, und es ist beim Stadtbrand im Jahr 1862 verschont geblieben."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Net voorbij de Walstraat/Stadsgravenstraat zijn in het wegdek links en rechts van de straat grijze stenen gelegd. Deze stenen liggen daar:",
+          "opties": [
+            "Ter versiering",
+            "Daar mag je parkeren",
+            "Daar wordt nog gebouwd",
+            "Om de vorm van de Veldpoort aan te geven"
+          ],
+          "uitleg": "De poort zelf is verdwenen. De stenen laten zien waar hij stond en hoe groot hij was."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 16,
+      "id": "stadhuis",
+      "titel": {
+        "nl": "Stadhuis",
+        "en": "Town hall",
+        "de": "Rathaus"
+      },
+      "tekst": {
+        "nl": "Op de plek van het huidige stadhuis heeft vanaf 1325 – toen kreeg Enschede stadsrechten – altijd een stadhuis gestaan. Na de stadsbrand van 1862 werd een nieuw stadhuis gebouwd. Dat werd door de groeiende bevolking al snel te klein. Er werd daarom een nieuw stadhuis gebouwd. (tussen 1930-1933) Het ontwerp is van Ir. G. Friedhof. Niet alleen ontwierp hij het gebouw, maar ook de lampen, stoelen, bureaus etc. Het balkonhek boven de ingang vertelt de geschiedenis van Enschede.",
+        "en": "Since 1325 – when Enschede received its city rights – there has always been a Town hall at the place where the current Town hall is located. After the city fire of 1862 a new Town hall was constructed. This new building quickly became too small due to the rapid growth of the population and was therefore rebuilt (between 1930-1933). The current design is by Ir. G. Friedhof. Not only did he design the building, but also the lamps, chairs, desks, etcetera. The pictures in the balcony fence above the entrance represent the history of Enschede.",
+        "de": "An der Stelle der heutigen Stadthalle hat seit 1325 – als Enschede Stadtrecht erhielt – immer ein Rathaus gestanden. Nach dem Stadtbrand im Jahr 1862 wurde ein neues Rathaus erbaut. Das wurde wegen der wächsenden Bevölkerung schon bald zu klein. Darum wurde ein neues Rathaus gebaut (zwischen 1930-1933). Der Entwurf stammt von Dipl.Ir. G. Friedhof. Dieser hat nicht nur das Gebäude, sondern auch die Lampen, Stühle, Schreibtische usw. Entworfen. Die Balustrade des Balkons über dem Entree erzählt die Geschichte Enschedes."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Hoe kwam het dat de Enschedese bevolking in de jaren na de stadsbrand van 1862 tot aan de 2e Wereld Oorlog zo snel toenam:",
+          "opties": [
+            "Er kwamen toen veel vluchtelingen",
+            "De textielindustrie werd steeds groter en had veel mensen nodig",
+            "Veel mensen verhuisden hier naar toe vanwege de natuur",
+            "Dat was in alle steden zo"
+          ],
+          "uitleg": "De fabrieken trokken arbeiders van het platteland en van ver daarbuiten aan."
+        },
+        "en": {
+          "tekst": "Why did the population of Enschede grow so fast between the town fire of 1862 and the Second World War?",
+          "opties": [
+            "Many refugees came at that time",
+            "The textile industry kept growing and needed lots of people",
+            "Many people moved here because of the countryside",
+            "That happened in every town"
+          ],
+          "uitleg": "The factories attracted workers from the countryside and from much further away."
+        },
+        "de": {
+          "tekst": "Warum wuchs die Bevölkerung von Enschede zwischen dem Stadtbrand von 1862 und dem Zweiten Weltkrieg so schnell?",
+          "opties": [
+            "Damals kamen viele Flüchtlinge",
+            "Die Textilindustrie wurde immer größer und brauchte viele Menschen",
+            "Viele Menschen zogen wegen der Natur hierher",
+            "Das war in allen Städten so"
+          ],
+          "uitleg": "Die Fabriken zogen Arbeiter vom Land und von viel weiter weg an."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 17,
+      "id": "janninkshuis",
+      "titel": {
+        "nl": "Janninkshuis",
+        "en": "Janninkshuis",
+        "de": "Janninkshuis"
+      },
+      "tekst": {
+        "nl": "Tegenover de zijkant van het stadhuis in de Langestraat staat dit huis, dat na de stadsbrand van 1862 als enige huis nog in redelijke staat was. Eigenlijk is dit het oudste huis van Enschede dat binnen de toenmalige grachten lag. Bij de voordeur staan 2 pilaren. Dat was gebruikelijk in de tijd dat het huis werd gebouwd.",
+        "en": "This house is located opposite the town hall in the Langestraat. It was the only house that was in a reasonable condition after the city fire of 1862. Actually this is the oldest house in Enschede that was situated within the former canals. Two pillars are situated at the front door. This was a general custom at the time the house was built.",
+        "de": "Gegenüber der Seite der Stadthalle in der Langestraat steht dieses Haus, das sich nach dem Stadtbrand im Jahr 1862 als einziges Haus noch in ziemlich gutem Zustand befand. Eigentlich ist es das älteste Haus in Enschede, das innerhalb der damaligen Gräben lag. An der Vordertür stehen zwei Säule. In der Zeit wo dieses Haus gebaut wurde, war das üblich."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Aan welke periode uit de geschiedenis herinneren die zuilen ons:",
+          "opties": [
+            "Aan de 1e Wereld Oorlog",
+            "Aan de 2e Wereld Oorlog",
+            "Aan de oude Grieken & Romeinen",
+            "Aan Legoland"
+          ],
+          "uitleg": "Grieken en Romeinen bouwden tempels met zuilen. Later deden rijke mensen dat na bij hun eigen huis."
+        },
+        "en": {
+          "tekst": "Which period of history do those columns remind us of?",
+          "opties": [
+            "The First World War",
+            "The Second World War",
+            "The ancient Greeks and Romans",
+            "Legoland"
+          ],
+          "uitleg": "The Greeks and Romans built temples with columns. Later, rich people copied that for their own houses."
+        },
+        "de": {
+          "tekst": "An welche Zeit der Geschichte erinnern uns diese Säulen?",
+          "opties": [
+            "An den Ersten Weltkrieg",
+            "An den Zweiten Weltkrieg",
+            "An die alten Griechen und Römer",
+            "An das Legoland"
+          ],
+          "uitleg": "Griechen und Römer bauten Tempel mit Säulen. Später machten reiche Leute das an ihren eigenen Häusern nach."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 18,
+      "id": "societeit-en-twentsche-schouwburg",
+      "titel": {
+        "nl": "Sociëteit en Twentsche schouwburg",
+        "en": "Sociëteit and Twentsche Schouwburg (theatre)",
+        "de": "Sociëteit und Twentsche Schouwburg (Theater)"
+      },
+      "tekst": {
+        "nl": "Naast het Jannink huis staat een gebouw met groene poppen op het dak en aan de gevel. Tot 1862 was hier de Heeren Sociëteit (=een gebouw om gezellig bij elkaar te zijn). Dat waren die fabrieksdirecteuren van de textielfabrieken die hier kwamen voor de gezelligheid dus en om te vergaderen. Na de brand van 1862 werd het gebouw herbouwd met een kleine theaterzaal. Later werd die zaal uitgebreid en werd de naam veranderd in Twentsche Schouwburg. Hierin zitten nu winkels en alleen de kleine zaal is nog in gebruik en heet de “Kleine Willem”. Alle andere zalen zijn ondergebracht in het nieuwe theater in het Muziekkwartier.",
+        "en": "Next to the Jannink house there is a building with green images on the roof and on the facade. Until 1862 the gentlemen club was located here. The factory directors of the textile factories came here for fun and meetings. After the fire of 1862 the building was rebuilt with a small theater hall. Later, that room was expanded and the name was changed into Twentsche Schouwburg (Theatre of Twente). These days shops are located in the building and only the small theatre room is still in use, now called the ‘Kleine Willem’ (The Small Willem). The rest of the theatre is located at the “Muziekkwartier”.",
+        "de": "Neben dem ‘Janninkshuis’ steht ein Gebäude mit grünen Puppen auf dem Dach und an der Fassade. Bis 1862 gab es hier die ‘Heeren Sociëteit’ (= ein Gebäude zum gemütlichen Zusammensein). Die ‘Heeren’ (Herren) waren die Direktoren der Textilfabriken, die sich hier aus freundschaftlichen und geschäftlichen Gründen trafen. Nach dem Stadtbrand im Jahr 1862 wurde das Gebäude wieder aufgebaut, außerdem mit einer kleinen Theaterbühne. Später hat man die Bühne vergrößert und verändert. Der Name wurde ‘Twentsche Schouwburg’ (=Theater). Heutzutage gibt es hier Geschäfte. Nur den kleinen Theatersaal, den ‘Kleinen Willem’, wird noch benutzt. Im ‘Muziekkwartier’ (Musikviertel) hat man ein neues großes Theater erbaut."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Naar welke bekende Enschedeër is die kleine zaal vernoemd:",
+          "opties": [
+            "Willem Bever",
+            "Willem Wilmink",
+            "Willem van Hanegem",
+            "Willem Wever"
+          ],
+          "uitleg": "Willem Wilmink schreef liedjes en gedichten, ook voor kinderen. Ook het grote theater is naar hem genoemd."
+        },
+        "en": {
+          "tekst": "Which famous person from Enschede is the small hall named after?",
+          "opties": [
+            "Willem Bever",
+            "Willem Wilmink",
+            "Willem van Hanegem",
+            "Willem Wever"
+          ],
+          "uitleg": "Willem Wilmink wrote songs and poems, also for children. The big theatre is named after him too."
+        },
+        "de": {
+          "tekst": "Nach welchem bekannten Enschedeer ist der kleine Saal benannt?",
+          "opties": [
+            "Willem Bever",
+            "Willem Wilmink",
+            "Willem van Hanegem",
+            "Willem Wever"
+          ],
+          "uitleg": "Willem Wilmink schrieb Lieder und Gedichte, auch für Kinder. Auch das große Theater ist nach ihm benannt."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 19,
+      "id": "koningsplein-textielfabriek-gerhard-jannink-en-zon",
+      "titel": {
+        "nl": "Koningsplein & Textielfabriek Gerhard Jannink en zonen",
+        "en": "Koningsplein & Gerhard Jannink and Sons textile factory",
+        "de": "Koningsplein & Textilfabrik Gerhard Jannink und Söhne"
+      },
+      "tekst": {
+        "nl": "Op de hoek van de Beltstraat en de Pijpenstraat stond tot 1964 een hele grote fabriek van de firma Jannink. Op deze plek staat thans de openbare bibliotheek en winkelcentrum Koningsplein.",
+        "en": "Until 1964 a large factory of the Jannink company was located at the corner of the Beltstraat and the Pijpenstraat. Nowadays, the public library and shopping center Koningsplein can be found here.",
+        "de": "An der Ecke Beltstraat/Pijpenstraat stand bis 1964 eine sehr große Fabrik der Firma Jannink. An diesem Ort befinden sich jetzt die Stadtbibliothek und das Einkaufszentrum ‘Koningsplein’."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Voordat het winkelcentrum Koningsplein heette, was de naam ‘De Zuidmolen’ omdat:",
+          "opties": [
+            "Op deze plek een molen stond die zo heette",
+            "Het winkelcentrum in het zuiden ligt",
+            "Er graan werd gemalen voor de stad",
+            "Er heel lang een draaimolen heeft gestaan"
+          ],
+          "uitleg": "Enschede had vroeger meerdere molens. Hun namen leven voort in straten en gebouwen."
+        },
+        "en": {
+          "tekst": "Before the shopping centre was called Koningsplein, it was called 'De Zuidmolen' (The South Mill). Why?",
+          "opties": [
+            "A mill with that name stood on this spot",
+            "The shopping centre is in the south",
+            "Grain was ground here for the town",
+            "A merry-go-round stood here for a long time"
+          ],
+          "uitleg": "Enschede used to have several mills. Their names live on in streets and buildings."
+        },
+        "de": {
+          "tekst": "Bevor das Einkaufszentrum Koningsplein hieß, hieß es 'De Zuidmolen' (Die Südmühle). Warum?",
+          "opties": [
+            "Hier stand eine Mühle mit diesem Namen",
+            "Das Einkaufszentrum liegt im Süden",
+            "Hier wurde Getreide für die Stadt gemahlen",
+            "Hier stand sehr lange ein Karussell"
+          ],
+          "uitleg": "Enschede hatte früher mehrere Mühlen. Ihre Namen leben in Straßen und Gebäuden weiter."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 20,
+      "id": "gerechtsgebouw",
+      "titel": {
+        "nl": "Gerechtsgebouw",
+        "en": "Courthouse",
+        "de": "Gerichtsgebäude"
+      },
+      "tekst": {
+        "nl": "Het Gerechtsgebouw werd in opdracht van de gemeente Enschede gebouwd in 1923 naar een ontwerp van de zoon van W.C. Metzelaar, hoofdingenieur voor de gevangenissen en rechtsgebouwen. De plint (onderkant) is van natuursteen en lichte bakstenen banden sieren de gevels. Opvallend is de uitstekende trappentoren met tentdak.",
+        "en": "In 1923 the municipality of Enschede commissioned for the establishment of the courthouse, designed by the son of W.C. Metzelaar, chief engineer of prisons and courthouses. The plinth is constructed out of natural stone and the facades are lined with light brick ribbons. Of interest is the protrusive stair tower with its tent-shaped roof.",
+        "de": "Im Jahr 1923 wurde das Gerichtsgebäude im Auftrag der Stadt Enschede erbaut nach Plänen von  W.C. Metzelaars Sohn, leitendem Ingenieur für die Gefängnisse und Gerichtsgebäude. Die Fußleiste (Unterseite) ist aus Naturstein, und helle Ziegelbänder schmücken die Fassaden. Bemerkenswert ist der hinausragende Treppenturm mit Zeltdach."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat is een gerechtsgebouw:",
+          "opties": [
+            "Gebouw waar gerechten worden gemaakt voor restaurants",
+            "Gebouw waar recht wordt gesproken (rechtbank)",
+            "Een gebouw dat gerecht (rechtop) is gebouwd",
+            "Gebouw waar ze kromme voorwerpen weer recht maken"
+          ],
+          "uitleg": "In een rechtbank beslist een rechter of iemand iets verkeerds heeft gedaan, en welke straf daarbij hoort."
+        },
+        "en": {
+          "tekst": "What is a courthouse?",
+          "opties": [
+            "A building where meals are cooked for restaurants",
+            "A building where judges decide cases (a law court)",
+            "A building that was built very straight",
+            "A building where bent things are made straight again"
+          ],
+          "uitleg": "In a law court, a judge decides whether someone has done something wrong, and what the punishment should be."
+        },
+        "de": {
+          "tekst": "Was ist ein Gerichtsgebäude?",
+          "opties": [
+            "Ein Gebäude, in dem Gerichte (Speisen) für Restaurants gekocht werden",
+            "Ein Gebäude, in dem Recht gesprochen wird",
+            "Ein Gebäude, das ganz gerade gebaut ist",
+            "Ein Gebäude, in dem krumme Dinge wieder gerade gemacht werden"
+          ],
+          "uitleg": "Im Gericht entscheidet ein Richter, ob jemand etwas Falsches getan hat und welche Strafe dazugehört."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 21,
+      "id": "joodse-begraafplaats",
+      "titel": {
+        "nl": "Joodse begraafplaats",
+        "en": "Jewish cemetery",
+        "de": "Jüdischer Friedhof"
+      },
+      "tekst": {
+        "nl": "De begraafplaats werd opgericht in 1768 en is sinds 1841 niet meer in gebruik. Na de stadsbrand van 1862 kwam de kleine begraafplaats midden in de bebouwing en langs de drukke straat te liggen. In 1912 werd om veiligheidsredenen de houten schutting om de begraafplaats vervangen door een hek en werd er een voetpad aangelegd. In 1947 worden de resten overgebracht naar de Israëlitische begraafplaats aan de Noord Eschmarkerondweg. Alleen een monumentje op de hoek van de Molenstraat en de Nieuwe Schoolweg herinnert aan de begraafplaats.",
+        "en": "The cemetery was founded in 1768 and hasn’t been used since 1841. After the city fire of 1862, the small cemetery became interlocked in between buildings and a busy street. Due to safety reasons, the original wooden fence surrounding the cemetery was replaced by iron in 1912, together with the construction of a footpath. In 1947 the bodily remains were transferred to the Israelitic cemetery at the Noord Esmarkerondweg. Today, a small monument at the intersection of the Molenstraat and Nieuwe Schoolweg is the only reminder of the cemetery.",
+        "de": "Dieser Friedhof wurde 1768 gegründet und wird seid 1841 nicht mehr benutzt. Nach dem Stadtbrand im Jahr 1862 und dem Wiederaufbau der Stadt lag der kleiner Firedhof in der Mitte der Bebauung und an einer belebten Straße. Im Jahr 1912 hat man aus Sicherheitsgründen den Lattenzaun um den Friedhof ersetzt durch ein Gitter und einen Gehweg angelegt. Im Jahr 1947 hat man die sterblichen Überreste an den israelischen Friedhof an der Noord Esmarkerondweg verbracht. Nur ein kleines Denkmal an der Ecke Molenstraat/Nieuwe Schoolweg erinnert an den Friedhof."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Op het hek stond aan beide einden een bordje met de tekst:",
+          "opties": [
+            "Pas op overstekende voetgangers",
+            "Langzaam rijden bij de begraafplaats",
+            "Gesloten Israëlitische Begraafplaats",
+            "Verboden over te steken"
+          ],
+          "uitleg": "Israëlitisch is een ouder woord voor Joods. 'Gesloten' betekent: hier wordt niemand meer begraven."
+        },
+        "en": {
+          "tekst": "There was a sign at both ends of the railing. What did it say?",
+          "opties": [
+            "Watch out, pedestrians crossing",
+            "Drive slowly past the cemetery",
+            "Closed Israelite Cemetery",
+            "No crossing"
+          ],
+          "uitleg": "Israelite is an older word for Jewish. 'Closed' means: no one is buried here any more."
+        },
+        "de": {
+          "tekst": "An beiden Enden des Gitters hing ein Schild. Was stand darauf?",
+          "opties": [
+            "Achtung, Fußgänger",
+            "Langsam fahren am Friedhof",
+            "Geschlossener israelitischer Friedhof",
+            "Überqueren verboten"
+          ],
+          "uitleg": "Israelitisch ist ein älteres Wort für jüdisch. 'Geschlossen' heißt: Hier wird niemand mehr begraben."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 22,
+      "id": "fabrieksschool",
+      "titel": {
+        "nl": "Fabrieksschool",
+        "en": "Factory school",
+        "de": "Fabrikschule"
+      },
+      "tekst": {
+        "nl": "Door een 15-tal Enschedese fabrikanten werd in 1866 de Fabrieksschool opgericht. Hier kregen 362 fabriekskinderen onder de 14 jaar verplicht les. De kinderen moesten vóór of na de normale werktijden in de fabrieken naar school. De school – nu een rijksmonument - werd pas in 1974 opgeheven. Let vooral op de gelukkig nooit vervangen klapramen met hun vele kleine ruitjes op de eerste verdieping.",
+        "en": "The Enschede Factory School was erected by a group of 15 manufacturers in 1866. Here, 362 children of factory workers underwent compulsory education until the age of 14. The children were obliged to attend school prior and after factory working hours. The school, at this time a monument of state, was abolished only in 1974. Please note the folding windows with its many tiny squares in the original state on the first floor.",
+        "de": "Im Jahr 1866 gründeten 15 Enschedeer Textilhersteller die Fabrikschule. Hier bekamen 362 Fabrikkinder unter 14 Jahren Pflichtunterricht. Die Kinder mussten vor oder nach den normalen Arbeitsstunden in den Fabriken zur Schule. Diese Schule – jetzt ein Reichsmonument – wurde erst 1974 aufgehoben. Bemerkenswert sind vor allem die Kippfenster im ersten Stock mit den vielen kleinen Scheiben."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Om op de fabrieksschool toegelaten te worden moest:",
+          "opties": [
+            "Vader in een textielfabriek werken",
+            "Moeder in een textielfabriek werken",
+            "Het kind zelf in een textielfabriek werken",
+            "Vriend of vriendin zijn bij een textielfabrikant"
+          ],
+          "uitleg": "Kinderen werkten toen al jong in de fabriek. Op deze school leerden ze toch lezen, schrijven en rekenen."
+        },
+        "en": {
+          "tekst": "Who was allowed to go to the Factory School?",
+          "opties": [
+            "Children whose father worked in a textile factory",
+            "Children whose mother worked in a textile factory",
+            "Children who worked in a textile factory themselves",
+            "Children who were friends with a factory owner"
+          ],
+          "uitleg": "Children started working in the factory at a young age back then. At this school they could still learn to read, write and do sums."
+        },
+        "de": {
+          "tekst": "Wer durfte zur Fabrikschule gehen?",
+          "opties": [
+            "Kinder, deren Vater in einer Textilfabrik arbeitete",
+            "Kinder, deren Mutter in einer Textilfabrik arbeitete",
+            "Kinder, die selbst in einer Textilfabrik arbeiteten",
+            "Kinder, die mit einem Textilfabrikanten befreundet waren"
+          ],
+          "uitleg": "Kinder arbeiteten damals schon jung in der Fabrik. In dieser Schule lernten sie trotzdem lesen, schreiben und rechnen."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 23,
+      "id": "klooster-larinksticht",
+      "titel": {
+        "nl": "Klooster Larinksticht",
+        "en": "Larinksticht convent",
+        "de": "Kloster Larinksticht"
+      },
+      "tekst": {
+        "nl": "Het Larinksticht is vernoemd naar Gerhardus Larink die een koperslagerij had. Hij maakte hier koperen potten en pannen. Na zijn dood werd het een klooster. Het complex bestaat uit verschillende onderdelen en ligt rond een kapel met toren. Toen het klooster op 2 juni 1869 werd geopend waren er een handwerkschool voor meisjes en een bewaarschool in gevestigd.",
+        "en": "The Larinksticht convent was named after Gerhardus Larink, who owned a coppersmithing. Here, he crafted pots and pans made out of copper. After his passing it became a convent. The area is comprised of different parts and is lined around a chapel with a tower. Upon the opening of the convent on June 2nd 1869 a girl-school for handicrafts and a nursery school were established there.",
+        "de": "Das ‘Larinksticht’ wurde nach Gerhardus Larink benannt, der hier eine Kupferschmiede hatte. Er hat hier Kupfertöpfe und –Pfannen hergestellt. Nach seinem Tod wurde in diesem Gebäude ein Kloster gegründet. Der Komplex besteht aus mehreren Teilen und liegt um eine Kapelle mit Turm. Als das Kloster am 2. Juni 1869 eröffnet wurde, befanden sich dort eine Nähschule für Mädchen und ein Kindergarten."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Nu is het klooster in gebruik als:",
+          "opties": [
+            "Administratiekantoor van de gemeente",
+            "Bewoond door oudere mensen met een handicap.",
+            "Bewoond door woon- en leefgemeenschap De Wonne",
+            "Sportschool"
+          ],
+          "uitleg": "In een woongemeenschap heeft iedereen een eigen plek, maar doen de bewoners veel samen. Net als vroeger de kloosterzusters."
+        },
+        "en": {
+          "tekst": "What is the convent used for today?",
+          "opties": [
+            "As a council office",
+            "Older people with a disability live there",
+            "The De Wonne living community lives there",
+            "As a gym"
+          ],
+          "uitleg": "In a living community, everyone has their own space, but the residents do a lot together. Just like the nuns in the past."
+        },
+        "de": {
+          "tekst": "Wofür wird das Kloster heute genutzt?",
+          "opties": [
+            "Als Büro der Stadt",
+            "Dort wohnen ältere Menschen mit einer Behinderung",
+            "Dort wohnt die Wohn- und Lebensgemeinschaft De Wonne",
+            "Als Fitnessstudio"
+          ],
+          "uitleg": "In einer Wohngemeinschaft hat jeder seinen eigenen Platz, aber die Bewohner machen viel zusammen. So wie früher die Klosterschwestern."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 24,
+      "id": "verenigingsgebouw-irene",
+      "titel": {
+        "nl": "Verenigingsgebouw Irene",
+        "en": "Irene club building",
+        "de": "Vereinshaus Irene"
+      },
+      "tekst": {
+        "nl": "Dit gebouw is na de brand van 1862 gebouwd als een klein café (Hemken). Door latere verbouwingen werd het steeds groter met o.a. een theaterzaal. Het gebouw was eigendom van een protestantse vereniging. Hier werden in de jaren 60 van de vorige eeuw de eerste pop- en jazzconcerten van Enschede gehouden (Cottontown Jazzband). Dansavonden, cabaretavonden (met de bekende Enschedeër Henk Elsink), diploma-uitreikingen en examenfeestjes van middelbare scholen vonden allemaal in ‘Irene’ plaats. Alleen de naam ‘Irenepassage’ van de winkelpromenade die hier nu staat herinnert nog aan dit voormalige culturele en uitgaanscentrum.",
+        "en": "This building was established after the 1862 fire and became a little pub (Hemken) at first. Thanks to later improvements it became larger, comprising not only a pub but also a theater hall. The building belonged to the protestant society. It was here where in the 1960s the first pop- and jazz concerts in Enschede were held (Cottontown Jazzband). Dance nights, comedy nights (with the well-known local Henk Elsink), graduations and high school parties were all organized in the “Irene”. The only thing reminding of this place today is the name “Irenepassage” of the current shopping mall.",
+        "de": "Dieses Gebäude wurde nach dem Stadtbrand als kleines Café (Hemken) erbaut. Durch spätere Umbauten wurde es immer größer, mit u.a. einer Bühne. Das Gebäude gehörte damals einem evangelischen Verein. Hier wurden in den sechziger Jahren des vorigen Jahrhunderts die ersten Pop- und Jazzkonzerte in Enschede veranstaltet (Cottontown Jazzband). Tanzabende, Kabarett-Abende (mit dem bekannten Enschedeer Henk Elsink), Schulabschlussfeiern, dies alles fand in ‘Irene’ statt. Nur der Name ‘Irenepassage’ der Geschäftspromenade die es hier jetzt gibt, erinnert noch an dieses  ehemalige Kultur- und Entspannungszentrum."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom wilden protestanten een eigen gebouw met theater:",
+          "opties": [
+            "De katholieken en de socialisten hadden ook een gebouw",
+            "Ze waren heel rijk en daarom lieten ze dit gebouw bouwen",
+            "Ze waren jaloers op de anderen",
+            "Ze konden heel goed toneelspelen"
+          ],
+          "uitleg": "Vroeger had elke groep (katholiek, protestant, socialist) zijn eigen scholen, clubs en zalen. Dat heet verzuiling."
+        },
+        "en": {
+          "tekst": "Why did the Protestants want their own building with a theatre?",
+          "opties": [
+            "The Catholics and the Socialists also had their own building",
+            "They were very rich, so they had this building built",
+            "They were jealous of the others",
+            "They were very good at acting"
+          ],
+          "uitleg": "In the past, each group (Catholic, Protestant, Socialist) had its own schools, clubs and halls. This is called 'pillarisation'."
+        },
+        "de": {
+          "tekst": "Warum wollten die Protestanten ein eigenes Gebäude mit einem Theater?",
+          "opties": [
+            "Die Katholiken und die Sozialisten hatten auch ein eigenes Gebäude",
+            "Sie waren sehr reich und ließen darum dieses Gebäude bauen",
+            "Sie waren neidisch auf die anderen",
+            "Sie konnten sehr gut Theater spielen"
+          ],
+          "uitleg": "Früher hatte jede Gruppe (katholisch, protestantisch, sozialistisch) eigene Schulen, Vereine und Säle. Das nennt man 'Versäulung'."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 25,
+      "id": "politiebureau",
+      "titel": {
+        "nl": "Politiebureau",
+        "en": "Police station",
+        "de": "Polizeiamt"
+      },
+      "tekst": {
+        "nl": "Dit oude politiebureau werd in 1912 gebouwd aan de Haaksbergerstraat. Dit stukje straat bij de rotonde heet nu Nijverheidstraat. Hier staat nu nog (2018) het bankgebouw van de ING. De stijl van het gebouw was heel vreemd voor Enschede. Met trapgeveltjes (=het dak lijkt net een trapje). Een torentje en een driehoek (timpaan) boven de ingang. Maar de inwoners vonden het heel mooi. Toen de Boulevard werd aangelegd werd het gesloopt (1968).",
+        "en": "This old police station was built in 1912 at the Haaksbergerstraat. Nowadays, this part of the street at the roundabout is called the Nijverheidstraat. At this moment, a building of the ING bank is to be found here. The style of the police building, with its stair-styled facade and a tringle-shaped tower (tympanum) above the entrance, was out of the ordinary in Enschede. But the people loved it. The building was demolished in favor of the new Boulevard in 1968.",
+        "de": "Dieses alte Polizeiamt wurde 1912 an der Haaksbergerstraat gebaut. Dieser kleine Straßenstrecke beim Verkehrskreis heißt jetzt Nijverheidstraat. Hier steht jetzt (2018) noch das ING-Bankgebäude. Der Stil des alten Gebäudes war damals für Enschede sehr ungewöhnlich. Es hatte nämlich einen Treppengiebel (= das Dach sieht wie eine Treppe aus), einen kleinen Turm und ein Dreieck (Tympanum) über dem Eingang. Die Einwohner fanden es aber sehr schön. Beim Bau des Boulevards 1945 wurde das Gebäude abgerissen (1968)."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De bewoners van Enschede waren erg boos dat het gebouw werd afgebroken:",
+          "opties": [
+            "Omdat het al van voor de brand van 1862 stamde",
+            "Omdat het op een Amsterdams huis leek",
+            "Omdat het zo’n mooi en bijzonder gebouw was",
+            "Omdat de bakstenen een mooie kleur hadden"
+          ],
+          "uitleg": "Met zijn trapgevels en torentje was het uniek in de stad. Daarom misten mensen het."
+        },
+        "en": {
+          "tekst": "Why were the people of Enschede very angry that the building was knocked down?",
+          "opties": [
+            "It was older than the fire of 1862",
+            "It looked like an Amsterdam house",
+            "It was such a beautiful and special building",
+            "The bricks had a nice colour"
+          ],
+          "uitleg": "With its stepped gables and little tower it was unique in the town. That is why people missed it."
+        },
+        "de": {
+          "tekst": "Warum waren die Einwohner von Enschede sehr böse, dass das Gebäude abgerissen wurde?",
+          "opties": [
+            "Es stammte noch aus der Zeit vor dem Brand von 1862",
+            "Es sah aus wie ein Amsterdamer Haus",
+            "Es war so ein schönes und besonderes Gebäude",
+            "Die Backsteine hatten eine schöne Farbe"
+          ],
+          "uitleg": "Mit seinen Treppengiebeln und dem Türmchen war es einzigartig in der Stadt. Darum vermissten die Leute es."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 26,
+      "id": "stoomweverij-de-nijverheid",
+      "titel": {
+        "nl": "Stoomweverij De Nijverheid",
+        "en": "De Nijverheid steam weaving mill",
+        "de": "Dampfweberei De Nijverheid"
+      },
+      "tekst": {
+        "nl": "N.V. Stoomweverij De Nijverheid is in 1889 begonnen en later uitgebreid met een blekerij, ververij en ruwerij. Eigenaren waren de joodse familie M.L. van Gelderen. In 1966 ging de fabriek over naar Texoprint in Boekelo. De productie in De Nijverheid werd in 1967 gestaakt en het complex werd in 1973 gesloopt. Sinds 1983 staat hier het politiebureau.",
+        "en": "Steam weaving De Nijverheid Inc. was founded in 1889. Later, a bleaching, a dyer and a roughing were added. The Jewish family of M.L. van Gelderen was the owners. In 1966 the factory was converted to Texoprint in Boekelo. Production at De Nijverheid ceased in 1967 and the complex was demolished in 1973. As of 1983, this is the place for the police station.",
+        "de": "Aktiengesellschaft Dampfweberei ‘De Nijverheid’ hat 1889 angefangen und wurde später ausgebaut. Eigentümer war die jüdische Familie M.L. van Gelderen. Im Jahr 1966 wurde die Fabrik auf Texoprint in Boekelo übertragen. Die Produktion in ‘De Nijverheid’ wurde 1967 beendigt, und der Komplex wurde1973 abgerissen. Seit 1983 steht hier das neue Polizeiamt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Stoomweverij heeft een slechte naam gekregen omdat:",
+          "opties": [
+            "In de fabriek altijd een vieze lucht hing",
+            "De arbeiders er heel hard moesten werken",
+            "Er in de 2e Wereld Oorlog hier de Joodse textielsterren werden gedrukt",
+            "Het in de fabriek heel ongezond was"
+          ],
+          "uitleg": "De Duitse bezetter dwong de fabriek de gele sterren te drukken die Joden op hun kleding moesten dragen."
+        },
+        "en": {
+          "tekst": "Why did the steam weaving mill get a bad name?",
+          "opties": [
+            "There was always a nasty smell in the factory",
+            "The workers had to work very hard there",
+            "In the Second World War, the Jewish stars were printed here",
+            "It was very unhealthy in the factory"
+          ],
+          "uitleg": "The German occupiers forced the factory to print the yellow stars that Jews had to wear on their clothes."
+        },
+        "de": {
+          "tekst": "Warum bekam die Dampfweberei einen schlechten Ruf?",
+          "opties": [
+            "In der Fabrik roch es immer schlecht",
+            "Die Arbeiter mussten dort sehr hart arbeiten",
+            "Im Zweiten Weltkrieg wurden hier die Judensterne gedruckt",
+            "Es war in der Fabrik sehr ungesund"
+          ],
+          "uitleg": "Die deutschen Besatzer zwangen die Fabrik, die gelben Sterne zu drucken, die Juden an ihrer Kleidung tragen mussten."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 27,
+      "id": "striekiezer",
+      "titel": {
+        "nl": "Striekiezer",
+        "en": "Striekiezer (Flat iron)",
+        "de": "Striekiezer (Bügeleisen)"
+      },
+      "tekst": {
+        "nl": "Deze winkel werd gebouwd in 1870 in opdracht van smid J.Th. Tönies wordt ’t Striekiezer’ genoemd. Jarenlang heeft hier ijzerwarenhandelaar Tönies gezeten, daarna speelgoedwinkel Van Ulzen en later nog vele andere winkels. Een ander bekend striekiezer (strijkijzer) ligt op de hoek van de Kuipersdijk-Lippinkhofsweg (Brünen) en hoek Molenstraat-Nieuwe Schoolweg.",
+        "en": "This shop was established in 1870, commissioned by blacksmith J. Th. Tönies. The building is called “’t Striekiezer” (the flatiron). For years, iron dealer Tönies was housed here. Thereafter, toy shop Van Ulzen and later many other shops. Another well-known “striekiezer” can be found at the corner of the Kuipersdijk-Lippinkhofsweg (near driving school “Brünen”) and the corner of the Molenstraat-Nieuwe Schoolweg.",
+        "de": "Dieser Laden wurde 1870 im Auftrag des Schmiedes J.Th. Tönies erbaut, und wird ’t Striekiezer’ (= Dialekt: Bügeleisen) genannt. Viele Jahre lang befand sich hier das Eisenwarengeschäft von Tönies, danach Spielzeugladen Van Ulzen und später noch viele andere Geschäfte. Andere bekannte ‘striekiezers’ befinden sich an der Ecke der Kuipersdijk/Lippinkhofsweg (Brünen) und an der Ecke Molenstraat/Nieuwe Schoolweg."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het winkelpand heet ’t Striekiezer’ omdat:",
+          "opties": [
+            "IJzerhandelaar Tönies veel strijkijzers verkocht",
+            "Het pand de vorm van een strijkijzer heeft",
+            "In het pand veel glad gestreken ijzers zit",
+            "Als reclamestunt van Tönies"
+          ],
+          "uitleg": "Waar twee straten schuin samenkomen, wordt een pand smal en puntig, net als een strijkijzer."
+        },
+        "en": {
+          "tekst": "Why is the shop building called ''t Striekiezer' (the flat iron)?",
+          "opties": [
+            "The ironmonger Tönies sold a lot of flat irons",
+            "The building has the shape of a flat iron",
+            "There is a lot of smoothly ironed iron in the building",
+            "It was an advertising stunt by Tönies"
+          ],
+          "uitleg": "Where two streets meet at a sharp angle, a building becomes narrow and pointed, just like a flat iron."
+        },
+        "de": {
+          "tekst": "Warum heißt das Geschäftshaus ''t Striekiezer' (das Bügeleisen)?",
+          "opties": [
+            "Der Eisenhändler Tönies verkaufte viele Bügeleisen",
+            "Das Haus hat die Form eines Bügeleisens",
+            "Im Haus ist viel glatt gebügeltes Eisen",
+            "Es war ein Werbetrick von Tönies"
+          ],
+          "uitleg": "Wo zwei Straßen schräg zusammenkommen, wird ein Haus schmal und spitz, genau wie ein Bügeleisen."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 28,
+      "id": "r-k-sint-jozefkerk",
+      "titel": {
+        "nl": "R.K. Sint-Jozefkerk",
+        "en": "St Joseph's Catholic Church",
+        "de": "Katholische St.-Josef-Kirche"
+      },
+      "tekst": {
+        "nl": "De kerk is in 1894 in neogotische stijl (= de ramen lopen aan de bovenkant niet rond, maar in een punt) gebouwd in de tijd van Dr. Alphons Ariens. De kerktoren staat tegen de voorgevel en is met 77 meter de hoogste kerktoren van Enschede. Het is ook het op één na hoogste gebouw van Enschede.",
+        "en": "The church was erected in 1894, in the era of Dr. Alphons Ariëns, in a neo-Gothic style, which means that the windows have a spire in the top, instead of a round. The church tower is located in front of the façade and with its 77 meter it is the highest church tower in Enschede. Moreover, it is the second-highest building of Enschede.",
+        "de": "Die Kirche wurde 1894 in neogotischem Stil (= die Fenster sind ab der Oberseite nicht rund, sondern sie haben einen Spitzbogen) erbaut in der Zeit von Dr. Alphons Ariëns. Der Turm steht gegen die Fassade und ist 77 Meter hoch, der höchste Kirchenturm in Enschede. Auch ist die Kirche das zweithöchste Gebäude Enschedes."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Sint-Josephkerk is als parochie (= groep katholieken die bij één kerkgebouw hoort) in Enschede de:",
+          "opties": [
+            "1e  parochie",
+            "2e parochie",
+            "3e parochie",
+            "4e parochie"
+          ],
+          "uitleg": "Door de vele textielarbeiders werd de oude parochie van de Jacobuskerk te groot. Daarom kwam er een tweede bij."
+        },
+        "en": {
+          "tekst": "St Joseph's is a parish (= a group of Catholics who belong to one church building). Which number parish of Enschede is it?",
+          "opties": [
+            "The 1st parish",
+            "The 2nd parish",
+            "The 3rd parish",
+            "The 4th parish"
+          ],
+          "uitleg": "Because of all the textile workers, the old parish of the Jacobuskerk became too big. So a second one was added."
+        },
+        "de": {
+          "tekst": "St. Josef ist eine Pfarrei (= eine Gruppe von Katholiken, die zu einem Kirchengebäude gehört). Die wievielte Pfarrei von Enschede ist das?",
+          "opties": [
+            "Die 1. Pfarrei",
+            "Die 2. Pfarrei",
+            "Die 3. Pfarrei",
+            "Die 4. Pfarrei"
+          ],
+          "uitleg": "Wegen der vielen Textilarbeiter wurde die alte Pfarrei der Jacobuskerk zu groß. Darum kam eine zweite dazu."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 29,
+      "id": "jacobuskerk",
+      "titel": {
+        "nl": "Jacobuskerk",
+        "en": "Jacobuskerk (St James' Church)",
+        "de": "Jacobuskerk (St.-Jakobus-Kirche)"
+      },
+      "tekst": {
+        "nl": "De eerste katholieke kerk in Enschede na de Beeldenstorm van 1566, werd in 1894 gebouwd. Dit gebouw werd tijdens de stadsbrand in 1862 verwoest en in 1863 vervangen door een kerk in neogotische stijl. Deze kerk werd in 1932 wegens bouwvalligheid afgebroken. De huidige kerk werd in 1933 ingewijd (= in gebruik genomen). Hij is vernoemd naar Jacobus de Meerdere. Dat was een belangrijke apostel van Jezus. De architecten hebben bij de bouw vooral gekeken naar de Aya Sophia in Istanbul als voorbeeld. Daarom heeft de kerk 2 grote koepels van meer dan 20m hoog.",
+        "en": "The first catholic church in Enschede after the Iconoclasm of 1566 was erected in 1894. This building was destroyed during the city fire of 1862 and replaced by a neo-Gothic edifice in 1863. Due to ruination, the church was demolished in 1932. The current church was inaugurated in 1933. It is named after Jacob the Superior, an important apostle of Jesus. The architects were inspired by the Aya Sophia in Istanbul. Therefore, the church houses two big domes with an altitude of 20m.",
+        "de": "Die erste römisch-katholische Kirche in Enschede nach der Bilderstürmerei im Jahr 1566, wurde 1894 errichtet. Dieses Gebäude wurde beim Standtbrand im Jahr 1862 zerstört und 1863 durch eine Kirche in neogotischem Stil ersetzt. Diese Kirche wurde 1932 wegen Baufälligkeit abgebrochen. Die heutige Kirche wurde1933 eingeweiht. Sie ist nach dem Heiligen Jakobus benannt. Er war ein wichtiger Apostel Jesu. Die Architekten haben beim Bau vor allem die Kirche der Santa Sofia in Istanbul als Vorbild gut beobachtet: die Kirche hat zwei große Kuppeln, die mehr als 20 Meter hoch sind."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat is een apostel:",
+          "opties": [
+            "Iemand die groenten verbouwd",
+            "Een van de 12 leerlingen van Jezus",
+            "Zo werd vroeger een voetballer genoemd",
+            "Een boer met een stropdas"
+          ],
+          "uitleg": "Jezus had twaalf vaste leerlingen: de apostelen. Jacobus de Meerdere was er één van."
+        },
+        "en": {
+          "tekst": "What is an apostle?",
+          "opties": [
+            "Someone who grows vegetables",
+            "One of the 12 disciples of Jesus",
+            "What a football player used to be called",
+            "A farmer in a tie"
+          ],
+          "uitleg": "Jesus had twelve close followers: the apostles. St James the Greater was one of them."
+        },
+        "de": {
+          "tekst": "Was ist ein Apostel?",
+          "opties": [
+            "Jemand, der Gemüse anbaut",
+            "Einer der 12 Jünger von Jesus",
+            "So nannte man früher einen Fußballspieler",
+            "Ein Bauer mit Krawatte"
+          ],
+          "uitleg": "Jesus hatte zwölf feste Jünger: die Apostel. Jakobus der Ältere war einer von ihnen."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 30,
+      "id": "grote-kerk",
+      "titel": {
+        "nl": "Grote Kerk",
+        "en": "Grote Kerk (Great Church)",
+        "de": "Grote Kerk (Große Kirche)"
+      },
+      "tekst": {
+        "nl": "De kerk is het oudste monument van Enschede. Rond het jaar 800 stond hier een houten kerkje. De fundamenten (= de basis waarop een gebouw wordt gebouwd) bestonden uit grote veldkeien. Rond het jaar 1000 wordt het kerkje in steen opgetrokken. In de loop van de verdere eeuwen wordt de kerk steeds verder uitgebouwd met zandsteen afkomstig uit eerst Baumberg (rond 1200) en later uit Bentheim (rond 1500). Deze stenen werden voornamelijk met paard en wagen hier naar toe vervoerd. Bij de grote stadsbrand van 1862 bleven alleen de muren overeind. Pas in 1865 was de kerk weer volledig gerestaureerd.",
+        "en": "The Big Church is the oldest monument of Enschede. Somewhere around the year 800, a small wooden church was situated here. The foundation was comprised of big field boulders. Around the year 1000 the little church was erected in stone. In the course of later centuries, new parts were added to the church, using sandstone from the German town of Baumberg (around 1200) and later from Bentheim (around 1500). These stones were delivered to Enschede by means of horse and carriage. During the big city fire of 1862, only the walls remained intact. It was not until 1865 that the church was fully restored.",
+        "de": "Die ‘Grote kerk’ (Große Kirche) ist das älteste Denkmal Enschedes. Etwa im Jahr 800 stand hier eine kleine Holzkirche. Das Fundament bestand aus großen Findlingen. Um das Jahr 1000 wurde die kleine Kirche aus Stein wiederaufgebaut. Im Lauf der weiteren Jahrhunderte wurde die Kirche immer wieder mit Sandstein vergrößert, zuerst aus Baumberg (um 1200) und später aus Bentheim (um 1500). Diese Steine wurden vor allem mit Pferdewagen hierher transportiert. Beim großen Stadtbrand im Jahr 1862 sind nur die Wände nicht eingestürzt. Erst 1865 wurde die Kirche wieder völlig restauriert."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het verschil in Baumberger- en Bentheimerzandsteen kun je goed zien aan:",
+          "opties": [
+            "De vorm van de stenen",
+            "De reuk van de stenen",
+            "De kleur van de stenen",
+            "Dat is niet te zien"
+          ],
+          "uitleg": "De twee soorten zandsteen hebben elk een eigen kleur. Kijk maar eens goed naar de muren van de kerk."
+        },
+        "en": {
+          "tekst": "How can you easily see the difference between Baumberg and Bentheim sandstone?",
+          "opties": [
+            "By the shape of the stones",
+            "By the smell of the stones",
+            "By the colour of the stones",
+            "You can't see it"
+          ],
+          "uitleg": "The two kinds of sandstone each have their own colour. Take a good look at the walls of the church."
+        },
+        "de": {
+          "tekst": "Woran erkennst du gut den Unterschied zwischen Baumberger und Bentheimer Sandstein?",
+          "opties": [
+            "An der Form der Steine",
+            "Am Geruch der Steine",
+            "An der Farbe der Steine",
+            "Das sieht man nicht"
+          ],
+          "uitleg": "Die beiden Sandsteinsorten haben jeweils eine eigene Farbe. Schau dir die Mauern der Kirche einmal genau an."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 31,
+      "id": "stadsbrand-1862",
+      "titel": {
+        "nl": "De grote stadsbrand van 1862",
+        "en": "The great town fire of 1862",
+        "de": "Der große Stadtbrand von 1862"
+      },
+      "tekst": {
+        "nl": "Enschede is in de loop van de eeuwen 4 keer afgebrand. De laatste keer was dat op 7 mei 1862. Vrijwel de hele stad ging toen in vlammen op. Ook de grote kerk brandde af en de toren stortte helemaal in. Alleen de gebouwen buiten de stadspoorten en grachten bleven over. De Grote Kerk werd in 1864 weer herbouwd en kreeg een nieuwe torenspits. In 1927 werd er voor de 5e keer een nieuwe torenspits op de kerk geplaatst. Deze staat nu nog op de toren.",
+        "en": "Enschede has been burned to the ground four times. The last time was at the 7th of May 1862. Almost the whole city was a prey to the flames. The big church was destroyed as well; the tower collapsed completely. The only buildings remaining after the fire where the ones located behind the city gates and canals. The big church was rebuilt in 1864 with the addition of a new steeple. In 1927 the steeple was replaced for the current one.",
+        "de": "Enschede ist im Lauf der Jahrhunderte vier Mal abgebrannt, das letzte Mal am 7. Mai 1862. Fast die ganze Stadt ist dabei in Flammen aufgegangen. Auch die ‘Grote kerk’ brannte ab und der Turm stürzte völlig ein. Nur die Gebäude außerhalb der Stadttore und Stadtgräben blieben erhalten. Die ‘Grote kerk’ wurde 1864 wiederaufgebaut und bekam eine neue Turmspitze. Im Jahr 1927 wurde zum fünften Mal eine neue Turmspitze auf die Kirche angebracht. Diese Spitze steht jetzt noch immer auf dem Turm."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom is in 1927 de torenspits weer vervangen:",
+          "opties": [
+            "De spits van 1864 was uit de mode",
+            "De spits was in slechte staat",
+            "Men vond de spits niet hoog genoeg",
+            "Om deze geschikt te maken als zendmast"
+          ],
+          "uitleg": "De spits van 1864 was na ruim zestig jaar wind en weer aan vervanging toe."
+        },
+        "en": {
+          "tekst": "Why was the spire replaced again in 1927?",
+          "opties": [
+            "The spire from 1864 was out of fashion",
+            "The spire was in bad condition",
+            "People thought the spire was not high enough",
+            "To make it suitable as a radio mast"
+          ],
+          "uitleg": "After more than sixty years of wind and weather, the spire from 1864 needed replacing."
+        },
+        "de": {
+          "tekst": "Warum wurde die Turmspitze 1927 wieder ersetzt?",
+          "opties": [
+            "Die Spitze von 1864 war aus der Mode",
+            "Die Spitze war in schlechtem Zustand",
+            "Man fand die Spitze nicht hoch genug",
+            "Um sie als Sendemast nutzen zu können"
+          ],
+          "uitleg": "Nach über sechzig Jahren Wind und Wetter musste die Spitze von 1864 ersetzt werden."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 32,
+      "id": "brandmonument",
+      "titel": {
+        "nl": "Het brandmonument",
+        "en": "The fire monument",
+        "de": "Das Branddenkmal"
+      },
+      "tekst": {
+        "nl": "Voor de kerkingang staat het brandmonument. Het beeld van roze zandsteen werd in 1912 door de Enschedese bevolking aan de gemeente geschonken. Dit omdat het precies 50 jaar geleden was dat de hele stad afbrandde. Op het monument staat een man met een staf afgebeeld. Dat is Jacobus de Meerdere. Dat was een katholieke bisschop.",
+        "en": "The fire monument can be found right in front of the church entrance. The monument, built out of pink sandstone, was a present of the people to the municipality of Enschede to commemorate the fact that the city was burned to the ground 50 years earlier. The monument shows a man holding a scepter. This is Jacob the Superior, a catholic bishop.",
+        "de": "Vor dem Kircheneingang steht das Branddenkmal. Die Enschedeer Bevölkerung hat 1912 dieses Denkmal aus rosa Sandstein der Gemeinde geschenkt, weil es in diesem Jahr genau 50 Jahre her war, dass die ganze Stadt abbrannte. Auf dem Denkmal ist ein Mann mit einem Stab dargestellt. Dieser Mann is Jakobus der Ältere, ein katholischer Bischof."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom zou Jacobus de Meerdere afgebeeld zijn:",
+          "opties": [
+            "Hij was de eerste priester van de kerk",
+            "Jacobus was de beschermheilige van Enschede",
+            "Als een soort versiering",
+            "De kerk moest een naam hebben."
+          ],
+          "uitleg": "Jacobus is de beschermheilige van Enschede. Daarom staat hij op het monument voor de stad."
+        },
+        "en": {
+          "tekst": "Why would St James the Greater be shown on the monument?",
+          "opties": [
+            "He was the first priest of the church",
+            "St James was the patron saint of Enschede",
+            "As a kind of decoration",
+            "The church needed a name"
+          ],
+          "uitleg": "St James is the patron saint of Enschede. That is why he stands on the monument for the town."
+        },
+        "de": {
+          "tekst": "Warum ist wohl Jakobus der Ältere dargestellt?",
+          "opties": [
+            "Er war der erste Priester der Kirche",
+            "Jakobus war der Schutzheilige von Enschede",
+            "Als eine Art Schmuck",
+            "Die Kirche brauchte einen Namen"
+          ],
+          "uitleg": "Jakobus ist der Schutzheilige von Enschede. Darum steht er auf dem Denkmal für die Stadt."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 33,
+      "id": "zonnewijzer",
+      "titel": {
+        "nl": "Zonnewijzer aan de Grote Kerk",
+        "en": "Sundial on the Grote Kerk",
+        "de": "Sonnenuhr an der Grote Kerk"
+      },
+      "tekst": {
+        "nl": "De zonnewijzer aan de zijkant van de kerk is een hele bijzondere wijzer. Een zonnewijzer geeft de tijd aan. Niet de echte tijd, maar de zonnetijd. De echte tijd is de tijd die we met elkaar hebben afgesproken. Anders zou bijv. Amsterdam en andere steden allemaal hun eigen tijd hebben. En dat is veel te lastig. Het bijzondere aan deze zonnewijzer is de lus met de namen van de maanden. Deze lus noemen we een vereffening lus. Wanneer de zonnewijzer precies 12 uur zonnetijd aangeeft, kun je ook zien welke maand het is. Deze wijzer is gemaakt door Coenraad ter Kuile.",
+        "en": "The sundial located at the side of the church is extraordinary. A sundial indicates the time according to solstice. This is not the actual time we agreed to use, because this would mean that Amsterdam and other cities would all have their own time-indications, which would be rather inconvenient. This sundial has a peculiar loop, containing the names of all twelve months. This loop is called an “adjustment loop”. When the sundial indicates 12 o’clock suntime exactly, you can see the actual month. The sundial was developed by Coenraad ter Kuile.",
+        "de": "Die Sonnenuhr an der Kirchenseite ist eine ganz besondere Uhr. Eine Sonnenuhr gibt die Zeit an. Nicht die richtige Zeit, sondern die Sonnenzeit. Die richtige Zeit ist die Zeit, die wir miteinander vereinbart haben. Sonst hätten z.B. Amsterdam und andere Städte alle ihre eigene Zeit, was viel zu kompliziert wäre. Die Besonderheit dieser Sonnenuhr ist die Schleife mit den Monatsnamen. Wenn die Sonnenuhr genau 12 Uhr Sonnenzeit angibt, kann man auch sehen welchen Monat wir haben. Die Uhr wurde von Coenraad ter Kuile hergestellt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De wijzer hangt aan de zuidmuur van de kerk. Waarom hangt die juist op die plek:",
+          "opties": [
+            "Dat is toevallig zo gekomen",
+            "Dan kon je die goed zien",
+            "Dan kon je er met een ladder goed bij",
+            "Daar krijgt hij de meeste zon"
+          ],
+          "uitleg": "Een zonnewijzer werkt alleen als de zon erop schijnt. In Nederland staat de zon overdag in het zuiden, dus daar vangt de wijzer het meeste licht."
+        },
+        "en": {
+          "tekst": "The sundial hangs on the south wall of the church. Why is it in that spot?",
+          "opties": [
+            "It just happened that way",
+            "There you could see it well",
+            "There you could reach it easily with a ladder",
+            "That is where it gets the most sun"
+          ],
+          "uitleg": "A sundial only works when the sun shines on it. In the Netherlands the sun is in the south during the day, so that is where it catches the most light."
+        },
+        "de": {
+          "tekst": "Die Sonnenuhr hängt an der Südwand der Kirche. Warum hängt sie genau dort?",
+          "opties": [
+            "Das hat sich zufällig so ergeben",
+            "Dort konnte man sie gut sehen",
+            "Dort kam man mit einer Leiter gut heran",
+            "Dort bekommt sie am meisten Sonne"
+          ],
+          "uitleg": "Eine Sonnenuhr funktioniert nur, wenn die Sonne darauf scheint. In den Niederlanden steht die Sonne tagsüber im Süden, darum fängt die Uhr dort das meiste Licht."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 34,
+      "id": "concordia",
+      "titel": {
+        "nl": "Concordia kunst en cultuur",
+        "en": "Concordia art and culture",
+        "de": "Concordia Kunst und Kultur"
+      },
+      "tekst": {
+        "nl": "Dit gebouw werd nog voor de stadsbrand gesticht door kapelaan Alphons Ariëns. Het gebouw was bestemd voor de katholieke textielarbeiders. Ze konden hier bijeenkomen om te vergaderen, maar ook om zich te ontspannen in het theater in het gebouw. Het kleine theater is nog steeds in gebruik en veel artiesten vinden dit het mooiste kleine theater van Nederland!",
+        "en": "This building was established just before the big city fire by chaplain Alphons Ariëns. The building was meant for catholic factory workers. They were able to gather here for meetings, but it was also a place for leisure. The small theatre is still in use and is considered as the most beautiful of its kind by many Dutch artists.",
+        "de": "Noch vor dem Stadtbrand wurde dieses Gebäude für die katholischen Textilarbeiter von Kaplan Alphons Ariëns gegründet. Die Arbeiter konten hier nicht nur tagen, sondern sich auch im Theater des Gebäudes entspannen. Das kleine Theater wird noch immer gebraucht, und viele Künstler finden es das schönste kleine Theater der Niederlande!"
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Tegenwoordig heet het gebouw Concordia Kunst en Cultuur omdat:",
+          "opties": [
+            "Dat een mooie naam is",
+            "Er toneel en films worden vertoond",
+            "Concordia betekent kunst en cultuur",
+            "Enschede de grootste kunststad van Nederland is"
+          ],
+          "uitleg": "De naam vertelt wat er gebeurt: kunst en cultuur. 'Concordia' is Latijn voor 'eendracht'."
+        },
+        "en": {
+          "tekst": "Why is the building now called Concordia Art and Culture?",
+          "opties": [
+            "Because it is a nice name",
+            "Because plays and films are shown there",
+            "Because Concordia means art and culture",
+            "Because Enschede is the biggest art city in the Netherlands"
+          ],
+          "uitleg": "The name tells you what happens there: art and culture. 'Concordia' is Latin for 'harmony'."
+        },
+        "de": {
+          "tekst": "Warum heißt das Gebäude heute Concordia Kunst und Kultur?",
+          "opties": [
+            "Weil das ein schöner Name ist",
+            "Weil dort Theater und Filme gezeigt werden",
+            "Weil Concordia Kunst und Kultur bedeutet",
+            "Weil Enschede die größte Kunststadt der Niederlande ist"
+          ],
+          "uitleg": "Der Name sagt, was dort passiert: Kunst und Kultur. 'Concordia' ist Latein für 'Eintracht'."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 35,
+      "id": "pakhuis-van-heek",
+      "titel": {
+        "nl": "Pakhuis",
+        "en": "Warehouse",
+        "de": "Lagerhaus"
+      },
+      "tekst": {
+        "nl": "Naast het Van Heekshuis, \"Het huis met de hooge stoep\", staat het voormalige hoofdkantoor van Van Heek & Co. (nu \"De Beiaard\" en \"De Pakkerij\"). Het had eerst maar één etage en een mooie dakkapel. Toen het pand verbouwd werd met een tweede etage werd deze dakkapel gesloopt. Tot 1940 vertrok elke zaterdag vanuit dit kantoor een bode met een tweewielig karretje met de loonzakjes voor het personeel. Het karretje staat nu in de Museumfabriek. Behalve kantoor was het ook een pakhuis voor de firma Van Heek. Met de laatste grondige restauratie is de villa weer teruggebracht zoals die vroeger was. In het pand bevinden zich nog de originele marmeren vloeren, parketvloeren, houten bordestrap en stucplafonds.",
+        "en": "Next to the Van Heekshuis, the former headquarters of the Van Heek & Co company can be found (now: “De Beiaard” and “De Pakkerij”). At first it had only two floors and a nice dormer. Upon rebuilding to a three-level building the dormer was demolished. Until 1940, every Saturday a two-wheeled cart with an emissary left the office, carrying payrolls for the workers. The cart can be seen in the Factory-museum. Besides being an office, the building was also in use as a warehouse for the Van Heek company. During the most recent restauration the building was reduced to its original shape. Inside, the original marble floors, parquet floors, wooden platform stairs and stucco ceilings can be seen.",
+        "de": "Neben dem ‘Van Heekshuis, ‘Das Haus mit der hohen Treppe’, steht der ehemalige Van Heek & Co Hauptsitz. Heutzutage gibt es dort ‘De Beiaard’ und ‘De Pakkerij’. Das Gebäude hatte anfangs nur einen Stock und eine schöne Dachlaube. Als es mit einem zweiten Stock ausgebreitet wurde, hat man die Dachlaube abgerissen. Bis 1940 machte sich jeden Samstag von diesem Büro aus ein Bote, mit einem kleinen zweirädrigen Wagen mit den Lohntüten für das Personal der Textilfabriken, auf den Weg. Der kleine Wagen steht jetzt im Fabrikmuseum. Außer Büro war das Gebäude auch ein Lagerhaus für die Firma Van Heek. Bei der letzten gründlichen Restaurierung hat man die Villa in den ursprünglichen Zustand zurückversetzt. Im Gebäude befinden sich noch die originellen Marmorböden, Parkettböden, eine holzene Bordestreppe und Stuckdecken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat werd er elke zaterdag in het loonzakje voor het personeel gedaan.",
+          "opties": [
+            "Bankrekeningnummer waarop het loon is gestort",
+            "Een zakje met een gedicht van de dichter Herman van Loon",
+            "Een van de katoenen zakken die ze de afgelopen week gemaakt hadden",
+            "Echt geld (loon) wat de werknemer de afgelopen week heeft verdiend"
+          ],
+          "uitleg": "Lonen werden toen contant uitbetaald, in een zakje met munten en briefjes."
+        },
+        "en": {
+          "tekst": "What was put into the staff's pay packet every Saturday?",
+          "opties": [
+            "The bank account number the wages were paid into",
+            "A packet with a poem by the poet Herman van Loon",
+            "One of the cotton bags they had made that week",
+            "Real money (wages) that the worker had earned that week"
+          ],
+          "uitleg": "Wages were paid in cash back then, in a small packet with coins and banknotes."
+        },
+        "de": {
+          "tekst": "Was kam jeden Samstag in die Lohntüte für das Personal?",
+          "opties": [
+            "Die Kontonummer, auf die der Lohn überwiesen wurde",
+            "Ein Tütchen mit einem Gedicht des Dichters Herman van Loon",
+            "Einer der Baumwollsäcke, die sie in der Woche gemacht hatten",
+            "Echtes Geld (Lohn), das der Arbeiter in der Woche verdient hatte"
+          ],
+          "uitleg": "Der Lohn wurde damals bar ausgezahlt, in einer Tüte mit Münzen und Scheinen."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 36,
+      "id": "villa-van-heek",
+      "titel": {
+        "nl": "Villa Van Heek, 'Het huis met de hooge stoep'",
+        "en": "Villa Van Heek, 'The house with the high front steps'",
+        "de": "Villa Van Heek, 'Das Haus mit der hohen Treppe'"
+      },
+      "tekst": {
+        "nl": "In deze stadsvilla woonde de familie Van Heek. Ze waren de eigenaren van de grootste textielfabriek in Enschede. De familie Van Heek was destijds een van de rijkste mensen van Nederland. Ze woonden echter alleen in de wintermaanden in deze villa. In de zomermaanden woonden ze buiten de stad in een prachtig landhuis. Vanaf 1947 heeft hier 30 jaar lang de bibliotheek gezeten. In 1947 kon als je lid was voor 2 gulden (€ 0,90) per jaar 50 boeken lenen.",
+        "en": "In this city mansion the Van Heek family resided. They were the owners of the biggest textile factory in Enschede. The Van Heek family was amongst the richest of families in the Netherlands. They lived in this mansion only during the winter. During the summer, they lived just outside the city in a beautiful country house. As of 1947 a library could be found here for almost 30 years. In 1947 people were able to borrow 50 books a year for 2 guilders (now € 0,90).",
+        "de": "In dieser Stadtvilla wohnte die Textilfamilie Van Heek. Die Familie war Eigentümer der größten Textilfabrik in Enschede und gehörte damals zu den reichsten Leuten der Niederlande. Die Familie wohnte jedoch nur während der Wintermonate in diesem Haus. Im Sommer bewohnten sie eine sehr schöne Villa außerhalb der Stadt. Ab 1947 hatte die Stadtbibliothek hier 30 Jahre lang ihren Sitz. Im Jahr 1947 konnte man als Mitglied für wenig Geld, jährlich € 0,90, 50 Bücher ausleihen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom woonde de familie zomers buiten de stad:",
+          "opties": [
+            "Enschede was destijds een vieze stad door de vele rokende fabriekspijpen",
+            "De familie hield erg veel van verhuizen",
+            "Dan konden ze lekker jagen",
+            "Zomers was er in de stad niet veel te doen"
+          ],
+          "uitleg": "De vele fabrieksschoorstenen maakten de lucht in de stad vies. Wie het kon betalen, ging 's zomers naar buiten."
+        },
+        "en": {
+          "tekst": "Why did the family live outside the town in the summer?",
+          "opties": [
+            "At that time Enschede was a dirty town because of all the smoking factory chimneys",
+            "The family really loved moving house",
+            "Then they could go hunting",
+            "There was not much to do in town in the summer"
+          ],
+          "uitleg": "All the factory chimneys made the air in town dirty. People who could afford it went to the countryside in summer."
+        },
+        "de": {
+          "tekst": "Warum wohnte die Familie im Sommer außerhalb der Stadt?",
+          "opties": [
+            "Enschede war damals wegen der vielen rauchenden Fabrikschornsteine eine schmutzige Stadt",
+            "Die Familie zog sehr gern um",
+            "Dann konnten sie schön jagen",
+            "Im Sommer gab es in der Stadt nicht viel zu tun"
+          ],
+          "uitleg": "Die vielen Fabrikschornsteine machten die Luft in der Stadt schmutzig. Wer es bezahlen konnte, ging im Sommer aufs Land."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 37,
+      "id": "arbeiders",
+      "titel": {
+        "nl": "Woon- en werkomstandigheden van de fabrieksarbeiders",
+        "en": "How the factory workers lived and worked",
+        "de": "Wie die Fabrikarbeiter lebten und arbeiteten"
+      },
+      "tekst": {
+        "nl": "Zo mooi als de fam. Van Heek woonde, woonden de arbeiders niet. Hun huisjes waren klein en vochtig. De gezinnen waren groot en daarom sliepen de kinderen vaak bij elkaar in bed. De arbeiders hadden lange werkdagen van ’s morgens 07.00u tot ’s avonds 19.00u. In de fabrieken was er zoveel lawaai dat men elkaar niet kon verstaan. Bijna allemaal werden ze op latere leeftijd slechthorend of doof. Ook de vrouwen en kinderen vanaf een jaar of 10 moesten werken in de fabriek en als er jongere kinderen waren, gingen die ook mee. Ze sliepen vaak onder de machines. Dat was erg gevaarlijk! De lonen waren laag en werden ook nog wel eens verlaagd. En dan werd er gestaakt.",
+        "en": "While the Van Heek Family lived in wealth, the factory workers had to live in dire circumstances. The houses were small and humid. The families were big and often children had to join beds. The workers had long working days, starting at 7 o’clock in the morning and lasting until 7 o’clock in the evening. In the factories there was so much noise that people were unable to hear each other. Almost everyone became deaf or hard-of-hearing. Women and children from the age of 10 onwards had to go to work in the factory as well. Even very young children often went along. They slept underneath the machines, which was very dangerous. Sometimes the already low wages were lowered even more. This was followed by strikes.",
+        "de": "Die Familie Van Heek hatte schicke Wohnungen, ihre Arbeiter aber gar nicht. Ihre kleinen Häuser  waren eng und feucht. Die Arbeiterfamilien waren groß und darum schliefen die Kinder oft zusammen in einem Bett. Die Arbeiter hatten lange Arbeitstage, von morgens 7 Uhr bis abends 19 Uhr. In den Fabriken war es so laut, dass man einander nicht verstehen konnte. Fast alle Arbeiter wurden im späteren Leben schwerhörig oder sogar taub. Auch Frauen und Kinder ab etwa 10 Jahren mussten in der Fabrik arbeiten. Wenn eine Familie noch jüngere Kinder hatte, kamen die auch mit. Sie schliefen oft unter den Maschinen, was sehr gefährlich war. Die Löhne waren niedrig, und wurden auch wohl mal gesenkt. Und dann wurde gestreikt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom werkten de moeders en hun kinderen ook in de fabriek:",
+          "opties": [
+            "Omdat ze dat fijn vonden",
+            "Om genoeg geld te verdienen",
+            "Dat was in die tijd verplicht",
+            "Om hun vakantie te betalen"
+          ],
+          "uitleg": "De lonen waren zo laag dat één loon niet genoeg was om een groot gezin te onderhouden."
+        },
+        "en": {
+          "tekst": "Why did the mothers and their children also work in the factory?",
+          "opties": [
+            "Because they liked it",
+            "To earn enough money",
+            "It was compulsory at that time",
+            "To pay for their holidays"
+          ],
+          "uitleg": "Wages were so low that one wage was not enough to support a big family."
+        },
+        "de": {
+          "tekst": "Warum arbeiteten die Mütter und ihre Kinder auch in der Fabrik?",
+          "opties": [
+            "Weil es ihnen Spaß machte",
+            "Um genug Geld zu verdienen",
+            "Das war damals Pflicht",
+            "Um ihren Urlaub zu bezahlen"
+          ],
+          "uitleg": "Die Löhne waren so niedrig, dass ein Lohn nicht reichte, um eine große Familie zu ernähren."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 38,
+      "id": "fabrieken-langs-de-spoorlijn-naar-gronau",
+      "titel": {
+        "nl": "Fabrieken langs de spoorlijn naar Gronau",
+        "en": "Factories along the railway to Gronau",
+        "de": "Fabriken an der Bahnlinie nach Gronau"
+      },
+      "tekst": {
+        "nl": "Vanaf de plek waar nu het Wilminktheater staat tot voorbij de brug op de Oliemolensingel langs de spoorlijn naar Gronau stond ruim 1,5 km aan textielfabrieken. Het waren de fabrieken van Van Heek & Co en Nico ter Kuile. Er werkten hier duizenden mensen en Van Heek was ooit de grootste werkgever van Nederland. In 1967 werd het bedrijf gesloten en het complex verkocht aan de gemeente. Twee fabrieksgebouwen aan de Parallelweg/Van Lochemstraat  zijn blijven staan en verbouwd tot woningen. Alle overige gebouwen zijn gesloopt.",
+        "en": "Starting at the present Wilminktheater all the way until the Oliemolensingel bridge there used to be 1,5 kilometers of textile factories next to the railway. Those belonged to the Van Heek and Nico ter Kuile companies. Thousands of people worked here and it used to be the biggest employer of the Netherlands. In 1967 the factories were closed and the complex was sold to the municipality. Today, only two factory buildings at the Parallelweg/Van Lochemstraat still exist. They were rebuilt for habitation. All other buildings have been demolished.",
+        "de": "Am Ort wo jetzt das Wilminktheater steht, bis an der Brücke über dem Oliemolensingel vorbei, befanden sich an der Eisenbahn nach Gronau mehr als anderthalb Kilometer Textilfabriken. Diese Fabriken trugen die Namen Van Heek & Co en Nico ter Kuile. Hier arbeiteten Tausende von Menschen, und Van Heek & Co war jemals der größte Arbeitgeber in den Niederlanden. Im Jahr 1967 wurde der Betrieb geschlossen. Die Gemeinde Enschede hat den Komplex gekauft. Zwei Betriebsgebäude an der Parallelweg/Van Lochemstraat  sind stehen geblieben, und man hat sie zu Wohnungen umgebaut. Alle übrigen Fabrikgebäude hat man abgerissen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom werden de textielfabrieken gesloten:",
+          "opties": [
+            "Men had geen belang meer bij textiel",
+            "De machines waren kapot gegaan",
+            "Men ging plastic kleding dragen",
+            "In landen als Turkije, Marokko, India en Vietnam kon men goedkoper stoffen maken"
+          ],
+          "uitleg": "Daar waren de lonen veel lager. Twentse stof werd daardoor te duur."
+        },
+        "en": {
+          "tekst": "Why did the textile factories close?",
+          "opties": [
+            "Nobody was interested in textiles any more",
+            "The machines had broken down",
+            "People started wearing plastic clothes",
+            "In countries like Turkey, Morocco, India and Vietnam, cloth could be made more cheaply"
+          ],
+          "uitleg": "Wages were much lower there. That made cloth from Twente too expensive."
+        },
+        "de": {
+          "tekst": "Warum wurden die Textilfabriken geschlossen?",
+          "opties": [
+            "Niemand interessierte sich mehr für Textilien",
+            "Die Maschinen waren kaputt",
+            "Die Leute trugen Plastikkleidung",
+            "In Ländern wie der Türkei, Marokko, Indien und Vietnam konnte man Stoffe billiger herstellen"
+          ],
+          "uitleg": "Dort waren die Löhne viel niedriger. Stoff aus Twente wurde dadurch zu teuer."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 39,
+      "id": "station-staatsspoor",
+      "titel": {
+        "nl": "Station Staatsspoor",
+        "en": "Staatsspoor railway station",
+        "de": "Bahnhof Staatsspoor"
+      },
+      "tekst": {
+        "nl": "Op 1 juli 1866 kreeg Enschede een station aan de spoorlijn Zutphen-Hengelo-Enschede. De lijn was al eerder voor vrachtvervoer geopend, maar nu kon ook het publiek van deze nieuwe verbinding gebruik maken. Op de eerste dag werden 700 kaartjes gekocht. Het station stond zo’n driehonderd meter verder dan het huidige station aan de Parkweg op een verhoogd weggedeelte dat de naam Stationsweg kreeg. Het gebouw bestaat uit twee lage gebouwtjes met een hoger tussengedeelte dat vooruitsteekt.",
+        "en": "On the first of July 1866 Enschede gained a railway station alongside the track Zutphen-Hengelo-Enschede. This track was already in use for freight trains, but now also the public was allowed to use the new connection. On the first day, 700 tickets were sold. The station was situated approximately 300 meters west of the current railway station at an elevated road, appropriately named the “Stationsweg”. The building exists of two lower parts connected by a higher intermediate section, which stands out forward.",
+        "de": "Am 1. Juli 1866 bekam Enschede einen Bahnhof an der Eisenbahnstrecke Zutphen-Hengelo-Enschede. Man hatte diese Bahnstrrecke schon früher für Güterverkehr eröffnet, aber jetzt konnten  auch Menschen diese neue Bahnverbindung benutzen. Am ersten Tag wurden 700 Fahrkarten verkauft. Der alte Bahnhof befand sich etwa 300 Meter mehr nach Westen als der heutige Bahnhof am Parkweg, auf einem erhöhten Straßenteil namens Stationsweg. Das Bahnhofsgebäude bestand aus zwei niedrigen kleinen Gebäuden mit eimen höheren vorgeschobenen Zwischenteil. Die Treppe des alten Bahnhof gibt es immer noch (gegenüber der Saxion Hogeschool), leider in sehr schlechtem Zustand."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De plaats waar het oude station stond kun je nog zien aan:",
+          "opties": [
+            "De tramlijn ligt er nog",
+            "Het perronbordje staat er nog",
+            "De trap naar het station",
+            "Niet meer te zien"
+          ],
+          "uitleg": "Het station lag hoger dan de straat. De trap omhoog is overgebleven."
+        },
+        "en": {
+          "tekst": "How can you still see where the old station stood?",
+          "opties": [
+            "The tram line is still there",
+            "The platform sign is still there",
+            "The steps up to the station",
+            "You can't see it any more"
+          ],
+          "uitleg": "The station was higher than the street. The steps up to it are still there."
+        },
+        "de": {
+          "tekst": "Woran kannst du noch sehen, wo der alte Bahnhof stand?",
+          "opties": [
+            "Die Straßenbahnlinie ist noch da",
+            "Das Bahnsteigschild steht noch da",
+            "Die Treppe zum Bahnhof",
+            "Man sieht nichts mehr davon"
+          ],
+          "uitleg": "Der Bahnhof lag höher als die Straße. Die Treppe hinauf ist übrig geblieben."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 40,
+      "id": "de-elektrische-tram-van-de-twentsche-electrische-t",
+      "titel": {
+        "nl": "De elektrische tram van de Twentsche Electrische Tramwegmaatschappij (TET)"
+      },
+      "tekst": {
+        "nl": "Van 1908 tot 1933 reed elk half uur vanaf het oude station aan de Parkweg een elektrische tram naar de grensovergang in Glanerbrug. Om de tram van elektriciteit te voorzien moesten bovenleidingen worden aangelegd. Deze zijn na 1933 allemaal verwijderd. Op diverse plekken – bijv. in de Marktstraat – zijn nog de haken aan de huizen zichtbaar waar die bovenleidingen aan vast waren gemaakt. Vanaf 1923 werden voor het openbaar vervoer ook bussen gebruikt.",
+        "en": "In the period between 1908 and 1933, every 30 minutes an electric tram traveled from the old railway station at the Parkweg all the way to the border in Glanerbrug. To provide the tram from electricity, an overhead line had to be constructed. These were all removed after 1933. At various places, for instance in the Marktstraat, hooks on which the overhead line was attached to are still visible. From 1923 onwards busses were used as public transportation.",
+        "de": "Ab 1908 bis 1933 fuhr jede halbe Stunde ab dem alten Bahnhof am Parkweg eine elektrische Straßenbahn zum Grenzübergang in Glanerbrug. Um die Straßenbahn mit Strom zu versorgen, mussten Fahrleitungen aufgebaut werden. Diese hat man nach 1933 alle beseitigt. An mehreren Orten – z.B. in der Marktstraat – sind an den Häusern noch die Haken sichtbar, wo die Fahrleitungen befestigt waren. Ab 1923 wurden für den öffentlichen Verkehr auch Busse benutzt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom is na 1933 het vervoer met de tram gestopt:",
+          "opties": [
+            "De tram vervuilde veel te veel",
+            "Vervoer met bussen was in die tijd goedkoper",
+            "Mensen waren bang in een tram",
+            "De tram reed maar 6x per dag"
+          ],
+          "uitleg": "Een bus heeft geen rails en geen bovenleiding nodig. Dat scheelt veel geld."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 41,
+      "id": "h-ter-kuile-huis",
+      "titel": {
+        "nl": "H. Ter Kuile huis",
+        "en": "H. ter Kuile house",
+        "de": "Haus H. ter Kuile"
+      },
+      "tekst": {
+        "nl": "Het herenhuis is in 1907 gebouwd door fabrikant H. ter Kuile. Op de natuurstenen gevelstenen aan beide kanten van de balkondeuren boven de serre staat: “Anno 1907”. Het is gebouwd in dezelfde stijl als ook De Bijenkorf in Amsterdam is gebouwd. Tot in 1976 zat in dit gebouw een school: de ESV (Enschedese School Vereniging). “Goudzoekers” hebben ooit eens geprobeerd vanuit de kelder van de villa een tunnel te graven naar de bank aan de overkant van de straat.",
+        "en": "This mansion was built in 1907 by manufacturer H. ter Kuile. The inscription “Anno 1907” can be seen on the facing bricks, made out of natural stone, on both sides of the balcony doors. It is built in the same fashion as De Bijenkorf department store in Amsterdam. Until 1976 this building was in use as a school. “Gold-diggers” once tried to dig a tunnel from the basement of the mansion to the bank on the other side of the street.",
+        "de": "Die Villa aus dem Jahr 1907 wurde im Auftrag des Textilfabrikanten H. ter Kuile erbaut. Auf der Natursteinfassade auf beiden Seiten der Balkontüren über der Veranda steht es: ´Anno 1907´. Die Villa wurde im gleichen Stil als das Warenhaus ´De Bijenkorf´ in Amsterdam erbaut. Bis 1976 war in diesem Gebäude eine Schule untergebracht: der ESV (Enschedeer SchulVerein). ´Goldsucher´ haben jemals versucht vom Keller der Villa aus einen Tunnel zur Bank auf der anderen Straßenseite zu graben."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "In deze villa heeft een uitzendbureau gezeten die nu aan de overkant is:",
+          "opties": [
+            "In Person uitzendbureau",
+            "Randstad uitzendbureau",
+            "Tempo Team uitzendbureau",
+            "Timing uitzendbureau"
+          ],
+          "uitleg": "Kijk maar naar de overkant van de straat."
+        },
+        "en": {
+          "tekst": "An employment agency used to be in this villa and is now across the street. Which one?",
+          "opties": [
+            "In Person",
+            "Randstad",
+            "Tempo-Team",
+            "Timing"
+          ],
+          "uitleg": "Just look across the street."
+        },
+        "de": {
+          "tekst": "In dieser Villa war eine Zeitarbeitsfirma, die jetzt gegenüber ist. Welche?",
+          "opties": [
+            "In Person",
+            "Randstad",
+            "Tempo-Team",
+            "Timing"
+          ],
+          "uitleg": "Schau einfach auf die andere Straßenseite."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 42,
+      "id": "incassobank",
+      "titel": {
+        "nl": "Incassobank",
+        "en": "Incassobank",
+        "de": "Incassobank"
+      },
+      "tekst": {
+        "nl": "De voormalige Incassobank is in 1929 gebouwd voor de Incasso Bank Amsterdam. Het pand is uitgebreid na de fusie met de Amsterdamse Bank en verbouwd in 1988. Als gevelversiering zie je 5 leeuwen. Alle 5 dragen ze een wapenschild, van Enschede, Amsterdam en Lonneker.",
+        "en": "The former Collection bank was founded in favor of the Amsterdam collection bank in 1929. The building was expanded after the merge with the Amsterdam bank in 1988. As a façade ornament five lions can be distinguished. They all carry a weapon shield; of Enschede, Lonneker and Amsterdam.",
+        "de": "Die ehemalige ´Incassobank´ wurde 1929 im Auftrag der ´Incasso Bank Amsterdam´ erbaut. Das Gebäude wurde nach der Fusion mit der ´Amsterdamse Bank´ im Jahr1988 neu gestaltet und vergrößert. Als Fassadendekoration sieht man hier 5 Löwen. Alle tragen sie ein Wappen, von Enschede, Amsterdam und Lonneker."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Als je goed kijkt zie je dat de stenen rond het meest linkse raam op de benedenverdieping een andere kleur hebben dan de andere stenen. Dat komt doordat:",
+          "opties": [
+            "Er in de 2e Wereld Oorlog op werd geschoten",
+            "Hier vroeger de ingang zat die later werd verplaatst",
+            "Hier iemand met een auto naar binnen is gereden",
+            "Bankrovers de gevel hebben opgeblazen"
+          ],
+          "uitleg": "Toen de deur verdween, werd het gat dichtgemetseld met nieuwe stenen. Die hebben een andere kleur."
+        },
+        "en": {
+          "tekst": "Around the window furthest to the left on the ground floor, the bricks are a different colour from the rest. Why is that?",
+          "opties": [
+            "It was shot at during the Second World War",
+            "The entrance used to be here and was moved later",
+            "Someone drove a car into the building here",
+            "Bank robbers blew up the wall"
+          ],
+          "uitleg": "When the door was removed, the hole was bricked up with new bricks. They have a different colour."
+        },
+        "de": {
+          "tekst": "Rund um das Fenster ganz links unten haben die Steine eine andere Farbe als der Rest. Woher kommt das?",
+          "opties": [
+            "Im Zweiten Weltkrieg wurde darauf geschossen",
+            "Hier war früher der Eingang, der später verlegt wurde",
+            "Hier ist jemand mit einem Auto hineingefahren",
+            "Bankräuber haben die Fassade gesprengt"
+          ],
+          "uitleg": "Als die Tür verschwand, wurde das Loch mit neuen Steinen zugemauert. Die haben eine andere Farbe."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 43,
+      "id": "slo",
+      "titel": {
+        "nl": "SLO"
+      },
+      "tekst": {
+        "nl": "Stichting LeerplanOntwikkeling maakt leerplannen (een overzicht van de leerstof die in een klas moet worden behandeld) voor basisonderwijs, speciaal en voortgezet onderwijs. Dit pand gebouwd in 2002 is genoemd naar de bijzondere dakopbouw. Een enorme lichtgevende en glinsterende aluminium wolk, gevormd door honderden bloemblaadjes op stelen. Helaas was het te duur om hier waterdamp uit te laten komen om het op echte wolken te laten lijken.",
+        "en": "The foundation for school-curriculum development (SLO) creates background material for teachers in ground- and secondary schools. This building, constructed in 2002, is named after its exceptional roof structure. It has an enormous luminous aluminum cloud, composed of hundreds of petal-like structures. Unfortunately, there was no money left to create water vapor that would look like real clouds.",
+        "de": "Die Stiftung Lehrplanentwicklung (SLO) entwickelt Lehrpläne (eine Übersicht des Lehrstoffs der in einer Schulklasse behandelt werden muss) für Grundschulen, Sonderschulen und Sekundarschulen. Dieses Gebäude wurde 2002 erbaut und hat ein sehr besonderes Dach. Eine riesige leuchtende und glänzende Aluminiumwolke aus Hunderten von Blütenblättern auf Stielen. Leider war es zu teuer hieraus Wasserdampf  ausströmen zu lassen, damit sie wie echte Wolken aussehen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het moderne gebouw wordt ook wel genoemd naar de versiering op het dak:",
+          "opties": [
+            "De wolk",
+            "Sterrenhemel",
+            "Regenbui",
+            "Sneeuwvlokken"
+          ],
+          "uitleg": "Kijk omhoog: de aluminium blaadjes vangen het licht, net als een wolk in de zon."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 44,
+      "id": "synagoge",
+      "titel": {
+        "nl": "Synagoge",
+        "en": "Synagogue",
+        "de": "Synagoge"
+      },
+      "tekst": {
+        "nl": "De Synagoge werd op 13 december 1928 ingewijd en geopend en is de mooiste sjoel (= Joodse kerk) van West-Europa. Het synagogecomplex is herkenbaar door de drie opvallende koperen koepels. In het centrale deel van het gebouw is de grote sjoel, de dagsjoel en de kerkeraadskamer. Heel mooi is ook de originele feestzaal, de Joodse school en de bezoekersruimte.",
+        "en": "The Synagogue was initiated and opened in 1928. It is said that it is the most beautiful “sjoel” (= Jewish church) in the whole of Western Europe. The synagogue has three landmark domes made of copper. Inside you can find the big “sjoel”, the day”sjoel” and the council chamber. The party room, the Jewish school and the visitors room are of exceptional beauty.",
+        "de": "Die Synagoge wurde am 13. Dezember 1928 eröffnet und gilt als die schönste Schul (= jüdische Kirche) Westeuropas. Der Synagogenkomplex ist an den drei auffallenden Kupferkuppeln erkennbar. Im zentralen Teil des Gebäudes befinden sich die große Schul, die Tagesschul und das Konsistorium. Sehr schön sind auch der originelle Festsaal, die jüdische Schule und der Besucherraum."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "In de 2e Wereld Oorlog is dit gebouw gebruikt als:",
+          "opties": [
+            "Onderkomen van Duitsers",
+            "Gevangenis",
+            "Opslagplaats van munitie",
+            "Onderduikadres voor Joden"
+          ],
+          "uitleg": "In de oorlog namen de Duitsers het gebouw in gebruik als onderkomen."
+        },
+        "en": {
+          "tekst": "What was this building used for during the Second World War?",
+          "opties": [
+            "As accommodation for Germans",
+            "As a prison",
+            "As a store for ammunition",
+            "As a hiding place for Jews"
+          ],
+          "uitleg": "During the war, the Germans took over the building and used it to house people."
+        },
+        "de": {
+          "tekst": "Wofür wurde dieses Gebäude im Zweiten Weltkrieg genutzt?",
+          "opties": [
+            "Als Unterkunft für Deutsche",
+            "Als Gefängnis",
+            "Als Munitionslager",
+            "Als Versteck für Juden"
+          ],
+          "uitleg": "Im Krieg beschlagnahmten die Deutschen das Gebäude und nutzten es als Unterkunft."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 45,
+      "id": "gerard-jannink-en-zonen",
+      "titel": {
+        "nl": "Gerard Jannink en zonen"
+      },
+      "tekst": {
+        "nl": "Deze fabriek is in 1844 ontstaan uit de firma E. Jannink en zonen. Het bestond uit een spinnerij en weverij. In 1886 hadden ze twee merkartikelen: ‘Drie Boompjes’ en ‘Stoomschip op effen water’. Het complex stond op de plek waar nu winkelcentrum “Koningsplein” ( heel lang “Zuidmolen” genoemd) staat. Het werd in 1964 gesloopt. Het terrein heeft lang braak gelegen en deed dienst als parkeerterrein. In 1982 werd hier ook de bibliotheek gebouwd.",
+        "en": "This factory has its origin in the company of E. Jannink and sons. It was comprised of a spinning mill and a weaving mill. In 1886 they had two brands: “Drie Boompjes” (three little trees) and “Stoomschip op effen water” (steamboat on level water). The complex is situated on the same spot where shopping centre “Koningsplein” was located (also called the Zuidmolen). It was demolished in 1964. The grounds were laid fallow for quite some time and were used as a parking lot. In 1982 the public library was erected here.",
+        "de": "Am Ort der heutigen Stadtbibliothek befand sich jemals die Textilfabrik Gerhard Jannink und Söhne. Diese Fabrik entstand 1844 aus der Firma E. Jannink und Söhne. Sie umfasste eine Spinnerei und eine Weberei. Der Komplex befand sich am Ort des heutigen Einkaufszentrums ´Koningsplein´. Die alte Fabrik wurde 1964 abgerissen. Das Gelände war lange unbebaut und wurde als Parkplatz benutzt. Im Jahr 1982 wurde die Stadtbibliothek erbaut."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat betekent braak liggen:",
+          "opties": [
+            "Dat je gaat liggen om over te geven",
+            "Dat je heel erg ziek wordt van het terrein",
+            "Dat er niets op het terrein staat",
+            "Dat er veel inbraken waren"
+          ],
+          "uitleg": "Een braakliggend terrein is leeg: er staat niets en er groeit hooguit onkruid."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 46,
+      "id": "de-gouden-bocht",
+      "titel": {
+        "nl": "De Gouden bocht",
+        "en": "De Gouden Bocht (The Golden Bend)",
+        "de": "De Gouden Bocht (Die Goldene Kurve)"
+      },
+      "tekst": {
+        "nl": "De huidige Ripperdastraat was vroeger een deftige, brede laan met bomen in de middenberm. De statige panden in Jugendstil (= een manier van bouwen met veel ronde vormen) zijn als enige nog overgebleven.",
+        "en": "The current Ripperdastraat used to be a dignified, broad, avenue with trees in the middle. The solemn houses in Jugendstil are the only houses remaining.",
+        "de": "Die heutige Ripperdastraat war jemals eine elegante, breite Allee mit Bäumen auf dem Mittelstreifen.  Die stattlichen Jugendstilhäuser (= eine Architektur mit vielen runden Formen) sind als Einzige noch übriggeblieben."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De huizen van de Gouden Bocht waren vroeger ook in gebruik bij:",
+          "opties": [
+            "Gemeente Enschede",
+            "Notarissen en advocaten",
+            "Hogere textielschool",
+            "Ziekenhuis De Stadsmaten"
+          ],
+          "uitleg": "Ziekenhuis De Stadsmaten aan het Ariënsplein gebruikte ook huizen in deze straat."
+        },
+        "en": {
+          "tekst": "Who else used the houses of the Gouden Bocht in the past?",
+          "opties": [
+            "The town of Enschede",
+            "Notaries and lawyers",
+            "The Higher Textile School",
+            "De Stadsmaten hospital"
+          ],
+          "uitleg": "De Stadsmaten hospital on the Ariënsplein also used houses in this street."
+        },
+        "de": {
+          "tekst": "Wer hat die Häuser der Gouden Bocht früher auch genutzt?",
+          "opties": [
+            "Die Stadt Enschede",
+            "Notare und Anwälte",
+            "Die Höhere Textilschule",
+            "Das Krankenhaus De Stadsmaten"
+          ],
+          "uitleg": "Das Krankenhaus De Stadsmaten am Ariënsplein nutzte auch Häuser in dieser Straße."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 47,
+      "id": "ziekenhuis-ziekenzorg",
+      "titel": {
+        "nl": "Ziekenhuis Ziekenzorg",
+        "en": "Ziekenzorg hospital",
+        "de": "Krankenhaus Ziekenzorg"
+      },
+      "tekst": {
+        "nl": "Het gebouw werd geopend in 1941. De hoofdingang bestond uit 2 ingangen met een portiersloge ertussen. De rechter ingang was voor het personeel en de bezoekers, de linker ingang voor de polikliniek en patiënten die opgenomen moesten worden.",
+        "en": "The hospital was opened in 1941. The main entrance consisted of two separate entries, separated by a porter’s lodge. De entry on the right was meant for personnel and visitors. The entry on the left was used by patients.",
+        "de": "Das Gebäude wurde 1941 eröffnet. Der Haupteingang bestand aus zwei Eingängen, dazwischen befand sich die Portierloge. Der rechte Eingang war für das Personal und die Besucher, der linke Eingang für die Poliklinik und für Patienten, die aufgenommen werden mussten."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Los van het ziekenhuis stonden nog 2 gebouwen voor:",
+          "opties": [
+            "Lastige patiënten",
+            "Garage voor ziekenauto’s en auto’s van artsen",
+            "Overleden patiënten en patiënten met een besmettelijke ziekte",
+            "Voorraadkamers voor medicijnen, verband, ziekenhuisbedden, e.d."
+          ],
+          "uitleg": "Wie besmettelijk ziek was, lag apart. Zo konden andere patiënten niet besmet raken."
+        },
+        "en": {
+          "tekst": "There were 2 more buildings separate from the hospital. What were they for?",
+          "opties": [
+            "For difficult patients",
+            "As a garage for ambulances and doctors' cars",
+            "For patients who had died and patients with an infectious disease",
+            "As storerooms for medicines, bandages and beds"
+          ],
+          "uitleg": "People with an infectious disease were kept apart. That way other patients could not catch it."
+        },
+        "de": {
+          "tekst": "Getrennt vom Krankenhaus standen noch 2 Gebäude. Wofür waren sie?",
+          "opties": [
+            "Für schwierige Patienten",
+            "Als Garage für Krankenwagen und Autos der Ärzte",
+            "Für verstorbene Patienten und Patienten mit einer ansteckenden Krankheit",
+            "Als Lager für Medikamente, Verbandszeug und Betten"
+          ],
+          "uitleg": "Wer ansteckend krank war, lag getrennt. So konnten sich andere Patienten nicht anstecken."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 48,
+      "id": "stadsgravenstraat",
+      "titel": {
+        "nl": "Stadsgravenstraat",
+        "en": "Stadsgravenstraat (Town Moat Street)",
+        "de": "Stadsgravenstraat (Stadtgrabenstraße)"
+      },
+      "tekst": {
+        "nl": "Met de stadsgraven bedoelt men de stadsgracht. Tot 1862 liep er om de stad een gracht, een wal en een haag. Dit alles om de stad te kunnen verdedigen. Sommige straatnamen herinneren hier nog aan. Bijv: Noorderhagen, Zuiderhagen en Walstraat. Op de plattegrond kun je zien dat ze als een ring om de stad lopen.",
+        "en": "With “Stadsgraven” the canals are meant that used to line the city until 1862. Next to the canals there were also a small rampart and a hedge to defend the city. Some street names still recall these structures; Noorderhagen, Zuiderhagen, Walstraat. On the map you can still see the circle-like structure in which the canals and ramparts used to surround the city.",
+        "de": "Unter den ‘Stadsgraven’ wird den Stadtgraben verstanden. Bis 1862 war die Stadt von einem Graben, einem Wall und einer Hecke (haag) umgeben. Dies alles diente für die Sicherheit der Stadt. Manche Straßennamen erinnern noch daran, z.B. Noorderhagen, Zuiderhagen en Walstraat. Auf dem Stadtplan kann man sehen, dass sie die alte Stadt umringen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Na 1862 verdween de gracht omdat:",
+          "opties": [
+            "Er geen oorlog meer was",
+            "De boten verdwenen en de auto’s kwamen",
+            "Door de brand was er veel puin wat men in de gracht gooide",
+            "Men wilde juist op die plek een park aanleggen"
+          ],
+          "uitleg": "Met het puin van de afgebrande huizen werd de gracht gedempt. Daarna kon de stad groeien."
+        },
+        "en": {
+          "tekst": "Why did the moat disappear after 1862?",
+          "opties": [
+            "There was no more war",
+            "The boats disappeared and the cars came",
+            "After the fire there was lots of rubble, which was thrown into the moat",
+            "A park was supposed to be made there"
+          ],
+          "uitleg": "The moat was filled in with the rubble of the burnt houses. After that, the town could grow."
+        },
+        "de": {
+          "tekst": "Warum verschwand der Graben nach 1862?",
+          "opties": [
+            "Es gab keinen Krieg mehr",
+            "Die Boote verschwanden und die Autos kamen",
+            "Nach dem Brand gab es viel Schutt, der in den Graben geworfen wurde",
+            "An dieser Stelle sollte ein Park entstehen"
+          ],
+          "uitleg": "Mit dem Schutt der abgebrannten Häuser wurde der Graben zugeschüttet. Danach konnte die Stadt wachsen."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 49,
+      "id": "joodse-school-en-synagoge",
+      "titel": {
+        "nl": "Joodse school en synagoge",
+        "en": "Jewish school and synagogue",
+        "de": "Jüdische Schule und Synagoge"
+      },
+      "tekst": {
+        "nl": "Enschede had in de 19e eeuw een vrij grote Joodse gemeenschap. Een groot aantal van hen had ook een textielfabriek. In de school werd er onderwijs gegeven in de Joodse taal en cultuur. Naast de school stond de synagoge (de Joodse kerk). In het begin van de 20e eeuw werd het gebouw slecht en besloot men een nieuwe synagoge te bouwen. De oude werd afgebroken, maar de school staat er nog. De nieuwe synagoge staat in de Prinsestraat en is een van de mooiste van Europa.",
+        "en": "In the 19th century Enschede had a vast Jewish community. Some of its members owned a textile factory. In the school Jewish language and culture were educated. Next to the school a synagogue was situated. In the beginning of the 20th century the synagogue declined and a new one was built at the Prinsestraat. Now regarded as one of the most beautiful synagogues in Europe.",
+        "de": "Im 19. Jahrhundert hatte Enschede eine ziemlich große Jüdische Gemeinschaft. Viele unter ihnen besaßen auch eine Textilfabrik. In der Schule wurde in der Jüdischen Sprache und Kultur unterrichtet. Neben der Schule befand sich die Synagoge (die jüdische Kirche). Am Anfang des 20. Jahrhunderts befand sich das Gebäude in einem schlechten Zustand, und man beschloss eine neue Synagoge zu errichten. Die alte Synagoge wurde abgerissen, die Schule aber steht immer noch da. Die neue Synagoge befindet sich in der Prinsestraat und gilt als die schönste Synagoge Europas."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Joodse gemeenschap is nu veel kleiner dan vroeger en dat komt door:",
+          "opties": [
+            "Veel mensen zijn verhuisd",
+            "De textielindustrie is verdwenen",
+            "De Jodenvervolging in de 2e Wereld Oorlog",
+            "Er werden geen kinderen meer geboren"
+          ],
+          "uitleg": "In de oorlog werden veel Joodse inwoners van Enschede weggevoerd en vermoord. Een deel overleefde door onder te duiken."
+        },
+        "en": {
+          "tekst": "The Jewish community is much smaller now than in the past. Why is that?",
+          "opties": [
+            "Many people moved away",
+            "The textile industry has disappeared",
+            "The persecution of the Jews in the Second World War",
+            "No more children were born"
+          ],
+          "uitleg": "In the war, many Jewish people from Enschede were taken away and murdered. Some survived by going into hiding."
+        },
+        "de": {
+          "tekst": "Die jüdische Gemeinde ist heute viel kleiner als früher. Woran liegt das?",
+          "opties": [
+            "Viele Menschen sind weggezogen",
+            "Die Textilindustrie ist verschwunden",
+            "Die Judenverfolgung im Zweiten Weltkrieg",
+            "Es wurden keine Kinder mehr geboren"
+          ],
+          "uitleg": "Im Krieg wurden viele jüdische Einwohner von Enschede verschleppt und ermordet. Ein Teil überlebte im Versteck."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 50,
+      "id": "menistenkerk",
+      "titel": {
+        "nl": "Menistenkerk",
+        "en": "Menistenkerk (Mennonite church)",
+        "de": "Menistenkerk (Mennonitenkirche)"
+      },
+      "tekst": {
+        "nl": "Dit kerkje werd bezocht door mensen die doopsgezind of Mennoniet waren. Dit is een geloof waarin de mensen pas werden gedoopt als ze volwassen waren. Het gebouw is niet meer in gebruik als kerk. Het heeft dienst gedaan als opslagruimte en discotheek en nu zit er een bierbrouwerij in.",
+        "en": "This little church was frequented by Mennonites or Menists; people belonging to a religion where one was to be baptized as an adult. The building is not in use as a church anymore. It used to be a warehouse and a disco and nowadays it houses a brewery.",
+        "de": "Diese kleine Kirche wurde von Mennoniten besucht. Dies ist eine Religion, wobei Menschen erst im Erwachsenenalter getauft werden. Das Gebäude wird heute nicht mehr als Kirche benutzt. Es hat als Lagerraum und Diskothek gedient, und jetzt befindet sich dort eine Bierbrauerei."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom is dit gebouw niet meer in gebruik als kerk:",
+          "opties": [
+            "Het was veel te koud in het gebouw",
+            "Het gebouw werd te klein",
+            "Er waren geen doopsgezinden meer",
+            "Men had veel meer zin in bier"
+          ],
+          "uitleg": "Zonder doopsgezinden was het kerkje niet meer nodig."
+        },
+        "en": {
+          "tekst": "Why is this building no longer used as a church?",
+          "opties": [
+            "It was much too cold in the building",
+            "The building became too small",
+            "There were no more Mennonites",
+            "People much preferred beer"
+          ],
+          "uitleg": "Without Mennonites, the little church was no longer needed."
+        },
+        "de": {
+          "tekst": "Warum ist dieses Gebäude keine Kirche mehr?",
+          "opties": [
+            "Es war viel zu kalt im Gebäude",
+            "Das Gebäude wurde zu klein",
+            "Es gab keine Mennoniten mehr",
+            "Man hatte viel mehr Lust auf Bier"
+          ],
+          "uitleg": "Ohne Mennoniten wurde die kleine Kirche nicht mehr gebraucht."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 51,
+      "id": "wilhelminaflat",
+      "titel": {
+        "nl": "Wilhelminaflat",
+        "en": "Wilhelmina flats",
+        "de": "Wilhelmina-Hochhaus"
+      },
+      "tekst": {
+        "nl": "Dit flat is gebouwd in 1952 en is daarmee de oudste flat van Twente. Het werd ook wel een middenstand flatgebouw genoemd. Het werd gebouwd voor textielfabrikanten om te gaan wonen na hun pensionering. Het waren dan ook hele luxe en dure flats. Er waren zeven logeerkamers, een was- en droogruimte, een lift en centrale verwarming.",
+        "en": "This apartment building was constructed in 1952 and is thereby the oldest flat in Twente. It used to be called the middle-class apartment building. It was meant to be populated by factory workers after their retirement. They were posh and expensive apartments at the time. Inside there were seven guest-rooms, a full-service laundry an elevator and central heating.",
+        "de": "Dieses älteste Apartementgebäude in Twente wurde 1952 errichtet. Man nannte es auch ein Apartementshaus des mittleren Standes. Es wurde für die Textilfabrikanten gebaut. Die konnten da nach ihrer Pensionierung wohnen. Es waren sehr luxuriöse und teure Apartements mit sieben Gästezimmern, einem Wäsche- und Trockenraum, einem Lift und Zentralheizung."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Het Wilhelminaflat heet zo omdat:",
+          "opties": [
+            "Er veel Wilhelmina pepermunt wordt gesnoept",
+            "Hier ook de kantine was van de Enschedese hockeyclub Prinses Wilhelmina",
+            "Het naar Koningin Wilhelmina is vernoemd",
+            "Muziekvereniging Wilhelmina hier altijd oefent"
+          ],
+          "uitleg": "Wilhelmina was vijftig jaar koningin, tot 1948. Veel straten en gebouwen zijn naar haar genoemd."
+        },
+        "en": {
+          "tekst": "Why is it called the Wilhelmina flats?",
+          "opties": [
+            "People eat lots of Wilhelmina peppermints here",
+            "The Prinses Wilhelmina hockey club also had its canteen here",
+            "It is named after Queen Wilhelmina",
+            "The Wilhelmina band always practises here"
+          ],
+          "uitleg": "Wilhelmina was queen for fifty years, until 1948. Many streets and buildings are named after her."
+        },
+        "de": {
+          "tekst": "Warum heißt es Wilhelmina-Hochhaus?",
+          "opties": [
+            "Hier werden viele Wilhelmina-Pfefferminzbonbons genascht",
+            "Hier war auch das Vereinsheim des Hockeyclubs Prinses Wilhelmina",
+            "Es ist nach Königin Wilhelmina benannt",
+            "Der Musikverein Wilhelmina probt hier immer"
+          ],
+          "uitleg": "Wilhelmina war fünfzig Jahre lang Königin, bis 1948. Viele Straßen und Gebäude sind nach ihr benannt."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 52,
+      "id": "stationsplein-atjehpark",
+      "titel": {
+        "nl": "Stationsplein/Atjehpark",
+        "en": "Stationsplein/Atjehpark",
+        "de": "Stationsplein/Atjehpark"
+      },
+      "tekst": {
+        "nl": "De plek waar nu het stationsplein met de platte waterpartij staat, werd in 1868-1869 een park aangelegd en vernoemd naar burgemeester Clifford. Onder burgemeester Van der Zee werden er 3 fonteinen geplaatst en omdat de burgemeester als kapitein in Atjeh had gevochten, werd het park bekend onder de naam Atjehpark. In 1951 als het nieuwe treinstation wordt gebouwd, wordt het park een busstation met taxistandplaatsen en parkeerhavens. De naam wordt dan Stationsplein.",
+        "en": "The place where now the station square with the flat water artwork is located, used to be a park. This park was constructed in 1868/1869 and was named after mayor Clifford. Mayor van der Zee had three fountains placed and because the mayor fought as a captain in Atjeh (in present Indonesia), the park became known as the Atjehpark. When in 1951 a new station was built, the park became a bus station with taxi stands and parking places. The name was then changed into Station square.",
+        "de": "An der Stelle wo sich jetzt der Stationsplein (Bahnhofsplatz) mit dem Wasserbauwerk befindet, wurde 1868-1869 ein Park gebaut und nach dem damaligen Bürgermeister Clifford benannt. Unter Bürgermeister Van der Zee wurden 3 Fontänen angebracht. Weil der Bürgermeister als Hauptmann in Atjeh (in der ehemaligen niederländischen Kolonie Indien, jetzt Indonesien) gekämpft hatte, wurde der Park unter dem Namen Atjehpark bekannt. Im Jahr 1951, als der neue Bahnhof erbaut wurde, wird der Park ein Busbahnhof mit Taxiständen und Parkplätzen, und bekommt den Namen ‘Stationsplein’."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Atjeh is een provincie in het huidige:",
+          "opties": [
+            "Australië",
+            "Afrika",
+            "Indonesië",
+            "Argentinië"
+          ],
+          "uitleg": "Indonesië was toen een kolonie van Nederland. In Atjeh voerde het Nederlandse leger een lange oorlog."
+        },
+        "en": {
+          "tekst": "Aceh is a province in which country?",
+          "opties": [
+            "Australia",
+            "Africa",
+            "Indonesia",
+            "Argentina"
+          ],
+          "uitleg": "Indonesia was a Dutch colony at that time. The Dutch army fought a long war in Aceh."
+        },
+        "de": {
+          "tekst": "Aceh ist eine Provinz in welchem Land?",
+          "opties": [
+            "Australien",
+            "Afrika",
+            "Indonesien",
+            "Argentinien"
+          ],
+          "uitleg": "Indonesien war damals eine niederländische Kolonie. In Aceh führte die niederländische Armee einen langen Krieg."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 53,
+      "id": "station-ns",
+      "titel": {
+        "nl": "Station NS",
+        "en": "NS railway station",
+        "de": "Bahnhof NS"
+      },
+      "tekst": {
+        "nl": "Enschede is de eerste stad die na de 2e Wereldoorlog een nieuw station krijgt. Het station wordt geopend op 28 oktober 1950. Het gebouw heeft vele zuilen en gebouwd in beton omdat men na de oorlog heel veel van dit materiaal had. De automatische deur was een bijzonderheid en speciaal voor Enschede gemaakt. Door het lichaamsgewicht ging de deur open, maar omdat de jeugd hier direct al heel veel gebruik van maakte, stond er de volgende dag al een bordje op met: “Defect”. Rond 2000 is de hoofdingang verplaatst van het Stationsplein naar de Piet Heinstraat.",
+        "en": "Enschede was the first city in the Netherlands to receive a new railway station after the Second World War. The station was opened the 28th of October 1950. The building has a lot of columns and is built of concrete because there was a lot of this material available after the War. The automatic door was a show piece and specially made for Enschede. The door opened through body weight. Local youth used it a lot right from the beginning, resulting in an “out of order” sign the day after the opening. Around the year 2000 the main entrance moved from the Station square to the Piet Heinstraat.",
+        "de": "Nach dem Ende des Zweiten Weltkriegs ist Enschede die erste Stadt, wo einen neuen Bahnhof errichtet wird. Der Bahnhof wird am 28. Oktober 1950 eröffnet. Das Gebäude hat viele Säule und wurde aus Beton gebaut, weil nach dem Krieg vom diesem Material viel vorrätig war. Die automatische Tür war damals eine Besonderheit, und speziell für Enschede hergestellt. Durch das Körpergewicht öffnete sich die Tür. Weil Jugendliche die Tür schon bald viel benutzten, hing dort schon am nächsten Tag ein ‘Defekt’-Schild. Um 2000 hat man den Haupteingang vom Stationsplein zur Piet Heinstraat verlegt."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De huidige hoofdingang van het station was vroeger:",
+          "opties": [
+            "Loketten voor kaartjesverkoop",
+            "Restaurant voor de reizigers",
+            "Grenswisselkantoor voor mensen die naar Duitsland gaan",
+            "Magazijn voor onderhoud van de treinen"
+          ],
+          "uitleg": "Waar je nu naar binnen gaat, zaten reizigers vroeger te eten en te drinken."
+        },
+        "en": {
+          "tekst": "What was the present main entrance of the station in the past?",
+          "opties": [
+            "Ticket counters",
+            "A restaurant for travellers",
+            "A currency exchange office for people going to Germany",
+            "A storeroom for train maintenance"
+          ],
+          "uitleg": "Where you go in now, travellers used to sit and eat and drink."
+        },
+        "de": {
+          "tekst": "Was war der heutige Haupteingang des Bahnhofs früher?",
+          "opties": [
+            "Schalter für den Fahrkartenverkauf",
+            "Ein Restaurant für die Reisenden",
+            "Eine Wechselstube für Leute, die nach Deutschland fuhren",
+            "Ein Lager für die Wartung der Züge"
+          ],
+          "uitleg": "Wo du heute hineingehst, haben Reisende früher gegessen und getrunken."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 54,
+      "id": "textielfabriek-nico-ter-kuile",
+      "titel": {
+        "nl": "textielfabriek Nico ter Kuile"
+      },
+      "tekst": {
+        "nl": "Na 1862 werden nieuwe fabrieksgebouwen zoveel mogelijk buiten het oude centrum gebouwd. De fabriek van Nico ter Kuile werd in 1886 aan het Stationsplein gebouwd op de plek waar nu de Stations parkeergarage staat. Het bedrijf stond ook bekend onder de naam Toweltex. In de fabriek werden producten geweven zoals bijv. handdoeken en tafellakens. In 1967 werd de fabriek gesloten en iets later afgebroken.",
+        "en": "After 1862 new factory buildings were built outside of the city as much as possible. The factory Nico ter Kuile was built in 1886 at the station square where currently the station parking garage is located. The company was also known under the name Toweltex. In this factory products where manufactured like towels and table cloths. In 1967 the factory was closed and a little later demolished.",
+        "de": "Nach dem Stadtbrand im Jahr 1862 baute man neue Fabrikgebäude soviel wie möglich außerhalb des alten Stadtzentrums. Die Fabrik von Nico ter Kuile wurde 1886 am Stationsplein an der Stelle gebaut, wo sich jetzt das Parkhaus befindet. Der Betrieb war auch alsToweltex bekannt. In dieser Fabrik wurden Produkte wie z.B. Handtüchter und Tischtücher gewebt. Im Jahr 1967 wurde die Fabrik geschlossen und etwas später abgerissen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De textielproducten van Nico ter Kuile werden verkocht onder de naam:",
+          "opties": [
+            "Stazione",
+            "Nicolientje",
+            "Kuiltjes",
+            "Doekjes"
+          ],
+          "uitleg": "Nicolientje komt van Nico, de voornaam van de fabrikant."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 55,
+      "id": "textielfabriek-ter-kuile-cromhoff",
+      "titel": {
+        "nl": "textielfabriek Ter Kuile Cromhoff",
+        "en": "Ter Kuile Cromhoff textile factory",
+        "de": "Textilfabrik Ter Kuile Cromhoff"
+      },
+      "tekst": {
+        "nl": "In 1865 werd op de hoek van de Piet Heinstraat en het Stationsplein door de firma Cromhoff een stoomweverij gebouwd. Op 1 januari 1878 werd de fabriek voortgezet door Pieter ter Kuile en kreeg de firmanaam Ter Kuile Cromhoff. Ze maakten bontgeweven hemdenstoffen, stoffen voor nachtkleding en stoffen voor sport- en vrijetijdskleding. De fabriek die precies tegenover het huidige station stond werd in 1967 gesloten en is in 1972 afgebroken. Het Stationsplein heette toen nog Parkweg.",
+        "en": "At the corner of the Piet Heinstraat and the Station square a steam weaving was located, built by the Cromhoff company in 1865. On the 1st of January 1878 the factory was continued by Pieter ter Kuile and the name was changed into Ter Kuile Cromhoff. In this factory fur-woven shirt fabrics, fabrics for nightwear and fabrics for sport and casual wear were produced. The factory was located right in front of the current station, closed in 1967 and demolished in 1972. The station square was called the Parkweg at that time.",
+        "de": "Im Jahr 1865 wurde an der Ecke der Piet Heinstraat/Stationsplein von der Firma Cromhoff eine Dampfweberei gebaut. Am 1. Januar 1878 wurde die Fabrik von Pieter ter Kuile übernommen, und bekam dann den Firmanamen Ter Kuile Cromhoff. In dieser Fabrik wurden buntgewebte Hemdenstoffe, Stoffe für Nachtwäsche und für Sport- und Freizeitbekleidung hergestellt. Die Fabrik, die sich gerade gegenüber dem Bahnhof befand, wurde 1967 geschlossen und 1972 abgerissen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Wat staat er tegenwoordig op de plek van de firma Cromhoff:",
+          "opties": [
+            "Een flatgebouw",
+            "Een speelplaats",
+            "Het busstation",
+            "Een gevangenis"
+          ],
+          "uitleg": "Pal tegenover het station is handig om over te stappen van trein op bus."
+        },
+        "en": {
+          "tekst": "What is on the site of the Cromhoff company now?",
+          "opties": [
+            "A block of flats",
+            "A playground",
+            "The bus station",
+            "A prison"
+          ],
+          "uitleg": "Right opposite the station is handy for changing from train to bus."
+        },
+        "de": {
+          "tekst": "Was steht heute an der Stelle der Firma Cromhoff?",
+          "opties": [
+            "Ein Wohnhochhaus",
+            "Ein Spielplatz",
+            "Der Busbahnhof",
+            "Ein Gefängnis"
+          ],
+          "uitleg": "Direkt gegenüber dem Bahnhof ist praktisch, um vom Zug in den Bus umzusteigen."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 56,
+      "id": "villa-scholten",
+      "titel": {
+        "nl": "villa Scholten",
+        "en": "Villa Scholten",
+        "de": "Villa Scholten"
+      },
+      "tekst": {
+        "nl": "Een woonhuis gebouwd in 1907 in de neoclassicistische stijl (= een manier van bouwen die wel wat lijkt op de gebouwen van de oude Grieken en Romeinen). Het woonhuis is in opdracht van de textielfabrikant Julius Scholten ontworpen door architect G. Beltman. Het woonhuis is een gemeentelijk monument. Het gebouw is aan de buitenzijde opgefrist terwijl de aanbouw uit de jaren ’70 is voorzien van een moderne gevel van staalplaten met veel gaatjes, waarachter ’s avonds mysterieus blauw licht schijnt. In het gebouw heeft de SNS-bank gezeten.",
+        "en": "This mansion was built in 1907 in a neoclassicist style (= it looks like old-Greek and –Roman buildings). This house was built on behalf of textile manufacturer Julius Scholten and designed by architect G. Beltman. This building is a municipal monument. The house is refreshed on the outside and the modern construction from the 1970s is equipped with steel plates with many little holes. Behind these holes, a mysterious blue light shines in the evening.",
+        "de": "Dieses Wohnhaus wurde 1907 in neoklassizistischem Stil (= eine Bauart die den alten römischen und griechischen Gebäuden ähnelt) gebaut. Die Villa wurde im Auftrag des Textilfabrikanten Julius Scholten vom Architekten G. Beltman entworfen. Das Gebäude ist ein kommunales Monument. An der Außenseite hat man das Haus renoviert, während der Flügel aus den siebziger Jahren mit einer modernen Fassade aus Stahlplatten mit vielen kleinen Löchern versehen ist.  Abends scheint dahinter mysteriöses blaues Licht."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waaraan kun je goed zien dat villa Scholten in neoclassicistische stijl is gebouwd:",
+          "opties": [
+            "Aan de ronde vormen",
+            "Aan de namaak zuilen en de driehoek bij o.a.de ingang",
+            "Aan de kleur van het gebouw",
+            "Dat is niet meer te zien"
+          ],
+          "uitleg": "Neoclassicistisch betekent: gebouwd zoals de oude Grieken en Romeinen."
+        },
+        "en": {
+          "tekst": "How can you easily tell that Villa Scholten was built in the neoclassical style?",
+          "opties": [
+            "By the round shapes",
+            "By the imitation columns and the triangle at the entrance and elsewhere",
+            "By the colour of the building",
+            "You can't see it any more"
+          ],
+          "uitleg": "Neoclassical means: built like the ancient Greeks and Romans did."
+        },
+        "de": {
+          "tekst": "Woran erkennst du gut, dass die Villa Scholten im klassizistischen Stil gebaut ist?",
+          "opties": [
+            "An den runden Formen",
+            "An den nachgemachten Säulen und dem Dreieck am Eingang und anderswo",
+            "An der Farbe des Gebäudes",
+            "Das sieht man nicht mehr"
+          ],
+          "uitleg": "Klassizistisch heißt: gebaut wie bei den alten Griechen und Römern."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 57,
+      "id": "ter-kuile-huis",
+      "titel": {
+        "nl": "Ter Kuile huis",
+        "en": "Ter Kuile house",
+        "de": "Haus Ter Kuile"
+      },
+      "tekst": {
+        "nl": "Bovenin de gevel van dit fraaie huis met aparte bouw zie je een kleurige zonnewijzer. Coenraad ter Kuile bouwde dit huis in 1911 en was landelijk bekend als amateur-sterrenkundige. Naast de hoofdingang hangt een prachtige gevellantaarn en een soort familiewapen.",
+        "en": "At the top of the facade of this beautifully crafted house you can see a colorful sundial. The house was built by Coenraad ter Kuile in 1911. Coenraad was known throughout the country as an amateur astronomer. Next to the main entrance there is a beautiful facade lantern and something that looks like a family weapon.",
+        "de": "Oben in der Fassade dieser schönen Villa mit ihrer besonderen Bauart sieht man eine bunte Sonnenuhr. Coenraad ter Kuile, der national als Amateur-Astronom bekannt war, hat dieses Haus 1911 bauen lassen. Neben dem Haupteingang hängt eine schöne Laterne und ein Familienwappen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De zonnewijzer aan het Ter Kuile huis is:",
+          "opties": [
+            "Een wijzer (naald) die naar de zon wijst",
+            "Een bord waarop je kunt zien waar de zon opkomt en ondergaat",
+            "Een soort klok waarop je kunt zien hoe laat het is",
+            "Laat zien hoe wijs het is om in de zon te lopen"
+          ],
+          "uitleg": "De schaduw van de staaf valt op de cijfers en wijst zo de tijd aan. Coenraad ter Kuile maakte ook de zonnewijzer aan de Grote Kerk."
+        },
+        "en": {
+          "tekst": "What is the sundial on the Ter Kuile house?",
+          "opties": [
+            "A pointer (needle) that points at the sun",
+            "A board that shows where the sun rises and sets",
+            "A kind of clock that shows you the time",
+            "It shows how wise it is to walk in the sun"
+          ],
+          "uitleg": "The shadow of the rod falls on the numbers and so shows the time. Coenraad ter Kuile also made the sundial on the Grote Kerk."
+        },
+        "de": {
+          "tekst": "Was ist die Sonnenuhr am Haus Ter Kuile?",
+          "opties": [
+            "Ein Zeiger (eine Nadel), der zur Sonne zeigt",
+            "Eine Tafel, auf der du siehst, wo die Sonne auf- und untergeht",
+            "Eine Art Uhr, auf der du siehst, wie spät es ist",
+            "Sie zeigt, wie klug es ist, in der Sonne zu gehen"
+          ],
+          "uitleg": "Der Schatten des Stabs fällt auf die Zahlen und zeigt so die Zeit an. Coenraad ter Kuile hat auch die Sonnenuhr an der Grote Kerk gemacht."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 58,
+      "id": "villa-roozendaal",
+      "titel": {
+        "nl": "Villa Roozendaal",
+        "en": "Villa Roozendaal",
+        "de": "Villa Roozendaal"
+      },
+      "tekst": {
+        "nl": "De monumentale villa uit 1915, is gebouwd in opdracht van de textielfabrikantenfamilie Rozendaal. Dat verklaart ook direct de naam. Opvallend is de vijfzijdige erker en een mooie veranda. De villa is omgebouwd tot kantoorpand. De villa is één van de laatste villa’s in deze straat die in oude staat is gebleven.",
+        "en": "This monumental mansion, dating from 1915  was built on behalf of textile-factory family Rozendaal, hence the name. Striking is the five-sided bay window and a nice veranda. The mansion has been converted into an office. This building is one of the last in this street that remained in the old state.",
+        "de": "Diese monumentale Villa wurde 1915 im Auftrag der Textilfabrikantenfamilie Rozendaal erbaut. Dies erklärt auch sofort den Namen. Bemerkenswert sind das fünfeckige Erkerfenster und die schöne  Veranda. Man hat die Villa in ein Bürogebäude umgewandelt. Diese Villa ist eine der letzten Villen in dieser Straße, die in dem ursprünglichen Zustand geblieben ist."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Waarom zijn veel villa’s in de Tromplaan niet meer in oude staat en dus verbouwd:",
+          "opties": [
+            "Men vond de inrichting niet meer modern genoeg",
+            "Men had genoeg geld om te verbouwen",
+            "De villa’s werden te groot en te duur voor een gezin",
+            "Dat moest van de burgemeester"
+          ],
+          "uitleg": "Na de textieltijd kon bijna geen gezin zo'n groot huis met personeel nog betalen. Er kwamen kantoren in."
+        },
+        "en": {
+          "tekst": "Why have many villas on the Tromplaan been altered?",
+          "opties": [
+            "People thought the interior was no longer modern enough",
+            "People had enough money to rebuild",
+            "The villas became too big and too expensive for one family",
+            "The mayor said they had to"
+          ],
+          "uitleg": "After the textile era, hardly any family could afford such a big house with servants. Offices moved in."
+        },
+        "de": {
+          "tekst": "Warum wurden viele Villen an der Tromplaan umgebaut?",
+          "opties": [
+            "Man fand die Einrichtung nicht mehr modern genug",
+            "Man hatte genug Geld für einen Umbau",
+            "Die Villen wurden zu groß und zu teuer für eine Familie",
+            "Der Bürgermeister hat es befohlen"
+          ],
+          "uitleg": "Nach der Textilzeit konnte sich kaum eine Familie noch so ein großes Haus mit Personal leisten. Es zogen Büros ein."
+        }
+      },
+      "juist": 2
+    },
+    {
+      "nummer": 59,
+      "id": "villa-serphos",
+      "titel": {
+        "nl": "Villa Serphos",
+        "en": "Villa Serphos",
+        "de": "Villa Serphos"
+      },
+      "tekst": {
+        "nl": "De villa is in 1910 gebouwd door Izaak Serphos. Bijzonder is dat in de hal een opgezette ooievaar staat. Die herinnert er aan dat onder de vogel een kast verborgen zat waar in de 2e Wereld Oorlog de familie Menko hier ondergedoken zat.",
+        "en": "The mansion was constructed in 1910 by Izaak Serphos. The stuffed stork in the hallway is a well-known hallmark. It is a silent reminder of the cupboard underneath, where the Jewish Menko family hid during the second world war.",
+        "de": "Diese Villa wurde 1910 von Izaak Serphos erbaut. Bemerkenswert ist der präpariete Storch im Flur. Dies erinnert daran, dass unter dem Vogel einen großen Schrank verborgen war, wo im Zweiten Weltkrieg die jüdische Familie Menko untergetaucht war."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Villa Serphos heeft vroeger ook dienst gedaan als:",
+          "opties": [
+            "Directeurswoning textielfabriek",
+            "Directeurswoning van school De Maere",
+            "Directeurswoning ziekenhuis De Stadsmaten",
+            "Natuurmuseum"
+          ],
+          "uitleg": "Van ongeveer 1940 tot 2007 zat hier het Natuurmuseum Enschede. Vandaar ook die opgezette ooievaar."
+        },
+        "en": {
+          "tekst": "What else was Villa Serphos used for in the past?",
+          "opties": [
+            "As the director's house of a textile factory",
+            "As the head teacher's house of De Maere school",
+            "As the director's house of De Stadsmaten hospital",
+            "As a natural history museum"
+          ],
+          "uitleg": "From about 1940 to 2007 the Enschede Natural History Museum was here. That explains the stuffed stork."
+        },
+        "de": {
+          "tekst": "Wofür wurde die Villa Serphos früher auch genutzt?",
+          "opties": [
+            "Als Direktorenhaus einer Textilfabrik",
+            "Als Direktorenhaus der Schule De Maere",
+            "Als Direktorenhaus des Krankenhauses De Stadsmaten",
+            "Als Naturkundemuseum"
+          ],
+          "uitleg": "Von etwa 1940 bis 2007 war hier das Naturkundemuseum Enschede. Daher auch der ausgestopfte Storch."
+        }
+      },
+      "juist": 3
+    },
+    {
+      "nummer": 60,
+      "id": "groote-schuur",
+      "titel": {
+        "nl": "Groote Schuur",
+        "en": "Groote Schuur",
+        "de": "Groote Schuur"
+      },
+      "tekst": {
+        "nl": "Bankier B.W. Blijdenstein heeft dit herenhuis in 1910-1912 gebouwd. Bij De Groote Schuur kun je duidelijk Engelse invloeden zien zoals elementen in Cottagestyle (een cottage is een Engels huis met vaak een rieten dak). Dit komt waarschijnlijk door het intensieve contact dat Blijdenstein had met Engelse industriëlen. Op de hoek van het pand is nog een oude tramhaak te zien.",
+        "en": "Banker B.W. Blijdenstein constructed this mansion in the period between 1910 and 1912. You can see some clear English influences like Cottage style elements at the Large Barn. These influences were likely due to the intensive contact Blijdenstein had with English industrials. At the corner of the building an old tram hook is still attached.",
+        "de": "Der Banker B.W. Blijdenstein hat diese Villa 1910-1912 bauen lassen. Bei der ‘Groote Schuur’ sieht man ganz deutlich englische Einflüsse, wie Elemente in ‘Cottagestyle’ (Cottage = ein englisches oft strohgedecktes Haus). Dies liegt wahrscheinlich an dem intensiven Kontakt, den Blijdenstein mit englischen Industriellen hatte. An der Ecke der Villa sieht man noch einen alten Straßenbahnhaken."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De Groote Schuur staat ook wel bekend onder de naam:",
+          "opties": [
+            "Villa Commandeur (naar de bewoner de chirurg dr. Commandeur)",
+            "De Keverij (naar de leefgemeenschap die hier jaren was)",
+            "De Engelse villa (naar de Engelse elementen in het gebouw)",
+            "Blijdensteinhuis (naar de opdrachtgever)"
+          ],
+          "uitleg": "Een huis wordt vaak genoemd naar een bekende bewoner."
+        },
+        "en": {
+          "tekst": "What other name is De Groote Schuur known by?",
+          "opties": [
+            "Villa Commandeur (after the resident, the surgeon Dr Commandeur)",
+            "De Keverij (after the living community that was here for years)",
+            "The English villa (after the English features of the building)",
+            "Blijdensteinhuis (after the man who had it built)"
+          ],
+          "uitleg": "A house is often named after a well-known person who lived there."
+        },
+        "de": {
+          "tekst": "Unter welchem Namen ist De Groote Schuur auch bekannt?",
+          "opties": [
+            "Villa Commandeur (nach dem Bewohner, dem Chirurgen Dr. Commandeur)",
+            "De Keverij (nach der Lebensgemeinschaft, die jahrelang hier war)",
+            "Die englische Villa (nach den englischen Teilen des Gebäudes)",
+            "Blijdensteinhuis (nach dem Bauherrn)"
+          ],
+          "uitleg": "Ein Haus wird oft nach einem bekannten Bewohner benannt."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 61,
+      "id": "menko-van-dam-huis",
+      "titel": {
+        "nl": "Menko van Dam huis",
+        "en": "Menko-Van Dam house",
+        "de": "Haus Menko-Van Dam"
+      },
+      "tekst": {
+        "nl": "Het Menko Van Dam huis is een ontwerp van Karel De Bazel, die ook de Joodse Synagoge heeft ontworpen. Met de bouw van het huis is begonnen in 1915 en in 1916 is de familie Menko er gaan wonen. Op dit adres zat de Joodse Raad van Enschede waar Sigmund Menko de voorzitter van was. Hij heeft in de 2e Wereld Oorlog geprobeerd zoveel mogelijk Joden te redden van deportatie.",
+        "en": "The House of Menko van Dam is designed by Karel de Bazel, who also designed the Jewish synagogue. The construction of the house started in 1915 and in 1916 the family Menko moved in. The Jewish council of Enschede, with Sigmund Menko as chairman, was located here. During the second world war he tried to save as many Jews from deportation as he could.",
+        "de": "Das Menko Van Damhuis wurde nach Plänen des Architekten Karel De Bazel erbaut, der auch die jüdische Synagoge entworfen hat. Der Bau der Villa hat 1915 begonnen, und sie wurde 1916 von der Familie Menko bezogen. Hier hatte auch der ‘Joodse Raad van Enschede’ (= Jüdische Rat Enschedes) ihre Residenz. Sigmund Menko war der Ratspräsident. Im Zweiten Weltkrieg hat er versucht, soviel wie möglich Juden vor Deportation zu retten."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "De dubbele naam van het Menko Van Dam huis is omdat:",
+          "opties": [
+            "De heer Sigmund Nathan Menko en mevrouw Emma van Dam de villa hebben gebouwd",
+            "Het huis van de heer Menko aan een mooi aangelegde dam lag",
+            "De eerste bewoners uit (Amster)dam kwamen",
+            "De oorspronkelijke toegang naar het huis over een dam liep"
+          ],
+          "uitleg": "Het huis is genoemd naar het echtpaar: de naam van de man en de meisjesnaam van de vrouw."
+        },
+        "en": {
+          "tekst": "Why does the Menko-Van Dam house have a double name?",
+          "opties": [
+            "Mr Sigmund Nathan Menko and Mrs Emma van Dam had the villa built",
+            "Mr Menko's house was next to a beautifully built dam",
+            "The first residents came from (Amster)dam",
+            "The original way into the house went over a dam"
+          ],
+          "uitleg": "The house is named after the married couple: the husband's surname and the wife's maiden name."
+        },
+        "de": {
+          "tekst": "Warum hat das Haus Menko-Van Dam einen doppelten Namen?",
+          "opties": [
+            "Herr Sigmund Nathan Menko und Frau Emma van Dam haben die Villa gebaut",
+            "Das Haus von Herrn Menko lag an einem schön angelegten Damm",
+            "Die ersten Bewohner kamen aus (Amster)dam",
+            "Der ursprüngliche Weg zum Haus führte über einen Damm"
+          ],
+          "uitleg": "Das Haus ist nach dem Ehepaar benannt: dem Namen des Mannes und dem Mädchennamen der Frau."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 62,
+      "id": "villa-menko-edersheim-memphis-hotel",
+      "titel": {
+        "nl": "Villa Menko-Edersheim/Memphis hotel",
+        "en": "Villa Menko-Edersheim/Memphis hotel",
+        "de": "Villa Menko-Edersheim/Hotel Memphis"
+      },
+      "tekst": {
+        "nl": "In 1923 ontwierp de architect K.P.C. de Bazel een woning voor de Joodse textielfabrikant Miljan Isidoor Menko. Tussen de woonkamers zaten glazen schuifdeuren, zodat de biljartkamer, de eetkamer, de huiskamer en de hal tot één grote ruimte kon worden samengevoegd. De woning werd in de oorlog als “Erholingsheim” (= een soort ruimte om te ontspannen) gebruikt door Duitse militairen. In de jaren ’50 werd het in gebruik genomen als hotel Memphis. Het gebouw werd diverse malen verbouwd en uitgebreid tot het hotel halverwege de jaren 90 failliet ging.",
+        "en": "Architect K.P.C. de Bazel designed a house for the Jewish textile manufacturer Miljan Isidoor Menko in 1923. Between the living rooms there where sliding glass doors. This allowed the billiard room, the dining room, the living room and the hall to be joined to one large room. During the war this house was used by German soldiers as “Erholingsheim” (place to relax). In the 1950s it was put into use as hotel Memphis. The building was rebuilt several times until the hotel went bankrupt halfway the 1990s.",
+        "de": "Der Architekt Karel de Bazel hat 1923 diese Wohnung für den jüdischen Textilfabrikanten Miljan Isidoor Menko entworfen. Zwischen den Wohnzimmern gab es gläserne Schiebetüren. So konnten der Billiardraum, das Speisezimmer, das Wohnzimmer und der Flur zu einem großen Raum vereint werden. Die Wohnung wurde im Zweiten Weltkrieg von deutschen Militären als “Erholingsheim” benutzt. In den fünfziger Jahren des vorigen Jahrhunderts wurde das Gebäude als Memphishotel in Betrieb genommen. Das Hotel wurde mehrmals umgebaut und vergrößert, bis es Mitte der neunziger Jahre in Konkurs ging."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Behalve als hotel Memphis is het ook in gebruik geweest als:",
+          "opties": [
+            "Jeugdherberg",
+            "Joods bejaardentehuis",
+            "Wijkcentrum",
+            "Asielzoekerscentrum"
+          ],
+          "uitleg": "Het huis van de Joodse fabrikant Menko is ook een tehuis voor oudere Joodse inwoners geweest."
+        },
+        "en": {
+          "tekst": "Apart from Hotel Memphis, what else has the building been used as?",
+          "opties": [
+            "As a youth hostel",
+            "As a Jewish care home for the elderly",
+            "As a community centre",
+            "As a centre for asylum seekers"
+          ],
+          "uitleg": "The house of the Jewish factory owner Menko was also a home for older Jewish people."
+        },
+        "de": {
+          "tekst": "Wofür wurde das Gebäude außer als Hotel Memphis noch genutzt?",
+          "opties": [
+            "Als Jugendherberge",
+            "Als jüdisches Altenheim",
+            "Als Stadtteilzentrum",
+            "Als Unterkunft für Asylbewerber"
+          ],
+          "uitleg": "Das Haus des jüdischen Fabrikanten Menko war auch ein Heim für ältere jüdische Einwohner."
+        }
+      },
+      "juist": 1
+    },
+    {
+      "nummer": 63,
+      "id": "willem-wilminkplein-theater",
+      "titel": {
+        "nl": "Willem Wilminkplein/theater",
+        "en": "Willem Wilminkplein/theatre",
+        "de": "Willem Wilminkplein/Theater"
+      },
+      "tekst": {
+        "nl": "Het in 2014 gemaakte plein is een prachtig plein met stadstuin en is vernoemd naar de bekende Enschedese dichter en schrijver Willem Wilmink. Vroeger was het voornamelijk een parkeerplaats. Ook het theater is naar de schrijver vernoemd en is onderdeel van het Nationaal Muziekkwartier dat in 2008 is geopend.",
+        "en": "This beautiful square with city garden was constructed in 2014 and is named after the famous poet and writer Willem Wilmink, born and deceased in Enschede. Before 2014 this place was mainly a parking place. The theater is also named after the writer and is part of the “Nationaal Muziekkwartier” which opened in 2008.",
+        "de": "Der 2014 gebaute Willem Wilminkplein ist ein reizender Platz mit einem Stadtgarten und ist nach dem bekannten Enschedeer Dichter und Schriftsteller Willem Wilmink benannt. Früher war dieses Gelände hauptsächlich ein Parkplatz. Auch das Theater wurde nach dem Dichter benannt, und ist Teil des ‘Nationaal Muziekkwartier’ (Nationales Musikviertel), das 2008 eröffnet wurde."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Als je langs het Muziekkwartier loopt zie je ook nog:",
+          "opties": [
+            "Een muziekschool",
+            "Een toneelschool",
+            "Een cafetaria",
+            "Een ijssalon"
+          ],
+          "uitleg": "In het Muziekkwartier zit ook het conservatorium, waar studenten muzikant worden."
+        },
+        "en": {
+          "tekst": "What else do you see when you walk past the Muziekkwartier?",
+          "opties": [
+            "A music school",
+            "A drama school",
+            "A snack bar",
+            "An ice cream parlour"
+          ],
+          "uitleg": "The Muziekkwartier also has a conservatoire, where students train to become musicians."
+        },
+        "de": {
+          "tekst": "Was siehst du auch, wenn du am Muziekkwartier vorbeigehst?",
+          "opties": [
+            "Eine Musikschule",
+            "Eine Schauspielschule",
+            "Eine Imbissbude",
+            "Eine Eisdiele"
+          ],
+          "uitleg": "Im Muziekkwartier ist auch das Konservatorium, wo Studenten zu Musikern ausgebildet werden."
+        }
+      },
+      "juist": 0
+    },
+    {
+      "nummer": 64,
+      "id": "voormalig-postkantoor",
+      "titel": {
+        "nl": "voormalig postkantoor",
+        "en": "Former post office",
+        "de": "Ehemaliges Postamt"
+      },
+      "tekst": {
+        "nl": "Op 1 oktober 1904 werd het postkantoor aan de Haaksbergerstraat in gebruik genomen. Behalve de post, telegraaf en telefoon zijn hier in de loop van de jaren andere rijksdiensten ondergebracht. In 1933 werd dit postkantoor verbouwd en van een nieuwe entree voorzien. In ditzelfde jaar vond de overbrenging  van de lokale geautomatiseerde telefoondienst naar het postkantoor plaats. Tot 1964 kon men hier terecht voor alle postzaken.",
+        "en": "The post office at the Haaksbergerstraat was taken into use on the 1st of October 1904. Apart from mail, telegraph and telephone, other government departments were housed here. In 1933 this post office was rebuilt with a new entrance. In the same year the local automated telephone service was transferred to the post office. Until 1964 the people from Enschede went here for everything concerning mail.",
+        "de": "Im Oktober 1904 wurde das Postamt an der (Korte) Haaksbergerstraat in Betrieb genommen. Außer  der Post, dem Telegraf und dem Telefon wurden hier im Laufe der Jahre andere Reichsdienste untergebracht. Im Jahr 1933 wurde dieses Postamt umgebaut und mit einem neuen Eingang ausgestattet. Im selben Jahr hat man den lokalen automatischen Telefondienst in dieses Postamt gebracht. Bis 1964 konnte man hier alle Postdienstleistungen erledigen."
+      },
+      "vraag": {
+        "nl": {
+          "tekst": "Een oudere naam van PostNL is PTT. Deze letters staan voor:",
+          "opties": [
+            "Posterijen, Telegrafie en Telefonie",
+            "Putje graven, Tentje bouwen, Tukje doen",
+            "Poly(trimethyleentereflataat), een synthetisch polyester",
+            "Per Telefoon Toesturen"
+          ],
+          "uitleg": "Post, telegraaf en telefoon vielen vroeger allemaal onder één staatsbedrijf."
+        },
+        "en": {
+          "tekst": "An older name for PostNL is PTT. What do those letters stand for?",
+          "opties": [
+            "Posterijen, Telegrafie en Telefonie (Post, Telegraph and Telephone)",
+            "Pit digging, Tent pitching, Taking a nap",
+            "Poly(trimethylene terephthalate), a type of plastic",
+            "Please Telephone Twice"
+          ],
+          "uitleg": "Post, telegraph and telephone used to be run by one state company."
+        },
+        "de": {
+          "tekst": "Ein älterer Name von PostNL ist PTT. Wofür stehen diese Buchstaben?",
+          "opties": [
+            "Posterijen, Telegrafie en Telefonie (Post, Telegrafie und Telefonie)",
+            "Putzen, Tanzen, Toben",
+            "Poly(trimethylenterephthalat), ein Kunststoff",
+            "Per Telefon Transportieren"
+          ],
+          "uitleg": "Post, Telegraf und Telefon gehörten früher alle zu einem staatlichen Unternehmen."
+        }
+      },
+      "juist": 0
+    }
+  ]
+}
