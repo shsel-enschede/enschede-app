@@ -51,6 +51,37 @@ Plekken die nog geen verhaal en vraag hebben, staan in `content/locaties.json` m
 
 Daarna verstuur je het voorstel zoals altijd. Uit de app halen kan ook: vinkje uit, dan is de plek weer concept.
 
+## Testen vanaf de laptop: doen alsof je ter plekke bent
+
+Zo controleer je zonder naar de stad te gaan of plekken op de goede plaats opengaan. Dit werkt in Chrome, Edge en Brave op een laptop of pc. Op een telefoon kan het niet (op Android alleen met een aparte nep-GPS-app).
+
+1. Open de app en kies in het menu (tandwiel rechtsboven) bij *Wanneer gaan de plekken open?* voor **Alleen ter plekke**. Staat dit op *Overal*, dan is alles al open en test je niets.
+2. Druk op **F12** (of Ctrl+Shift+I). Dan opent het venster met ontwikkelaarstools.
+3. Klik daarin rechtsboven op **⋮**, dan **More tools** en dan **Sensors**.
+4. Klik bij **Location** op **Manage**, dan **Add location**, en vul in:
+
+   | Veld | Waarde |
+   | --- | --- |
+   | Location name | Oude Markt (bij het brandmonument) |
+   | Lat | 52.22080 |
+   | Long | 6.89540 |
+   | **Accuracy** | **10** |
+
+5. Kies die locatie in de keuzelijst bij **Location** en tik in de app op **Zet locatie aan**.
+
+Brandmonument, Grote Kerk en zonnewijzer gaan nu open. In de voetbalk staat "Je bent bij 3 plekken …".
+
+**Vergeet Accuracy niet.** Zonder die waarde rekent de browser met een onzekerheid van 150 m. Boven de 50 m vertrouwt de app de GPS niet (zie `js/afstand.js`). Dan staat er "Locatie nog onzeker…" en gaat er niets open. Dat is goed gedrag van de app, geen fout.
+
+Een andere plek testen? Zoek de positie op met de link onder **Positie van de plek** in `beheer.html` en voeg die locatie op dezelfde manier toe, weer met Accuracy 10.
+
+Let op:
+
+- De nep-locatie werkt alleen zolang de ontwikkelaarstools openstaan, en alleen in dat tabblad.
+- Een opgeslagen locatie blijft in de lijst staan. De volgende keer kies je hem met één klik.
+- Een plek die open is gegaan, blijft open. Wil je opnieuw testen, kies dan in het menu **Alles opnieuw beginnen**.
+- Zet na het testen het menu terug op de SHSEL-standaard.
+
 ## Notatie
 
 - **Volgorde:** in `content/` altijd breedte, dan lengte: `{"lat": 52.22, "lng": 6.89}` en `[lat, lng]`. GeoJSON en sommige websites gebruiken de omgekeerde volgorde. Enschede ligt rond breedte **52,2** en lengte **6,9**; omgedraaid ligt het punt in Somalië.
