@@ -67,7 +67,9 @@ Zo controleer je zonder naar de stad te gaan of plekken op de goede plaats openg
    | Long | 6.89540 |
    | **Accuracy** | **10** |
 
-5. Kies die locatie in de keuzelijst bij **Location** en tik in de app op **Zet locatie aan**.
+5. Met *Manage* heb je de locatie alleen opgeslagen, nog niet gekozen. Sluit het instellingenvenster met **✕** (of Esc) en ga terug naar het tabblad **Sensors**.
+6. Open de keuzelijst bij **Location** en kies onder *Overrides* je locatie "Oude Markt".
+7. Tik in de app op **Zet locatie aan**.
 
 Brandmonument, Grote Kerk en zonnewijzer gaan nu open. In de voetbalk staat "Je bent bij 3 plekken …".
 
