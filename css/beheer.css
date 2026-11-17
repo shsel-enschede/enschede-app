@@ -51,7 +51,16 @@
 .foto-item > .vink input { flex: none; }
 .foto-item--gekozen { border-color: var(--goed); background: var(--goed-licht); }
 .foto-item__status { grid-column: 2; font-size: 0.875rem; color: var(--grijs); }
-.foto-item__duim { grid-row: span 2; width: 72px; height: 54px; object-fit: cover; border-radius: 4px; background: var(--vlak); }
+/* Voorbeeld groot genoeg om te kiezen; hele foto (contain), niet bijgesneden. Klik = groot bekijken. */
+.foto-item__duim-knop { grid-column: 1; grid-row: 1 / span 3; padding: 0; border: 1px solid var(--lijn); border-radius: 6px; background: var(--vlak); cursor: zoom-in; line-height: 0; }
+.foto-item__duim-knop:focus-visible { outline: 3px solid var(--rood); outline-offset: 2px; }
+.foto-item__duim { display: block; width: 160px; height: 120px; object-fit: contain; border-radius: 5px; }
+.beheer-fotovenster { width: min(96vw, 1400px); max-height: 96vh; padding: 0.75rem; border: none; border-radius: 8px; }
+.beheer-fotovenster::backdrop { background: rgb(0 0 0 / 0.75); }
+.beheer-fotovenster__foto { display: block; max-width: 100%; max-height: calc(96vh - 7rem); margin: 0 auto; object-fit: contain; }
+.beheer-fotovenster__sluit { float: right; min-width: 44px; min-height: 44px; font-size: 1.25rem; border: 1px solid var(--lijn); border-radius: 8px; background: var(--wit); cursor: pointer; }
+.beheer-fotovenster__naam { margin: 0.5rem 0 0; font-weight: 600; overflow-wrap: anywhere; }
+.beheer-fotovenster__formaat { margin: 0; color: var(--tekst); }
 .foto-item .knoppenrij { grid-column: 3; grid-row: 1 / span 3; margin: 0; flex-direction: column; flex-wrap: nowrap; gap: 4px; }
 .label-hoofd { color: var(--goed); }
 
@@ -136,3 +145,12 @@
 /* Proeffoto: rechten nog niet bevestigd. Tekst én kader, niet alleen kleur. */
 .foto-item__proef { grid-column: 2; justify-self: start; font-size: 0.875rem; color: var(--tekst); border: 1px dashed var(--grijs); border-radius: 4px; padding: 0 0.375rem; }
 #foto-proef-status:empty { display: none; }
+
+/* Smal scherm: foto over de volle breedte boven de naam. Staat onderaan, zodat hij de regels hierboven overschrijft. */
+@media (max-width: 560px) {
+  .foto-item { grid-template-columns: minmax(0, 1fr) auto; }
+  .foto-item__duim-knop { grid-column: 1 / -1; grid-row: 1; }
+  .foto-item__duim { width: 100%; height: auto; max-height: 50vh; aspect-ratio: 3 / 2; }
+  .foto-item > .vink, .foto-item__status, .foto-item__proef { grid-column: 1; }
+  .foto-item .knoppenrij { grid-column: 2; grid-row: 2 / span 3; }
+}
