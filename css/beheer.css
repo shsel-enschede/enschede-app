@@ -45,12 +45,14 @@
 }
 
 .fotolijst { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 8px; }
-.foto-item { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--lijn); border-radius: 8px; }
+.foto-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--lijn); border-radius: 8px; }
 .foto-item > .vink { grid-column: 2; }
+.foto-item__naam { min-width: 0; overflow-wrap: anywhere; }
+.foto-item > .vink input { flex: none; }
 .foto-item--gekozen { border-color: var(--goed); background: var(--goed-licht); }
 .foto-item__status { grid-column: 2; font-size: 0.875rem; color: var(--grijs); }
 .foto-item__duim { grid-row: span 2; width: 72px; height: 54px; object-fit: cover; border-radius: 4px; background: var(--vlak); }
-.foto-item .knoppenrij { grid-column: 3; grid-row: 1 / span 2; margin: 0; }
+.foto-item .knoppenrij { grid-column: 3; grid-row: 1 / span 3; margin: 0; flex-direction: column; flex-wrap: nowrap; gap: 4px; }
 .label-hoofd { color: var(--goed); }
 
 .controle { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 4px; }
@@ -129,3 +131,6 @@
 .antwoord--goed input:not([type]) { border: 2px solid var(--goed); background: var(--goed-licht); }
 .schrijfhulp { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; max-width: 70ch; }
 .schrijfhulp li::before { content: "• "; color: var(--grijs); }
+/* Proeffoto: rechten nog niet bevestigd. Tekst én kader, niet alleen kleur. */
+.foto-item__proef { grid-column: 2; justify-self: start; font-size: 0.875rem; color: var(--tekst); border: 1px dashed var(--grijs); border-radius: 4px; padding: 0 0.375rem; }
+#foto-proef-status:empty { display: none; }

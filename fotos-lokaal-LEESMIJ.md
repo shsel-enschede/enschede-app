@@ -1,4 +1,4 @@
-# Lokale proefversie met foto's
+# Proeffoto's: lokaal en in de online editor
 
 Zo bekijk je de app op je eigen computer **met** foto's waarvan de rechten nog niet geregeld zijn.
 Die foto's komen nooit op GitHub of op de live site.
@@ -10,6 +10,24 @@ Die foto's komen nooit op GitHub of op de live site.
 - De bestandsnaam moet gelijk zijn aan `bestand_klaar` in `content/fotos.json` (bijvoorbeeld `jacobuskerk-nu.webp`).
 - Alleen als je de app opent via `localhost` toont hij deze foto's, met het label **"Proef: rechten nog niet bevestigd"**.
 - Op de live site bestaat de map niet; daar zie je alleen foto's met `rechten_geregeld: true` uit `fotos/`.
+
+## Proeffoto's in de online editor
+
+De editor op de live site (`beheer.html`) kan proeffoto's ook tonen, zonder dat ze openbaar worden:
+
+- De editor haalt ze met jouw persoonlijke sleutel op uit de privé-repository `shsel-enschede/enschede-app-intern`, map `fotos-lokaal`.
+- Ze staan alleen in het geheugen van jouw browser, met het label **"Proef: rechten nog niet bevestigd"**. Uitloggen wist ze.
+- De app zelf toont ze nooit, en de editor stuurt ze nooit mee naar de openbare repository.
+- Bestandsnaam: zoals hierboven, gelijk aan `bestand_klaar` in `content/fotos.json`.
+
+**Toegang geven (beheerder, stap voor stap):**
+
+1. Ga op GitHub naar `enschede-app-intern` → **Settings** → **Collaborators and teams**.
+2. Voeg de persoon of het team toe met de rol **Read**. Nooit *Write*: met *Read* kan een sleutel daar niets veranderen, ook al staat er *Contents: write* in de sleutel (GitHub geeft nooit meer dan je rol).
+3. De persoon past zijn sleutel aan: GitHub → **Settings** → **Developer settings** → **Fine-grained tokens** → de sleutel *Editor Enschede app* → **Edit** → bij *Repository access* ook **enschede-app-intern** aanvinken → **Update**. Een nieuwe sleutel is niet nodig.
+4. Editor verversen. Zonder toegang zegt de editor dat in gewone taal.
+
+**Let op:** `enschede-app-intern` bevat meer dan foto's (zie CLAUDE.md, "Documenten: wat staat waar"). Wie leesrecht krijgt, ziet alles daarin. Moeten contentbeheerders alleen de foto's zien, zet de proeffoto's dan in een eigen privé-repository en pas `PROEF_REPO` in `js/github.js` aan.
 
 ## De app lokaal starten
 
