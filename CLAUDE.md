@@ -194,6 +194,8 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
 - **Nieuwe plek en opmerkingen (okt 2026):**
   - *+ Nieuwe plek toevoegen*: alleen een titel; de editor maakt `id` (uit de titel) en het volgende `nummer`, en de plek begint als `concept`. Een nieuwe plek die nog niet op GitHub staat kan weer weg (met een gebouw dat alleen voor die plek gemaakt is). Bestaande plekken worden nooit verwijderd, alleen uit de app gehaald.
   - Voegen twee mensen tegelijk een plek of gebouw toe met hetzelfde `id` of `nummer`, dan krijgt bij versturen de nieuwe van de verstuurder een vrij id of nummer (`maakNieuwUniek` in `js/voorstel.js`); de editor meldt dat.
+  - **Gebouw wisselen (René, nov 2026):** na een andere keuze bij *Hoort bij gebouw* staat er direct onder de lijst "… hoort nu bij X (was: Y)" met de knop *Ongedaan maken* (een net gemaakt gebouw dat nergens anders bij hoort, gaat dan ook weg). De keuzelijst wordt na de keuze losgelaten, zodat een muiswiel of pijltjestoets hem niet ongemerkt verder zet.
+  - Proeffoto's: "bestand ontbreekt nog" alleen als er ook geen `bestand_klaar` is. Heeft de sleutel toegang maar staat de foto niet in `enschede-app-intern`, dan meldt de editor "Proeffoto nog niet online gezet".
   - Opmerkingen: `opmerking` bij een plek en `toelichting` bij een gebouw. Niet zichtbaar in de app, wel openbaar op GitHub: geen persoonsgegevens (AVG).
   - Een nieuwe plek heeft alleen Nederlands; in EN en DE verschijnt hij pas na vertaling (fase 3).
 - **Nog open:** inhoud splitsen in één bestand per locatie; fotogebruik; wie mag `bevestigd` aanzetten; zijn vertalers ook contentbeheerders.

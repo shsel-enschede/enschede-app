@@ -148,6 +148,11 @@
         <span>Hoort bij gebouw</span>
         <select id="gebouw"></select>
       </label>
+      <!-- Na een andere keuze: meteen zien wat er veranderde, en met één klik terug (ook als het muiswiel of een toets de keuze verzette). -->
+      <div class="gebouw-wissel" id="gebouw-wissel" hidden>
+        <p class="status status--groot" id="gebouw-wissel-tekst" role="status"></p>
+        <button type="button" class="knop-klein" id="gebouw-terug">Ongedaan maken</button>
+      </div>
       <div id="gebouw-velden">
         <label class="veld"><span>Naam op de kaart</span><input id="gebouw-naam" maxlength="80"></label>
         <label class="veld"><span>Adres met huisnummer</span><input id="gebouw-adres" maxlength="120" placeholder="bijv. Oude Markt 32"></label>

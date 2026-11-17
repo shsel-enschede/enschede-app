@@ -119,6 +119,8 @@
   background: var(--wit); border-top: 1px solid var(--lijn); box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
 }
 .verstuurbalk[hidden] { display: none; }
+.gebouw-wissel { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin: 0.25rem 0 0.75rem; padding: 0.5rem 0.75rem; border-left: 4px solid var(--rood); background: var(--fout-licht); }
+.gebouw-wissel .status { margin: 0; }
 .verstuurbalk .knop { min-height: 44px; }
 
 /* Verhaal en vraag */
