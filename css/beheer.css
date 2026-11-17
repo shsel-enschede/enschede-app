@@ -44,6 +44,7 @@
   border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
 }
 
+#foto-kiezen > .fotolijst { margin-top: 4px; }
 .fotolijst { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 8px; }
 .foto-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--lijn); border-radius: 8px; }
 .foto-item > .vink { grid-column: 2; }

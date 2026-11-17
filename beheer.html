@@ -202,10 +202,18 @@
 
     <section class="blok" aria-labelledby="kop-fotos">
       <h2 id="kop-fotos">4. Foto's</h2>
-      <p class="hint">Vink aan welke foto's bij deze plek horen. De bovenste is de hoofdfoto. Een foto verschijnt pas in de app als het bestand er is en de rechten geregeld zijn.</p>
+      <h3>Foto's bij deze plek</h3>
+      <p class="hint">De bovenste is de hoofdfoto. Met ↑ en ↓ verander je de volgorde; haal het vinkje weg om een foto van deze plek te halen. Een foto verschijnt pas in de app als het bestand er is en de rechten geregeld zijn.</p>
       <ul class="fotolijst" id="fotolijst"></ul>
       <p class="hint" id="foto-proef-status" role="status"></p>
-      <label class="vink"><input type="checkbox" id="alle-fotos"> Toon ook foto's van andere plekken</label>
+      <details class="uitklap" id="foto-kiezen">
+        <summary id="foto-kiezen-titel">Foto toevoegen</summary>
+        <p class="hint">Vink een foto aan om hem bij deze plek te zetten. Hij komt dan onderaan bij de foto's hierboven.</p>
+        <ul class="fotolijst" id="fotolijst-keuze"></ul>
+        <label class="vink"><input type="checkbox" id="alle-fotos"> Toon ook foto's van andere plekken</label>
+        <label class="vink vink--boven"><input type="checkbox" id="fotos-zonder-plaatje"> Toon ook foto's zonder plaatje (alleen een nummer, bijvoorbeeld uit het Stadsarchief)</label>
+        <p class="hint">Een nieuwe foto vanaf je eigen computer toevoegen kan nog niet. Dat komt later.</p>
+      </details>
     </section>
 
     <section class="blok" id="blok-versturen" aria-labelledby="kop-versturen" tabindex="-1">
