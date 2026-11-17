@@ -768,6 +768,35 @@ function wisProeffotos() {
   $('foto-proef-status').textContent = '';
 }
 
+// Voorbeeldfoto in de lijst: een knop met de hele foto; klik opent hem groot met naam en formaat.
+function maakDuim(naam, titel) {
+  const knop = maak('button', 'foto-item__duim-knop');
+  knop.type = 'button';
+  knop.setAttribute('aria-label', `Foto groot bekijken: ${titel}`);
+  const img = maak('img', 'foto-item__duim');
+  img.alt = '';
+  img.addEventListener('error', () => knop.remove(), { once: true });
+  knop.append(img);
+  knop.addEventListener('click', () => toonFotoGroot(img.src, naam, titel));
+  return knop;
+}
+
+function toonFotoGroot(src, naam, titel) {
+  const venster = $('beheer-fotovenster');
+  const foto = $('beheer-fotovenster-foto');
+  $('beheer-fotovenster-naam').textContent = `${titel} · ${naam}`;
+  $('beheer-fotovenster-formaat').textContent = '';
+  foto.onload = () => {
+    const b = foto.naturalWidth;
+    const h = foto.naturalHeight;
+    // De app toont foto's tot 1200 px breed; kleiner dan 800 px wordt op een groot scherm snel onscherp.
+    const let_op = Math.max(b, h) < 800 ? ' · let op: klein, kan onscherp worden' : '';
+    $('beheer-fotovenster-formaat').textContent = `${b} × ${h} pixels${let_op}`;
+  };
+  foto.src = src;
+  venster.showModal();
+}
+
 function toonFotos() {
   const lijst = $('fotolijst');
   lijst.replaceChildren();
@@ -812,17 +841,17 @@ function toonFotos() {
     const echt = f.rechten_geregeld === true;
     const naam = echt ? f.bestand : (f.bestand || f.bestand_klaar);
     if (geldigBestand(naam)) {
-      const img = maak('img', 'foto-item__duim');
-      img.addEventListener('error', () => img.remove(), { once: true });
-      img.alt = '';
+      const titel = `${f.bron ?? 'Onbekende bron'} ${f.documentnummer ?? ''}`.trimEnd();
+      const duim = maakDuim(naam, titel);
+      const img = duim.firstChild;
       if (echt) {
         img.loading = 'lazy';
         img.src = `fotos/${naam}`;
-        li.prepend(img);
+        li.prepend(duim);
       } else if (LOKAAL) {
         img.loading = 'lazy';
         img.src = `fotos-lokaal/${naam}`;
-        li.prepend(img);
+        li.prepend(duim);
         li.append(maak('span', 'foto-item__proef', 'Proef: rechten nog niet bevestigd'));
       } else if (gh.heeftSleutel()) {
         proeffoto(naam).then(async (url) => {
@@ -833,7 +862,7 @@ function toonFotos() {
             return;
           }
           img.src = url;
-          li.prepend(img);
+          li.prepend(duim);
           li.append(maak('span', 'foto-item__proef', 'Proef: rechten nog niet bevestigd'));
         });
       }
@@ -1400,6 +1429,11 @@ function koppel() {
     gewijzigd();
   });
   $('gebouw-terug').addEventListener('click', gebouwTerug);
+  // Fotovenster: sluiten met ✕, Escape (vanzelf bij <dialog>) of een klik naast de foto.
+  const fotovenster = $('beheer-fotovenster');
+  $('beheer-fotovenster-sluit').addEventListener('click', () => fotovenster.close());
+  fotovenster.addEventListener('click', (e) => { if (e.target === fotovenster) fotovenster.close(); });
+  fotovenster.addEventListener('close', () => { $('beheer-fotovenster-foto').removeAttribute('src'); });
   $('gebouw-naam').addEventListener('input', (e) => { gebouwVan(plek.gebouw).naam = e.target.value.trim(); gewijzigd(); });
   $('gebouw-naam').addEventListener('change', vulGebouwKeuze);
   $('gebouw-adres').addEventListener('input', (e) => {
