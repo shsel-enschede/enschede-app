@@ -939,12 +939,36 @@ function controleer(d = data) {
   return fouten;
 }
 
-function toonWijzigingen(lijst, wijzigingen, leeg) {
+function toonWijzigingen(lijst, wijzigingen, leeg, eigenWerk = false) {
   lijst.replaceChildren();
   if (!wijzigingen.length) { lijst.append(maak('li', 'hint', leeg)); return; }
   for (const w of wijzigingen) {
     const li = maak('li');
     li.append(maak('strong', '', w.naam));
+    // Eigen, nog niet verstuurde wijzigingen: laat zien bij welke plek ze horen en maak ze per plek
+    // terug te draaien (zichtbaarheid van de systeemstatus; gebruiker houdt de controle).
+    let rij = null;
+    if (eigenWerk && w.id && w.sleutel?.startsWith('plek:')) {
+      if (w.id === plek?.id) li.append(maak('span', 'hint', ' (de plek die nu open staat)'));
+      rij = maak('span', 'knoppenrij');
+      if (w.id !== plek?.id) {
+        const ga = maak('button', 'knop-klein', 'Ga naar deze plek');
+        ga.type = 'button';
+        ga.addEventListener('click', () => {
+          herteken(w.id);
+          $('plek').focus();
+          $('plek').scrollIntoView({ block: 'center' });
+        });
+        rij.append(ga);
+      }
+      if (basisVersie().locaties.some((l) => l.id === w.id)) {
+        const terug = maak('button', 'knop-klein', 'Ongedaan maken');
+        terug.type = 'button';
+        terug.setAttribute('aria-label', `Wijzigingen bij ${w.naam} ongedaan maken`);
+        terug.addEventListener('click', () => plekTerugzetten(w.id, w.naam));
+        rij.append(terug);
+      }
+    }
     const ul = maak('ul');
     for (const regel of w.regels) ul.append(maak('li', '', regel));
     if (w.punt && w.id) {
@@ -955,8 +979,21 @@ function toonWijzigingen(lijst, wijzigingen, leeg) {
       ul.append(r);
     }
     li.append(ul);
+    if (rij?.childElementCount) li.append(rij);
     lijst.append(li);
   }
+}
+
+/** Alle eigen wijzigingen bij één plek terugdraaien naar de versie waarop je werk gebaseerd is. */
+function plekTerugzetten(id, naam) {
+  if (!window.confirm(`Alle wijzigingen bij ${naam} ongedaan maken? Dit kun je niet terugdraaien.`)) return;
+  const oud = basisVersie().locaties.find((l) => l.id === id);
+  const i = data.locaties.findIndex((l) => l.id === id);
+  if (!oud || i < 0) return;
+  data.locaties[i] = oud;
+  bewaarConcept();
+  herteken(plek?.id ?? id);
+  $('blok-versturen').focus({ preventScroll: true });
 }
 
 function heeftWijziging() {
@@ -968,7 +1005,13 @@ function werkUitvoerBij() {
   const tekst = alsTekst(data);
   $('uitvoer').value = tekst;
   const wijzigingen = beschrijf(basisVersie(), data, fotoNaam);
-  toonWijzigingen($('wijzigingen'), wijzigingen, 'Nog niets gewijzigd.');
+  toonWijzigingen($('wijzigingen'), wijzigingen, 'Nog niets gewijzigd.', true);
+  // Bovenaan bij de plekkeuze: wijzigingen bij andere plekken gaan ook mee.
+  const andere = wijzigingen.filter((w) => w.sleutel?.startsWith('plek:') && w.id && w.id !== plek?.id);
+  $('plek-andere').hidden = !andere.length;
+  $('plek-andere').textContent = andere.length
+    ? `Let op: je hebt ook iets gewijzigd bij ${andere.length === 1 ? andere[0].naam : `${andere.length} andere plekken`}. Dat gaat mee in je voorstel (zie 5. Wijziging voorstellen).`
+    : '';
 
   const fouten = controleer();
   $('controle').replaceChildren(...(fouten.length
@@ -1421,7 +1464,7 @@ let versturenInBeeld = false;
 
 function koppel() {
   koppelVerhaal();
-  $('plek').addEventListener('change', (e) => kiesPlek(e.target.value));
+  $('plek').addEventListener('change', (e) => { kiesPlek(e.target.value); werkUitvoerBij(); });
   $('kopieer-link').addEventListener('click', kopieerLink);
   window.addEventListener('hashchange', volgLink);
   $('positie-ok').addEventListener('change', (e) => { if (!plek.positie) return; plek.positie.bevestigd = e.target.checked; plekStatus(); gewijzigd(); });
