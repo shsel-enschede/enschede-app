@@ -122,6 +122,7 @@ Gebaseerd op het SHSEL-logo en het officiële briefpapier (267SHSEL17). Uitgebre
   - Tik op een foto: fotovenster (`<dialog>`) schermvullend, foto niet bijgesneden, met bijschrift en volledige bron; vegen of pijlen naar de volgende, teller "2 / 3". Sluiten met ✕, Escape, tik naast de foto of de terugknop van de telefoon. Nooit automatisch draaien.
   - Nog niet ter plekke: alleen de hoofdfoto, wazig, niet te vergroten.
 - **Lokale proefversie:** alleen op `localhost` toont de app ook foto's zonder geregelde rechten, uit `fotos-lokaal/` (staat in `.gitignore`, komt nooit op GitHub), met het label "Proef: rechten nog niet bevestigd". Starten met `start-lokaal.bat` (server alleen op 127.0.0.1). Uitleg: `fotos-lokaal-LEESMIJ.md`.
+- **Proeffoto's in de online editor (René, nov 2026):** de editor toont foto's zonder geregelde rechten ook online, maar alleen aan wie ingelogd is en leesrecht heeft op de privé-repository `enschede-app-intern` (map `fotos-lokaal`). Ophalen via de GitHub-API met de eigen sleutel, alleen in het geheugen (blob), gewist bij uitloggen; label "Proef: rechten nog niet bevestigd". Niet in de app, nooit naar de openbare repository. Toegang alleen met rol *Read*. Code: `proeffoto` in `js/beheer.js`, `haalProeffoto` in `js/github.js`; test: `tests/proeffotos.test.mjs`.
 - **Doelgroep (René, okt 2026):**
   - **Hoofddoelgroep: scholieren van ca. 9–14 jaar**: bovenbouw basisschool (groep 6–8) en onderbouw voortgezet onderwijs (klas 1–2). Taalgebruik en meerkeuzevragen zijn op hen gericht.
   - **Ook geschikt voor gezinnen en families** met kinderen in die leeftijd: samen wandelen, samen kiezen, samen antwoorden.
@@ -170,7 +171,7 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
 - **Collegiale controle:** een collega-contentbeheerder beoordeelt het voorstel in de editor (*Akkoord* of *Opmerking*); de editor zet dat als review op de pull request.
 - **Veiligheid:**
   - Ruleset op `main`: alleen via pull request met goedkeuring van een beheerder (Code Owner). Dit is het vangnet; ook een uitgelekte sleutel kan de live app niet direct veranderen.
-  - Elke vrijwilliger een eigen *fine-grained token*: alleen deze repository, alleen *Contents* en *Pull requests* schrijven, verloopt na 1 jaar. Nooit een gedeelde sleutel.
+  - Elke vrijwilliger een eigen *fine-grained token*: alleen deze repository (plus `enschede-app-intern` voor wie proeffoto's mag zien, daar alleen met rol *Read*), alleen *Contents* en *Pull requests* schrijven, verloopt na 1 jaar. Nooit een gedeelde sleutel.
   - CSP van `beheer.html`: alleen `https://api.github.com` erbij in `connect-src`. De app zelf (`index.html`) praat nooit met GitHub.
   - Uitloggen-knop wist de sleutel. Validatie vóór versturen: versturen kan pas als alles klopt.
   - Een foto gaat alleen mee naar GitHub als `rechten_geregeld` aan staat.

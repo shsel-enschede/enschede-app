@@ -690,6 +690,43 @@ function voegPuntToe({ lat, lng }) {
 
 // ---------- Foto's ----------
 
+// Proeffoto's uit de privé-repository: één keer per sessie ophalen, alleen in het geheugen.
+const proefCache = new Map(); // bestandsnaam -> Promise<blob-URL of null>
+let proefToegang = null; // Promise<boolean>, één keer per inlog gecontroleerd
+let proefMeldingGedaan = false;
+
+function proeffoto(naam) {
+  proefToegang ??= gh.magProeffotos().catch(() => false);
+  if (!proefCache.has(naam)) {
+    proefCache.set(naam, proefToegang.then(async (mag) => {
+      if (!mag) {
+        if (!proefMeldingGedaan) {
+          proefMeldingGedaan = true;
+          $('foto-proef-status').textContent = 'Foto\'s waarvan de rechten nog niet bevestigd zijn, kun je niet bekijken: je sleutel heeft geen toegang tot de proeffoto\'s. Vraag een beheerder als je ze nodig hebt.';
+        }
+        return null;
+      }
+      try {
+        const blob = await gh.haalProeffoto(naam);
+        return blob ? URL.createObjectURL(blob) : null;
+      } catch {
+        proefCache.delete(naam); // geen verbinding: later opnieuw proberen
+        return null;
+      }
+    }));
+  }
+  return proefCache.get(naam);
+}
+
+/** Bij uitloggen: proeffoto's uit het geheugen halen, zodat de volgende gebruiker ze niet ziet. */
+function wisProeffotos() {
+  for (const belofte of proefCache.values()) belofte.then((url) => url && URL.revokeObjectURL(url));
+  proefCache.clear();
+  proefToegang = null;
+  proefMeldingGedaan = false;
+  $('foto-proef-status').textContent = '';
+}
+
 function toonFotos() {
   const lijst = $('fotolijst');
   lijst.replaceChildren();
@@ -716,8 +753,10 @@ function toonFotos() {
       toonFotos();
       gewijzigd();
     });
-    label.append(vak, ` ${f.bron ?? 'Onbekende bron'} ${f.documentnummer ?? ''}`.trimEnd());
-    if (index === 0) label.append(maak('strong', 'label-hoofd', ' · hoofdfoto'));
+    // Tekst in één eigen vak, zodat hij op een smal scherm netjes naast het vinkje afbreekt.
+    const naamTekst = maak('span', 'foto-item__naam', `${f.bron ?? 'Onbekende bron'} ${f.documentnummer ?? ''}`.trimEnd());
+    if (index === 0) naamTekst.append(maak('strong', 'label-hoofd', ' · hoofdfoto'));
+    label.append(vak, naamTekst);
     li.append(label);
 
     const status = [];
@@ -725,16 +764,32 @@ function toonFotos() {
     if (f.rechten_geregeld !== true) status.push('rechten nog regelen');
     if (!f.alt?.nl) status.push('beschrijving (alt) ontbreekt');
     li.append(maak('span', 'foto-item__status', status.length ? status.join(' · ') : '✓ klaar voor de app'));
-    // Op je eigen computer (localhost) ook een voorbeeld uit 'fotos-lokaal/' (zie fotos-lokaal-LEESMIJ.md).
-    const echt = f.rechten_geregeld === true || !LOKAAL;
+    // Foto met geregelde rechten: uit 'fotos/'. Anders een proeffoto (zie fotos-lokaal-LEESMIJ.md):
+    // op je eigen computer (localhost) uit 'fotos-lokaal/', online uit de privé-repository,
+    // alleen voor wie ingelogd is en daar leesrecht heeft.
+    const echt = f.rechten_geregeld === true;
     const naam = echt ? f.bestand : (f.bestand || f.bestand_klaar);
     if (geldigBestand(naam)) {
       const img = maak('img', 'foto-item__duim');
-      img.src = echt ? `fotos/${naam}` : `fotos-lokaal/${naam}`;
       img.addEventListener('error', () => img.remove(), { once: true });
       img.alt = '';
-      img.loading = 'lazy';
-      li.prepend(img);
+      if (echt) {
+        img.loading = 'lazy';
+        img.src = `fotos/${naam}`;
+        li.prepend(img);
+      } else if (LOKAAL) {
+        img.loading = 'lazy';
+        img.src = `fotos-lokaal/${naam}`;
+        li.prepend(img);
+        li.append(maak('span', 'foto-item__proef', 'Proef: rechten nog niet bevestigd'));
+      } else if (gh.heeftSleutel()) {
+        proeffoto(naam).then((url) => {
+          if (!url || !li.isConnected) return;
+          img.src = url;
+          li.prepend(img);
+          li.append(maak('span', 'foto-item__proef', 'Proef: rechten nog niet bevestigd'));
+        });
+      }
     }
     if (index >= 0 && ids.length > 1) {
       const rij = maak('span', 'knoppenrij');
@@ -880,6 +935,7 @@ async function inloggen() {
   $('sleutel').value = '';
   $('inlog-status').textContent = '';
   toonAccount();
+  if (plek) toonFotos(); // nu ook proeffoto's, als de sleutel daar toegang toe heeft
   // Werk bijwerken naar de nieuwste versie op GitHub (de website kan een paar minuten achterlopen).
   try {
     const { locaties } = await haalNieuwste();
@@ -899,6 +955,8 @@ function gewoneTaalInlog(fout) {
 
 function uitloggen() {
   gh.wisSleutel();
+  wisProeffotos();
+  if (plek) toonFotos();
   gebruiker = null;
   toonAccount();
   werkUitvoerBij();

@@ -270,3 +270,51 @@ export async function beoordeel(nummer, kop, akkoord, tekst) {
     body: { commit_id: sha(kop), event: akkoord ? 'APPROVE' : 'REQUEST_CHANGES', body: tekst },
   });
 }
+
+// ---------- Proeffoto's (rechten nog niet bevestigd) ----------
+// Foto's waarvan de rechten nog niet geregeld zijn, staan NIET in deze openbare repository,
+// maar in de privé-repository PROEF_REPO, map PROEF_MAP. De editor haalt ze met de sleutel van
+// de ingelogde gebruiker op en toont ze alleen in diens browser (als blob, niets wordt bewaard).
+// Wie geen leesrecht op PROEF_REPO heeft, ziet ze niet. Zie fotos-lokaal-LEESMIJ.md.
+export const PROEF_REPO = 'enschede-app-intern';
+export const PROEF_MAP = 'fotos-lokaal';
+const PROEF_BESTAND = /^[a-z0-9][a-z0-9-]{0,80}\.(webp|jpg|jpeg)$/;
+const PROEF_MAX = 5 * 1024 * 1024; // groter is geen foto voor de app; niet ophalen
+
+/** Pad in de API voor een proeffoto, of null als de naam niet deugt (geen ../, geen vreemde tekens). */
+export function proeffotoPad(naam) {
+  if (typeof naam !== 'string' || !PROEF_BESTAND.test(naam)) return null;
+  return `${API}/repos/${EIGENAAR}/${PROEF_REPO}/contents/${PROEF_MAP}/${naam}`;
+}
+
+/** Heeft deze sleutel leesrecht op de privé-repository met proeffoto's? */
+export async function magProeffotos() {
+  try {
+    await vraag(`${API}/repos/${EIGENAAR}/${PROEF_REPO}`);
+    return true;
+  } catch (fout) {
+    if (fout instanceof GitHubFout && [403, 404].includes(fout.status)) return false;
+    throw fout;
+  }
+}
+
+/** Haal één proeffoto op als Blob met het juiste beeldtype. Geeft null als hij er niet is. */
+export async function haalProeffoto(naam) {
+  const pad = proeffotoPad(naam);
+  if (!pad || !sleutel) return null;
+  const antwoord = await fetch(pad, {
+    cache: 'no-store',
+    referrerPolicy: 'no-referrer',
+    headers: {
+      Accept: 'application/vnd.github.raw',
+      Authorization: `Bearer ${sleutel}`,
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  if (!antwoord.ok) return null;
+  const data = await antwoord.blob();
+  if (data.size === 0 || data.size > PROEF_MAX) return null;
+  // Type uit onze eigen, gecontroleerde bestandsnaam; niet uit het antwoord.
+  const type = naam.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
+  return new Blob([data], { type });
+}
