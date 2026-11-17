@@ -155,3 +155,7 @@
   .foto-item > .vink, .foto-item__status, .foto-item__proef { grid-column: 1; }
   .foto-item .knoppenrij { grid-column: 2; grid-row: 2 / span 3; }
 }
+/* Uitleg bij de meldingen van een foto */
+.uitleg-lijst { margin: 4px 0 0; }
+.uitleg-lijst dt { font-weight: 600; margin-top: 8px; }
+.uitleg-lijst dd { margin: 2px 0 0; }

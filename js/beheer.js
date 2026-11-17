@@ -851,9 +851,9 @@ function toonFotos() {
 
     const status = [];
     // Zonder 'bestand' maar met 'bestand_klaar' is het een proeffoto: die staat (of komt) in de privé-repository.
-    if (!f.bestand && !f.bestand_klaar) status.push('bestand ontbreekt nog');
-    if (f.rechten_geregeld !== true) status.push('rechten nog regelen');
-    if (!f.alt?.nl) status.push('beschrijving (alt) ontbreekt');
+    if (!f.bestand && !f.bestand_klaar) status.push('geen plaatje');
+    if (f.rechten_geregeld !== true) status.push('rechten nog niet geregeld');
+    if (!f.alt?.nl) status.push('beschrijving ontbreekt');
     li.append(maak('span', 'foto-item__status', status.length ? status.join(' · ') : '✓ klaar voor de app'));
     // Foto met geregelde rechten: uit 'fotos/'. Anders een proeffoto (zie fotos-lokaal-LEESMIJ.md):
     // op je eigen computer (localhost) uit 'fotos-lokaal/', online uit de privé-repository,
