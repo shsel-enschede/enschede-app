@@ -199,6 +199,7 @@ Uitgebreid ontwerp: document "Ontwerp contenteditor Enschede app" in het claude.
 ## Werkwijze
 
 - Werk altijd in een aparte branch en bied wijzigingen aan via een pull request. Een beheerder kijkt en voegt samen. Nooit direct naar `main`.
+- **Test en productie gescheiden (okt 2026):** productie = GitHub Pages (`main`); samenvoegen is publiceren. Test = Netlify: elke pull request krijgt een eigen testlink (deploy preview). Een beheerder bekijkt die op de telefoon vóór het samenvoegen. Netlify publiceert `main` niet. Inrichting en gebruik: `netlify-LEESMIJ.md`. De app mag niet van het adres afhangen (alleen relatieve paden), anders werkt de testlink anders dan productie.
 - Kleine stappen: één onderwerp per pull request.
 - Draai vóór elke pull request alle tests: `node tests/alles.mjs` (Node 18 of nieuwer, geen npm nodig). `tests/appschil.test.mjs` controleert dat elk bestand dat de app laadt in `APP_SCHIL` in `sw.js` staat; anders werkt de app offline niet.
 - Vaste kaartgegevens (adressen van PDOK, kaartgebied) staan alleen in `js/kaartgegevens.js`; opslag op het toestel loopt via `js/opslag.js`.

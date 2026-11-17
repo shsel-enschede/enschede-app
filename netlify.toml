@@ -1,0 +1,32 @@
+# Testomgeving van de Enschede app op Netlify.
+#
+# Productie blijft op GitHub Pages (https://shsel-enschede.github.io/enschede-app/).
+# Netlify is ALLEEN de testomgeving: elke pull request krijgt daar een eigen testlink
+# (deploy preview), zodat een beheerder een wijziging eerst op zijn telefoon bekijkt
+# en pas daarna samenvoegt. Uitleg: netlify-LEESMIJ.md.
+
+[build]
+  # Geen build-stap: de app is gewone HTML, CSS en JavaScript (zie CLAUDE.md).
+  publish = "."
+  command = ""
+
+# Samenvoegen in main publiceert al op GitHub Pages. Netlify slaat main daarom over:
+# geen dubbele productiesite, en het gratis tegoed wordt niet verbruikt
+# (alleen productie-publicaties kosten tegoed; testlinks zijn gratis).
+[context.production]
+  ignore = "exit 0"
+
+# Alles op Netlify is test: zoekmachines mogen het niet opnemen,
+# anders vinden scholieren of docenten de testversie in plaats van de echte app.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+
+# De service worker altijd vers ophalen, zodat een nieuwe testversie meteen te zien is.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
