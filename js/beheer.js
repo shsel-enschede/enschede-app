@@ -196,6 +196,7 @@ function kiesPlek(id) {
   overlay.linkpunt?.remove();
   overlay.linkpunt = null;
   vulGebouwKeuze();
+  verbergGebouwWissel();
   toonGebouw();
   toonFotos();
   toonVerhaal();
@@ -538,6 +539,46 @@ function vulGebouwKeuze() {
   keuze.value = gebouwVan(plek.gebouw) ? plek.gebouw : '';
 }
 
+// Gebouw van de plek gewijzigd: meteen tonen wat er veranderde, met "Ongedaan maken".
+// Alleen voor de laatste wissel van de huidige plek; bij een andere plek verdwijnt de melding.
+let gebouwWissel = null; // { plek, was } of null
+
+function gebouwNaamVoor(id) {
+  return id ? (gebouwVan(id)?.naam || id) : 'geen gebouw';
+}
+
+function toonGebouwWissel(was) {
+  const nu = plek.gebouw;
+  if (was === nu) { verbergGebouwWissel(); return; }
+  gebouwWissel = { plek, was };
+  const titel = plek.titel?.nl ?? plek.id;
+  $('gebouw-wissel-tekst').textContent = `${titel} hoort nu bij ${gebouwNaamVoor(nu)} (was: ${gebouwNaamVoor(was)}).`;
+  $('gebouw-wissel').hidden = false;
+}
+
+function verbergGebouwWissel() {
+  gebouwWissel = null;
+  $('gebouw-wissel').hidden = true;
+  $('gebouw-wissel-tekst').textContent = '';
+}
+
+function gebouwTerug() {
+  if (!gebouwWissel || gebouwWissel.plek !== plek) { verbergGebouwWissel(); return; }
+  stopTekenen();
+  const weg = gebouwVan(plek.gebouw);
+  if (gebouwWissel.was) plek.gebouw = gebouwWissel.was;
+  else delete plek.gebouw;
+  // Een gebouw dat net met "+ Nieuw gebouw" gemaakt is en nergens anders bij hoort, gaat ook weg.
+  let origineel = false;
+  try { origineel = basisVersie().gebouwen?.some((x) => x.id === weg?.id); } catch { /* niets */ }
+  if (weg && !origineel && !data.locaties.some((l) => l.gebouw === weg.id)) data.gebouwen = data.gebouwen.filter((x) => x !== weg);
+  verbergGebouwWissel();
+  vulGebouwKeuze();
+  toonGebouw();
+  gewijzigd();
+  $('gebouw').focus();
+}
+
 function nieuwGebouwId() {
   let i = 1;
   while (gebouwVan(`gebouw-${plek.nummer}${i > 1 ? `-${i}` : ''}`)) i += 1;
@@ -760,7 +801,8 @@ function toonFotos() {
     li.append(label);
 
     const status = [];
-    if (!f.bestand) status.push('bestand ontbreekt nog');
+    // Zonder 'bestand' maar met 'bestand_klaar' is het een proeffoto: die staat (of komt) in de privé-repository.
+    if (!f.bestand && !f.bestand_klaar) status.push('bestand ontbreekt nog');
     if (f.rechten_geregeld !== true) status.push('rechten nog regelen');
     if (!f.alt?.nl) status.push('beschrijving (alt) ontbreekt');
     li.append(maak('span', 'foto-item__status', status.length ? status.join(' · ') : '✓ klaar voor de app'));
@@ -783,8 +825,13 @@ function toonFotos() {
         li.prepend(img);
         li.append(maak('span', 'foto-item__proef', 'Proef: rechten nog niet bevestigd'));
       } else if (gh.heeftSleutel()) {
-        proeffoto(naam).then((url) => {
-          if (!url || !li.isConnected) return;
+        proeffoto(naam).then(async (url) => {
+          if (!li.isConnected) return;
+          if (!url) {
+            // Toegang wel, foto niet gevonden: hij is nog niet online gezet. (Geen toegang meldt proeffoto() zelf.)
+            if (await proefToegang) li.append(maak('span', 'foto-item__proef', 'Proeffoto nog niet online gezet: vraag een beheerder'));
+            return;
+          }
           img.src = url;
           li.prepend(img);
           li.append(maak('span', 'foto-item__proef', 'Proef: rechten nog niet bevestigd'));
@@ -1335,6 +1382,7 @@ function koppel() {
 
   $('gebouw').addEventListener('change', (e) => {
     stopTekenen();
+    const was = plek.gebouw;
     if (e.target.value === '__nieuw') {
       const g = { id: nieuwGebouwId(), naam: plek.titel?.nl?.slice(0, 80) ?? 'Nieuw gebouw', adres: '' };
       data.gebouwen.push(g);
@@ -1345,9 +1393,13 @@ function koppel() {
     } else {
       delete plek.gebouw;
     }
+    // Keuzelijst loslaten: anders verzet een muiswiel of pijltjestoets hem ongemerkt verder.
+    e.target.blur();
     toonGebouw();
+    toonGebouwWissel(was);
     gewijzigd();
   });
+  $('gebouw-terug').addEventListener('click', gebouwTerug);
   $('gebouw-naam').addEventListener('input', (e) => { gebouwVan(plek.gebouw).naam = e.target.value.trim(); gewijzigd(); });
   $('gebouw-naam').addEventListener('change', vulGebouwKeuze);
   $('gebouw-adres').addEventListener('input', (e) => {
