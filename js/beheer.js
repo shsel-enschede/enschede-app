@@ -798,20 +798,35 @@ function toonFotoGroot(src, naam, titel) {
 }
 
 function toonFotos() {
+  // Twee lijsten (progressive disclosure): bovenaan de foto's die bij de plek horen, ingeklapt
+  // daaronder 'Foto toevoegen' met de rest. Daar standaard alleen foto's met een plaatje.
   const lijst = $('fotolijst');
+  const keuzeLijst = $('fotolijst-keuze');
   lijst.replaceChildren();
+  keuzeLijst.replaceChildren();
   // Alleen lezen; plek.fotos wordt pas aangemaakt als er echt een foto gekozen wordt.
   const ids = Array.isArray(plek.fotos) ? plek.fotos : [];
   const alle = $('alle-fotos').checked;
+  const zonderPlaatje = $('fotos-zonder-plaatje').checked;
+  const heeftPlaatje = (f) => geldigBestand(f.bestand) || geldigBestand(f.bestand_klaar);
   const gekozen = ids.map((id) => fotoLijst.find((f) => f.id === id)).filter(Boolean);
-  const overig = fotoLijst.filter((f) => !ids.includes(f.id) && (alle || (f.locaties ?? []).includes(plek.nummer)));
+  const overig = fotoLijst.filter((f) => !ids.includes(f.id)
+    && (alle || (f.locaties ?? []).includes(plek.nummer))
+    && (zonderPlaatje || heeftPlaatje(f)));
 
-  if (!gekozen.length && !overig.length) {
-    lijst.append(maak('li', 'hint', 'Er staan nog geen foto\'s voor deze plek in content/fotos.json.'));
+  if (!gekozen.length) {
+    lijst.append(maak('li', 'hint', 'Nog geen foto bij deze plek. Kies er een onder "Foto toevoegen".'));
   }
+  if (!overig.length) {
+    keuzeLijst.append(maak('li', 'hint', zonderPlaatje || alle
+      ? 'Geen andere foto\'s gevonden.'
+      : 'Geen andere foto\'s met een plaatje voor deze plek. Vink hieronder aan om meer te zien.'));
+  }
+  $('foto-kiezen-titel').textContent = overig.length ? `Foto toevoegen (${overig.length} te kiezen)` : 'Foto toevoegen';
   for (const f of [...gekozen, ...overig]) {
     const index = ids.indexOf(f.id);
     const li = maak('li', index >= 0 ? 'foto-item foto-item--gekozen' : 'foto-item');
+    li.dataset.foto = f.id;
     const label = maak('label', 'vink');
     const vak = maak('input');
     vak.type = 'checkbox';
@@ -822,6 +837,11 @@ function toonFotos() {
       if (!plek.fotos.length) delete plek.fotos;
       toonFotos();
       gewijzigd();
+      // De foto verhuist naar de andere lijst: houd de focus erbij (toetsenbord en schermlezer).
+      const doel = vak.checked
+        ? $('fotolijst').querySelector(`[data-foto="${CSS.escape(f.id)}"] input`)
+        : $('foto-kiezen').open && $('fotolijst-keuze').querySelector(`[data-foto="${CSS.escape(f.id)}"] input`);
+      (doel || $('foto-kiezen-titel')).focus();
     });
     // Tekst in één eigen vak, zodat hij op een smal scherm netjes naast het vinkje afbreekt.
     const naamTekst = maak('span', 'foto-item__naam', `${f.bron ?? 'Onbekende bron'} ${f.documentnummer ?? ''}`.trimEnd());
@@ -883,7 +903,7 @@ function toonFotos() {
       }
       li.append(rij);
     }
-    lijst.append(li);
+    (index >= 0 ? lijst : keuzeLijst).append(li);
   }
   plekStatus();
 }
@@ -1469,6 +1489,7 @@ function koppel() {
   });
 
   $('alle-fotos').addEventListener('change', toonFotos);
+  $('fotos-zonder-plaatje').addEventListener('change', toonFotos);
   $('download').addEventListener('click', download);
   $('voorstellen').addEventListener('click', verstuur);
   $('herstel').addEventListener('click', () => {
