@@ -21,6 +21,7 @@ Besluit René, oktober 2026: **één punt per plek op de luchtfoto is genoeg.** 
 
 1. Open `beheer.html` en kies de plek. In de keuzelijst staat achter een plek "nog geen positie" als die nog moet.
 2. **Bestaand gebouw met huisnummer:** zet bij **Gebouw** het adres en klik op **Zoek op in het Kadaster**, daarna **Gebruik adres als positie**. Klaar: de app haalt de omtrek zelf op.
+   - **Gebouw met meer panden** (bijv. een rij huizen, zoals de Koningshuizen aan de Emmastraat 2, 4, 6 en 8): zet het eerste adres bij **Adres met huisnummer** en de andere bij **Meer adressen bij dit gebouw**, één per regel (hooguit 7). **Zoek op in het Kadaster** toont dan alle panden gestippeld en meldt welke adressen niet gevonden zijn. De app kleurt de panden samen in als één gebouw met één naam; "ter plekke" telt bij elk van de panden. De positie van de plek komt van het eerste adres.
 3. **Geen huisnummer bekend:** klik op **Luchtfoto**, zoom in en tik op het gebouw of object. Weet je het huisnummer wel, vul het dan in (zie stap 2).
 4. **Straat, plein of park:** klik op **Omtrek tekenen** en tik de hoeken aan.
 5. **Verdwenen gebouw:** teken de historische omtrek, met Topotijdreis.nl of een oude kaart ernaast. Zet de bron in de toelichting van het gebouw.

@@ -96,10 +96,13 @@ function beschrijfGebouw(oud, nieuw) {
   if (oud.naam !== nieuw.naam && nieuw.naamVertaald) regels.push('Engelse en Duitse naam op de kaart nu verouderd (de app toont de Nederlandse naam tot die is bijgewerkt)');
   else if (!gelijk(oud.naamVertaald, nieuw.naamVertaald)) regels.push('Engelse of Duitse naam op de kaart gewijzigd');
   if (oud.adres !== nieuw.adres) regels.push(nieuw.adres ? `adres: ${nieuw.adres}${oud.adres ? ` (was: ${oud.adres})` : ''}` : 'adres weggehaald');
+  if (!gelijk(oud.extraAdressen ?? [], nieuw.extraAdressen ?? [])) {
+    regels.push(nieuw.extraAdressen?.length ? `meer adressen: ${nieuw.extraAdressen.join(', ')}${oud.extraAdressen?.length ? ` (was: ${oud.extraAdressen.join(', ')})` : ''}` : 'extra adressen weggehaald');
+  }
   if (!gelijk(oud.vorm, nieuw.vorm)) regels.push(!nieuw.vorm ? 'eigen omtrek gewist' : (oud.vorm ? 'eigen omtrek aangepast' : 'eigen omtrek getekend'));
   opmerkingRegel(oud.toelichting, nieuw.toelichting, 'opmerking bij het gebouw', regels);
   for (const k of new Set([...Object.keys(oud), ...Object.keys(nieuw)])) {
-    if (!['id', 'naam', 'adres', 'vorm', 'toelichting', 'naamVertaald'].includes(k) && !gelijk(oud[k], nieuw[k])) regels.push(`${k} gewijzigd`);
+    if (!['id', 'naam', 'adres', 'extraAdressen', 'vorm', 'toelichting', 'naamVertaald'].includes(k) && !gelijk(oud[k], nieuw[k])) regels.push(`${k} gewijzigd`);
   }
   return regels;
 }

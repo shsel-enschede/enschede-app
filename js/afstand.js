@@ -7,7 +7,7 @@
 //   meer dan 1 km          "ca. 1,5 km"                   (afgerond op halve km)
 //   GPS-onzekerheid > 50 m "Locatie nog onzeker"         -> er gaat niets open
 
-import { puntInRing } from './hulp.js';
+import { puntInRing, ringenVan } from './hulp.js';
 import { t, getal } from './taal.js';
 
 const ONZEKER_BOVEN = 50;      // meter: grotere GPS-onzekerheid vertrouwen we niet
@@ -34,17 +34,21 @@ function afstandTotLijnstuk([px, py], [ax, ay], [bx, by]) {
 
 /**
  * Afstand in meters van 'positie' [lat, lng] tot een plek.
- * Met een omtrek (lijst van [lat, lng]): afstand tot de rand, 0 als je erin staat.
+ * Met een omtrek (lijst van [lat, lng], of een lijst van zulke ringen bij een gebouw met meer panden):
+ * afstand tot de dichtstbijzijnde rand, 0 als je erin staat.
  * Zonder omtrek: afstand tot het punt 'punt' [lat, lng].
  */
 export function afstandTot(positie, { vorm = null, punt = null } = {}) {
-  if (Array.isArray(vorm) && vorm.length >= 3) {
-    const ring = vorm.map((p) => naarMeters(p, positie));
+  const ringen = ringenVan(vorm).filter((r) => r.length >= 3);
+  if (ringen.length) {
     const ik = [0, 0]; // jouw positie is het nulpunt
-    if (puntInRing(...ik, ring)) return 0;
     let kleinste = Infinity;
-    for (let i = 0; i < ring.length; i += 1) {
-      kleinste = Math.min(kleinste, afstandTotLijnstuk(ik, ring[i], ring[(i + 1) % ring.length]));
+    for (const r of ringen) {
+      const ring = r.map((p) => naarMeters(p, positie));
+      if (puntInRing(...ik, ring)) return 0;
+      for (let i = 0; i < ring.length; i += 1) {
+        kleinste = Math.min(kleinste, afstandTotLijnstuk(ik, ring[i], ring[(i + 1) % ring.length]));
+      }
     }
     return kleinste;
   }

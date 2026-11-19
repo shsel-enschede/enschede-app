@@ -1,8 +1,10 @@
 // Gebouwomtrekken voor kaart en afstand.
 // Bron: 'vorm' in de inhoud, anders het Kadaster (BAG) via PDOK op basis van het adres.
+// Heeft een gebouw meer adressen (extraAdressen, bijv. een rij huizen), dan is de omtrek een lijst van ringen:
+// één per pand. Zie ringenVan() in hulp.js.
 // Een opgezochte omtrek wordt op dit toestel bewaard (geen persoonsgegevens: alleen de vorm van het gebouw).
 
-import { puntInRing } from './hulp.js';
+import { puntInRing, adressenVan, ringenVan } from './hulp.js';
 import { PDOK_ZOEK, PDOK_BAG } from './kaartgegevens.js';
 import { leesJson, schrijfJson } from './opslag.js';
 
@@ -16,9 +18,13 @@ function leesBewaard() {
 }
 
 // Een bewaarde omtrek komt uit de browser en wordt net zo gecontroleerd als de inhoud.
+function geldigeRing(ring) {
+  return Array.isArray(ring) && ring.length >= 3 && ring.length <= 500
+    && ring.every((p) => Array.isArray(p) && p.length === 2 && isGetal(p[0]) && isGetal(p[1]));
+}
 function geldigeVorm(vorm) {
-  return Array.isArray(vorm) && vorm.length >= 3 && vorm.length <= 500
-    && vorm.every((p) => Array.isArray(p) && p.length === 2 && isGetal(p[0]) && isGetal(p[1]));
+  const ringen = ringenVan(vorm);
+  return ringen.length >= 1 && ringen.length <= 8 && ringen.every(geldigeRing);
 }
 function bewaar(sleutel, vorm) {
   const alles = leesBewaard();
@@ -60,19 +66,35 @@ export async function zoekPand(lat, lng) {
 
 async function zoek(gebouw) {
   if (gebouw.vorm) return gebouw.vorm;
-  if (!gebouw.adres) return null;
-  const sleutel = `${gebouw.id}|${gebouw.adres}`;
+  const adressen = adressenVan(gebouw);
+  if (!adressen.length) return null;
+  const sleutel = `${gebouw.id}|${adressen.join('|')}`;
   const bewaard = leesBewaard()[sleutel];
   if (geldigeVorm(bewaard)) return bewaard;
 
-  const { lat, lng } = await zoekAdres(gebouw.adres);
-  const vorm = await zoekPand(lat, lng);
-  if (!vorm) throw new Error(`Geen gebouw gevonden bij ${gebouw.adres}`);
-  bewaar(sleutel, vorm);
+  // Eén adres tegelijk opzoeken: netjes tegenover PDOK, en meestal maar één adres.
+  const ringen = [];
+  let gevonden = 0;
+  for (const adres of adressen) {
+    try {
+      const { lat, lng } = await zoekAdres(adres);
+      const ring = await zoekPand(lat, lng);
+      if (ring) gevonden += 1;
+      // Twee adressen in hetzelfde pand (bijv. 2 en 2a) geven dezelfde omtrek: maar één keer tekenen.
+      if (ring && !ringen.some((r) => JSON.stringify(r) === JSON.stringify(ring))) ringen.push(ring);
+      else if (!ring) console.warn(`Geen gebouw gevonden bij ${adres}`);
+    } catch (fout) {
+      console.warn(fout);
+    }
+  }
+  if (!ringen.length) throw new Error(`Geen gebouw gevonden bij ${adressen.join(', ')}`);
+  const vorm = ringen.length === 1 ? ringen[0] : ringen;
+  // Alleen bewaren als alle adressen gevonden zijn; anders volgende keer opnieuw proberen.
+  if (gevonden === adressen.length) bewaar(sleutel, vorm);
   return vorm;
 }
 
-/** Omtrek van een gebouw (lijst van [lat, lng]) of null. Eén opzoekactie per gebouw per sessie. */
+/** Omtrek van een gebouw (lijst van [lat, lng], of lijst van ringen bij meer panden) of null. Eén opzoekactie per gebouw per sessie. */
 export function vormVan(gebouw) {
   if (!gebouw) return Promise.resolve(null);
   if (!geheugen.has(gebouw.id)) {

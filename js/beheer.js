@@ -5,7 +5,7 @@
 // Alle teksten uit de inhoud en van GitHub gaan via textContent op het scherm, nooit via innerHTML (zie CLAUDE.md).
 
 import { controleerLocatie, geldigBestand, LOKAAL } from './inhoud.js';
-import { maak, ID_PATROON, heeftHuisnummer } from './hulp.js';
+import { maak, ID_PATROON, heeftHuisnummer, adressenVan, MAX_EXTRA_ADRESSEN } from './hulp.js';
 import { PDOK_KAART, PDOK_LUCHTFOTO, GRENZEN, MIDDEN, binnenKaart } from './kaartgegevens.js';
 import { zoekAdres, zoekPand } from './gebouwen.js';
 import { schrijfadvies, woorden, zinnen } from './schrijfhulp.js';
@@ -529,7 +529,8 @@ function vulGebouwKeuze() {
   geen.value = '';
   keuze.append(geen);
   for (const g of data.gebouwen) {
-    const optie = maak('option', '', g.adres ? `${g.naam} (${g.adres})` : g.naam);
+    const meer = g.extraAdressen?.length ? ` + ${g.extraAdressen.length} ${g.extraAdressen.length === 1 ? 'adres' : 'adressen'}` : '';
+    const optie = maak('option', '', g.adres ? `${g.naam} (${g.adres}${meer})` : g.naam);
     optie.value = g.id;
     keuze.append(optie);
   }
@@ -593,6 +594,7 @@ function toonGebouw() {
   if (!g) { plekStatus(); return; }
   $('gebouw-naam').value = g.naam ?? '';
   $('gebouw-adres').value = g.adres ?? '';
+  $('gebouw-extra-adressen').value = (g.extraAdressen ?? []).join('\n');
   $('gebouw-opmerking').value = g.toelichting ?? '';
   $('teken-wis').disabled = !g.vorm;
   const ook = data.locaties.filter((l) => l !== plek && l.gebouw === g.id).map((l) => l.titel?.nl ?? l.id);
@@ -610,31 +612,58 @@ function tekenOmtrek(g) {
   }
 }
 
+// Zoekt bij elk adres van het gebouw het pand op (hoofdadres plus extra adressen, bijv. een rij huizen).
+// Eén verzoek tegelijk, met een korte pauze: netjes tegenover PDOK.
 async function zoekInKadaster() {
   const g = gebouwVan(plek.gebouw);
+  const adressen = adressenVan(g);
   if (!heeftHuisnummer(g?.adres)) {
     $('kadaster-status').textContent = 'Vul eerst een adres met huisnummer in.';
     return;
   }
   $('kadaster-status').textContent = 'Bezig met opzoeken…';
-  try {
-    kadasterPunt = await zoekAdres(g.adres);
-    const vorm = await zoekPand(kadasterPunt.lat, kadasterPunt.lng);
-    $('adres-naar-positie').disabled = false;
-    if (!g.vorm) {
-      overlay.gebouw?.remove();
-      if (vorm) {
-        overlay.gebouw = window.L.polygon(vorm, { color: '#C10422', weight: 2, dashArray: '6 4', fillColor: '#ED1D27', fillOpacity: 0.2, interactive: false }).addTo(kaart);
-        kaart.fitBounds(overlay.gebouw.getBounds(), { maxZoom: 19, padding: [40, 40] });
-      }
+  const vormen = [];
+  const nietGevonden = [];
+  const zonderPand = [];
+  kadasterPunt = null;
+  for (const [i, adres] of adressen.entries()) {
+    if (adressen.length > 1) $('kadaster-status').textContent = `Bezig: ${i + 1} van ${adressen.length} adressen (${adres})…`;
+    try {
+      const punt = await zoekAdres(adres);
+      if (i === 0) kadasterPunt = punt;
+      const vorm = await zoekPand(punt.lat, punt.lng);
+      if (vorm) vormen.push(vorm);
+      else zonderPand.push(adres);
+    } catch (fout) {
+      console.warn(fout);
+      nietGevonden.push(adres);
     }
-    $('kadaster-status').textContent = vorm
-      ? `Gevonden: ${kadasterPunt.naam}. De gestippelde omtrek komt uit het Kadaster; de app gebruikt die automatisch.`
-      : `Adres gevonden (${kadasterPunt.naam}), maar geen gebouw in het Kadaster. Teken de omtrek zelf.`;
-  } catch (fout) {
-    console.warn(fout);
-    $('kadaster-status').textContent = 'Niet gevonden. Controleer straat en huisnummer, of de internetverbinding.';
+    if (i < adressen.length - 1) await new Promise((klaar) => { setTimeout(klaar, 200); });
   }
+  if (plek.gebouw !== g.id) return; // inmiddels een ander gebouw gekozen
+  $('adres-naar-positie').disabled = !kadasterPunt;
+  if (!g.vorm) {
+    overlay.gebouw?.remove();
+    overlay.gebouw = null;
+    if (vormen.length) {
+      overlay.gebouw = window.L.polygon(vormen.length > 1 ? vormen.map((v) => [v]) : vormen[0], { color: '#C10422', weight: 2, dashArray: '6 4', fillColor: '#ED1D27', fillOpacity: 0.2, interactive: false }).addTo(kaart);
+      kaart.fitBounds(overlay.gebouw.getBounds(), { maxZoom: 19, padding: [40, 40] });
+    }
+  }
+  const delen = [];
+  if (adressen.length === 1) {
+    if (kadasterPunt && vormen.length) delen.push(`Gevonden: ${kadasterPunt.naam}. De gestippelde omtrek komt uit het Kadaster; de app gebruikt die automatisch.`);
+    else if (kadasterPunt) delen.push(`Adres gevonden (${kadasterPunt.naam}), maar geen gebouw in het Kadaster. Teken de omtrek zelf.`);
+    else delen.push('Niet gevonden. Controleer straat en huisnummer, of de internetverbinding.');
+  } else {
+    const gevonden = adressen.length - nietGevonden.length - zonderPand.length;
+    delen.push(`${gevonden} van de ${adressen.length} adressen gevonden in het Kadaster.`);
+    if (vormen.length) delen.push('De gestippelde omtrekken komen uit het Kadaster; de app kleurt ze samen in als één gebouw.');
+    if (nietGevonden.length) delen.push(`Niet gevonden: ${nietGevonden.join('; ')}. Controleer straat en huisnummer, of de internetverbinding.`);
+    if (zonderPand.length) delen.push(`Adres gevonden, maar geen gebouw in het Kadaster: ${zonderPand.join('; ')}.`);
+  }
+  if (g.vorm) delen.push('Let op: dit gebouw heeft een eigen omtrek; de app gebruikt die in plaats van het Kadaster.');
+  $('kadaster-status').textContent = delen.join(' ');
 }
 
 // ---------- Alle adressen in één keer ----------
@@ -935,6 +964,11 @@ function controleer(d = data) {
     if (!g.naam) fouten.push(`Gebouw ${g.id}: naam ontbreekt`);
     const heeftVorm = Array.isArray(g.vorm) && g.vorm.length >= 3;
     if (inApp.has(g.id) && !heeftVorm && !heeftHuisnummer(g.adres)) fouten.push(`Gebouw ${g.naam || g.id}: adres met huisnummer of eigen omtrek nodig`);
+    const extra = g.extraAdressen ?? [];
+    if (extra.length && !heeftHuisnummer(g.adres)) fouten.push(`Gebouw ${g.naam || g.id}: vul eerst het (eerste) adres in, dan pas meer adressen`);
+    if (extra.length > MAX_EXTRA_ADRESSEN) fouten.push(`Gebouw ${g.naam || g.id}: hooguit ${MAX_EXTRA_ADRESSEN} extra adressen`);
+    const zonder = extra.filter((a) => !heeftHuisnummer(a) || a.length > 120);
+    if (zonder.length) fouten.push(`Gebouw ${g.naam || g.id}: adres zonder huisnummer of te lang: ${zonder.join('; ')}`);
   }
   return fouten;
 }
@@ -1507,6 +1541,15 @@ function koppel() {
     gewijzigd();
   });
   $('gebouw-adres').addEventListener('change', vulGebouwKeuze);
+  // Eén adres per regel; lege regels tellen niet. Leeg veld = geen extra adressen.
+  $('gebouw-extra-adressen').addEventListener('input', (e) => {
+    const g = gebouwVan(plek.gebouw);
+    const lijst = e.target.value.split('\n').map((a) => a.trim()).filter(Boolean);
+    if (lijst.length) g.extraAdressen = lijst;
+    else delete g.extraAdressen;
+    gewijzigd();
+  });
+  $('gebouw-extra-adressen').addEventListener('change', vulGebouwKeuze);
   $('gebouw-opmerking').addEventListener('input', (e) => { zetOfWis(gebouwVan(plek.gebouw), 'toelichting', e.target.value); gewijzigd(); });
   $('plek-opmerking').addEventListener('input', (e) => { zetOfWis(plek, 'opmerking', e.target.value); gewijzigd(); });
   $('nieuw-toevoegen').addEventListener('click', nieuwePlek);

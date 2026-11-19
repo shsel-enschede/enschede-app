@@ -8,6 +8,28 @@ export function heeftHuisnummer(adres) {
   return typeof adres === 'string' && /\d/.test(adres);
 }
 
+/**
+ * Een gebouw kan uit meer panden bestaan (bijv. een rij huizen: Emmastraat 2, 4, 6 en 8).
+ * Dan staat het eerste adres in 'adres' en de rest in 'extraAdressen'. Hooguit zoveel extra adressen,
+ * zodat een tikfout geen stroom verzoeken aan het Kadaster (PDOK) geeft.
+ */
+export const MAX_EXTRA_ADRESSEN = 7;
+
+/** Alle adressen van een gebouw met huisnummer, eerste adres voorop, zonder dubbele. */
+export function adressenVan(gebouw) {
+  const lijst = [gebouw?.adres, ...(Array.isArray(gebouw?.extraAdressen) ? gebouw.extraAdressen : [])];
+  return [...new Set(lijst.filter(heeftHuisnummer).map((a) => a.trim()))];
+}
+
+/**
+ * Een omtrek is één ring (lijst van [lat, lng]) of, bij een gebouw met meer panden, een lijst van ringen.
+ * Geeft altijd een lijst van ringen, zodat kaart en afstand beide vormen op dezelfde manier behandelen.
+ */
+export function ringenVan(vorm) {
+  if (!Array.isArray(vorm) || !vorm.length) return [];
+  return typeof vorm[0]?.[0] === 'number' ? [vorm] : vorm;
+}
+
 /** Maak een element; tekst gaat altijd via textContent, nooit via innerHTML (zie CLAUDE.md). */
 export function maak(tag, klasse, tekst) {
   const e = document.createElement(tag);
