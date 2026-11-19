@@ -494,7 +494,15 @@
       "id": "de-gouden-bocht",
       "naam": "De Gouden bocht",
       "adres": "Ripperdastraat 9",
-      "toelichting": "Ripperdastraat 9 t/m 21: het Kadaster vindt alleen nummer 9. Teken zo nodig de omtrek van de hele rij."
+      "toelichting": "Ripperdastraat 9 t/m 21: het Kadaster vindt alleen nummer 9. Teken zo nodig de omtrek van de hele rij.",
+      "extraAdressen": [
+        "Ripperdastraat 11",
+        "Ripperdastraat 13",
+        "Ripperdastraat 15",
+        "Ripperdastraat 17",
+        "Ripperdastraat 19",
+        "Ripperdastraat 21"
+      ]
     },
     {
       "id": "ziekenhuis-ziekenzorg",
@@ -3820,7 +3828,7 @@
       "positie": {
         "lat": 52.21846,
         "lng": 6.889511,
-        "bevestigd": false
+        "bevestigd": true
       },
       "opmerking": "Antwoord overgenomen uit de oude app (2019); nog te controleren door SHSEL.",
       "fotos": [
