@@ -11,7 +11,7 @@ import { volgende, meldingTekst, voorleestekst } from './langs.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
 import { afstandTot, indicatie } from './afstand.js';
 import { gpsMogelijk, zetAan, zetUit, positie, gpsStatus, volg, hervatAlsToegestaan } from './locatie.js';
-import { maak, scrolGedrag } from './hulp.js';
+import { maak, scrolGedrag, ringenVan } from './hulp.js';
 import { instellingen, zetInstelling } from './instellingen.js';
 import { toonFotos, zetFotovensterKlaar, sluitFotovenster } from './fotos.js';
 import { volgordeVan, nieuweVolgorde } from './volgorde.js';
@@ -804,8 +804,8 @@ function afstandTussen(a, b) {
   if (vormA && vormB) {
     // Kleinste afstand tussen twee omtrekken: van elke hoek van de één tot de rand van de ander, en andersom.
     let kleinste = Infinity;
-    for (const p of vormA) kleinste = Math.min(kleinste, afstandTot(p, { vorm: vormB }));
-    for (const p of vormB) kleinste = Math.min(kleinste, afstandTot(p, { vorm: vormA }));
+    for (const p of ringenVan(vormA).flat()) kleinste = Math.min(kleinste, afstandTot(p, { vorm: vormB }));
+    for (const p of ringenVan(vormB).flat()) kleinste = Math.min(kleinste, afstandTot(p, { vorm: vormA }));
     return kleinste;
   }
   if (vormB) return afstandTot(puntA, { vorm: vormB });

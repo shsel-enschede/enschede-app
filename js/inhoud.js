@@ -1,7 +1,7 @@
 // Laadt en controleert de inhoud uit content/locaties.json.
 // De inhoud wordt behandeld als onbetrouwbare data: alleen geldige locaties komen in de app.
 
-import { ID_PATROON, heeftHuisnummer, vertaalbron, vingerafdruk } from './hulp.js';
+import { ID_PATROON, heeftHuisnummer, vertaalbron, vingerafdruk, MAX_EXTRA_ADRESSEN } from './hulp.js';
 
 function isTekst(waarde, max = 5000) {
   return typeof waarde === 'string' && waarde.trim().length > 0 && waarde.length <= max;
@@ -30,7 +30,16 @@ export function controleerLocatie(loc, taal) {
 }
 
 // Gebouwen worden op de kaart ingekleurd. 'adres' moet een huisnummer hebben (voor het Kadaster);
+// 'extraAdressen' is optioneel: meer panden die bij hetzelfde gebouw horen (bijv. een rij huizen);
 // 'vorm' is optioneel: een eigen omtrek als lijst van [lat, lng].
+function leesExtraAdressen(g) {
+  if (g.extraAdressen === undefined) return [];
+  const lijst = Array.isArray(g.extraAdressen) ? g.extraAdressen : [];
+  const goed = lijst.filter((a) => isTekst(a, 120) && heeftHuisnummer(a)).slice(0, MAX_EXTRA_ADRESSEN);
+  if (goed.length !== lijst.length) console.warn(`Gebouw "${g.id}": extraAdressen deels ongeldig, alleen geldige adressen gebruikt`);
+  return goed;
+}
+
 function leesVorm(vorm) {
   if (!Array.isArray(vorm) || vorm.length < 3 || vorm.length > 500) return null;
   const ok = vorm.every((p) => Array.isArray(p) && p.length === 2 && isGetal(p[0], 52.1, 52.35) && isGetal(p[1], 6.7, 7.05));
@@ -57,11 +66,12 @@ function leesGebouwen(lijst, taal) {
       continue;
     }
     const adres = isTekst(g.adres, 120) && heeftHuisnummer(g.adres) ? g.adres : null;
+    const extraAdressen = adres ? leesExtraAdressen(g) : [];
     const vorm = leesVorm(g.vorm);
     if (g.vorm !== undefined && !vorm) console.warn(`Gebouw "${g.id}": vorm ongeldig, wordt genegeerd`);
     const naamPlek = NAAMPLEKKEN.includes(g.naamPlek) ? g.naamPlek : null;
     if (g.naamPlek !== undefined && !naamPlek) console.warn(`Gebouw "${g.id}": naamPlek ongeldig, wordt genegeerd`);
-    gebouwen.set(g.id, { id: g.id, naam: vertaaldeNaam(g, taal), adres, vorm, naamPlek });
+    gebouwen.set(g.id, { id: g.id, naam: vertaaldeNaam(g, taal), adres, extraAdressen, vorm, naamPlek });
   }
   return gebouwen;
 }

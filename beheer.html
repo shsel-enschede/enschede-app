@@ -157,6 +157,11 @@
       <div id="gebouw-velden">
         <label class="veld"><span>Naam op de kaart</span><input id="gebouw-naam" maxlength="80"></label>
         <label class="veld"><span>Adres met huisnummer</span><input id="gebouw-adres" maxlength="120" placeholder="bijv. Oude Markt 32"></label>
+        <label class="veld veld--breed">
+          <span>Meer adressen bij dit gebouw (bijv. een rij huizen), één per regel</span>
+          <textarea id="gebouw-extra-adressen" rows="2" maxlength="900" placeholder="bijv. Emmastraat 4&#10;Emmastraat 6" aria-describedby="extra-adressen-hint"></textarea>
+        </label>
+        <p class="hint" id="extra-adressen-hint">Leeg laten als het gebouw één adres heeft. Het Kadaster zoekt bij elk adres het pand op; de app kleurt ze samen in als één gebouw. Hooguit 7 extra adressen.</p>
         <div class="knoppenrij">
           <button type="button" class="knop-klein" id="zoek-adres">Zoek op in het Kadaster</button>
           <button type="button" class="knop-klein" id="adres-naar-positie" disabled>Gebruik adres als positie</button>

@@ -208,7 +208,12 @@
       "id": "koningshuizen",
       "naam": "Koningshuizen",
       "adres": "Emmastraat 2",
-      "toelichting": "Emmastraat 2 t/m 8: het Kadaster vindt alleen nummer 2. Teken zo nodig de omtrek van de hele rij."
+      "extraAdressen": [
+        "Emmastraat 4",
+        "Emmastraat 6",
+        "Emmastraat 8"
+      ],
+      "toelichting": "Rij van vier panden, Emmastraat 2 t/m 8 (2, 4, 6 en 8). Elk adres heeft een eigen pand in het Kadaster."
     },
     {
       "id": "twentsche-bank",

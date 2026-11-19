@@ -8,7 +8,7 @@
 // Inhoud wordt alleen met textContent op het scherm gezet, nooit met innerHTML (zie CLAUDE.md).
 
 import { vormVan } from './gebouwen.js';
-import { scrolGedrag } from './hulp.js';
+import { scrolGedrag, ringenVan } from './hulp.js';
 import { t, vergelijk } from './taal.js';
 import { PDOK_KAART, GRENZEN, MIDDEN, binnenKaart } from './kaartgegevens.js';
 
@@ -85,8 +85,10 @@ function labelIcoon(L, groep, antwoordVan) {
 function teken(L, groep, vorm, opties) {
   const { antwoordVan, kiesGroep } = opties;
   const t = telling(groep, antwoordVan);
+  // Meer panden (rij huizen): één vlak met meer delen, zodat tikken, kleuren en de naam voor het hele gebouw gelden.
+  const ringen = ringenVan(vorm);
   const vlak = vorm
-    ? L.polygon(vorm, t.af ? STIJL_KLAAR : STIJL_OPEN)
+    ? L.polygon(ringen.length > 1 ? ringen.map((r) => [r]) : ringen[0], t.af ? STIJL_KLAAR : STIJL_OPEN)
     : L.circleMarker(groep.locaties[0].positie, { ...(t.af ? STIJL_KLAAR : STIJL_OPEN), radius: 14 });
   vlak.addTo(laag);
   const midden = vorm ? vlak.getBounds().getCenter() : vlak.getLatLng();

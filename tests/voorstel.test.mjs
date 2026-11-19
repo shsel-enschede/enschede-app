@@ -99,4 +99,14 @@ assert.match(v.beschrijf(basis, mijnN)[0].regels[0], /nieuwe plek \(concept/);
   assert.ok(JSON.stringify(r2).includes('Engelse of Duitse naam'), 'vertaalde naam gewijzigd gemeld');
 }
 
+// Meer adressen bij een gebouw: in gewone taal in de beschrijving
+{
+  const g = { id: 'rij', naam: 'Rij', adres: 'Emmastraat 2' };
+  const r = v.beschrijf({ locaties: [], gebouwen: [g] }, { locaties: [], gebouwen: [{ ...g, extraAdressen: ['Emmastraat 4', 'Emmastraat 6'] }] });
+  assert.ok(JSON.stringify(r).includes('meer adressen: Emmastraat 4, Emmastraat 6'), 'extra adressen gemeld');
+  const r2 = v.beschrijf({ locaties: [], gebouwen: [{ ...g, extraAdressen: ['Emmastraat 4'] }] }, { locaties: [], gebouwen: [g] });
+  assert.ok(JSON.stringify(r2).includes('extra adressen weggehaald'), 'weggehaalde extra adressen gemeld');
+  assert.ok(!JSON.stringify(r).includes('extraAdressen gewijzigd'), 'geen technische sleutelnaam in de beschrijving');
+}
+
 console.log('ALLE TESTS GESLAAGD');
