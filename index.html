@@ -55,8 +55,24 @@
       </div>
       <img class="logo" src="icons/shsel-logo.svg" alt="Logo van de Stichting Historische Sociëteit Enschede-Lonneker" data-t-alt="start.logoAlt" width="240" height="150">
       <h2 class="groot" data-t="start.kop">Ontdek de geschiedenis van Enschede</h2>
-      <p data-t="start.intro">Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.</p>
-      <p class="testuitleg" id="test-uitleg" hidden><strong>Alle vragen zijn open,</strong> ook als je niet ter plekke bent. Dit kun je wijzigen in het menu rechtsboven.</p>
+      <p data-t="start.intro">Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal. Of loop gewoon verder.</p>
+      <!-- Met of zonder vragen (richting bestuur SHSEL, 25 nov 2026): Nederlands standaard met vragen
+           (scholieren en gezinnen), Engels en Duits voorlopig zonder. Ook in het menu. Zie CLAUDE.md. -->
+      <fieldset class="keuze startkeuze" id="vragen-start">
+        <legend data-t="vragen.vraag">Met of zonder vragen?</legend>
+        <label class="keuze__optie">
+          <input type="radio" name="vragen-start" value="met">
+          <span><strong data-t="vragen.met">Met vragen</strong>
+            <span class="keuze__uitleg" data-t="vragen.metUitleg">Lees het verhaal en beantwoord een meerkeuzevraag. Leuk voor scholieren en gezinnen.</span></span>
+        </label>
+        <label class="keuze__optie">
+          <input type="radio" name="vragen-start" value="zonder">
+          <span><strong data-t="vragen.zonder">Alleen de verhalen</strong>
+            <span class="keuze__uitleg" data-t="vragen.zonderUitleg">Lees het verhaal en bekijk de foto's, zonder vragen.</span></span>
+        </label>
+        <p class="startkeuze__later" data-t="vragen.later">Je kunt dit later wijzigen in het menu.</p>
+      </fieldset>
+      <p class="testuitleg" id="test-uitleg" hidden><strong>Alle plekken zijn open,</strong> ook als je niet ter plekke bent. Dit kun je wijzigen in het menu rechtsboven.</p>
     </section>
 
     <!-- Ontdekkaart: alle plekken, zonder vaste volgorde.
@@ -101,10 +117,10 @@
     <section class="scherm" id="scherm-locatie" hidden>
       <p class="klein" id="locatie-adres"></p>
       <div class="fotos" id="locatie-fotos" hidden></div>
-      <p class="net-open" id="net-open" role="status" hidden data-t="plek.netOpen">✓ Je bent er! Het verhaal en de vraag zijn nu open.</p>
+      <p class="net-open" id="net-open" role="status" hidden>✓ Je bent er! Het verhaal en de vraag zijn nu open.</p>
       <div class="slot" id="slot" hidden>
         <p class="slot__teaser" id="slot-teaser"></p>
-        <p class="slot__uitleg" data-t="plek.slotUitleg">Kom je hier langs? Dan gaan het verhaal en de vraag open.</p>
+        <p class="slot__uitleg" id="slot-uitleg">Kom je hier langs? Dan gaan het verhaal en de vraag open.</p>
         <p class="slot__afstand" id="slot-afstand" aria-live="polite"></p>
         <div class="gps" id="gps-locatie" hidden></div>
       </div>
@@ -118,6 +134,14 @@
           <div id="vraag-opties"></div>
         </fieldset>
       </form>
+      <!-- Zonder vragen: zelf aangeven dat je het verhaal gelezen hebt; dan telt de plek als ontdekt.
+           Een bewuste tik (geen automatisch vinkje bij openen): even binnenkijken telt niet mee. -->
+      <div class="gelezen" id="gelezen" hidden>
+        <p class="gelezen__vraag" data-t="plek.gelezenVraag">Klaar met lezen?</p>
+        <p class="gelezen__uitleg" data-t="plek.gelezenUitleg">Dan telt deze plek als ontdekt.</p>
+        <button type="button" class="gelezen__knop" id="gelezen-knop" data-t="plek.gelezenKnop">✓ Gelezen</button>
+      </div>
+      <p class="gelezen__klaar" id="gelezen-klaar" hidden data-t="plek.alOntdekt">✓ Deze plek heb je ontdekt.</p>
       <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
       <!-- Beloningsmoment: wat dit toevoegt aan je verzameling (piek-eindregel) -->
       <div class="mijlpaal" id="mijlpaal" role="status" hidden></div>
@@ -128,6 +152,20 @@
     <section class="scherm menu" id="scherm-menu" hidden>
       <form class="menu__form" id="menu-form">
         <h2 class="menu__kop" data-t="menu.wandeling">Je wandeling</h2>
+
+        <fieldset class="keuze">
+          <legend data-t="vragen.vraag">Met of zonder vragen?</legend>
+          <label class="keuze__optie">
+            <input type="radio" name="vragen" value="met">
+            <span><strong data-t="vragen.met">Met vragen</strong>
+              <span class="keuze__uitleg" data-t="vragen.metUitleg">Lees het verhaal en beantwoord een meerkeuzevraag. Leuk voor scholieren en gezinnen.</span></span>
+          </label>
+          <label class="keuze__optie">
+            <input type="radio" name="vragen" value="zonder">
+            <span><strong data-t="vragen.zonder">Alleen de verhalen</strong>
+              <span class="keuze__uitleg" data-t="vragen.zonderUitleg">Lees het verhaal en bekijk de foto's, zonder vragen.</span></span>
+          </label>
+        </fieldset>
 
         <fieldset class="keuze">
           <legend data-t="menu.openenVraag">Wanneer gaan de plekken open?</legend>
@@ -162,7 +200,7 @@
           </div>
         </fieldset>
 
-        <fieldset class="keuze">
+        <fieldset class="keuze" id="antwoordenkeuze">
           <legend data-t="menu.antwoordenVraag">Wanneer zie je of je antwoord goed is?</legend>
           <label class="keuze__optie">
             <input type="radio" name="antwoorden" value="direct">
@@ -219,7 +257,7 @@
 
       <h2 class="menu__kop" data-t="menu.over">Over de Enschede app</h2>
       <div class="menu__info">
-        <p data-t="menu.over1">Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal en beantwoord je een vraag. Zo ontdek je de geschiedenis van de stad.</p>
+        <p data-t="menu.over1">Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal, met of zonder een vraag. Zo ontdek je de geschiedenis van de stad.</p>
         <p id="info-aantal"></p>
         <p data-t="menu.over2">De app is gemaakt door vrijwilligers van de Stichting Historische Sociëteit Enschede-Lonneker (SHSEL). De SHSEL controleert de verhalen en de antwoorden.</p>
         <p id="info-vertaling" data-t="menu.vertaling" hidden></p>

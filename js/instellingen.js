@@ -4,6 +4,7 @@
 //   openen:     null = volg de SHSEL (content/locaties.json), of 'overal' / 'ter-plekke'
 //   doel:       null = geen doel, of een aantal plekken (1 tot 999; de app begrenst op het aantal plekken)
 //   antwoorden: 'direct' (na elke vraag) of 'eind' (pas als het doel gehaald is, of alles ontdekt)
+//   vragen:     null = volg de SHSEL per taal (content/locaties.json, instellingen.vragen), of 'met' / 'zonder'
 //   taal:       null = de taal van het toestel (js/taal.js, toestelTaal), of zelf gekozen: 'nl', 'en' of 'de'
 //
 // Later kan een opdracht van een docent (link of QR-code) deze keuzes vastzetten. Dat is nog een
@@ -14,7 +15,7 @@ import { TALEN } from './taal.js';
 
 const SLEUTEL = 'enschede-app:instellingen:v1';
 
-const STANDAARD = Object.freeze({ openen: null, doel: null, antwoorden: 'direct', taal: null });
+const STANDAARD = Object.freeze({ openen: null, doel: null, antwoorden: 'direct', vragen: null, taal: null });
 
 /** Maak van willekeurige (opgeslagen) data geldige instellingen. Onbekend of ongeldig = standaard. */
 export function controleer(ruw) {
@@ -23,6 +24,7 @@ export function controleer(ruw) {
   if (ruw.openen === 'overal' || ruw.openen === 'ter-plekke') i.openen = ruw.openen;
   if (Number.isInteger(ruw.doel) && ruw.doel >= 1 && ruw.doel <= 999) i.doel = ruw.doel;
   if (ruw.antwoorden === 'eind') i.antwoorden = 'eind';
+  if (ruw.vragen === 'met' || ruw.vragen === 'zonder') i.vragen = ruw.vragen;
   if (TALEN.includes(ruw.taal)) i.taal = ruw.taal;
   return i;
 }

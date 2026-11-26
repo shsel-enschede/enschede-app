@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 // Zonder browser is er geen localStorage: de module valt dan terug op het geheugen.
 const s = await import(new URL('../js/instellingen.js', import.meta.url));
 
-const standaard = { openen: null, doel: null, antwoorden: 'direct', taal: null };
+const standaard = { openen: null, doel: null, antwoorden: 'direct', vragen: null, taal: null };
 
 // Leeg, kapot of vreemd: altijd de standaard
 assert.deepEqual(s.controleer(undefined), standaard);
 assert.deepEqual(s.controleer('tekst'), standaard);
-assert.deepEqual(s.controleer({ openen: 'overal', doel: 24, antwoorden: 'eind', taal: 'nl' }),
-  { openen: 'overal', doel: 24, antwoorden: 'eind', taal: 'nl' });
+assert.deepEqual(s.controleer({ openen: 'overal', doel: 24, antwoorden: 'eind', vragen: 'zonder', taal: 'nl' }),
+  { openen: 'overal', doel: 24, antwoorden: 'eind', vragen: 'zonder', taal: 'nl' });
 
 // Ongeldige waarden worden genegeerd
 assert.equal(s.controleer({ openen: 'altijd' }).openen, null);
@@ -18,6 +18,10 @@ assert.equal(s.controleer({ doel: 2.5 }).doel, null);
 assert.equal(s.controleer({ doel: '24' }).doel, null);
 assert.equal(s.controleer({ doel: 1000 }).doel, null);
 assert.equal(s.controleer({ antwoorden: 'nooit' }).antwoorden, 'direct');
+// Met of zonder vragen: 'met', 'zonder', anders null = de SHSEL-standaard bij de taal
+assert.equal(s.controleer({ vragen: 'met' }).vragen, 'met');
+assert.equal(s.controleer({ vragen: 'nee' }).vragen, null);
+assert.equal(s.controleer({ vragen: true }).vragen, null);
 // Taal: zelf gekozen (nl, en, de), anders null = de taal van het toestel
 assert.equal(s.controleer({ taal: 'en' }).taal, 'en');
 assert.equal(s.controleer({ taal: 'de' }).taal, 'de');

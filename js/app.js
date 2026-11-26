@@ -5,7 +5,7 @@
 
 import { laadInhoud } from './inhoud.js';
 import { t, zetTeksten, zetTaal, huidigeTaal, toestelTaal, vergelijk } from './taal.js';
-import { antwoordVan, bewaarAntwoord, wisAntwoorden } from './voortgang.js';
+import { antwoordVan, bewaarAntwoord, wisAntwoorden, isGelezen, bewaarGelezen } from './voortgang.js';
 import { toonKaart, toonPositie, centreer, markeerPlekken } from './kaart.js';
 import { volgende, meldingTekst, voorleestekst } from './langs.js';
 import { vormVan, bekendeVorm } from './gebouwen.js';
@@ -91,8 +91,25 @@ function antwoordZichtbaar() {
   return instellingen().antwoorden === 'direct' || doelGehaald();
 }
 
-/** Ontdekt = de vraag is beantwoord, goed of fout. */
+// ---------- Met of zonder vragen ----------
+// Richting van het bestuur (25 nov 2026): scholieren en gezinnen (Nederlands) krijgen verhaal én vraag,
+// anderen (volwassenen, Engels- en Duitstaligen) voorlopig alleen het verhaal. De SHSEL zet per taal de
+// standaard (content/locaties.json, instellingen.vragen); op het startscherm en in het menu kies je zelf.
+
+function vragenModus() {
+  return instellingen().vragen ?? inhoud?.instellingen.vragen?.[huidigeTaal()] ?? 'met';
+}
+
+function metVragen() {
+  return vragenModus() === 'met';
+}
+
+/** Ontdekt = de vraag is beantwoord (goed of fout), of het verhaal is gelezen (zonder vragen). */
 function isOntdekt(loc) {
+  return antwoordVan(loc.id) !== null || isGelezen(loc.id);
+}
+
+function isBeantwoord(loc) {
   return antwoordVan(loc.id) !== null;
 }
 
@@ -257,7 +274,19 @@ function startScherm() {
   huidig = { scherm: 'start', loc: null };
   zetHoofdknop(t('start.knop'), naarKaart);
   werkTaalknoppenBij();
+  werkVragenkeuzeBij();
 }
+
+// Met of zonder vragen op het startscherm: toont wat nu geldt (eigen keuze, anders de standaard bij de taal).
+function werkVragenkeuzeBij() {
+  for (const r of document.querySelectorAll('#vragen-start input[name="vragen-start"]')) r.checked = r.value === vragenModus();
+}
+
+// Een keuze wordt altijd bewaard (ook als hij gelijk is aan de standaard): wie hem bewust maakt,
+// wil niet dat hij verspringt als later de taal wisselt.
+$('vragen-start').addEventListener('change', (e) => {
+  if (e.target.name === 'vragen-start') zetInstelling('vragen', e.target.value);
+});
 
 function aantalOntdekt() {
   return allePlekken.filter(isOntdekt).length;
@@ -280,7 +309,7 @@ function kaartScherm() {
   // Eén schuin segment per plek, zoals de rode balk onderaan het briefpapier
   balk.replaceChildren(...balkSegmenten(delen, klaar));
   toonOntdekt(klaar, totaal);
-  $('antwoorden-link').hidden = klaar === 0;
+  $('antwoorden-link').hidden = !allePlekken.some(isBeantwoord); // alleen als er iets beantwoord is
 
   vulPlekken();
   zetHoofdknop(null); // op de kaart kiest de wandelaar zelf; bij een plek verschijnt "Je loopt langs …"
@@ -290,7 +319,7 @@ function kaartScherm() {
   if (wachtendeKeuze) { toonKeuze(wachtendeKeuze.titel, wachtendeKeuze.items); wachtendeKeuze = null; }
   $('lijstgreep-tekst').textContent = t('kaart.lijstgreep', { n: totaal });
   toonKaart($('wijkkaart'), kaartVerzameling, inhoud, {
-    antwoordVan,
+    isOntdekt: (id) => antwoordVan(id) !== null || isGelezen(id),
     kiesGroep: kiesGebouw,
     opLeegTik: sluitKaartpanelen,
     meld: toonFout,
@@ -585,9 +614,14 @@ function locatieScherm(loc, { netOpen = false } = {}) {
 
   // Nog niet ter plekke: alleen een voorproefje en de afstand (nieuwsgierig maken, niet sturen).
   const open = isOpen(loc);
+  const vragen = metVragen();
   $('slot').hidden = open;
   $('locatie-tekst').hidden = !open;
-  $('vraag').hidden = !open;
+  $('vraag').hidden = !open || !vragen;
+  $('gelezen').hidden = true;
+  $('gelezen-klaar').hidden = true;
+  $('net-open').textContent = t(vragen ? 'plek.netOpen' : 'plek.netOpenZonder');
+  $('slot-uitleg').textContent = t(vragen ? 'plek.slotUitleg' : 'plek.slotUitlegZonder');
   $('net-open').hidden = !netOpen;
   $('dichtbij').hidden = true;
   $('mijlpaal').hidden = true;
@@ -604,6 +638,7 @@ function locatieScherm(loc, { netOpen = false } = {}) {
   $('locatie-tekst').textContent = loc.tekst;
   zetTaalVan($('locatie-tekst'), loc.tekstTaal);
   toonVertaalmelding($('tekst-vertaling'), loc.tekstTaal !== huidigeTaal() && 'plek.nietVertaald');
+  if (!vragen) return toonZonderVraag(loc);
   $('vraag-tekst').textContent = loc.vraag;
   // De vraag met opties en uitleg is één geheel: helemaal vertaald, of helemaal Nederlands (zie inhoud.js).
   zetTaalVan($('vraag'), loc.vraagTaal);
@@ -634,6 +669,45 @@ function locatieScherm(loc, { netOpen = false } = {}) {
     zetHoofdknop(null);
   }
 }
+
+// Zonder vragen: na het verhaal de knop "Gelezen". Al ontdekt (gelezen of eerder beantwoord)?
+// Dan alleen die melding, met "Ook in de buurt" en de knop terug naar de kaart.
+function toonZonderVraag(loc) {
+  $('feedback').hidden = true;
+  if (isOntdekt(loc)) {
+    $('gelezen-klaar').hidden = false;
+    toonDichtbij(loc, false);
+    eindKeuze(false);
+  } else {
+    $('gelezen').hidden = false;
+    zetHoofdknop(null); // lezen is nu de taak (zoals bij een nog niet beantwoorde vraag)
+  }
+}
+
+// Een bewuste tik, geen automatisch vinkje bij openen: even binnenkijken telt niet als ontdekt.
+// Daarna hetzelfde beloningsmoment als na een antwoord (piek-eindregel): mijlpaal, ook in de buurt, kaart.
+$('gelezen-knop').addEventListener('click', () => {
+  const loc = huidig.loc;
+  if (huidig.scherm !== 'locatie' || !loc || isOntdekt(loc)) return;
+  bewaarGelezen(loc.id);
+  $('gelezen').hidden = true;
+  toonMijlpaal(loc);
+  toonDichtbij(loc, true);
+  werkLangsBij();
+  eindKeuze(true);
+  // De knop verdwijnt: focus naar de mijlpaal (role=status), zodat toetsenbord en schermlezer niet verdwalen.
+  const mijlpaal = $('mijlpaal');
+  mijlpaal.tabIndex = -1;
+  mijlpaal.focus({ preventScroll: true });
+  requestAnimationFrame(() => {
+    // Mijlpaal (met eventuele andere verhalen bij dit gebouw) boven de voetbalk; past dat niet, dan bovenaan.
+    const { kop, voet } = zichtbaarDeel();
+    const r = mijlpaal.getBoundingClientRect();
+    if (r.bottom <= voet - 12 && r.top >= kop) return;
+    if (r.height <= voet - kop - 24) scrollBy({ top: r.bottom - (voet - 12), behavior: scrolGedrag() });
+    else mijlpaal.scrollIntoView({ behavior: scrolGedrag(), block: 'start' });
+  });
+});
 
 function beantwoord(loc, keuze, knoppen) {
   if (antwoordVan(loc.id) !== null) return;
@@ -887,6 +961,8 @@ function menuScherm() {
   $('doel-aantal').value = String(i.doel === null ? Math.min(10, totaal) : Math.min(i.doel, totaal));
   $('doel-bereik').textContent = t('menu.bereik', { n: totaal });
   $('doel-aantal-vak').hidden = i.doel === null;
+  menuForm.elements.vragen.value = vragenModus();
+  $('antwoordenkeuze').hidden = !metVragen(); // zonder vragen is er niets om te tonen
   menuForm.elements.antwoorden.value = i.antwoorden;
   menuForm.elements.taal.value = huidigeTaal();
   $('info-aantal').textContent = t('menu.aantalNu', { n: totaal });
@@ -929,6 +1005,9 @@ menuForm.addEventListener('change', (e) => {
     else zetInstelling('doel', null);
   } else if (veld.id === 'doel-aantal') {
     bewaarDoel();
+  } else if (veld.name === 'vragen') {
+    zetInstelling('vragen', veld.value); // altijd bewaren, zie het startscherm
+    $('antwoordenkeuze').hidden = !metVragen();
   } else if (veld.name === 'antwoorden') {
     zetInstelling(veld.name, veld.value);
   } else if (veld.name === 'taal') {
@@ -957,17 +1036,18 @@ function antwoordenScherm() {
   toonScherm('antwoorden', t('antwoorden.titel'));
   huidig = { scherm: 'antwoorden', loc: null };
   zetHoofdknop(t('plek.terugKaart'), naarKaart);
-  const ontdekt = allePlekken
-    .filter(isOntdekt)
+  // Alleen plekken met een antwoord; gelezen verhalen (zonder vragen) hebben er geen.
+  const beantwoord = allePlekken
+    .filter(isBeantwoord)
     .sort((x, y) => vergelijk(x.titel, y.titel));
   const zichtbaar = antwoordZichtbaar();
   const intro = $('antwoorden-intro');
-  if (!ontdekt.length) intro.textContent = t('antwoorden.geen');
+  if (!beantwoord.length) intro.textContent = t('antwoorden.geen');
   else if (!zichtbaar) {
-    intro.textContent = t(heeftDoel() ? 'antwoorden.wachtDoel' : 'antwoorden.wachtAlles', { klaar: ontdekt.length, doel: doelAantal() });
-  } else intro.textContent = t('antwoorden.intro', { n: ontdekt.length });
+    intro.textContent = t(heeftDoel() ? 'antwoorden.wachtDoel' : 'antwoorden.wachtAlles', { klaar: aantalOntdekt(), doel: doelAantal() });
+  } else intro.textContent = t('antwoorden.intro', { n: beantwoord.length });
 
-  $('antwoorden-lijst').replaceChildren(...ontdekt.map((loc) => {
+  $('antwoorden-lijst').replaceChildren(...beantwoord.map((loc) => {
     const keuze = antwoordVan(loc.id);
     const goed = keuze === loc.juist;
     const li = maak('li', zichtbaar ? `antwoord ${goed ? 'antwoord--goed' : 'antwoord--fout'}` : 'antwoord');
@@ -1034,12 +1114,15 @@ function eindScherm() {
   $('eind-balk').hidden = klaar === 0;
 
   // Aantal goede antwoorden: alleen als de antwoorden zichtbaar mogen zijn.
+  // Alleen over beantwoorde vragen: gelezen verhalen (zonder vragen) tellen hier niet mee.
+  const beantwoord = ontdekt.filter(isBeantwoord);
   const score = $('eind-score');
-  score.hidden = !(klaar > 0 && antwoordZichtbaar());
+  score.hidden = !(beantwoord.length > 0 && antwoordZichtbaar());
   if (!score.hidden) {
-    const goed = ontdekt.filter((loc) => antwoordVan(loc.id) === loc.juist).length;
+    const goed = beantwoord.filter((loc) => antwoordVan(loc.id) === loc.juist).length;
+    const n = beantwoord.length;
     // Positief geformuleerd: wat je wist, niet wat fout ging. De uitleg bij elke vraag staat in "Mijn antwoorden".
-    score.textContent = goed === klaar ? t('eind.allesGoed', { n: klaar }) : t('eind.score', { goed, n: klaar });
+    score.textContent = goed === n ? t('eind.allesGoed', { n }) : t('eind.score', { goed, n });
   }
 
   // Namen van de ontdekte plekken.
@@ -1047,7 +1130,7 @@ function eindScherm() {
   $('eind-lijst-kop').hidden = klaar === 0;
   $('eind-lijst').hidden = klaar === 0;
   $('eind-lijst').replaceChildren(...ontdekt.map((loc) => zetTaalVan(maak('li', 'eind__plek', loc.titel), loc.titelTaal)));
-  $('eind-antwoorden-link').parentElement.hidden = klaar === 0;
+  $('eind-antwoorden-link').parentElement.hidden = beantwoord.length === 0;
   $('eind-antwoorden-link').textContent = t(antwoordZichtbaar() ? 'eind.bekijkUitleg' : 'eind.bekijk');
 
   // Keuze om verder te gaan; bij alles ontdekt is er niets meer te ontdekken.
