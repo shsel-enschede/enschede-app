@@ -2,6 +2,8 @@
 
 Voor beheerders. Wat de testomgeving is, hoe je hem gebruikt en hoe hij is ingericht.
 
+> **Let op (nov 2026): deze testomgeving is nog niet ingericht.** Netlify is nog niet aan de repository gekoppeld, dus bij een pull request verschijnt geen testlink. Inrichten staat gepland voor december 2026. Tot dan test je een wijziging lokaal: haal de branch van de pull request op en start `start-lokaal.bat`. Dit stuk beschrijft hoe het straks werkt en hoe je het inricht. Haal deze melding weg zodra Netlify werkt.
+
 ## Test en productie
 
 | | Waar | Wanneer bijgewerkt |
