@@ -64,13 +64,13 @@ function laadLeaflet() {
 
 // ---------- Tekenen ----------
 
-function telling(groep, antwoordVan) {
-  const klaar = groep.locaties.filter((loc) => antwoordVan(loc.id) !== null).length;
+function telling(groep, isOntdekt) {
+  const klaar = groep.locaties.filter((loc) => isOntdekt(loc.id)).length;
   return { klaar, totaal: groep.locaties.length, af: klaar === groep.locaties.length };
 }
 
-function labelElement(groep, antwoordVan) {
-  const t = telling(groep, antwoordVan);
+function labelElement(groep, isOntdekt) {
+  const t = telling(groep, isOntdekt);
   const span = document.createElement('span');
   span.className = t.af ? 'wijkkaart__label wijkkaart__label--klaar' : 'wijkkaart__label';
   span.classList.add(`wijkkaart__label--${groep.positie || posities(groep)[0]}`);
@@ -78,13 +78,13 @@ function labelElement(groep, antwoordVan) {
   return span;
 }
 
-function labelIcoon(L, groep, antwoordVan) {
-  return L.divIcon({ className: 'wijkkaart__anker', html: labelElement(groep, antwoordVan), iconSize: null });
+function labelIcoon(L, groep, isOntdekt) {
+  return L.divIcon({ className: 'wijkkaart__anker', html: labelElement(groep, isOntdekt), iconSize: null });
 }
 
 function teken(L, groep, vorm, opties) {
-  const { antwoordVan, kiesGroep } = opties;
-  const t = telling(groep, antwoordVan);
+  const { isOntdekt, kiesGroep } = opties;
+  const t = telling(groep, isOntdekt);
   // Meer panden (rij huizen): één vlak met meer delen, zodat tikken, kleuren en de naam voor het hele gebouw gelden.
   const ringen = ringenVan(vorm);
   const vlak = vorm
@@ -100,7 +100,7 @@ function teken(L, groep, vorm, opties) {
     groep.klein = b.getNorthWest().distanceTo(b.getSouthEast()) < KLEIN_OBJECT;
   }
   const label = L.marker(midden, {
-    icon: labelIcoon(L, groep, antwoordVan),
+    icon: labelIcoon(L, groep, isOntdekt),
     keyboard: true,
     title: groep.gebouw.naam,
     alt: groep.gebouw.naam,
@@ -176,7 +176,7 @@ function groepeer(verzameling, inhoud) {
 
 /**
  * Toont de kaart van een verzameling plekken ({ id, locaties }) in 'houder'.
- * opties: { antwoordVan(id), kiesGroep(groep), opLeegTik(), meld(tekst) }
+ * opties: { isOntdekt(id), kiesGroep(groep), opLeegTik(), meld(tekst) }
  */
 export async function toonKaart(houder, verzameling, inhoud, opties) {
   const L = await laadLeaflet();
@@ -215,7 +215,7 @@ export async function toonKaart(houder, verzameling, inhoud, opties) {
   kaart.invalidateSize();
 
   if (huidigeVerzameling === verzameling.id) {
-    ververs(opties.antwoordVan);
+    ververs(opties.isOntdekt);
     return;
   }
   huidigeVerzameling = verzameling.id;
@@ -267,7 +267,7 @@ function voorkeursplaats(span, groep) {
 function ontwar() {
   if (!kaart) return;
   const MARGE = 4; // px lucht tussen twee namen
-  const antwoordVan = laatsteOpties?.antwoordVan || (() => null);
+  const isOntdekt = laatsteOpties?.isOntdekt || (() => false);
   const kader = kaart.getContainer().getBoundingClientRect();
   const alle = [...getekend.values()];
 
@@ -282,7 +282,7 @@ function ontwar() {
   const botst = (r, rechthoeken, marge) => rechthoeken.some((p) => r.left < p.right + marge
     && r.right > p.left - marge && r.top < p.bottom + marge && r.bottom > p.top - marge);
 
-  const open = (g) => (telling(g, antwoordVan).af ? 1 : 0);
+  const open = (g) => (telling(g, isOntdekt).af ? 1 : 0);
   // Plekken uit de melding (markeerPlekken) gaan voor alles, in de volgorde van de melding.
   const langsRang = (g) => { const i = gemarkeerd.indexOf(g.gebouw.id); return i < 0 ? Infinity : i; };
   const isLangs = (g) => langsRang(g) !== Infinity;
@@ -327,14 +327,14 @@ function ontwar() {
 }
 
 /** Kleuren en tellers bijwerken na een antwoord. */
-function ververs(antwoordVan) {
+function ververs(isOntdekt) {
   const L = window.L;
   if (!L) return;
   for (const groep of getekend.values()) {
-    const t = telling(groep, antwoordVan);
+    const t = telling(groep, isOntdekt);
     groep.vlak.setStyle(t.af ? STIJL_KLAAR : STIJL_OPEN);
     groep.stip?.setStyle(stipStijl(t.af));
-    groep.label.setIcon(labelIcoon(L, groep, antwoordVan));
+    groep.label.setIcon(labelIcoon(L, groep, isOntdekt));
     if (gemarkeerd.includes(groep.gebouw.id)) zetMarkering(groep, true, false); // nieuw label: markering terug, zonder puls
   }
   ontwar(); // nieuwe tekst kan breder zijn

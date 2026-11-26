@@ -79,8 +79,21 @@ function leesGebouwen(lijst, taal) {
 // Instellingen die de SHSEL beheert. Bij twijfel de veilige standaard.
 //   ontgrendelen: "overal" (testfase: vragen overal te beantwoorden) of "ter-plekke" (alleen in de buurt, met GPS)
 //   straal: binnen hoeveel meter van het gebouw "ter plekke" telt (30 tot 40 m afgesproken; toegestaan 20 tot 60)
-function leesInstellingen(i) {
-  const instellingen = { ontgrendelen: 'ter-plekke', straal: 35 };
+//   vragen: per taal de standaard, "met" (verhaal + meerkeuzevraag) of "zonder" (alleen het verhaal).
+//           Richting van het bestuur (25 nov 2026): Nederlands met vragen (scholieren en gezinnen),
+//           Engels en Duits voorlopig zonder. Een gebruiker kan dit zelf wijzigen (start en menu).
+export const VRAGEN_STANDAARD = Object.freeze({ nl: 'met', en: 'zonder', de: 'zonder' });
+
+export function leesInstellingen(i) {
+  const instellingen = { ontgrendelen: 'ter-plekke', straal: 35, vragen: { ...VRAGEN_STANDAARD } };
+  if (i?.vragen !== undefined) {
+    const ok = i.vragen && typeof i.vragen === 'object';
+    for (const taal of Object.keys(VRAGEN_STANDAARD)) {
+      const w = ok ? i.vragen[taal] : undefined;
+      if (w === 'met' || w === 'zonder') instellingen.vragen[taal] = w;
+      else if (w !== undefined || !ok) console.warn(`Instelling "vragen" voor ${taal} ongeldig, standaard "${VRAGEN_STANDAARD[taal]}" gebruikt`);
+    }
+  }
   if (i?.ontgrendelen === 'overal' || i?.ontgrendelen === 'ter-plekke') instellingen.ontgrendelen = i.ontgrendelen;
   else if (i?.ontgrendelen !== undefined) console.warn('Instelling "ontgrendelen" ongeldig, standaard "ter-plekke" gebruikt');
   if (isGetal(i?.straal, 20, 60)) instellingen.straal = i.straal;

@@ -24,17 +24,32 @@
   },
   "start.kop": { "nl": "Ontdek de geschiedenis van Enschede", "en": "Discover the history of Enschede", "de": "Entdecke die Geschichte von Enschede" },
   "start.intro": {
-    "nl": "Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal en beantwoord een vraag. Of loop gewoon verder.",
-    "en": "Walk wherever you like, in your own order. Passing a historic place? Read its story and answer a question. Or just keep walking.",
-    "de": "Geh, wohin du willst, in deiner eigenen Reihenfolge. Kommst du an einem historischen Ort vorbei? Lies die Geschichte und beantworte eine Frage. Oder geh einfach weiter."
+    "nl": "Wandel waar je wilt, in je eigen volgorde. Kom je langs een historische plek? Lees het verhaal. Of loop gewoon verder.",
+    "en": "Walk wherever you like, in your own order. Passing a historic place? Read its story. Or just keep walking.",
+    "de": "Geh, wohin du willst, in deiner eigenen Reihenfolge. Kommst du an einem historischen Ort vorbei? Lies die Geschichte. Oder geh einfach weiter."
   },
-  "start.testVet": { "nl": "Alle vragen zijn open,", "en": "All questions are open,", "de": "Alle Fragen sind offen," },
+  "start.testVet": { "nl": "Alle plekken zijn open,", "en": "All places are open,", "de": "Alle Orte sind offen," },
   "start.testRest": {
     "nl": " ook als je niet ter plekke bent. Dit kun je wijzigen in het menu rechtsboven.",
     "en": " even if you are not on the spot. You can change this in the menu at the top right.",
     "de": " auch wenn du nicht vor Ort bist. Das kannst du im Menü oben rechts ändern."
   },
   "start.knop": { "nl": "Bekijk de kaart", "en": "View the map", "de": "Zur Karte" },
+
+  "vragen.vraag": { "nl": "Met of zonder vragen?", "en": "With or without questions?", "de": "Mit oder ohne Fragen?" },
+  "vragen.met": { "nl": "Met vragen", "en": "With questions", "de": "Mit Fragen" },
+  "vragen.metUitleg": {
+    "nl": "Lees het verhaal en beantwoord een meerkeuzevraag. Leuk voor scholieren en gezinnen.",
+    "en": "Read the story and answer a multiple-choice question. Fun for school pupils and families.",
+    "de": "Lies die Geschichte und beantworte eine Multiple-Choice-Frage. Schön für Schüler und Familien."
+  },
+  "vragen.zonder": { "nl": "Alleen de verhalen", "en": "Stories only", "de": "Nur die Geschichten" },
+  "vragen.zonderUitleg": {
+    "nl": "Lees het verhaal en bekijk de foto's, zonder vragen.",
+    "en": "Read the story and look at the photos, without questions.",
+    "de": "Lies die Geschichte und sieh dir die Fotos an, ohne Fragen."
+  },
+  "vragen.later": { "nl": "Je kunt dit later wijzigen in het menu.", "en": "You can change this later in the menu.", "de": "Das kannst du später im Menü ändern." },
 
   "kaart.titel": { "nl": "Kaart", "en": "Map", "de": "Karte" },
   "kaart.regio": {
@@ -164,6 +179,12 @@
   "plek.terugKaart": { "nl": "Terug naar de kaart", "en": "Back to the map", "de": "Zurück zur Karte" },
   "plek.ookGebouw": { "nl": "Ook bij dit gebouw", "en": "Also at this building", "de": "Auch bei diesem Gebäude" },
   "plek.naarEind": { "nl": "Naar je eindscherm", "en": "To your summary", "de": "Zu deiner Zusammenfassung" },
+  "plek.netOpenZonder": { "nl": "✓ Je bent er! Het verhaal is nu open.", "en": "✓ You're there! The story is now open.", "de": "✓ Du bist da! Die Geschichte ist jetzt offen." },
+  "plek.slotUitlegZonder": { "nl": "Kom je hier langs? Dan gaat het verhaal open.", "en": "Come by here and the story will open.", "de": "Kommst du hier vorbei? Dann öffnet sich die Geschichte." },
+  "plek.gelezenVraag": { "nl": "Klaar met lezen?", "en": "Finished reading?", "de": "Fertig gelesen?" },
+  "plek.gelezenUitleg": { "nl": "Dan telt deze plek als ontdekt.", "en": "Then this place counts as discovered.", "de": "Dann zählt dieser Ort als entdeckt." },
+  "plek.gelezenKnop": { "nl": "✓ Gelezen", "en": "✓ Done reading", "de": "✓ Gelesen" },
+  "plek.alOntdekt": { "nl": "✓ Deze plek heb je ontdekt.", "en": "✓ You have discovered this place.", "de": "✓ Diesen Ort hast du entdeckt." },
 
   "antwoord.goed": { "nl": "✓ Goed!", "en": "✓ Correct!", "de": "✓ Richtig!" },
   "antwoord.fout": { "nl": "✗ Helaas, dat is niet goed.", "en": "✗ Sorry, that's not right.", "de": "✗ Leider nicht richtig." },
@@ -268,9 +289,9 @@
   },
   "menu.over": { "nl": "Over de Enschede app", "en": "About the Enschede app", "de": "Über die Enschede app" },
   "menu.over1": {
-    "nl": "Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal en beantwoord je een vraag. Zo ontdek je de geschiedenis van de stad.",
-    "en": "Walk past historic places in Enschede, in your own order. At each place you read a short story and answer a question. That's how you discover the history of the city.",
-    "de": "Geh an historischen Orten in Enschede vorbei, in deiner eigenen Reihenfolge. An jedem Ort liest du eine kurze Geschichte und beantwortest eine Frage. So entdeckst du die Geschichte der Stadt."
+    "nl": "Wandel langs historische plekken in Enschede, in je eigen volgorde. Bij elke plek lees je een kort verhaal, met of zonder een vraag. Zo ontdek je de geschiedenis van de stad.",
+    "en": "Walk past historic places in Enschede, in your own order. At each place you read a short story, with or without a question. That's how you discover the history of the city.",
+    "de": "Geh an historischen Orten in Enschede vorbei, in deiner eigenen Reihenfolge. An jedem Ort liest du eine kurze Geschichte, mit oder ohne Frage. So entdeckst du die Geschichte der Stadt."
   },
   "menu.aantalNu": { "nl": "Er zijn nu {n} plekken met een verhaal.", "en": "There are now {n} places with a story.", "de": "Es gibt jetzt {n} Orte mit einer Geschichte." },
   "menu.over2": {
